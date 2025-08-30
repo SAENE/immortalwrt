@@ -38,12 +38,34 @@
 			default-state = "off";
 		};
 
+<<<<<<< HEAD
+=======
+		wifi5g {
+			label = "blue:wifi5g";
+			gpios = <&gpio 12 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "phy0tpt";
+		};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 		wps {
 			function = LED_FUNCTION_WPS;
 			color = <LED_COLOR_ID_BLUE>;
 			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
 		};
 	};
+<<<<<<< HEAD
+=======
+
+	ath9k-leds {
+		compatible = "gpio-leds";
+
+		wifi2g {
+			label = "blue:wifi2g";
+			gpios = <&ath9k 0 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "phy1tpt";
+		};
+	};
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &mdio0 {
@@ -71,17 +93,26 @@
 &pcie {
 	status = "okay";
 
+<<<<<<< HEAD
 	wifi@0,0 {
+=======
+	ath9k: wifi@0,0 {
+>>>>>>> 94392b39ec (稳定版本发布)
 		compatible = "pci168c,0030";
 		reg = <0x0 0 0 0 0>;
 		nvmem-cells = <&macaddr_art_0 1>, <&calibration_art_5000>;
 		nvmem-cell-names = "mac-address", "calibration";
 		ieee80211-freq-limit = <2402000 2482000>;
+<<<<<<< HEAD
 
 		led {
 			led-sources = <0>;
 			led-active-low;
 		};
+=======
+		#gpio-cells = <2>;
+		gpio-controller;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -92,11 +123,14 @@
 
 	nvmem-cells = <&macaddr_art_0 2>, <&calibration_art_1000>;
 	nvmem-cell-names = "mac-address", "calibration";
+<<<<<<< HEAD
 
 	led {
 		led-sources = <12>;
 		led-active-low;
 	};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &art {

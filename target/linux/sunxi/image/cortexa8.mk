@@ -6,7 +6,10 @@
 KERNEL_LOADADDR:=0x40008000
 
 define Device/cubietech_a10-cubieboard
+<<<<<<< HEAD
   $(call Device/FitImageGzip)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_VENDOR := Cubietech
   DEVICE_MODEL := Cubieboard
   DEVICE_PACKAGES:=kmod-ata-sunxi kmod-sun4i-emac kmod-rtc-sunxi
@@ -15,7 +18,10 @@ endef
 TARGET_DEVICES += cubietech_a10-cubieboard
 
 define Device/haoyu_a10-marsboard
+<<<<<<< HEAD
   $(call Device/FitImageGzip)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_VENDOR := HAOYU Electronics
   DEVICE_MODEL := MarsBoard A10
   DEVICE_PACKAGES:=kmod-ata-core kmod-ata-sunxi kmod-sun4i-emac \
@@ -26,7 +32,10 @@ endef
 TARGET_DEVICES += haoyu_a10-marsboard
 
 define Device/linksprite_a10-pcduino
+<<<<<<< HEAD
   $(call Device/FitImageGzip)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_VENDOR := LinkSprite
   DEVICE_MODEL := pcDuino
   DEVICE_PACKAGES:=kmod-sun4i-emac kmod-rtc-sunxi kmod-rtl8192cu
@@ -35,7 +44,10 @@ endef
 TARGET_DEVICES += linksprite_a10-pcduino
 
 define Device/olimex_a10-olinuxino-lime
+<<<<<<< HEAD
   $(call Device/FitImageGzip)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_VENDOR := Olimex
   DEVICE_MODEL := A10-OLinuXino-LIME
   DEVICE_PACKAGES:=kmod-ata-sunxi kmod-sun4i-emac kmod-rtc-sunxi
@@ -44,7 +56,10 @@ endef
 TARGET_DEVICES += olimex_a10-olinuxino-lime
 
 define Device/olimex_a13-olimex-som
+<<<<<<< HEAD
   $(call Device/FitImageGzip)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_VENDOR := Olimex
   DEVICE_MODEL := A13-SOM
   DEVICE_PACKAGES:=kmod-rtl8192cu
@@ -55,7 +70,10 @@ endef
 TARGET_DEVICES += olimex_a13-olimex-som
 
 define Device/olimex_a13-olinuxino
+<<<<<<< HEAD
   $(call Device/FitImageGzip)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_VENDOR := Olimex
   DEVICE_MODEL := A13-OLinuXino
   DEVICE_PACKAGES:=kmod-rtl8192cu

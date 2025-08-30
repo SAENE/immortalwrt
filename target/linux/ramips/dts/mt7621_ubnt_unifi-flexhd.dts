@@ -141,8 +141,12 @@
 
 &pcie0 {
 	wifi@0,0 {
+<<<<<<< HEAD
 		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
+=======
+		reg = <0x0 0 0 0 0>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		// On newer devices there is a MediaTek MAC in the above
 		// device EEPROM, so override it with a calculated one.
 		nvmem-cells = <&eeprom_factory_0>, <&macaddr_eeprom_0 1>;
@@ -152,8 +156,12 @@
 
 &pcie1 {
 	wifi@0,0 {
+<<<<<<< HEAD
 		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
+=======
+		reg = <0x0 0 0 0 0>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		// On newer devices there is a MediaTek MAC in the above
 		// device EEPROM, so override it with a calculated one.
 		nvmem-cells = <&eeprom_factory_8000>, <&macaddr_eeprom_0 2>;

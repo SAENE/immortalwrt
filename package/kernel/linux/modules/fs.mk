@@ -440,6 +440,7 @@ endef
 $(eval $(call KernelPackage,fs-netfs))
 
 
+<<<<<<< HEAD
 define KernelPackage/fs-nilfs2
   SUBMENU:=$(FS_MENU)
   TITLE:=NILFS2 filesystem support
@@ -456,6 +457,8 @@ endef
 $(eval $(call KernelPackage,fs-nilfs2))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/fs-nfs
   SUBMENU:=$(FS_MENU)
   TITLE:=NFS filesystem client support
@@ -552,9 +555,13 @@ define KernelPackage/fs-nfs-v4
   KCONFIG:= \
 	CONFIG_NFS_V4=y
   FILES:= \
+<<<<<<< HEAD
 	$(LINUX_DIR)/fs/nfs/nfsv4.ko \
 	$(LINUX_DIR)/fs/nfs/flexfilelayout/nfs_layout_flexfiles.ko \
 	$(LINUX_DIR)/fs/nfs/filelayout/nfs_layout_nfsv41_files.ko
+=======
+	$(LINUX_DIR)/fs/nfs/nfsv4.ko
+>>>>>>> 94392b39ec (稳定版本发布)
   AUTOLOAD:=$(call AutoLoad,41,nfsv4)
 endef
 

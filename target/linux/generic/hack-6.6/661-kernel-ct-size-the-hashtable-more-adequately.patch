@@ -14,7 +14,11 @@ Signed-off-by: Rui Salvaterra <rsalvaterra@gmail.com>
 
 --- a/net/netfilter/nf_conntrack_core.c
 +++ b/net/netfilter/nf_conntrack_core.c
+<<<<<<< HEAD
 @@ -2699,7 +2699,7 @@ int nf_conntrack_init_start(void)
+=======
+@@ -2685,7 +2685,7 @@ int nf_conntrack_init_start(void)
+>>>>>>> 94392b39ec (稳定版本发布)
  
  	if (!nf_conntrack_htable_size) {
  		nf_conntrack_htable_size

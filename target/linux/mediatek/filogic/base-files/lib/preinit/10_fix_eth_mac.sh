@@ -12,6 +12,7 @@ preinit_set_mac_address() {
 		ip link set dev game address "$lan_mac"
 		ip link set dev eth1 address "$wan_mac"
 		;;
+<<<<<<< HEAD
 	acer,predator-w6x)
 		wan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
 		lan_mac=$(macaddr_add "$wan_mac" 1)
@@ -21,6 +22,8 @@ preinit_set_mac_address() {
 		ip link set dev lan4 address "$lan_mac"
 		ip link set dev eth1 address "$wan_mac"
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	acer,vero-w6m)
 		wan_mac=$(mmc_get_mac_ascii u-boot-env WANMAC)
 		lan_mac=$(mmc_get_mac_ascii u-boot-env LANMAC)
@@ -42,6 +45,7 @@ preinit_set_mac_address() {
 		addr=$(get_mac_binary "/tmp/tp_data/default-mac" 0)
 		ip link set dev eth1 address "$(macaddr_add $addr 1)"
 		;;
+<<<<<<< HEAD
 	tplink,fr365-v1)
 		lan_mac=$(strings /dev/mtd11 | grep 'option macaddr' | awk -F"'" '{print $2}')
 		wan_mac="$(macaddr_add $lan_mac 1)"
@@ -52,6 +56,8 @@ preinit_set_mac_address() {
 		ip link set dev port5 address "$lan_mac"
 		ip link set dev port6 address "$lan_mac"
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	*)
 		;;
 	esac

@@ -51,6 +51,10 @@
 };
 
 &wifi {
+<<<<<<< HEAD
+=======
+	compatible = "pci168c,0046";
+>>>>>>> 94392b39ec (稳定版本发布)
 	nvmem-cells = <&precal_art_5000>, <&macaddr_config_12>;
 	nvmem-cell-names = "pre-calibration", "mac-address";
 };

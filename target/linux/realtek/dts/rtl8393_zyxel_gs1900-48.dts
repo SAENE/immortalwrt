@@ -54,7 +54,11 @@
 		#size-cells = <0>;
 	};
 
+<<<<<<< HEAD
 	sfp0: sfp-p49 {
+=======
+	sfp0: sfp-p9 {
+>>>>>>> 94392b39ec (稳定版本发布)
 		compatible = "sff,sfp";
 		i2c-bus = <&i2c0>;
 		los-gpio = <&gpio1 27 GPIO_ACTIVE_HIGH>;
@@ -73,7 +77,11 @@
 		#size-cells = <0>;
 	};
 
+<<<<<<< HEAD
 	sfp1: sfp-p50 {
+=======
+	sfp1: sfp-p10 {
+>>>>>>> 94392b39ec (稳定版本发布)
 		compatible = "sff,sfp";
 		i2c-bus = <&i2c1>;
 		los-gpio = <&gpio1 33 GPIO_ACTIVE_HIGH>;
@@ -121,10 +129,18 @@
 			partition@40000 {
 				label = "u-boot-env";
 				reg = <0x40000 0x10000>;
+<<<<<<< HEAD
+=======
+				read-only;
+>>>>>>> 94392b39ec (稳定版本发布)
 			};
 			partition@50000 {
 				label = "u-boot-env2";
 				reg = <0x50000 0x10000>;
+<<<<<<< HEAD
+=======
+				read-only;
+>>>>>>> 94392b39ec (稳定版本发布)
 			};
 			partition@60000 {
 				label = "jffs";
@@ -212,8 +228,13 @@
 		EXTERNAL_PHY(47)
 
 		/* RTL8393 Internal SerDes */
+<<<<<<< HEAD
 		INTERNAL_PHY_SDS(48, 12)
 		INTERNAL_PHY_SDS(49, 13)
+=======
+		INTERNAL_PHY(48)
+		INTERNAL_PHY(49)
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -280,19 +301,45 @@
 		port@48 {
 			reg = <48>;
 			label = "lan49";
+<<<<<<< HEAD
 			phy-mode = "1000base-x";
 			phy-handle = <&phy48>;
 			managed = "in-band-status";
 			sfp = <&sfp0>;
+=======
+			phy-mode = "sgmii";
+			phy-handle = <&phy48>;
+			sfp = <&sfp0>;
+
+			fixed-link {
+				speed = <1000>;
+				full-duplex;
+				pause;
+			};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		port@49 {
 			reg = <49>;
 			label = "lan50";
+<<<<<<< HEAD
 			phy-mode = "1000base-x";
 			phy-handle = <&phy49>;
 			managed = "in-band-status";
 			sfp = <&sfp1>;
+=======
+			phy-mode = "sgmii";
+			phy-handle = <&phy49>;
+			sfp = <&sfp1>;
+
+			fixed-link {
+				speed = <1000>;
+				full-duplex;
+				pause;
+			};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		/* CPU-Port */

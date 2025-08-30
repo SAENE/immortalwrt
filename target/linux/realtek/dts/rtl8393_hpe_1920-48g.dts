@@ -5,6 +5,7 @@
 / {
 	compatible = "hpe,1920-48g", "realtek,rtl8393-soc";
 	model = "HPE 1920-48G (JG927A)";
+<<<<<<< HEAD
 
         i2c-gpio-shared0 {
                 compatible = "i2c-gpio-shared";
@@ -97,4 +98,6 @@
 		SWITCH_PORT(50, 49, qsgmii)
 		SWITCH_PORT(51, 51, qsgmii)
 	};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };

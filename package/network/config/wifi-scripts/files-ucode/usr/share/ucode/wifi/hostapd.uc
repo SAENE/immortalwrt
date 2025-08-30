@@ -11,7 +11,10 @@ import * as fs from 'fs';
 const NL80211_EXT_FEATURE_ENABLE_FTM_RESPONDER = 33;
 const NL80211_EXT_FEATURE_RADAR_BACKGROUND = 61;
 
+<<<<<<< HEAD
 const nl80211_bands = [ '2g', '5g', '60g', '6g' ];
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 let phy_features = {};
 let phy_capabilities = {};
 
@@ -86,16 +89,25 @@ function device_cell_density_append(config) {
 	switch (config.hw_mode) {
 	case 'b':
 		if (config.cell_density == 1) {
+<<<<<<< HEAD
 			config.supported_rates ??= [ 5500, 11000 ];
 			config.basic_rates ??= [ 5500, 11000 ];
 		} else if (config.cell_density > 2) {
 			config.supported_rates ??= [ 11000 ];
 			config.basic_rates ??= [ 11000 ];
+=======
+			config.supported_rates = [ 5500, 11000 ];
+			config.basic_rates = [ 5500, 11000 ];
+		} else if (config.cell_density > 2) {
+			config.supported_rates = [ 11000 ];
+			config.basic_rates = [ 11000 ];
+>>>>>>> 94392b39ec (稳定版本发布)
 		}
 		;;
 	case 'g':
 		if (config.cell_density in [ 0, 1 ]) {
 			if (!config.legacy_rates) {
+<<<<<<< HEAD
 				config.supported_rates ??= [ 6000, 9000, 12000, 18000, 24000, 36000, 48000, 54000 ];
 				config.basic_rates ??= [ 6000, 12000, 24000 ];
 			} else if (config.cell_density == 1) {
@@ -113,11 +125,31 @@ function device_cell_density_append(config) {
 		} else if (config.cell_density > 2) {
 			 config.supported_rates ??= [ 24000, 36000, 48000, 54000 ];
 			 config.basic_rates ??= [ 24000 ];
+=======
+				config.supported_rates = [ 6000, 9000, 12000, 18000, 24000, 36000, 48000, 54000 ];
+				config.basic_rates = [ 6000, 12000, 24000 ];
+			} else if (config.cell_density == 1) {
+				config.supported_rates = [ 5500, 6000, 9000, 11000, 12000, 18000, 24000, 36000, 48000, 54000 ];
+				config.basic_rates = [ 5500, 11000 ];
+			}
+		} else if (config.cell_density == 2 || (config.cell_density > 3 && config.legacy_rates)) {
+			if (!config.legacy_rates) {
+				config.supported_rates = [ 12000, 18000, 24000, 36000, 48000, 54000 ];
+				config.basic_rates = [ 12000, 24000 ];
+			} else {
+				config.supported_rates = [ 11000, 12000, 18000, 24000, 36000, 48000, 54000 ];
+				config.basic_rates = [ 11000 ];
+			}
+		} else if (config.cell_density > 2) {
+			 config.supported_rates = [ 24000, 36000, 48000, 54000 ];
+			 config.basic_rates = [ 24000 ];
+>>>>>>> 94392b39ec (稳定版本发布)
 		}
 		;;
 	case 'a':
 		switch (config.cell_density) {
 		case 1:
+<<<<<<< HEAD
 			config.supported_rates ??= [ 6000, 9000, 12000, 18000, 24000, 36000, 48000, 54000 ];
 			config.basic_rates ??= [ 6000, 12000, 24000 ];
 			break;
@@ -130,6 +162,20 @@ function device_cell_density_append(config) {
 		case 3:
 			config.supported_rates ??= [ 24000, 36000, 48000, 54000 ];
 			config.basic_rates ??= [ 24000 ];
+=======
+			config.supported_rates = [ 6000, 9000, 12000, 18000, 24000, 36000, 48000, 54000 ];
+			config.basic_rates = [ 6000, 12000, 24000 ];
+			break;
+
+		case 2:
+			config.supported_rates = [ 12000, 18000, 24000, 36000, 48000, 54000 ];
+			config.basic_rates = [ 12000, 24000 ];
+			break;
+
+		case 3:
+			config.supported_rates = [ 24000, 36000, 48000, 54000 ];
+			config.basic_rates = [ 24000 ];
+>>>>>>> 94392b39ec (稳定版本发布)
 			break;
 		}
 	}
@@ -437,12 +483,17 @@ function device_extended_features(data, flag) {
 	return !!(data[flag / 8] | (1 << (flag % 8)));
 }
 
+<<<<<<< HEAD
 function device_capabilities(config) {
 	let phy = config.phy;
+=======
+function device_capabilities(phy) {
+>>>>>>> 94392b39ec (稳定版本发布)
 	let idx = +fs.readfile(`/sys/class/ieee80211/${phy}/index`);
 	phy = nl80211.request(nl80211.const.NL80211_CMD_GET_WIPHY, nl80211.const.NLM_F_DUMP, { wiphy: idx, split_wiphy_dump: true });
 	if (!phy)
 		return;
+<<<<<<< HEAD
 
 	let band_idx = index(nl80211_bands, config.band);
 	if (band_idx < 0)
@@ -459,6 +510,20 @@ function device_capabilities(config) {
 			continue;
 		phy_capabilities.he_mac_cap = iftype.he_cap_mac;
 		phy_capabilities.he_phy_cap = iftype.he_cap_phy;
+=======
+	for (let band in phy.wiphy_bands) {
+		if (!band)
+			continue;
+		phy_capabilities.ht_capa = band.ht_capa ?? 0;
+		phy_capabilities.vht_capa = band.vht_capa ?? 0;
+		for (let iftype in band.iftype_data) {
+			if (!iftype.iftypes.ap)
+				continue;
+			phy_capabilities.he_mac_cap = iftype.he_cap_mac;
+			phy_capabilities.he_phy_cap = iftype.he_cap_phy;
+		}
+		break;
+>>>>>>> 94392b39ec (稳定版本发布)
 	}
 
 	phy_features.ftm_responder = device_extended_features(phy.extended_features, NL80211_EXT_FEATURE_ENABLE_FTM_RESPONDER);
@@ -466,10 +531,17 @@ function device_capabilities(config) {
 }
 
 function generate(config) {
+<<<<<<< HEAD
 	if (!config)
 		die(`${config.path} is an unknown phy`);
 
 	device_capabilities(config);
+=======
+	if (!config.phy)
+		die(`${config.path} is an unknown phy`);
+
+	device_capabilities(config.phy);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	append('driver', 'nl80211');
 
@@ -529,11 +601,19 @@ function generate(config) {
 }
 
 let iface_idx = 0;
+<<<<<<< HEAD
 function setup_interface(interface, data, config, vlans, stas, phy_features, fixup) {
 	config = { ...config, fixup };
 
 	config.idx = iface_idx++;
 	ap.generate(interface, data, config, vlans, stas, phy_features);
+=======
+function setup_interface(interface, config, vlans, stas, phy_features, fixup) {
+	config = { ...config, fixup };
+
+	config.idx = iface_idx++;
+	ap.generate(interface, config, vlans, stas, phy_features);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 export function setup(data) {
@@ -554,7 +634,11 @@ export function setup(data) {
 		append('\n#macaddr_base', data.config.macaddr_base);
 
 	for (let k, interface in data.interfaces) {
+<<<<<<< HEAD
 		if (interface.config.mode != 'ap' && interface.config.mode != 'link')
+=======
+		if (interface.config.mode != 'ap')
+>>>>>>> 94392b39ec (稳定版本发布)
 			continue;
 
 		interface.config.network_bridge = interface.bridge;
@@ -562,9 +646,15 @@ export function setup(data) {
 
 		let owe = interface.config.encryption == 'owe' && interface.config.owe_transition;
 
+<<<<<<< HEAD
 		setup_interface(k, data, interface.config, interface.vlans, interface.stas, phy_features, owe ? 'owe' : null );
 		if (owe)
 			setup_interface(k, data, interface.config, interface.vlans, interface.stas, phy_features, 'owe-transition');
+=======
+		setup_interface(k, interface.config, interface.vlans, interface.stas, phy_features, owe ? 'owe' : null );
+		if (owe)
+			setup_interface(k, interface.config, interface.vlans, interface.stas, phy_features, 'owe-transition');
+>>>>>>> 94392b39ec (稳定版本发布)
 	}
 
 	let config = dump_config(file_name);

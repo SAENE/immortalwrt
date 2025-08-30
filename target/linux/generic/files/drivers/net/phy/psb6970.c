@@ -423,7 +423,11 @@ static struct phy_driver psb6970_driver = {
 	.read_status = &psb6970_read_status,
 };
 
+<<<<<<< HEAD
 static int __init psb6970_init(void)
+=======
+int __init psb6970_init(void)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	phy_register_fixup_for_id(PHY_ANY_ID, psb6970_fixup);
 	return phy_driver_register(&psb6970_driver, THIS_MODULE);
@@ -431,7 +435,11 @@ static int __init psb6970_init(void)
 
 module_init(psb6970_init);
 
+<<<<<<< HEAD
 static void __exit psb6970_exit(void)
+=======
+void __exit psb6970_exit(void)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	phy_driver_unregister(&psb6970_driver);
 }

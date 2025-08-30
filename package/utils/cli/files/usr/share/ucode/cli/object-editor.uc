@@ -136,11 +136,15 @@ export function remove_call(ctx, argv, named)
 			continue;
 
 		for (let idx in val) {
+<<<<<<< HEAD
 			let orig_idx = idx;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			if (idx != "" + +idx) {
 				let cur_idx = index(data, idx);
 				if (cur_idx >= 0)
 					idx = cur_idx + 1;
+<<<<<<< HEAD
 				else
 					idx = null;
 			} else if (+idx > length(data))
@@ -148,6 +152,8 @@ export function remove_call(ctx, argv, named)
 			if (idx == null) {
 				ctx.invalid_argument('Invalid value: %s', orig_idx);
 				continue;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			}
 			data[+idx - 1] = null;
 		}
@@ -156,8 +162,11 @@ export function remove_call(ctx, argv, named)
 		if (cur.attribute_allow_empty && !length(cur_obj[name]))
 			delete cur_obj[name];
 	}
+<<<<<<< HEAD
 	if (length(ctx.result.errors) > 0)
 		return;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	call_change_cb(ctx, this, argv, named);
 	return ctx.ok();
 };
@@ -259,7 +268,10 @@ function remove_params(orig_params)
 			type: "enum",
 			get_object: val.get_object,
 			attribute: val.attribute ?? name,
+<<<<<<< HEAD
 			no_validate: true,
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			value: param_values,
 			force_helptext: true,
 		};

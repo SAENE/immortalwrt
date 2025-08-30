@@ -185,7 +185,11 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 +	size_t crc32_data_offset;
 +	size_t crc32_data_len;
 +	size_t crc32_offset;
+<<<<<<< HEAD
 +	uint32_t *crc32_addr;
+=======
++	__le32 *crc32_addr;
+>>>>>>> 94392b39ec (稳定版本发布)
 +	size_t data_offset;
 +	size_t data_len;
 +	size_t dev_size;
@@ -236,8 +240,13 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 +		goto err_kfree;
 +	}
 +
+<<<<<<< HEAD
 +	crc32_addr = (uint32_t *)(buf + crc32_offset);
 +	crc32 = *crc32_addr;
+=======
++	crc32_addr = (__le32 *)(buf + crc32_offset);
++	crc32 = le32_to_cpu(*crc32_addr);
+>>>>>>> 94392b39ec (稳定版本发布)
 +	crc32_data_len = dev_size - crc32_data_offset;
 +	data_len = dev_size - data_offset;
 +
@@ -439,7 +448,11 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 -	size_t crc32_data_offset;
 -	size_t crc32_data_len;
 -	size_t crc32_offset;
+<<<<<<< HEAD
 -	uint32_t *crc32_addr;
+=======
+-	__le32 *crc32_addr;
+>>>>>>> 94392b39ec (稳定版本发布)
 -	size_t data_offset;
 -	size_t data_len;
 -	size_t dev_size;
@@ -490,8 +503,13 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 -		goto err_kfree;
 -	}
 -
+<<<<<<< HEAD
 -	crc32_addr = (uint32_t *)(buf + crc32_offset);
 -	crc32 = *crc32_addr;
+=======
+-	crc32_addr = (__le32 *)(buf + crc32_offset);
+-	crc32 = le32_to_cpu(*crc32_addr);
+>>>>>>> 94392b39ec (稳定版本发布)
 -	crc32_data_len = dev_size - crc32_data_offset;
 -	data_len = dev_size - data_offset;
 -

@@ -5,6 +5,7 @@ define Build/xikestor-nosimg
   mv $@.new $@
 endef
 
+<<<<<<< HEAD
 define Device/hasivo_s1100w-8xgt-se
   SOC := rtl9303
   DEVICE_VENDOR := Hasivo
@@ -62,6 +63,8 @@ define Device/vimin_vm-s100-0800ms
 endef
 TARGET_DEVICES += vimin_vm-s100-0800ms
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/xikestor_sks8300-8x
   SOC := rtl9303
   DEVICE_VENDOR := XikeStor
@@ -77,6 +80,7 @@ define Device/xikestor_sks8300-8x
 endef
 TARGET_DEVICES += xikestor_sks8300-8x
 
+<<<<<<< HEAD
 define Device/xikestor_sks8310-8x
   SOC := rtl9303
   UIMAGE_MAGIC := 0x93000000
@@ -111,6 +115,8 @@ define Device/zyxel_xgs1210-12
 endef
 TARGET_DEVICES += zyxel_xgs1210-12
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/zyxel_xgs1250-12
   SOC := rtl9302
   UIMAGE_MAGIC := 0x93001250

@@ -36,7 +36,11 @@ $(eval $(call KernelPackage,skge))
 define KernelPackage/ag71xx
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=Atheros AR7XXX/AR9XXX ethernet mac support
+<<<<<<< HEAD
   DEPENDS:=@TARGET_ath79 +kmod-phylink +kmod-mdio-devres +kmod-net-selftests
+=======
+  DEPENDS:=@PCI_SUPPORT||TARGET_ath79 +kmod-phylink +kmod-mdio-devres +kmod-net-selftests
+>>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_AG71XX
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/atheros/ag71xx.ko
   AUTOLOAD:=$(call AutoLoad,50,ag71xx,1)
@@ -255,6 +259,7 @@ endef
 
 $(eval $(call KernelPackage,et131x))
 
+<<<<<<< HEAD
 define KernelPackage/phy-maxlinear
    SUBMENU:=$(NETWORK_DEVICES_MENU)
    TITLE:=Maxlinear Ethernet PHY driver
@@ -270,6 +275,8 @@ endef
 
 $(eval $(call KernelPackage,phy-maxlinear))
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/phy-microchip
    SUBMENU:=$(NETWORK_DEVICES_MENU)
    TITLE:=Microchip Ethernet PHY driver
@@ -374,6 +381,7 @@ endef
 $(eval $(call KernelPackage,phy-broadcom))
 
 
+<<<<<<< HEAD
 define KernelPackage/phy-bcm7xxx
    SUBMENU:=$(NETWORK_DEVICES_MENU)
    TITLE:=Broadcom 7xxx SOCs internal PHYs
@@ -391,6 +399,8 @@ endef
 $(eval $(call KernelPackage,phy-bcm7xxx))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/phy-bcm84881
    SUBMENU:=$(NETWORK_DEVICES_MENU)
    TITLE:=Broadcom BCM84881 PHY driver
@@ -604,6 +614,7 @@ endef
 $(eval $(call KernelPackage,dsa))
 
 
+<<<<<<< HEAD
 define KernelPackage/dsa-notag
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=DSA No-op tag driver
@@ -627,6 +638,15 @@ define KernelPackage/dsa-b53
   CONFIG_NET_DSA_TAG_BRCM \
   CONFIG_NET_DSA_TAG_BRCM_LEGACY \
   CONFIG_NET_DSA_TAG_BRCM_LEGACY_FCS \
+=======
+define KernelPackage/dsa-b53
+  SUBMENU:=$(NETWORK_DEVICES_MENU)
+  TITLE:=Broadcom BCM53xx managed switch DSA support
+  DEPENDS:=+kmod-dsa
+  KCONFIG:=CONFIG_B53 \
+  CONFIG_NET_DSA_TAG_BRCM \
+  CONFIG_NET_DSA_TAG_BRCM_LEGACY \
+>>>>>>> 94392b39ec (稳定版本发布)
   CONFIG_NET_DSA_TAG_BRCM_PREPEND
   FILES:= \
   $(LINUX_DIR)/drivers/net/dsa/b53/b53_common.ko \
@@ -1304,6 +1324,10 @@ define KernelPackage/iavf
        CONFIG_IAVF
   FILES:= \
        $(LINUX_DIR)/drivers/net/ethernet/intel/iavf/iavf.ko
+<<<<<<< HEAD
+=======
+  AUTOLOAD:=$(call AutoProbe,i40evf iavf)
+>>>>>>> 94392b39ec (稳定版本发布)
   AUTOLOAD:=$(call AutoProbe,iavf)
 endef
 
@@ -1905,6 +1929,7 @@ endef
 
 $(eval $(call KernelPackage,net-selftests))
 
+<<<<<<< HEAD
 define KernelPackage/qcom-ppe
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   DEPENDS:=@TARGET_qualcommbe +kmod-libphy +kmod-pcs-qcom-ipq9574
@@ -1920,6 +1945,8 @@ define KernelPackage/qcom-ppe/description
 endef
 
 $(eval $(call KernelPackage,qcom-ppe))
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define KernelPackage/qlcnic
   SUBMENU:=$(NETWORK_DEVICES_MENU)
@@ -1985,6 +2012,7 @@ endef
 
 $(eval $(call KernelPackage,sfp))
 
+<<<<<<< HEAD
 define KernelPackage/pcs-qcom-ipq9574
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=Qualcomm IPQ9574 PCS driver
@@ -1995,6 +2023,8 @@ define KernelPackage/pcs-qcom-ipq9574
 endef
 
 $(eval $(call KernelPackage,pcs-qcom-ipq9574))
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define KernelPackage/pcs-xpcs
   SUBMENU:=$(NETWORK_DEVICES_MENU)
@@ -2097,6 +2127,7 @@ endef
 $(eval $(call KernelPackage,sfc-falcon))
 
 
+<<<<<<< HEAD
 define KernelPackage/sfc-siena
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=Solarflare SFN5000/6000 'Siena' based card support
@@ -2118,6 +2149,8 @@ endef
 $(eval $(call KernelPackage,sfc-siena))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/wwan
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=WWAN Driver Core

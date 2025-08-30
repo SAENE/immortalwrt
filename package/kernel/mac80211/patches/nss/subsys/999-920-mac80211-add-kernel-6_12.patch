@@ -1,6 +1,10 @@
 --- a/net/mac80211/iface.c
 +++ b/net/mac80211/iface.c
+<<<<<<< HEAD
 @@ -1287,7 +1287,7 @@ void ieee80211_del_virtual_monitor(struc
+=======
+@@ -1250,7 +1250,7 @@ void ieee80211_del_virtual_monitor(struc
+>>>>>>> 94392b39ec (稳定版本发布)
  /* This callback is registered for nss redirect to receive packet exceptioned from nss in Rx path.
   * When packet does not match any of the ecm rules is redirected back here.
   */
@@ -11,7 +15,11 @@
  	struct sk_buff *skb;
 --- a/net/mac80211/tx.c
 +++ b/net/mac80211/tx.c
+<<<<<<< HEAD
 @@ -4555,7 +4555,7 @@ static void ieee80211_mlo_multicast_tx(s
+=======
+@@ -4562,7 +4562,7 @@ static void ieee80211_mlo_multicast_tx(s
+>>>>>>> 94392b39ec (稳定版本发布)
  }
  
  #ifdef CPTCFG_MAC80211_NSS_SUPPORT
@@ -20,7 +28,11 @@
  			      struct net_device *dev)
  {
  	struct ieee80211_sub_if_data *sdata = IEEE80211_DEV_TO_SUB_IF(dev);
+<<<<<<< HEAD
 @@ -4801,7 +4801,7 @@ out_free:
+=======
+@@ -4807,7 +4807,7 @@ out_free:
+>>>>>>> 94392b39ec (稳定版本发布)
  	kfree_skb(skb);
  }
  
@@ -31,7 +43,11 @@
  			    u32 info_flags, u32 ctrl_flags, u64 *cookie)
 --- a/net/mac80211/cfg.c
 +++ b/net/mac80211/cfg.c
+<<<<<<< HEAD
 @@ -2575,8 +2575,8 @@ static int copy_mesh_setup(struct ieee80
+=======
+@@ -2522,8 +2522,8 @@ static int copy_mesh_setup(struct ieee80
+>>>>>>> 94392b39ec (稳定版本发布)
  		ifmsh->security |= IEEE80211_MESH_SEC_SECURED;
  
  	/* mcast rate setting in Mesh Node */

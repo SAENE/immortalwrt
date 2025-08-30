@@ -7,12 +7,20 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libdeflate
+<<<<<<< HEAD
 PKG_VERSION:=1.24
+=======
+PKG_VERSION:=1.22
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/ebiggers/libdeflate/releases/download/v$(PKG_VERSION)
+<<<<<<< HEAD
 PKG_HASH:=a0dda1c4b804742066db07b9510876edd09cc0ca06cdc32c5dfe1b2016a26463
+=======
+PKG_HASH:=7834d9adbc9a809e0fb0d7b486060a9ae5f7819eb7f55bb8c22b10d7b3bed8da
+>>>>>>> 94392b39ec (稳定版本发布)
 
 include $(INCLUDE_DIR)/host-build.mk
 

@@ -3,6 +3,7 @@
 sourcename="$1"; shift
 
 for pkg in "$@"; do
+<<<<<<< HEAD
 	case "$pkg" in
 		*/"${sourcename}_"*.ipk|\
 		*/"${sourcename}-"[0-9]*.apk)
@@ -35,6 +36,18 @@ for pkg in "$@"; do
 				[ -n "$abiversion" ] && packagename="${packagename%%$abiversion}"
 				[ "$packagename" = "$sourcename" ] && rm -vf "$pkg"
 			}
+=======
+	tar -Ozxf "$pkg" ./control.tar.gz 2>/dev/null | tar -Ozxf - ./control 2>/dev/null | \
+	while read field value; do
+		if [ "$field" = "SourceName:" ] && [ "$value" = "$sourcename" ]; then
+			rm -vf "$pkg"
+			break
+		fi
+	done
+	case "$pkg" in
+		*/"${sourcename}_"*.ipk)
+			rm -vf "$pkg"
+>>>>>>> 94392b39ec (稳定版本发布)
 		;;
 	esac
 done

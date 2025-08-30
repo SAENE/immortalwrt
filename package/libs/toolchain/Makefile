@@ -7,7 +7,11 @@
 
 include $(TOPDIR)/rules.mk
 PKG_NAME:=toolchain
+<<<<<<< HEAD
 PKG_RELEASE:=5
+=======
+PKG_RELEASE:=4
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_MAINTAINER:=Felix Fietkau <nbd@nbd.name>
 PKG_LICENSE:=GPL-3.0-with-GCC-exception
@@ -555,7 +559,11 @@ ifeq ($(CONFIG_EXTERNAL_TOOLCHAIN),)
 	$(CP) \
 		$(TOOLCHAIN_DIR)/lib/ld*.so.* \
 		$(1)/lib/
+<<<<<<< HEAD
 	for file in libanl libc libcidn libdl libm libnsl libnss_dns libnss_files libresolv libutil; do \
+=======
+	for file in libanl libc libcidn libcrypt libdl libm libnsl libnss_dns libnss_files libresolv libutil; do \
+>>>>>>> 94392b39ec (稳定版本发布)
 		for file in $(TOOLCHAIN_DIR)/lib/$$$$file.so.*; do \
 			if [ -e "$$$$file" ]; then \
 				$(CP) $$$$file $(1)/lib/; \
@@ -700,12 +708,15 @@ else
   define Package/libc/install
 	echo $(LIBC_VERSION)-r$(PKG_RELEASE) > $(TMP_DIR)/libc.version; \
 	for file in $(call qstrip,$(CONFIG_LIBC_FILE_SPEC)); do \
+<<<<<<< HEAD
 		if [ '$(CONFIG_USE_GLIBC)' != '' ] ; then \
 			case "$${file}" in \
 			libcrypt.* | libcrypt-* | */libcrypt.* | */libcrypt-* ) \
 				continue ;; \
 			esac ; \
 		fi ; \
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 		$(INSTALL_DIR) $(1)/lib ; \
 		$(CP) $(call qstrip,$(CONFIG_LIBC_ROOT_DIR))/$$$$file $(1)/lib/ ; \
 	done ; \

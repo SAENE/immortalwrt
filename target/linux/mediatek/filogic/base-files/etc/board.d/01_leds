@@ -16,9 +16,12 @@ acer,predator-w6d)
 	ucidef_set_led_netdev "internet" "INTERNET" "mdio-bus:06:amber:wan" "eth1" "link_10 link_100 link_1000 tx rx"
 	ucidef_set_led_netdev "internet" "INTERNET" "mdio-bus:06:green:wan" "eth1" "link_2500 tx rx"
 	;;
+<<<<<<< HEAD
 acer,predator-w6x)
 	ucidef_set_led_netdev "wan" "wan" "rgb:status" "eth1"
 	;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 asus,rt-ax52|\
 snr,snr-cpe-ax2)
 	ucidef_set_led_netdev "wan" "wan" "blue:wan" "wan" "link tx rx"
@@ -67,9 +70,12 @@ cudy,wr3000h-v1)
 	ucidef_set_led_netdev "wan" "wan" "white:wan" "wan" "link tx rx"
 	ucidef_set_led_netdev "internet" "internet" "white:wan-online" "wan" "link"
 	;;
+<<<<<<< HEAD
 elecom,wrc-x3000gs3)
 	ucidef_set_led_netdev "wan" "wan" "green:wan" "wan"
 	;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 glinet,gl-x3000|\
 glinet,gl-xe3000)
 	ucidef_set_led_default "power" "POWER" "green:power" "1"
@@ -97,12 +103,15 @@ livinet,zr-3020-ubootmod)
 	ucidef_set_led_netdev "wlan2g" "WLAN2G" "blue:wlan2g" "phy0-ap0"
 	ucidef_set_led_netdev "wlan5g" "WLAN5G" "blue:wlan5g" "phy1-ap0"
 	;;
+<<<<<<< HEAD
 iptime,ax3000q)
 	ucidef_set_led_netdev "wan" "WAN" "amber:wan" "wan" "link tx rx"
 	;;
 iptime,ax3000sm)
 	ucidef_set_led_netdev "wan" "wan" "amber:wan" "eth1" "link tx rx"
 	;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 mercusys,mr80x-v3)
 	ucidef_set_led_netdev "lan1" "lan-1" "green:lan-1" "lan1" "link tx rx"
 	ucidef_set_led_netdev "lan2" "lan-2" "green:lan-2" "lan2" "link tx rx"
@@ -138,9 +147,12 @@ openembed,som7981)
 	ucidef_set_led_netdev "lanact" "LANACT" "amber:lan" "eth1" "rx tx"
 	ucidef_set_led_netdev "lanlink" "LANLINK" "green:lan" "eth1" "link"
 	;;
+<<<<<<< HEAD
 openfi,6c)
 	ucidef_set_led_netdev "lan" "LAN" "green:lan" "eth0" "link tx rx"
 	;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 openwrt,one)
 	ucidef_set_led_netdev "wanact" "WANACT" "mdio-bus:0f:green:wan" "eth0" "rx tx"
 	ucidef_set_led_netdev "wanlink" "WANLINK" "mdio-bus:0f:amber:wan" "eth0" "link"
@@ -207,6 +219,7 @@ smartrg,sdg-8733a)
 	ucidef_set_led_netdev "wan-orange" "WAN" "mdio-bus:08:orange:wan" "wan" "link_100 link_1000"
 	ucidef_set_led_netdev "wan-white" "WAN" "mdio-bus:08:white:wan" "wan" "link_10000"
 	;;
+<<<<<<< HEAD
 teltonika,rutc50)
 	ucidef_set_led_netdev "wan-green" "WAN" "mdio-bus:00:green:wan" "wan" "link_1000 tx rx"
 	ucidef_set_led_netdev "wan-amber" "WAN" "mdio-bus:00:amber:wan" "wan" "link_100 link_10 tx rx"
@@ -216,11 +229,14 @@ tplink,fr365-v1)
 	ucidef_set_led_netdev "port1-green-act" "port-1" "green:sfp" "port1" "link tx rx"
 	ucidef_set_led_netdev "wlan" "wlan" "green:wlan" "phy1-ap0"
 	;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 tplink,re6000xd)
 	ucidef_set_led_netdev "lan-1" "lan-1" "blue:lan-0" "lan1" "link tx rx"
 	ucidef_set_led_netdev "lan-2" "lan-2" "blue:lan-1" "lan2" "link tx rx"
 	ucidef_set_led_netdev "eth1" "lan-3" "blue:lan-2" "eth1" "link tx rx"
 	;;
+<<<<<<< HEAD
 tplink,tl-7dr7230-v1|\
 tplink,tl-7dr7230-v2)
 	ucidef_set_led_netdev "lan1" "LAN1" "mt7530-0:03:green:lan" "lan1"
@@ -241,6 +257,9 @@ wavlink,wl-wn551x3)
         ;;
 wavlink,wl-wn586x3|\
 wavlink,wl-wn586x3b)
+=======
+wavlink,wl-wn586x3)
+>>>>>>> 94392b39ec (稳定版本发布)
 	ucidef_set_led_netdev "lan-1" "lan-1" "blue:lan-1" "lan1" "link tx rx"
 	ucidef_set_led_netdev "lan-2" "lan-2" "blue:lan-2" "lan2" "link tx rx"
 	ucidef_set_led_netdev "wan" "wan" "blue:wan" "eth1" "link tx rx"

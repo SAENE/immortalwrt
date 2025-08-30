@@ -16,6 +16,7 @@ static const u8 ipv6_all_hosts_mcast_addr_base[ETH_ALEN] =
 static const u8 ipv6_all_hosts_mcast_addr_mask[ETH_ALEN] =
 { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
 
+<<<<<<< HEAD
 /* This interval needs to be short enough to prevent an undetected counter
  * overflow. The octet counters don't need to be considered for this, because
  * they are 64 bits on all platforms. Based on the possible packets per second
@@ -28,6 +29,10 @@ extern struct rtl83xx_soc_info soc_info;
 
 static void rtldsa_init_counters(struct rtl838x_switch_priv *priv);
 
+=======
+extern struct rtl83xx_soc_info soc_info;
+
+>>>>>>> 94392b39ec (稳定版本发布)
 static void rtl83xx_init_stats(struct rtl838x_switch_priv *priv)
 {
 	mutex_lock(&priv->reg_mutex);
@@ -65,6 +70,7 @@ static void rtl83xx_enable_phy_polling(struct rtl838x_switch_priv *priv)
 		sw_w32_mask(0, 0x8000, RTL838X_SMI_GLB_CTRL);
 }
 
+<<<<<<< HEAD
 const struct rtldsa_mib_list_item rtldsa_838x_mib_list[] = {
 	MIB_LIST_ITEM("dot1dTpPortInDiscards", MIB_ITEM(MIB_REG_STD, 0xec, 1)),
 	MIB_LIST_ITEM("ifOutDiscards", MIB_ITEM(MIB_REG_STD, 0xd0, 1)),
@@ -322,6 +328,55 @@ const struct rtldsa_mib_desc rtldsa_930x_mib = {
 
 	.list_count = ARRAY_SIZE(rtldsa_930x_mib_list),
 	.list = rtldsa_930x_mib_list
+=======
+const struct rtl83xx_mib_desc rtl83xx_mib[] = {
+	MIB_DESC(2, 0xf8, "ifInOctets"),
+	MIB_DESC(2, 0xf0, "ifOutOctets"),
+	MIB_DESC(1, 0xec, "dot1dTpPortInDiscards"),
+	MIB_DESC(1, 0xe8, "ifInUcastPkts"),
+	MIB_DESC(1, 0xe4, "ifInMulticastPkts"),
+	MIB_DESC(1, 0xe0, "ifInBroadcastPkts"),
+	MIB_DESC(1, 0xdc, "ifOutUcastPkts"),
+	MIB_DESC(1, 0xd8, "ifOutMulticastPkts"),
+	MIB_DESC(1, 0xd4, "ifOutBroadcastPkts"),
+	MIB_DESC(1, 0xd0, "ifOutDiscards"),
+	MIB_DESC(1, 0xcc, ".3SingleCollisionFrames"),
+	MIB_DESC(1, 0xc8, ".3MultipleCollisionFrames"),
+	MIB_DESC(1, 0xc4, ".3DeferredTransmissions"),
+	MIB_DESC(1, 0xc0, ".3LateCollisions"),
+	MIB_DESC(1, 0xbc, ".3ExcessiveCollisions"),
+	MIB_DESC(1, 0xb8, ".3SymbolErrors"),
+	MIB_DESC(1, 0xb4, ".3ControlInUnknownOpcodes"),
+	MIB_DESC(1, 0xb0, ".3InPauseFrames"),
+	MIB_DESC(1, 0xac, ".3OutPauseFrames"),
+	MIB_DESC(1, 0xa8, "DropEvents"),
+	MIB_DESC(1, 0xa4, "tx_BroadcastPkts"),
+	MIB_DESC(1, 0xa0, "tx_MulticastPkts"),
+	MIB_DESC(1, 0x9c, "CRCAlignErrors"),
+	MIB_DESC(1, 0x98, "tx_UndersizePkts"),
+	MIB_DESC(1, 0x94, "rx_UndersizePkts"),
+	MIB_DESC(1, 0x90, "rx_UndersizedropPkts"),
+	MIB_DESC(1, 0x8c, "tx_OversizePkts"),
+	MIB_DESC(1, 0x88, "rx_OversizePkts"),
+	MIB_DESC(1, 0x84, "Fragments"),
+	MIB_DESC(1, 0x80, "Jabbers"),
+	MIB_DESC(1, 0x7c, "Collisions"),
+	MIB_DESC(1, 0x78, "tx_Pkts64Octets"),
+	MIB_DESC(1, 0x74, "rx_Pkts64Octets"),
+	MIB_DESC(1, 0x70, "tx_Pkts65to127Octets"),
+	MIB_DESC(1, 0x6c, "rx_Pkts65to127Octets"),
+	MIB_DESC(1, 0x68, "tx_Pkts128to255Octets"),
+	MIB_DESC(1, 0x64, "rx_Pkts128to255Octets"),
+	MIB_DESC(1, 0x60, "tx_Pkts256to511Octets"),
+	MIB_DESC(1, 0x5c, "rx_Pkts256to511Octets"),
+	MIB_DESC(1, 0x58, "tx_Pkts512to1023Octets"),
+	MIB_DESC(1, 0x54, "rx_Pkts512to1023Octets"),
+	MIB_DESC(1, 0x50, "tx_Pkts1024to1518Octets"),
+	MIB_DESC(1, 0x4c, "rx_StatsPkts1024to1518Octets"),
+	MIB_DESC(1, 0x48, "tx_Pkts1519toMaxOctets"),
+	MIB_DESC(1, 0x44, "rx_Pkts1519toMaxOctets"),
+	MIB_DESC(1, 0x40, "rxMacDiscards")
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 
@@ -368,7 +423,11 @@ static void rtl83xx_vlan_setup(struct rtl838x_switch_priv *priv)
 	info.hash_uc_fid = false;	/* Do not build the L2 lookup hash with FID, but VID */
 	info.hash_mc_fid = false;	/* Do the same for Multicast packets */
 	info.profile_id = 0;		/* Use default Vlan Profile 0 */
+<<<<<<< HEAD
 	info.member_ports = 0;		/* Initially no port members */
+=======
+	info.tagged_ports = 0;		/* Initially no port members */
+>>>>>>> 94392b39ec (稳定版本发布)
 	if (priv->family_id == RTL9310_FAMILY_ID) {
 		info.if_id = 0;
 		info.multicast_grp_mask = 0;
@@ -388,7 +447,11 @@ static void rtl83xx_vlan_setup(struct rtl838x_switch_priv *priv)
 	 */
 	for (int i = 0; i <= priv->cpu_port; i++) {
 		rtl83xx_vlan_set_pvid(priv, i, 0);
+<<<<<<< HEAD
 		info.member_ports |= BIT_ULL(i);
+=======
+		info.tagged_ports |= BIT_ULL(i);
+>>>>>>> 94392b39ec (稳定版本发布)
 	}
 	priv->r->vlan_set_tagged(0, &info);
 
@@ -397,13 +460,21 @@ static void rtl83xx_vlan_setup(struct rtl838x_switch_priv *priv)
 		priv->r->vlan_fwd_on_inner(i, true);
 }
 
+<<<<<<< HEAD
 static void rtldsa_setup_bpdu_traps(struct rtl838x_switch_priv *priv)
+=======
+static void rtl83xx_setup_bpdu_traps(struct rtl838x_switch_priv *priv)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	for (int i = 0; i < priv->cpu_port; i++)
 		priv->r->set_receive_management_action(i, BPDU, TRAP2CPU);
 }
 
+<<<<<<< HEAD
 static void rtldsa_setup_lldp_traps(struct rtl838x_switch_priv *priv)
+=======
+static void rtl83xx_setup_lldp_traps(struct rtl838x_switch_priv *priv)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	for (int i = 0; i < priv->cpu_port; i++)
 		priv->r->set_receive_management_action(i, LLDP, TRAP2CPU);
@@ -457,12 +528,20 @@ static int rtl83xx_setup(struct dsa_switch *ds)
 		rtl839x_print_matrix();
 
 	rtl83xx_init_stats(priv);
+<<<<<<< HEAD
 	rtldsa_init_counters(priv);
 
 	rtl83xx_vlan_setup(priv);
 
 	rtldsa_setup_bpdu_traps(priv);
 	rtldsa_setup_lldp_traps(priv);
+=======
+
+	rtl83xx_vlan_setup(priv);
+
+	rtl83xx_setup_bpdu_traps(priv);
+	rtl83xx_setup_lldp_traps(priv);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	ds->configure_vlan_while_not_filtering = true;
 
@@ -519,6 +598,7 @@ static int rtl93xx_setup(struct dsa_switch *ds)
 	}
 	priv->r->traffic_set(priv->cpu_port, BIT_ULL(priv->cpu_port));
 
+<<<<<<< HEAD
 	if (priv->family_id == RTL9300_FAMILY_ID)
 		rtl930x_print_matrix();
 	else if (priv->family_id == RTL9310_FAMILY_ID)
@@ -531,6 +611,14 @@ static int rtl93xx_setup(struct dsa_switch *ds)
 
 	rtldsa_setup_lldp_traps(priv);
 
+=======
+	rtl930x_print_matrix();
+
+	/* TODO: Initialize statistics */
+
+	rtl83xx_vlan_setup(priv);
+
+>>>>>>> 94392b39ec (稳定版本发布)
 	ds->configure_vlan_while_not_filtering = true;
 
 	priv->r->l2_learning_setup();
@@ -567,12 +655,164 @@ static int rtl93xx_get_sds(struct phy_device *phydev)
 	return sds_num;
 }
 
+<<<<<<< HEAD
 static void rtldsa_83xx_pcs_get_state(struct phylink_pcs *pcs, struct phylink_link_state *state)
+=======
+static int rtl83xx_pcs_validate(struct phylink_pcs *pcs,
+				unsigned long *supported,
+				const struct phylink_link_state *state)
+{
+	struct rtl838x_pcs *rtpcs = container_of(pcs, struct rtl838x_pcs, pcs);
+	struct rtl838x_switch_priv *priv = rtpcs->priv;
+	int port = rtpcs->port;
+	__ETHTOOL_DECLARE_LINK_MODE_MASK(mask) = { 0, };
+
+	pr_debug("In %s port %d, state is %d", __func__, port, state->interface);
+
+	if (!phy_interface_mode_is_rgmii(state->interface) &&
+	    state->interface != PHY_INTERFACE_MODE_NA &&
+	    state->interface != PHY_INTERFACE_MODE_1000BASEX &&
+	    state->interface != PHY_INTERFACE_MODE_MII &&
+	    state->interface != PHY_INTERFACE_MODE_REVMII &&
+	    state->interface != PHY_INTERFACE_MODE_GMII &&
+	    state->interface != PHY_INTERFACE_MODE_QSGMII &&
+	    state->interface != PHY_INTERFACE_MODE_INTERNAL &&
+	    state->interface != PHY_INTERFACE_MODE_SGMII) {
+		bitmap_zero(supported, __ETHTOOL_LINK_MODE_MASK_NBITS);
+		dev_err(priv->ds->dev,
+			"Unsupported interface: %d for port %d\n",
+			state->interface, port);
+		return -EINVAL;
+	}
+
+	/* Allow all the expected bits */
+	phylink_set(mask, Autoneg);
+	phylink_set_port_modes(mask);
+	phylink_set(mask, Pause);
+	phylink_set(mask, Asym_Pause);
+
+	/* With the exclusion of MII and Reverse MII, we support Gigabit,
+	 * including Half duplex
+	 */
+	if (state->interface != PHY_INTERFACE_MODE_MII &&
+	    state->interface != PHY_INTERFACE_MODE_REVMII) {
+		phylink_set(mask, 1000baseT_Full);
+		phylink_set(mask, 1000baseT_Half);
+	}
+
+	/* On both the 8380 and 8382, ports 24-27 are SFP ports */
+	if (port >= 24 && port <= 27 && priv->family_id == RTL8380_FAMILY_ID)
+		phylink_set(mask, 1000baseX_Full);
+
+	/* On the RTL839x family of SoCs, ports 48 to 51 are SFP ports */
+	if (port >= 48 && port <= 51 && priv->family_id == RTL8390_FAMILY_ID)
+		phylink_set(mask, 1000baseX_Full);
+
+	phylink_set(mask, 10baseT_Half);
+	phylink_set(mask, 10baseT_Full);
+	phylink_set(mask, 100baseT_Half);
+	phylink_set(mask, 100baseT_Full);
+
+	bitmap_and(supported, supported, mask,
+		   __ETHTOOL_LINK_MODE_MASK_NBITS);
+
+	return 0;
+}
+
+static int rtl93xx_pcs_validate(struct phylink_pcs *pcs,
+				unsigned long *supported,
+				const struct phylink_link_state *state)
+{
+	struct rtl838x_pcs *rtpcs = container_of(pcs, struct rtl838x_pcs, pcs);
+	struct rtl838x_switch_priv *priv = rtpcs->priv;
+	int port = rtpcs->port;
+	__ETHTOOL_DECLARE_LINK_MODE_MASK(mask) = { 0, };
+
+	pr_debug("In %s port %d, state is %d (%s)", __func__, port, state->interface,
+		 phy_modes(state->interface));
+
+	if (!phy_interface_mode_is_rgmii(state->interface) &&
+	    state->interface != PHY_INTERFACE_MODE_NA &&
+	    state->interface != PHY_INTERFACE_MODE_1000BASEX &&
+	    state->interface != PHY_INTERFACE_MODE_MII &&
+	    state->interface != PHY_INTERFACE_MODE_REVMII &&
+	    state->interface != PHY_INTERFACE_MODE_GMII &&
+	    state->interface != PHY_INTERFACE_MODE_QSGMII &&
+	    state->interface != PHY_INTERFACE_MODE_XGMII &&
+	    state->interface != PHY_INTERFACE_MODE_HSGMII &&
+	    state->interface != PHY_INTERFACE_MODE_10GBASER &&
+	    state->interface != PHY_INTERFACE_MODE_10GKR &&
+	    state->interface != PHY_INTERFACE_MODE_USXGMII &&
+	    state->interface != PHY_INTERFACE_MODE_INTERNAL &&
+	    state->interface != PHY_INTERFACE_MODE_SGMII) {
+		bitmap_zero(supported, __ETHTOOL_LINK_MODE_MASK_NBITS);
+		dev_err(priv->ds->dev,
+			"Unsupported interface: %d for port %d\n",
+			state->interface, port);
+		return -EINVAL;
+	}
+
+	/* Allow all the expected bits */
+	phylink_set(mask, Autoneg);
+	phylink_set_port_modes(mask);
+	phylink_set(mask, Pause);
+	phylink_set(mask, Asym_Pause);
+
+	/* With the exclusion of MII and Reverse MII, we support Gigabit,
+	 * including Half duplex
+	 */
+	if (state->interface != PHY_INTERFACE_MODE_MII &&
+	    state->interface != PHY_INTERFACE_MODE_REVMII) {
+		phylink_set(mask, 1000baseT_Full);
+		phylink_set(mask, 1000baseT_Half);
+	}
+
+	/* Internal phys of the RTL93xx family provide 10G */
+	if (priv->ports[port].phy_is_integrated &&
+	    state->interface == PHY_INTERFACE_MODE_1000BASEX) {
+		phylink_set(mask, 1000baseX_Full);
+	} else if (priv->ports[port].phy_is_integrated) {
+		phylink_set(mask, 1000baseX_Full);
+		phylink_set(mask, 10000baseKR_Full);
+		phylink_set(mask, 10000baseSR_Full);
+		phylink_set(mask, 10000baseCR_Full);
+	}
+	if (state->interface == PHY_INTERFACE_MODE_INTERNAL) {
+		phylink_set(mask, 1000baseX_Full);
+		phylink_set(mask, 1000baseT_Full);
+		phylink_set(mask, 10000baseKR_Full);
+		phylink_set(mask, 10000baseT_Full);
+		phylink_set(mask, 10000baseSR_Full);
+		phylink_set(mask, 10000baseCR_Full);
+	}
+
+	if (state->interface == PHY_INTERFACE_MODE_USXGMII) {
+		phylink_set(mask, 2500baseT_Full);
+		phylink_set(mask, 5000baseT_Full);
+		phylink_set(mask, 10000baseT_Full);
+	}
+
+	phylink_set(mask, 10baseT_Half);
+	phylink_set(mask, 10baseT_Full);
+	phylink_set(mask, 100baseT_Half);
+	phylink_set(mask, 100baseT_Full);
+
+	bitmap_and(supported, supported, mask,
+		   __ETHTOOL_LINK_MODE_MASK_NBITS);
+	pr_debug("%s leaving supported: %*pb", __func__, __ETHTOOL_LINK_MODE_MASK_NBITS, supported);
+
+	return 0;
+}
+
+static void rtl83xx_pcs_get_state(struct phylink_pcs *pcs,
+				  struct phylink_link_state *state)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	struct rtl838x_pcs *rtpcs = container_of(pcs, struct rtl838x_pcs, pcs);
 	struct rtl838x_switch_priv *priv = rtpcs->priv;
 	int port = rtpcs->port;
 	u64 speed;
+<<<<<<< HEAD
 
 	state->link = 0;
 	state->speed = SPEED_UNKNOWN;
@@ -617,14 +857,59 @@ static void rtldsa_83xx_pcs_get_state(struct phylink_pcs *pcs, struct phylink_li
 		break;
 	}
 
+=======
+	u64 link;
+
+	if (port < 0 || port > priv->cpu_port) {
+		state->link = false;
+		return;
+	}
+
+	state->link = 0;
+	link = priv->r->get_port_reg_le(priv->r->mac_link_sts);
+	if (link & BIT_ULL(port))
+		state->link = 1;
+	pr_debug("%s: link state port %d: %llx\n", __func__, port, link & BIT_ULL(port));
+
+	state->duplex = 0;
+	if (priv->r->get_port_reg_le(priv->r->mac_link_dup_sts) & BIT_ULL(port))
+		state->duplex = 1;
+
+	speed = priv->r->get_port_reg_le(priv->r->mac_link_spd_sts(port));
+	speed >>= (port % 16) << 1;
+	switch (speed & 0x3) {
+	case 0:
+		state->speed = SPEED_10;
+		break;
+	case 1:
+		state->speed = SPEED_100;
+		break;
+	case 2:
+		state->speed = SPEED_1000;
+		break;
+	case 3:
+		if (priv->family_id == RTL9300_FAMILY_ID
+			&& (port == 24 || port == 26)) /* Internal serdes */
+			state->speed = SPEED_2500;
+		else
+			state->speed = SPEED_100; /* Is in fact 500Mbit */
+	}
+
+	state->pause &= (MLO_PAUSE_RX | MLO_PAUSE_TX);
+>>>>>>> 94392b39ec (稳定版本发布)
 	if (priv->r->get_port_reg_le(priv->r->mac_rx_pause_sts) & BIT_ULL(port))
 		state->pause |= MLO_PAUSE_RX;
 	if (priv->r->get_port_reg_le(priv->r->mac_tx_pause_sts) & BIT_ULL(port))
 		state->pause |= MLO_PAUSE_TX;
 }
 
+<<<<<<< HEAD
 static void rtldsa_93xx_pcs_get_state(struct phylink_pcs *pcs,
 				      struct phylink_link_state *state)
+=======
+static void rtl93xx_pcs_get_state(struct phylink_pcs *pcs,
+				  struct phylink_link_state *state)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	struct rtl838x_pcs *rtpcs = container_of(pcs, struct rtl838x_pcs, pcs);
 	struct rtl838x_switch_priv *priv = rtpcs->priv;
@@ -633,6 +918,7 @@ static void rtldsa_93xx_pcs_get_state(struct phylink_pcs *pcs,
 	u64 link;
 	u64 media;
 
+<<<<<<< HEAD
 	state->link = 0;
 	state->speed = SPEED_UNKNOWN;
 	state->duplex = DUPLEX_UNKNOWN;
@@ -640,18 +926,32 @@ static void rtldsa_93xx_pcs_get_state(struct phylink_pcs *pcs,
 
 	if (port < 0 || port > priv->cpu_port)
 		return;
+=======
+	if (port < 0 || port > priv->cpu_port) {
+		state->link = false;
+		return;
+	}
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	/* On the RTL9300 for at least the RTL8226B PHY, the MAC-side link
 	 * state needs to be read twice in order to read a correct result.
 	 * This would not be necessary for ports connected e.g. to RTL8218D
 	 * PHYs.
 	 */
+<<<<<<< HEAD
 	link = priv->r->get_port_reg_le(priv->r->mac_link_sts);
 	link = priv->r->get_port_reg_le(priv->r->mac_link_sts);
 	if (!(link & BIT_ULL(port)))
 		return;
 
 	state->link = 1;
+=======
+	state->link = 0;
+	link = priv->r->get_port_reg_le(priv->r->mac_link_sts);
+	link = priv->r->get_port_reg_le(priv->r->mac_link_sts);
+	if (link & BIT_ULL(port))
+		state->link = 1;
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	if (priv->family_id == RTL9310_FAMILY_ID)
 		media = priv->r->get_port_reg_le(RTL931X_MAC_LINK_MEDIA_STS);
@@ -659,6 +959,7 @@ static void rtldsa_93xx_pcs_get_state(struct phylink_pcs *pcs,
 	if (priv->family_id == RTL9300_FAMILY_ID)
 		media = sw_r32(RTL930X_MAC_LINK_MEDIA_STS);
 
+<<<<<<< HEAD
 	pr_debug("%s: link state port %d: %llx, media %llx\n", __func__, port,
 		 link & BIT_ULL(port), media);
 
@@ -686,13 +987,58 @@ static void rtldsa_93xx_pcs_get_state(struct phylink_pcs *pcs,
 		state->speed = SPEED_2500;
 		break;
 	case RTL_SPEED_5000:
+=======
+	if (media & BIT_ULL(port))
+		state->link = 1;
+
+	pr_debug("%s: link state port %d: %llx, media %llx\n", __func__, port,
+		 link & BIT_ULL(port), media);
+
+	state->duplex = 0;
+	if (priv->r->get_port_reg_le(priv->r->mac_link_dup_sts) & BIT_ULL(port))
+		state->duplex = 1;
+
+	speed = priv->r->get_port_reg_le(priv->r->mac_link_spd_sts(port));
+	speed >>= (port % 8) << 2;
+	switch (speed & 0xf) {
+	case 0:
+		state->speed = SPEED_10;
+		break;
+	case 1:
+		state->speed = SPEED_100;
+		break;
+	case 2:
+	case 7:
+		state->speed = SPEED_1000;
+		break;
+	case 4:
+		state->speed = SPEED_10000;
+		break;
+	case 5:
+	case 8:
+		state->speed = SPEED_2500;
+		break;
+	case 6:
+>>>>>>> 94392b39ec (稳定版本发布)
 		state->speed = SPEED_5000;
 		break;
 	default:
 		pr_err("%s: unknown speed: %d\n", __func__, (u32)speed & 0xf);
 	}
 
+<<<<<<< HEAD
 	pr_debug("%s: speed is: %d %d\n", __func__, (u32)speed & 0xf, state->speed);
+=======
+	if (priv->family_id == RTL9310_FAMILY_ID
+		&& (port >= 52 && port <= 55)) { /* Internal serdes */
+			state->speed = SPEED_10000;
+			state->link = 1;
+			state->duplex = 1;
+	}
+
+	pr_debug("%s: speed is: %d %d\n", __func__, (u32)speed & 0xf, state->speed);
+	state->pause &= (MLO_PAUSE_RX | MLO_PAUSE_TX);
+>>>>>>> 94392b39ec (稳定版本发布)
 	if (priv->r->get_port_reg_le(priv->r->mac_rx_pause_sts) & BIT_ULL(port))
 		state->pause |= MLO_PAUSE_RX;
 	if (priv->r->get_port_reg_le(priv->r->mac_tx_pause_sts) & BIT_ULL(port))
@@ -758,8 +1104,13 @@ static void rtl83xx_config_interface(int port, phy_interface_t interface)
 	pr_debug("configured port %d for interface %s\n", port, phy_modes(interface));
 }
 
+<<<<<<< HEAD
 static void rtldsa_phylink_get_caps(struct dsa_switch *ds, int port,
 				    struct phylink_config *config)
+=======
+static void rtl83xx_phylink_get_caps(struct dsa_switch *ds, int port,
+				     struct phylink_config *config)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	/*
 	 * TODO: This capability check will need some love. Depending on the model and the
@@ -770,14 +1121,23 @@ static void rtldsa_phylink_get_caps(struct dsa_switch *ds, int port,
 	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE | MAC_10 | MAC_100 |
 				   MAC_1000FD | MAC_2500FD | MAC_5000FD | MAC_10000FD;
 
+<<<<<<< HEAD
 	__set_bit(PHY_INTERFACE_MODE_1000BASEX, config->supported_interfaces);
 	__set_bit(PHY_INTERFACE_MODE_10GBASER, config->supported_interfaces);
 	__set_bit(PHY_INTERFACE_MODE_2500BASEX, config->supported_interfaces);
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	__set_bit(PHY_INTERFACE_MODE_GMII, config->supported_interfaces);
 	__set_bit(PHY_INTERFACE_MODE_INTERNAL, config->supported_interfaces);
 	__set_bit(PHY_INTERFACE_MODE_QSGMII, config->supported_interfaces);
 	__set_bit(PHY_INTERFACE_MODE_SGMII, config->supported_interfaces);
 	__set_bit(PHY_INTERFACE_MODE_USXGMII, config->supported_interfaces);
+<<<<<<< HEAD
+=======
+	__set_bit(PHY_INTERFACE_MODE_XGMII, config->supported_interfaces);
+	__set_bit(PHY_INTERFACE_MODE_1000BASEX, config->supported_interfaces);
+	__set_bit(PHY_INTERFACE_MODE_10GBASER, config->supported_interfaces);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void rtl83xx_phylink_mac_config(struct dsa_switch *ds, int port,
@@ -902,7 +1262,10 @@ static void rtl93xx_phylink_mac_config(struct dsa_switch *ds, int port,
 	if (sds_num >= 0 &&
 	    (state->interface == PHY_INTERFACE_MODE_1000BASEX ||
 	     state->interface == PHY_INTERFACE_MODE_SGMII ||
+<<<<<<< HEAD
 	     state->interface == PHY_INTERFACE_MODE_2500BASEX ||
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	     state->interface == PHY_INTERFACE_MODE_10GBASER))
 		rtl9300_serdes_setup(port, sds_num, state->interface);
 }
@@ -1055,6 +1418,7 @@ static void rtl93xx_phylink_mac_link_up(struct dsa_switch *ds, int port,
 	sw_w32_mask(0, 0x3, priv->r->mac_port_ctrl(port));
 }
 
+<<<<<<< HEAD
 static const struct rtldsa_mib_desc *rtldsa_get_mib_desc(struct rtl838x_switch_priv *priv)
 {
 	switch (priv->family_id) {
@@ -1526,6 +1890,42 @@ static void rtldsa_get_pause_stats(struct dsa_switch *ds, int port,
 	pause_stats->rx_pause_frames = counters->rx_pause_frames.val;
 
 	spin_unlock(&counters->lock);
+=======
+static void rtl83xx_get_strings(struct dsa_switch *ds,
+				int port, u32 stringset, u8 *data)
+{
+	if (stringset != ETH_SS_STATS)
+		return;
+
+	for (int i = 0; i < ARRAY_SIZE(rtl83xx_mib); i++)
+		ethtool_puts(&data, rtl83xx_mib[i].name);
+}
+
+static void rtl83xx_get_ethtool_stats(struct dsa_switch *ds, int port,
+				      uint64_t *data)
+{
+	struct rtl838x_switch_priv *priv = ds->priv;
+	const struct rtl83xx_mib_desc *mib;
+	u64 h;
+
+	for (int i = 0; i < ARRAY_SIZE(rtl83xx_mib); i++) {
+		mib = &rtl83xx_mib[i];
+
+		data[i] = sw_r32(priv->r->stat_port_std_mib + (port << 8) + 252 - mib->offset);
+		if (mib->size == 2) {
+			h = sw_r32(priv->r->stat_port_std_mib + (port << 8) + 248 - mib->offset);
+			data[i] |= h << 32;
+		}
+	}
+}
+
+static int rtl83xx_get_sset_count(struct dsa_switch *ds, int port, int sset)
+{
+	if (sset != ETH_SS_STATS)
+		return 0;
+
+	return ARRAY_SIZE(rtl83xx_mib);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static int rtl83xx_mc_group_alloc(struct rtl838x_switch_priv *priv, int port)
@@ -1924,6 +2324,7 @@ static int rtl83xx_vlan_prepare(struct dsa_switch *ds, int port,
 
 	priv->r->vlan_tables_read(0, &info);
 
+<<<<<<< HEAD
 	pr_debug("VLAN 0: Member ports %llx, untag %llx, profile %d, MC# %d, UC# %d, FID %x\n",
 		info.member_ports, info.untagged_ports, info.profile_id,
 		info.hash_mc_fid, info.hash_uc_fid, info.fid);
@@ -1931,12 +2332,25 @@ static int rtl83xx_vlan_prepare(struct dsa_switch *ds, int port,
 	priv->r->vlan_tables_read(1, &info);
 	pr_debug("VLAN 1: Member ports %llx, untag %llx, profile %d, MC# %d, UC# %d, FID %x\n",
 		info.member_ports, info.untagged_ports, info.profile_id,
+=======
+	pr_debug("VLAN 0: Tagged ports %llx, untag %llx, profile %d, MC# %d, UC# %d, FID %x\n",
+		info.tagged_ports, info.untagged_ports, info.profile_id,
+		info.hash_mc_fid, info.hash_uc_fid, info.fid);
+
+	priv->r->vlan_tables_read(1, &info);
+	pr_debug("VLAN 1: Tagged ports %llx, untag %llx, profile %d, MC# %d, UC# %d, FID %x\n",
+		info.tagged_ports, info.untagged_ports, info.profile_id,
+>>>>>>> 94392b39ec (稳定版本发布)
 		info.hash_mc_fid, info.hash_uc_fid, info.fid);
 	priv->r->vlan_set_untagged(1, info.untagged_ports);
 	pr_debug("SET: Untagged ports, VLAN %d: %llx\n", 1, info.untagged_ports);
 
 	priv->r->vlan_set_tagged(1, &info);
+<<<<<<< HEAD
 	pr_debug("SET: Member ports, VLAN %d: %llx\n", 1, info.member_ports);
+=======
+	pr_debug("SET: Tagged ports, VLAN %d: %llx\n", 1, info.tagged_ports);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	return 0;
 }
@@ -1985,7 +2399,11 @@ static int rtl83xx_vlan_add(struct dsa_switch *ds, int port,
 	priv->r->vlan_tables_read(vlan->vid, &info);
 
 	/* new VLAN? */
+<<<<<<< HEAD
 	if (!info.member_ports) {
+=======
+	if (!info.tagged_ports) {
+>>>>>>> 94392b39ec (稳定版本发布)
 		info.fid = 0;
 		info.hash_mc_fid = false;
 		info.hash_uc_fid = false;
@@ -1993,10 +2411,17 @@ static int rtl83xx_vlan_add(struct dsa_switch *ds, int port,
 	}
 
 	/* sanitize untagged_ports - must be a subset */
+<<<<<<< HEAD
 	if (info.untagged_ports & ~info.member_ports)
 		info.untagged_ports = 0;
 
 	info.member_ports |= BIT_ULL(port);
+=======
+	if (info.untagged_ports & ~info.tagged_ports)
+		info.untagged_ports = 0;
+
+	info.tagged_ports |= BIT_ULL(port);
+>>>>>>> 94392b39ec (稳定版本发布)
 	if (vlan->flags & BRIDGE_VLAN_INFO_UNTAGGED)
 		info.untagged_ports |= BIT_ULL(port);
 	else
@@ -2006,7 +2431,11 @@ static int rtl83xx_vlan_add(struct dsa_switch *ds, int port,
 	pr_debug("Untagged ports, VLAN %d: %llx\n", vlan->vid, info.untagged_ports);
 
 	priv->r->vlan_set_tagged(vlan->vid, &info);
+<<<<<<< HEAD
 	pr_debug("Member ports, VLAN %d: %llx\n", vlan->vid, info.member_ports);
+=======
+	pr_debug("Tagged ports, VLAN %d: %llx\n", vlan->vid, info.tagged_ports);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	mutex_unlock(&priv->reg_mutex);
 
@@ -2043,13 +2472,21 @@ static int rtl83xx_vlan_del(struct dsa_switch *ds, int port,
 
 	/* remove port from both tables */
 	info.untagged_ports &= (~BIT_ULL(port));
+<<<<<<< HEAD
 	info.member_ports &= (~BIT_ULL(port));
+=======
+	info.tagged_ports &= (~BIT_ULL(port));
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	priv->r->vlan_set_untagged(vlan->vid, info.untagged_ports);
 	pr_debug("Untagged ports, VLAN %d: %llx\n", vlan->vid, info.untagged_ports);
 
 	priv->r->vlan_set_tagged(vlan->vid, &info);
+<<<<<<< HEAD
 	pr_debug("Member ports, VLAN %d: %llx\n", vlan->vid, info.member_ports);
+=======
+	pr_debug("Tagged ports, VLAN %d: %llx\n", vlan->vid, info.tagged_ports);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	mutex_unlock(&priv->reg_mutex);
 
@@ -2670,6 +3107,7 @@ out:
 	return 0;
 }
 
+<<<<<<< HEAD
 static int rtldsa_phy_read(struct dsa_switch *ds, int addr, int regnum)
 {
 	struct rtl838x_switch_priv *priv = ds->priv;
@@ -2682,11 +3120,51 @@ static int rtldsa_phy_write(struct dsa_switch *ds, int addr, int regnum, u16 val
 	struct rtl838x_switch_priv *priv = ds->priv;
 
 	return mdiobus_write_nested(priv->parent_bus, addr, regnum, val);
+=======
+static int rtl83xx_dsa_phy_read(struct dsa_switch *ds, int phy_addr, int phy_reg)
+{
+	u32 val;
+	u32 offset = 0;
+	struct rtl838x_switch_priv *priv = ds->priv;
+
+	if ((phy_addr >= 24) &&
+	    (phy_addr <= 27) &&
+	    (priv->ports[24].phy == PHY_RTL838X_SDS)) {
+		if (phy_addr == 26)
+			offset = 0x100;
+		val = sw_r32(RTL838X_SDS4_FIB_REG0 + offset + (phy_reg << 2)) & 0xffff;
+		return val;
+	}
+
+	read_phy(phy_addr, 0, phy_reg, &val);
+	return val;
+}
+
+static int rtl83xx_dsa_phy_write(struct dsa_switch *ds, int phy_addr, int phy_reg, u16 val)
+{
+	u32 offset = 0;
+	struct rtl838x_switch_priv *priv = ds->priv;
+
+	if ((phy_addr >= 24) &&
+	    (phy_addr <= 27) &&
+	    (priv->ports[24].phy == PHY_RTL838X_SDS)) {
+		if (phy_addr == 26)
+			offset = 0x100;
+		sw_w32(val, RTL838X_SDS4_FIB_REG0 + offset + (phy_reg << 2));
+		return 0;
+	}
+	return write_phy(phy_addr, 0, phy_reg, val);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 const struct phylink_pcs_ops rtl83xx_pcs_ops = {
 	.pcs_an_restart		= rtl83xx_pcs_an_restart,
+<<<<<<< HEAD
 	.pcs_get_state		= rtldsa_83xx_pcs_get_state,
+=======
+	.pcs_validate		= rtl83xx_pcs_validate,
+	.pcs_get_state		= rtl83xx_pcs_get_state,
+>>>>>>> 94392b39ec (稳定版本发布)
 	.pcs_config		= rtl83xx_pcs_config,
 };
 
@@ -2694,15 +3172,23 @@ const struct dsa_switch_ops rtl83xx_switch_ops = {
 	.get_tag_protocol	= rtl83xx_get_tag_protocol,
 	.setup			= rtl83xx_setup,
 
+<<<<<<< HEAD
 	.phy_read		= rtldsa_phy_read,
 	.phy_write		= rtldsa_phy_write,
 
 	.phylink_get_caps	= rtldsa_phylink_get_caps,
+=======
+	.phy_read		= rtl83xx_dsa_phy_read,
+	.phy_write		= rtl83xx_dsa_phy_write,
+
+	.phylink_get_caps	= rtl83xx_phylink_get_caps,
+>>>>>>> 94392b39ec (稳定版本发布)
 	.phylink_mac_config	= rtl83xx_phylink_mac_config,
 	.phylink_mac_link_down	= rtl83xx_phylink_mac_link_down,
 	.phylink_mac_link_up	= rtl83xx_phylink_mac_link_up,
 	.phylink_mac_select_pcs	= rtl83xx_phylink_mac_select_pcs,
 
+<<<<<<< HEAD
 	.get_strings		= rtldsa_get_strings,
 	.get_ethtool_stats	= rtldsa_get_ethtool_stats,
 	.get_sset_count		= rtldsa_get_sset_count,
@@ -2712,6 +3198,11 @@ const struct dsa_switch_ops rtl83xx_switch_ops = {
 	.get_rmon_stats		= rtldsa_get_rmon_stats,
 	.get_stats64		= rtldsa_get_stats64,
 	.get_pause_stats	= rtldsa_get_pause_stats,
+=======
+	.get_strings		= rtl83xx_get_strings,
+	.get_ethtool_stats	= rtl83xx_get_ethtool_stats,
+	.get_sset_count		= rtl83xx_get_sset_count,
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	.port_enable		= rtl83xx_port_enable,
 	.port_disable		= rtl83xx_port_disable,
@@ -2749,7 +3240,12 @@ const struct dsa_switch_ops rtl83xx_switch_ops = {
 
 const struct phylink_pcs_ops rtl93xx_pcs_ops = {
 	.pcs_an_restart		= rtl83xx_pcs_an_restart,
+<<<<<<< HEAD
 	.pcs_get_state		= rtldsa_93xx_pcs_get_state,
+=======
+	.pcs_validate		= rtl93xx_pcs_validate,
+	.pcs_get_state		= rtl93xx_pcs_get_state,
+>>>>>>> 94392b39ec (稳定版本发布)
 	.pcs_config		= rtl83xx_pcs_config,
 };
 
@@ -2757,15 +3253,23 @@ const struct dsa_switch_ops rtl930x_switch_ops = {
 	.get_tag_protocol	= rtl83xx_get_tag_protocol,
 	.setup			= rtl93xx_setup,
 
+<<<<<<< HEAD
 	.phy_read		= rtldsa_phy_read,
 	.phy_write		= rtldsa_phy_write,
 
 	.phylink_get_caps	= rtldsa_phylink_get_caps,
+=======
+	.phy_read		= rtl83xx_dsa_phy_read,
+	.phy_write		= rtl83xx_dsa_phy_write,
+
+	.phylink_get_caps	= rtl83xx_phylink_get_caps,
+>>>>>>> 94392b39ec (稳定版本发布)
 	.phylink_mac_config	= rtl93xx_phylink_mac_config,
 	.phylink_mac_link_down	= rtl93xx_phylink_mac_link_down,
 	.phylink_mac_link_up	= rtl93xx_phylink_mac_link_up,
 	.phylink_mac_select_pcs	= rtl83xx_phylink_mac_select_pcs,
 
+<<<<<<< HEAD
 	.get_strings		= rtldsa_get_strings,
 	.get_ethtool_stats	= rtldsa_get_ethtool_stats,
 	.get_sset_count		= rtldsa_get_sset_count,
@@ -2775,6 +3279,11 @@ const struct dsa_switch_ops rtl930x_switch_ops = {
 	.get_rmon_stats		= rtldsa_get_rmon_stats,
 	.get_stats64		= rtldsa_get_stats64,
 	.get_pause_stats	= rtldsa_get_pause_stats,
+=======
+	.get_strings		= rtl83xx_get_strings,
+	.get_ethtool_stats	= rtl83xx_get_ethtool_stats,
+	.get_sset_count		= rtl83xx_get_sset_count,
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	.port_enable		= rtl83xx_port_enable,
 	.port_disable		= rtl83xx_port_disable,

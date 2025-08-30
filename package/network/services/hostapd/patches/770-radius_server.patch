@@ -29,7 +29,11 @@ handle reload.
  
  #ifndef CONFIG_NO_HOSTAPD_LOGGER
  static void hostapd_logger_cb(void *ctx, const u8 *addr, unsigned int module,
+<<<<<<< HEAD
 @@ -838,6 +839,11 @@ int main(int argc, char *argv[])
+=======
+@@ -834,6 +835,11 @@ int main(int argc, char *argv[])
+>>>>>>> 94392b39ec (稳定版本发布)
  	if (os_program_init())
  		return -1;
  

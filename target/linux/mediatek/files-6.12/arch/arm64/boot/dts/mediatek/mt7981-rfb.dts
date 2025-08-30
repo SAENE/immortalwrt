@@ -20,9 +20,14 @@
 		bootargs-append = " root=/dev/fit0 rootwait";
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x20000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0 0x40000000 0 0x20000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	reg_3p3v: regulator-3p3v {

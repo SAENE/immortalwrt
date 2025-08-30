@@ -128,7 +128,12 @@ lantiq_setup_macs()
 		label_mac=$lan_mac
 		;;
 	bt,homehub-v5a)
+<<<<<<< HEAD
 		wan_mac=$(macaddr_add "$(mtd_get_mac_binary_ubi caldata 0x110c)" 5)
+=======
+		lan_mac=$(mtd_get_mac_binary_ubi caldata 0x110c)
+		wan_mac=$(macaddr_add "$lan_mac" 1)
+>>>>>>> 94392b39ec (稳定版本发布)
 		;;
 	buffalo,wbmr-300hpd)
 		lan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)

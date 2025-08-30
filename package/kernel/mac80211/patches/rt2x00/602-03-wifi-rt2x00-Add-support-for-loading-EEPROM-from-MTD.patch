@@ -24,14 +24,25 @@ Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
  	  Supported chips: RT2880, RT3050, RT3052, RT3350, RT3352.
 --- a/drivers/net/wireless/ralink/rt2x00/rt2x00eeprom.c
 +++ b/drivers/net/wireless/ralink/rt2x00/rt2x00eeprom.c
+<<<<<<< HEAD
 @@ -11,10 +11,66 @@
  #include <linux/kernel.h>
  #include <linux/module.h>
  #include <linux/of.h>
+=======
+@@ -10,11 +10,69 @@
+ 
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+>>>>>>> 94392b39ec (稳定版本发布)
 +#if IS_ENABLED(CONFIG_MTD)
 +#include <linux/mtd/mtd.h>
 +#include <linux/mtd/partitions.h>
 +#endif
+<<<<<<< HEAD
+=======
+ #include <linux/of.h>
+>>>>>>> 94392b39ec (稳定版本发布)
  
  #include "rt2x00.h"
  #include "rt2x00soc.h"
@@ -39,6 +50,11 @@ Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 +#if IS_ENABLED(CONFIG_MTD)
 +static int rt2800lib_read_eeprom_mtd(struct rt2x00_dev *rt2x00dev)
 +{
+<<<<<<< HEAD
+=======
++	int ret = -EINVAL;
++#ifdef CONFIG_OF
+>>>>>>> 94392b39ec (稳定版本发布)
 +	struct device_node *np = rt2x00dev->dev->of_node, *mtd_np = NULL;
 +	int size, offset = 0;
 +	struct mtd_info *mtd;
@@ -46,7 +62,10 @@ Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 +	const __be32 *list;
 +	phandle phandle;
 +	size_t retlen;
+<<<<<<< HEAD
 +	int ret;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 +
 +	list = of_get_property(np, "ralink,mtd-eeprom", &size);
 +	if (!list)
@@ -77,12 +96,20 @@ Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 +		       &retlen, (u_char *)rt2x00dev->eeprom);
 +	put_mtd_device(mtd);
 +
+<<<<<<< HEAD
 +	if (ret || retlen != rt2x00dev->ops->eeprom_size) {
+=======
++	if (retlen != rt2x00dev->ops->eeprom_size || ret) {
+>>>>>>> 94392b39ec (稳定版本发布)
 +		dev_err(rt2x00dev->dev, "failed to load eeprom from device \"%s\"\n", part);
 +		return ret;
 +	}
 +
 +	dev_info(rt2x00dev->dev, "loaded eeprom from mtd device \"%s\"\n", part);
+<<<<<<< HEAD
+=======
++#endif
+>>>>>>> 94392b39ec (稳定版本发布)
 +
 +	return ret;
 +}
@@ -91,7 +118,11 @@ Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
  static const char *
  rt2x00lib_get_eeprom_file_name(struct rt2x00_dev *rt2x00dev)
  {
+<<<<<<< HEAD
 @@ -74,6 +130,14 @@ err_exit:
+=======
+@@ -83,6 +141,14 @@ err_exit:
+>>>>>>> 94392b39ec (稳定版本发布)
  
  int rt2x00lib_read_eeprom(struct rt2x00_dev *rt2x00dev)
  {

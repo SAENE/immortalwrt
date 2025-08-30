@@ -45,7 +45,11 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  
  		if (ret < 0)
  			goto out;
+<<<<<<< HEAD
 @@ -569,6 +575,17 @@ full_scan:
+=======
+@@ -567,6 +573,17 @@ full_scan:
+>>>>>>> 94392b39ec (稳定版本发布)
  			return err;
  	}
  

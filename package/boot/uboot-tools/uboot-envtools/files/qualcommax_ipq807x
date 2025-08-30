@@ -46,13 +46,21 @@ redmi,ax6|\
 redmi,ax6-stock|\
 xiaomi,ax3600|\
 xiaomi,ax3600-stock|\
+<<<<<<< HEAD
 xiaomi,ax9000|\
 xiaomi,ax9000-stock)
+=======
+xiaomi,ax9000)
+>>>>>>> 94392b39ec (稳定版本发布)
 	ubootenv_add_mtd "0:appsblenv" "0x0" "0x10000" "0x20000"
 	ubootenv_add_sys_mtd "bdata" "0x0" "0x10000" "0x20000"
 	;;
 prpl,haze)
+<<<<<<< HEAD
 	ubootenv_add_mmc "0:APPSBLENV" "" "0x0" "0x40000" "0x400" "0x100"
+=======
+	ubootenv_add_mmc "0:APPSBLENV" "0x0" "0x40000" "0x400" "0x100"
+>>>>>>> 94392b39ec (稳定版本发布)
 	;;
 asus,rt-ax89x|\
 qnap,301w)
@@ -60,7 +68,11 @@ qnap,301w)
 	;;
 spectrum,sax1v1k|\
 verizon,cr1000a)
+<<<<<<< HEAD
 	ubootenv_add_mmc "0:APPSBLENV" "" "0x0" "0x40000" "0x40000"
+=======
+	ubootenv_add_mmc "0:APPSBLENV" "0x0" "0x40000" "0x40000"
+>>>>>>> 94392b39ec (稳定版本发布)
 	;;
 esac
 

@@ -26,7 +26,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
 
 --- a/drivers/net/wireless/ath/ath11k/core.h
 +++ b/drivers/net/wireless/ath/ath11k/core.h
+<<<<<<< HEAD
 @@ -695,6 +695,7 @@ struct ath11k {
+=======
+@@ -692,6 +692,7 @@ struct ath11k {
+>>>>>>> 94392b39ec (稳定版本发布)
  	struct ath11k_pdev_wmi *wmi;
  #ifdef CPTCFG_ATH11K_NSS_SUPPORT
  	struct ath11k_nss nss;
@@ -34,9 +38,15 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  #endif
  	struct ath11k_pdev_dp dp;
  	u8 mac_addr[ETH_ALEN];
+<<<<<<< HEAD
 @@ -1131,6 +1132,9 @@ struct ath11k_base {
  	enum ath11k_pm_policy actual_pm_policy;
  	struct notifier_block pm_nb;
+=======
+@@ -1110,6 +1111,9 @@ struct ath11k_base {
+ 	} testmode;
+ #endif
+>>>>>>> 94392b39ec (稳定版本发布)
  
 +	u32 max_ast_index;
 +	u32 num_ast_entries;
@@ -46,7 +56,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  };
 --- a/drivers/net/wireless/ath/ath11k/dp.h
 +++ b/drivers/net/wireless/ath/ath11k/dp.h
+<<<<<<< HEAD
 @@ -1112,13 +1112,16 @@ struct htt_t2h_peer_map_event {
+=======
+@@ -1113,13 +1113,16 @@ struct htt_t2h_peer_map_event {
+>>>>>>> 94392b39ec (稳定版本发布)
  #define HTT_T2H_PEER_UNMAP_INFO_PEER_ID	HTT_T2H_PEER_MAP_INFO_PEER_ID
  #define HTT_T2H_PEER_UNMAP_INFO1_MAC_ADDR_H16 \
  					HTT_T2H_PEER_MAP_INFO1_MAC_ADDR_H16
@@ -837,7 +851,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  int ath11k_wmi_send_pdev_set_regdomain(struct ath11k *ar,
  				       struct pdev_set_regdomain_params *param)
  {
+<<<<<<< HEAD
 @@ -6483,6 +6530,36 @@ static int ath11k_pull_peer_assoc_conf_e
+=======
+@@ -6482,6 +6529,36 @@ static int ath11k_pull_peer_assoc_conf_e
+>>>>>>> 94392b39ec (稳定版本发布)
  	return 0;
  }
  
@@ -874,7 +892,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  static void ath11k_wmi_pull_pdev_stats_base(const struct wmi_pdev_stats_base *src,
  					    struct ath11k_fw_stats_pdev *dst)
  {
+<<<<<<< HEAD
 @@ -7307,6 +7384,7 @@ static int ath11k_wmi_tlv_rdy_parse(stru
+=======
+@@ -7306,6 +7383,7 @@ static int ath11k_wmi_tlv_rdy_parse(stru
+>>>>>>> 94392b39ec (稳定版本发布)
  
  		ether_addr_copy(ab->mac_addr,
  				fixed_param.ready_event_min.mac_addr.addr);
@@ -882,7 +904,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  		ab->pktlog_defs_checksum = fixed_param.pktlog_defs_checksum;
  		break;
  	case WMI_TAG_ARRAY_FIXED_STRUCT:
+<<<<<<< HEAD
 @@ -8916,6 +8994,22 @@ exit:
+=======
+@@ -8878,6 +8956,22 @@ exit:
+>>>>>>> 94392b39ec (稳定版本发布)
  	kfree(tb);
  }
  
@@ -905,7 +931,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  static void ath11k_wmi_tlv_op_rx(struct ath11k_base *ab, struct sk_buff *skb)
  {
  	struct wmi_cmd_hdr *cmd_hdr;
+<<<<<<< HEAD
 @@ -9049,6 +9143,9 @@ static void ath11k_wmi_tlv_op_rx(struct
+=======
+@@ -9011,6 +9105,9 @@ static void ath11k_wmi_tlv_op_rx(struct
+>>>>>>> 94392b39ec (稳定版本发布)
  	case WMI_P2P_NOA_EVENTID:
  		ath11k_wmi_p2p_noa_event(ab, skb);
  		break;
@@ -939,7 +969,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  struct wmi_peer_reorder_queue_setup_cmd {
  	u32 tlv_header;
  	u32 vdev_id;
+<<<<<<< HEAD
 @@ -4642,6 +4657,21 @@ struct wmi_probe_resp_tx_status_event {
+=======
+@@ -4641,6 +4656,21 @@ struct wmi_probe_resp_tx_status_event {
+>>>>>>> 94392b39ec (稳定版本发布)
  	u32 tx_status;
  } __packed;
  
@@ -961,7 +995,11 @@ Signed-off-by: Sathishkumar Muruganandam <murugana@codeaurora.org>
  /*
   * PDEV statistics
   */
+<<<<<<< HEAD
 @@ -6446,6 +6476,9 @@ int ath11k_wmi_set_sta_ps_param(struct a
+=======
+@@ -6440,6 +6470,9 @@ int ath11k_wmi_set_sta_ps_param(struct a
+>>>>>>> 94392b39ec (稳定版本发布)
  int ath11k_wmi_force_fw_hang_cmd(struct ath11k *ar, u32 type, u32 delay_time_ms);
  int ath11k_wmi_send_peer_delete_cmd(struct ath11k *ar,
  				    const u8 *peer_addr, u8 vdev_id);

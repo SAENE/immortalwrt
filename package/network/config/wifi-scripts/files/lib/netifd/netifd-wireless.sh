@@ -39,10 +39,18 @@ prepare_key_wep() {
 }
 
 _wdev_prepare_channel() {
+<<<<<<< HEAD
 	json_get_vars channel band hwmode htmode
 
 	auto_channel=0
 	enable_ht=0
+=======
+	json_get_vars channel band hwmode
+
+	auto_channel=0
+	enable_ht=0
+	htmode=
+>>>>>>> 94392b39ec (稳定版本发布)
 	hwmode="${hwmode##11}"
 
 	case "$channel" in
@@ -79,11 +87,14 @@ _wdev_prepare_channel() {
 			esac
 		;;
 	esac
+<<<<<<< HEAD
 
 	case "$htmode" in
 		HE*|EHT*) wpa3_cipher="GCMP-256 ";;
 		*) wpa3_cipher="";;
 	esac
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 _wdev_handler() {
@@ -209,6 +220,7 @@ _wdev_wrapper \
 	wireless_set_retry \
 
 wireless_vif_parse_encryption() {
+<<<<<<< HEAD
 	json_get_vars encryption rsn_override
 	set_default encryption none
 
@@ -218,11 +230,20 @@ wireless_vif_parse_encryption() {
 	auth_type=none
 	wpa_override_cipher=
 	rsn_override_pairwise=
+=======
+	json_get_vars encryption
+	set_default encryption none
+
+	auth_mode_open=1
+	auth_mode_shared=0
+	auth_type=none
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	if [ "$hwmode" = "ad" ]; then
 		wpa_cipher="GCMP"
 	else
 		wpa_cipher="CCMP"
+<<<<<<< HEAD
 		case "$encryption" in
 			sae*|wpa3*|psk3*|owe)
 				if [ "$rsn_override" -gt 0 ]; then
@@ -232,6 +253,8 @@ wireless_vif_parse_encryption() {
 				fi
 			;;
 		esac
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	fi
 
 	case "$encryption" in
@@ -242,7 +265,10 @@ wireless_vif_parse_encryption() {
 		*gcmp256) wpa_cipher="GCMP-256";;
 		*gcmp) wpa_cipher="GCMP";;
 		wpa3-192*) wpa_cipher="GCMP-256";;
+<<<<<<< HEAD
 		*) rsn_override_pairwise="$wpa_override_cipher";;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	esac
 
 	# 802.11n requires CCMP for WPA
@@ -308,6 +334,15 @@ wireless_vif_parse_encryption() {
 			esac
 		;;
 	esac
+<<<<<<< HEAD
+=======
+
+	case "$encryption" in
+		*osen*)
+			auth_osen=1
+		;;
+	esac
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 _wireless_set_brsnoop_isolation() {

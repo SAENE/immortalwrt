@@ -12,7 +12,10 @@ CPU_TYPE:=xscale
 SUBTARGETS:=generic
 
 KERNEL_PATCHVER:=6.6
+<<<<<<< HEAD
 KERNEL_TESTING_PATCHVER:=6.12
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 include $(INCLUDE_DIR)/target.mk
 

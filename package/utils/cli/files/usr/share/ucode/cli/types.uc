@@ -58,6 +58,7 @@ const types = {
 			return;
 		}
 	},
+<<<<<<< HEAD
 	json: {
 		parse: function(ctx, name, val) {
 			try {
@@ -70,6 +71,8 @@ const types = {
 			return val;
 		}
 	},
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	enum: {
 		parse: function(ctx, name, val) {
 			if (this.no_validate)

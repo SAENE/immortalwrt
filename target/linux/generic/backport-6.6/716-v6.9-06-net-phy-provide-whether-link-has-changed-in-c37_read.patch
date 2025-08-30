@@ -41,7 +41,11 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  
 --- a/drivers/net/phy/phy_device.c
 +++ b/drivers/net/phy/phy_device.c
+<<<<<<< HEAD
 @@ -2617,12 +2617,15 @@ EXPORT_SYMBOL(genphy_read_status);
+=======
+@@ -2615,12 +2615,15 @@ EXPORT_SYMBOL(genphy_read_status);
+>>>>>>> 94392b39ec (稳定版本发布)
  /**
   * genphy_c37_read_status - check the link status and update current link state
   * @phydev: target phy_device struct
@@ -58,7 +62,11 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  {
  	int lpa, err, old_link = phydev->link;
  
+<<<<<<< HEAD
 @@ -2632,9 +2635,13 @@ int genphy_c37_read_status(struct phy_de
+=======
+@@ -2630,9 +2633,13 @@ int genphy_c37_read_status(struct phy_de
+>>>>>>> 94392b39ec (稳定版本发布)
  		return err;
  
  	/* why bother the PHY if nothing can have changed */
@@ -89,7 +97,11 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
  }
 --- a/include/linux/phy.h
 +++ b/include/linux/phy.h
+<<<<<<< HEAD
 @@ -1846,7 +1846,7 @@ int genphy_write_mmd_unsupported(struct
+=======
+@@ -1849,7 +1849,7 @@ int genphy_write_mmd_unsupported(struct
+>>>>>>> 94392b39ec (稳定版本发布)
  
  /* Clause 37 */
  int genphy_c37_config_aneg(struct phy_device *phydev);

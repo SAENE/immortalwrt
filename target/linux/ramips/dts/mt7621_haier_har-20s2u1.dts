@@ -6,6 +6,7 @@
 	compatible = "haier,har-20s2u1", "mediatek,mt7621-soc";
 	model = "Haier HAR-20S2U1";
 };
+<<<<<<< HEAD
 
 &ethphy4 {
 	/delete-property/ interrupts;
@@ -26,3 +27,5 @@
 		};
 	};
 };
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

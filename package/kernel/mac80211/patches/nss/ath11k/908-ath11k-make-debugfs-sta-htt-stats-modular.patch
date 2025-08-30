@@ -40,7 +40,11 @@
  ath11k-$(CPTCFG_ATH11K_THERMAL) += thermal.o
 --- a/drivers/net/wireless/ath/ath11k/debugfs.c
 +++ b/drivers/net/wireless/ath/ath11k/debugfs.c
+<<<<<<< HEAD
 @@ -1754,7 +1754,9 @@ int ath11k_debugfs_register(struct ath11
+=======
+@@ -1876,7 +1876,9 @@ int ath11k_debugfs_register(struct ath11
+>>>>>>> 94392b39ec (稳定版本发布)
  	snprintf(buf, 100, "../../ath11k/%pd2", ar->debug.debugfs_pdev);
  	debugfs_create_symlink("ath11k", ar->hw->wiphy->debugfsdir, buf);
  
@@ -176,7 +180,11 @@
  	spin_unlock_bh(&ab->base_lock);
 --- a/drivers/net/wireless/ath/ath11k/mac.c
 +++ b/drivers/net/wireless/ath/ath11k/mac.c
+<<<<<<< HEAD
 @@ -10479,7 +10479,7 @@ static const struct ieee80211_ops ath11k
+=======
+@@ -10379,7 +10379,7 @@ static const struct ieee80211_ops ath11k
+>>>>>>> 94392b39ec (稳定版本发布)
  	.set_wakeup			= ath11k_wow_op_set_wakeup,
  #endif
  
@@ -187,7 +195,11 @@
  #endif
 --- a/local-symbols
 +++ b/local-symbols
+<<<<<<< HEAD
 @@ -164,6 +164,8 @@ ATH11K_MEM_PROFILE_256M=
+=======
+@@ -170,6 +170,8 @@ ATH11K_MEM_PROFILE_256M=
+>>>>>>> 94392b39ec (稳定版本发布)
  ATH11K_MEM_PROFILE_512M=
  ATH11K_DEBUG=
  ATH11K_DEBUGFS=

@@ -10,13 +10,22 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=mac80211
 
+<<<<<<< HEAD
 PKG_VERSION:=6.16
 PKG_RELEASE:=1
+=======
+PKG_VERSION:=6.12.6
+PKG_RELEASE:=2
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=COPYING
 
 PKG_SOURCE_URL:=http://mirror2.openwrt.org/sources/
+<<<<<<< HEAD
 PKG_HASH:=67f11320509dd18e5e2c58cb81e9f6c7d19b09f5229baa5880ed4dab71c19052
+=======
+PKG_HASH:=28ec39425a1b3270e1422d92a8131a6a3d8919cc13e8ee250c315e55d922ba68
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_SOURCE:=backports-$(PKG_VERSION).tar.xz
 PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/$(if $(BUILD_VARIANT),$(PKG_NAME)-$(BUILD_VARIANT)/)backports-$(PKG_VERSION)
@@ -45,7 +54,15 @@ PKG_CONFIG_DEPENDS:= \
 include $(INCLUDE_DIR)/package.mk
 
 WMENU:=Wireless Drivers
+<<<<<<< HEAD
 NSS_PATCH:= subsys ath10k ath11k
+=======
+
+NSS_PATCH:= subsys ath10k ath11k
+IPQ_BRANCH:=$(shell git -C $(TOPDIR) rev-parse --abbrev-ref HEAD)
+IPQ_DATE:=$(shell git -C $(TOPDIR) log -1 --format=%cd --date=format:%Y-%m-%d)
+IPQ_COMMIT:=$(shell git -C $(TOPDIR) log -1 --format=%h)
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define KernelPackage/mac80211/Default
   SUBMENU:=$(WMENU)
@@ -98,7 +115,10 @@ include ralink.mk
 include realtek.mk
 
 PKG_CONFIG_DEPENDS += \
+<<<<<<< HEAD
 	CONFIG_WIFI_SCRIPTS_UCODE \
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	$(patsubst %,CONFIG_PACKAGE_kmod-%,$(PKG_DRIVERS))
 
 define KernelPackage/cfg80211
@@ -368,6 +388,10 @@ ifeq ($(strip $(CONFIG_EXTERNAL_KERNEL_TREE)),"")
   ifeq ($(strip $(CONFIG_KERNEL_GIT_CLONE_URI)),"")
     define Build/Configure
 	  cmp $(PKG_BUILD_DIR)/include/linux/ath5k_platform.h $(LINUX_DIR)/include/linux/ath5k_platform.h
+<<<<<<< HEAD
+=======
+	  cmp $(PKG_BUILD_DIR)/include/linux/rt2x00_platform.h $(LINUX_DIR)/include/linux/rt2x00_platform.h
+>>>>>>> 94392b39ec (稳定版本发布)
     endef
   endif
 endif
@@ -442,6 +466,12 @@ define KernelPackage/ath11k/install
 	$(INSTALL_DATA) ./files/pbuf.uci $(1)/etc/config/pbuf
 	$(INSTALL_BIN) ./files/nss_diag.sh $(1)/usr/bin/nss_diag
 	$(INSTALL_DATA) ./files/disable_mesh_chksum_ath11k.hotplug $(1)/etc/hotplug.d/net/99-disable_mesh_chksum_ath11k
+<<<<<<< HEAD
+=======
+	echo "IPQ_BRANCH=$(IPQ_BRANCH)" > $(1)/etc/ipq_release
+	echo "IPQ_DATE=$(IPQ_DATE)" >> $(1)/etc/ipq_release
+	echo "IPQ_COMMIT=$(IPQ_COMMIT)" >> $(1)/etc/ipq_release
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 endif
 

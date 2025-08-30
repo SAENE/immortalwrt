@@ -3,8 +3,11 @@
 /dts-v1/;
 /plugin/;
 
+<<<<<<< HEAD
 #include <dt-bindings/pinctrl/mt65xx.h>
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 / {
 	compatible = "cmcc,rax3000m", "cmcc,rax3000me", "mediatek,mt7981";
 
@@ -42,14 +45,24 @@
 
 				conf-pu {
 					pins = "SPI0_CS", "SPI0_HOLD", "SPI0_WP";
+<<<<<<< HEAD
 					drive-strength = <MTK_DRIVE_8mA>;
 					bias-disable; /* bias-disable */
+=======
+					drive-strength = <8>;
+					mediatek,pull-up-adv = <0>; /* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 				};
 
 				conf-pd {
 					pins = "SPI0_CLK", "SPI0_MOSI", "SPI0_MISO";
+<<<<<<< HEAD
 					drive-strength = <MTK_DRIVE_8mA>;
 					bias-disable; /* bias-disable */
+=======
+					drive-strength = <8>;
+					mediatek,pull-up-adv = <0>; /* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 				};
 			};
 		};

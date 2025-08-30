@@ -32,6 +32,7 @@ export function append(key, value) {
 	append_raw(key + '=' + value);
 };
 
+<<<<<<< HEAD
 function escape_string(value) {
 	let chars = map(split(value, ''), (v) => ord(v));
 	if (length(filter(chars, (v) => (v < 32 || v >= 128))) > 0)
@@ -47,16 +48,21 @@ export function append_string(key, value) {
 	append(key, escape_string(value));
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 export function append_vars(dict, keys) {
 	for (let key in keys)
 		append(key, dict[key]);
 };
 
+<<<<<<< HEAD
 export function append_string_vars(dict, keys) {
 	for (let key in keys)
 		append_string(key, dict[key]);
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 export function network_append_raw(value) {
 	network_data += value + '\n';
 };
@@ -77,6 +83,7 @@ export function network_append(key, value) {
 	network_append_raw('\t' + key + '=' + value);
 };
 
+<<<<<<< HEAD
 export function network_append_string(key, value) {
 	if (value == null)
 		return;
@@ -84,16 +91,21 @@ export function network_append_string(key, value) {
 	network_append_raw('\t' + key + '=' + escape_string(value));
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 export function network_append_vars(dict, keys) {
 	for (let key in keys)
 		network_append(key, dict[key]);
 };
 
+<<<<<<< HEAD
 export function network_append_string_vars(dict, keys) {
 	for (let key in keys)
 		network_append_string(key, dict[key]);
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 export function set_default(dict, key, value) {
 	if (dict[key] == null)
 		dict[key] = value;

@@ -1521,7 +1521,11 @@ int rt3050_esw_init(struct fe_priv *priv)
 
 static struct platform_driver esw_driver = {
 	.probe = esw_probe,
+<<<<<<< HEAD
 	.remove = esw_remove,
+=======
+	.remove_new = esw_remove,
+>>>>>>> 94392b39ec (稳定版本发布)
 	.driver = {
 		.name = "rt3050-esw",
 		.of_match_table = ralink_esw_match,

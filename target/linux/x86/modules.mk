@@ -99,6 +99,7 @@ endef
 
 $(eval $(call KernelPackage,ib700-wdt))
 
+<<<<<<< HEAD
 
 define KernelPackage/intel-lpss
   SUBMENU:=$(OTHER_MENU)
@@ -155,6 +156,8 @@ endef
 $(eval $(call KernelPackage,intel-lpss-pci))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/it87-wdt
   SUBMENU:=$(OTHER_MENU)
   TITLE:=ITE IT87 Watchdog Timer

@@ -11,7 +11,11 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
 
 --- a/drivers/mtd/nand/spi/core.c
 +++ b/drivers/mtd/nand/spi/core.c
+<<<<<<< HEAD
 @@ -1154,6 +1154,56 @@ static int spinand_manufacturer_match(st
+=======
+@@ -1155,6 +1155,56 @@ static int spinand_manufacturer_match(st
+>>>>>>> 94392b39ec (稳定版本发布)
  	return -EOPNOTSUPP;
  }
  
@@ -68,7 +72,11 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
  static int spinand_id_detect(struct spinand_device *spinand)
  {
  	u8 *id = spinand->id.data;
+<<<<<<< HEAD
 @@ -1405,6 +1455,10 @@ static int spinand_init(struct spinand_d
+=======
+@@ -1406,6 +1456,10 @@ static int spinand_init(struct spinand_d
+>>>>>>> 94392b39ec (稳定版本发布)
  	if (!spinand->scratchbuf)
  		return -ENOMEM;
  

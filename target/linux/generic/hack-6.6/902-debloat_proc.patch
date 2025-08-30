@@ -235,7 +235,11 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  	if (!pe)
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
+<<<<<<< HEAD
 @@ -4458,6 +4458,8 @@ static const struct seq_operations vmall
+=======
+@@ -4450,6 +4450,8 @@ static const struct seq_operations vmall
+>>>>>>> 94392b39ec (稳定版本发布)
  
  static int __init proc_vmalloc_init(void)
  {
@@ -396,7 +400,11 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  }
 --- a/net/ipv4/route.c
 +++ b/net/ipv4/route.c
+<<<<<<< HEAD
 @@ -385,6 +385,9 @@ static struct pernet_operations ip_rt_pr
+=======
+@@ -381,6 +381,9 @@ static struct pernet_operations ip_rt_pr
+>>>>>>> 94392b39ec (稳定版本发布)
  
  static int __init ip_rt_proc_init(void)
  {

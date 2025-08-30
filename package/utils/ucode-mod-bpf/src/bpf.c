@@ -620,7 +620,11 @@ uc_bpf_map_pin(uc_vm_t *vm, size_t nargs)
 
 static uc_value_t *
 uc_bpf_set_tc_hook(uc_value_t *ifname, uc_value_t *type, uc_value_t *prio,
+<<<<<<< HEAD
 		   uc_value_t *classid, int fd)
+=======
+		   int fd)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	DECLARE_LIBBPF_OPTS(bpf_tc_hook, hook);
 	DECLARE_LIBBPF_OPTS(bpf_tc_opts, attach_tc,
@@ -657,7 +661,10 @@ uc_bpf_set_tc_hook(uc_value_t *ifname, uc_value_t *type, uc_value_t *prio,
 		goto out;
 
 	attach_tc.prog_fd = fd;
+<<<<<<< HEAD
 	attach_tc.classid = ucv_int64_get(classid);
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	if (bpf_tc_attach(&hook, &attach_tc) < 0)
 		goto error;
 
@@ -677,12 +684,19 @@ uc_bpf_program_tc_attach(uc_vm_t *vm, size_t nargs)
 	uc_value_t *ifname = uc_fn_arg(0);
 	uc_value_t *type = uc_fn_arg(1);
 	uc_value_t *prio = uc_fn_arg(2);
+<<<<<<< HEAD
 	uc_value_t *classid = uc_fn_arg(3);
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	if (!f)
 		err_return(EINVAL, NULL);
 
+<<<<<<< HEAD
 	return uc_bpf_set_tc_hook(ifname, type, prio, classid, f->fd);
+=======
+	return uc_bpf_set_tc_hook(ifname, type, prio, f->fd);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static uc_value_t *
@@ -692,7 +706,11 @@ uc_bpf_tc_detach(uc_vm_t *vm, size_t nargs)
 	uc_value_t *type = uc_fn_arg(1);
 	uc_value_t *prio = uc_fn_arg(2);
 
+<<<<<<< HEAD
 	return uc_bpf_set_tc_hook(ifname, type, prio, NULL, -1);
+=======
+	return uc_bpf_set_tc_hook(ifname, type, prio, -1);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static int

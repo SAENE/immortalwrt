@@ -121,9 +121,13 @@
 				};
 
 				macaddr_factory_1fdfa: macaddr@1fdfa {
+<<<<<<< HEAD
 					compatible = "mac-base";
 					reg = <0x1fdfa 0x6>;
 					#nvmem-cell-cells = <1>;
+=======
+					reg = <0x1fdfa 0x6>;
+>>>>>>> 94392b39ec (稳定版本发布)
 				};
 
 				macaddr_factory_1fdf4: macaddr@1fdf4 {
@@ -182,7 +186,11 @@
 };
 
 &gmac0 {
+<<<<<<< HEAD
 	nvmem-cells = <&macaddr_factory_1fdfa 0>;
+=======
+	nvmem-cells = <&macaddr_factory_1fdfa>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	nvmem-cell-names = "mac-address";
 };
 
@@ -210,6 +218,7 @@
 		nvmem-cells = <&eeprom_factory_0>, <&precal_factory_e10>;
 		nvmem-cell-names = "eeprom", "precal";
 		mediatek,disable-radar-background;
+<<<<<<< HEAD
 
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -225,6 +234,8 @@
 			nvmem-cells = <&macaddr_factory_1fdfa 2>;
 			nvmem-cell-names = "mac-address";
 		};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 

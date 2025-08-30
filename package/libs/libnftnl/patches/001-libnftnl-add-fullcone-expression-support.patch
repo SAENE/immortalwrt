@@ -15,7 +15,11 @@ Signed-off-by: Syrone Wong <wong.syrone@gmail.com>
 
 --- a/include/libnftnl/expr.h
 +++ b/include/libnftnl/expr.h
+<<<<<<< HEAD
 @@ -273,6 +273,13 @@ enum {
+=======
+@@ -272,6 +272,13 @@ enum {
+>>>>>>> 94392b39ec (稳定版本发布)
  };
  
  enum {
@@ -31,7 +35,11 @@ Signed-off-by: Syrone Wong <wong.syrone@gmail.com>
  	NFTNL_EXPR_REDIR_FLAGS,
 --- a/include/linux/netfilter/nf_tables.h
 +++ b/include/linux/netfilter/nf_tables.h
+<<<<<<< HEAD
 @@ -1504,6 +1504,22 @@ enum nft_masq_attributes {
+=======
+@@ -1464,6 +1464,22 @@ enum nft_masq_attributes {
+>>>>>>> 94392b39ec (稳定版本发布)
  #define NFTA_MASQ_MAX		(__NFTA_MASQ_MAX - 1)
  
  /**
@@ -56,7 +64,11 @@ Signed-off-by: Syrone Wong <wong.syrone@gmail.com>
   * @NFTA_REDIR_REG_PROTO_MIN: source register of proto range start (NLA_U32: nft_registers)
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
+<<<<<<< HEAD
 @@ -56,6 +56,7 @@ libnftnl_la_SOURCES = utils.c		\
+=======
+@@ -55,6 +55,7 @@ libnftnl_la_SOURCES = utils.c		\
+>>>>>>> 94392b39ec (稳定版本发布)
  		      expr/target.c	\
  		      expr/tunnel.c	\
  		      expr/masq.c	\

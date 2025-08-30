@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --- a/drivers/net/wireless/ath/ath11k/core.c
 +++ b/drivers/net/wireless/ath/ath11k/core.c
 @@ -44,6 +44,7 @@ module_param_named(ftm_mode, ath11k_ftm_
@@ -42,6 +43,8 @@
  };
  
  static const struct dmi_system_id ath11k_pm_quirk_table[] = {
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 --- a/drivers/net/wireless/ath/ath11k/hw.c
 +++ b/drivers/net/wireless/ath/ath11k/hw.c
 @@ -1043,6 +1043,7 @@ static void ath11k_hw_wcn6855_reo_setup(

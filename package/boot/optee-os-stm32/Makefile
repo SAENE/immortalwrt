@@ -7,10 +7,17 @@
 
 include $(TOPDIR)/rules.mk
 
+<<<<<<< HEAD
 PKG_VERSION:=4.7.0
 PKG_RELEASE:=1
 
 PKG_HASH:=976b9c184678516038d4e79766608e81d10bf136f76fd0db2dc48f90f994fbd9
+=======
+PKG_VERSION:=4.6.0
+PKG_RELEASE:=1
+
+PKG_HASH:=0c947c6972bf50c483cb993af01041d4094b1e03711c7246cdde6ba2ffc351fe
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_MAINTAINER:=Thomas Richard <thomas.richard@bootlin.com>
 
 OPTEE_USE_INTREE_DTC:=1

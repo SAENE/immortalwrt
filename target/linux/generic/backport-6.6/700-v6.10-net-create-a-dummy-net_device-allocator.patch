@@ -37,7 +37,11 @@ Signed-off-by: David S. Miller <davem@davemloft.net>
 
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
+<<<<<<< HEAD
 @@ -4581,6 +4581,9 @@ static inline void netif_addr_unlock_bh(
+=======
+@@ -4580,6 +4580,9 @@ static inline void netif_addr_unlock_bh(
+>>>>>>> 94392b39ec (稳定版本发布)
  
  void ether_setup(struct net_device *dev);
  

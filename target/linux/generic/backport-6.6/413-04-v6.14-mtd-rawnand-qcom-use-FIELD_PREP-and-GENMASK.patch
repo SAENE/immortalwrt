@@ -104,7 +104,11 @@ Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
  
  	if (!nandc->props->qpic_version2)
  		host->ecc_buf_cfg = 0x203 << NUM_STEPS;
+<<<<<<< HEAD
 @@ -1887,21 +1886,21 @@ static int qcom_param_page_type_exec(str
+=======
+@@ -1882,21 +1881,21 @@ static int qcom_param_page_type_exec(str
+>>>>>>> 94392b39ec (稳定版本发布)
  	nandc->regs->addr0 = 0;
  	nandc->regs->addr1 = 0;
  

@@ -1,6 +1,9 @@
 DTS_DIR := $(DTS_DIR)/mediatek
+<<<<<<< HEAD
 DEVICE_VARS += SUPPORTED_TELTONIKA_DEVICES
 DEVICE_VARS += SUPPORTED_TELTONIKA_HW_MODS
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define Image/Prepare
 	# For UBI we want only one extra block
@@ -32,6 +35,7 @@ define Build/mt7988-bl31-uboot
 	cat $(STAGING_DIR_IMAGE)/mt7988_$1-u-boot.fip >> $@
 endef
 
+<<<<<<< HEAD
 define Build/simplefit
 	cp $@ $@.tmp 2>/dev/null || true
 	ptgen -g -o $@.tmp -a 1 -l 1024 \
@@ -40,6 +44,8 @@ define Build/simplefit
 	rm $@.tmp
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/mt798x-gpt
 	cp $@ $@.tmp 2>/dev/null || true
 	ptgen -g -o $@.tmp -a 1 -l 1024 \
@@ -84,6 +90,7 @@ define Build/append-openwrt-one-eeprom
 	dd if=$(STAGING_DIR_IMAGE)/mt7981_eeprom_mt7976_dbdc.bin >> $@
 endef
 
+<<<<<<< HEAD
 define Build/mstc-header
   $(eval version=$(word 1,$(1)))
   $(eval magic=$(word 2,$(1)))
@@ -100,6 +107,8 @@ define Build/mstc-header
   mv $@.new $@
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/zyxel-nwa-fit-filogic
 	$(TOPDIR)/scripts/mkits-zyxel-fit-filogic.sh \
 		$@.its $@ "80 e1 ff ff ff ff ff ff ff ff"
@@ -195,6 +204,7 @@ define Device/acer_predator-w6d
 endef
 TARGET_DEVICES += acer_predator-w6d
 
+<<<<<<< HEAD
 define Device/acer_predator-w6x
   DEVICE_VENDOR := Acer
   DEVICE_MODEL := Predator Connect W6x
@@ -212,6 +222,8 @@ define Device/acer_predator-w6x
 endef
 TARGET_DEVICES += acer_predator-w6x
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/acer_vero-w6m
   DEVICE_VENDOR := Acer
   DEVICE_MODEL := Connect Vero W6m
@@ -716,7 +728,11 @@ define Device/cmcc_rax3000m_common
   IMAGE/sysupgrade.itb := append-kernel | \
 	fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-static-with-rootfs | \
 	pad-rootfs | append-metadata
+<<<<<<< HEAD
   ARTIFACTS := emmc-gpt.bin
+=======
+  ARTIFACTS := emmc-gpt.bin emmc-preloader.bin emmc-bl31-uboot.fip
+>>>>>>> 94392b39ec (稳定版本发布)
   ARTIFACT/emmc-gpt.bin := mt798x-gpt emmc
 endef
 
@@ -725,8 +741,12 @@ define Device/cmcc_rax3000m
   DEVICE_MODEL := RAX3000M
   DEVICE_DTS := mt7981b-cmcc-rax3000m
   $(call Device/cmcc_rax3000m_common)
+<<<<<<< HEAD
   ARTIFACTS += emmc-preloader.bin emmc-bl31-uboot.fip \
 	nand-preloader.bin nand-bl31-uboot.fip
+=======
+  ARTIFACTS += nand-preloader.bin nand-bl31-uboot.fip
+>>>>>>> 94392b39ec (稳定版本发布)
   ARTIFACT/emmc-preloader.bin := mt7981-bl2 emmc-ddr4
   ARTIFACT/emmc-bl31-uboot.fip := mt7981-bl31-uboot cmcc_rax3000m-emmc
   ARTIFACT/nand-preloader.bin := mt7981-bl2 spim-nand-ddr4
@@ -740,6 +760,7 @@ define Device/cmcc_rax3000me
   DEVICE_DTS := mt7981b-cmcc-rax3000me
   $(call Device/cmcc_rax3000m_common)
   DEVICE_DTS_OVERLAY += mt7981b-cmcc-rax3000me-nousb
+<<<<<<< HEAD
   ARTIFACTS += emmc-ddr3-preloader.bin emmc-ddr3-bl31-uboot.fip \
 	emmc-ddr4-preloader.bin emmc-ddr4-bl31-uboot.fip \
 	nand-ddr3-preloader.bin nand-ddr3-bl31-uboot.fip \
@@ -748,6 +769,12 @@ define Device/cmcc_rax3000me
   ARTIFACT/emmc-ddr3-bl31-uboot.fip := mt7981-bl31-uboot cmcc_rax3000me-emmc-ddr3
   ARTIFACT/emmc-ddr4-preloader.bin := mt7981-bl2 emmc-ddr4
   ARTIFACT/emmc-ddr4-bl31-uboot.fip := mt7981-bl31-uboot cmcc_rax3000me-emmc-ddr4
+=======
+  ARTIFACTS += nand-ddr3-preloader.bin nand-ddr3-bl31-uboot.fip \
+	nand-ddr4-preloader.bin nand-ddr4-bl31-uboot.fip
+  ARTIFACT/emmc-preloader.bin := mt7981-bl2 emmc-ddr3
+  ARTIFACT/emmc-bl31-uboot.fip := mt7981-bl31-uboot cmcc_rax3000me-emmc
+>>>>>>> 94392b39ec (稳定版本发布)
   ARTIFACT/nand-ddr3-preloader.bin := mt7981-bl2 spim-nand-ddr3
   ARTIFACT/nand-ddr3-bl31-uboot.fip := mt7981-bl31-uboot cmcc_rax3000me-nand-ddr3
   ARTIFACT/nand-ddr4-preloader.bin := mt7981-bl2 spim-nand-ddr4
@@ -798,6 +825,7 @@ define Device/confiabits_mt7981
 endef
 TARGET_DEVICES += confiabits_mt7981
 
+<<<<<<< HEAD
 define Device/creatlentem_clt-r30b1-common
   DEVICE_VENDOR := CreatLentem
   DEVICE_MODEL := CLT-R30B1
@@ -833,6 +861,8 @@ define Device/creatlentem_clt-r30b1
 endef
 TARGET_DEVICES += creatlentem_clt-r30b1
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/cudy_ap3000outdoor-v1
   DEVICE_VENDOR := Cudy
   DEVICE_MODEL := AP3000 Outdoor
@@ -908,6 +938,7 @@ define Device/cudy_re3000-v1
 endef
 TARGET_DEVICES += cudy_re3000-v1
 
+<<<<<<< HEAD
 define Device/cudy_tr3000-256mb-v1
   DEVICE_VENDOR := Cudy
   DEVICE_MODEL := TR3000
@@ -925,6 +956,8 @@ define Device/cudy_tr3000-256mb-v1
 endef
 TARGET_DEVICES += cudy_tr3000-256mb-v1
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/cudy_tr3000-v1
   DEVICE_VENDOR := Cudy
   DEVICE_MODEL := TR3000
@@ -1048,10 +1081,14 @@ define Device/dlink_aquila-pro-ai-m30-a1
   IMAGES += recovery.bin
   IMAGE_SIZE := 51200k
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+<<<<<<< HEAD
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
   IMAGE/recovery.bin := append-image-stage initramfs-kernel.bin | sysupgrade-tar kernel=$$$$@ |\
     pad-to $$(IMAGE_SIZE) | dlink-ai-recovery-header DLK6E6110001 \x6A\x28\xEE\x0B \x00\x00\x2C\x00 \x00\x00\x20\x03 \x61\x6E
 endif
+=======
+  IMAGE/recovery.bin := sysupgrade-tar | pad-to $$(IMAGE_SIZE) | dlink-ai-recovery-header DLK6E6110001 \x6A\x28\xEE\x0B \x00\x00\x2C\x00 \x00\x00\x20\x03 \x61\x6E
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += dlink_aquila-pro-ai-m30-a1
 
@@ -1065,10 +1102,14 @@ define Device/dlink_aquila-pro-ai-m60-a1
   IMAGES += recovery.bin
   IMAGE_SIZE := 51200k
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+<<<<<<< HEAD
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
   IMAGE/recovery.bin := append-image-stage initramfs-kernel.bin | sysupgrade-tar kernel=$$$$@ |\
     pad-to $$(IMAGE_SIZE) | dlink-ai-recovery-header DLK6E8202001 \x30\x6C\x19\x0C \x00\x00\x2C\x00 \x00\x00\x20\x03 \x82\x6E
 endif
+=======
+  IMAGE/recovery.bin := sysupgrade-tar | pad-to $$(IMAGE_SIZE) | dlink-ai-recovery-header DLK6E8202001 \x30\x6C\x19\x0C \x00\x00\x2C\x00 \x00\x00\x20\x03 \x82\x6E
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += dlink_aquila-pro-ai-m60-a1
 
@@ -1090,6 +1131,7 @@ define Device/edgecore_eap111
 endef
 TARGET_DEVICES += edgecore_eap111
 
+<<<<<<< HEAD
 define Device/elecom_wrc-x3000gs3
   DEVICE_VENDOR := ELECOM
   DEVICE_MODEL := WRC-X3000GS3
@@ -1103,10 +1145,13 @@ define Device/elecom_wrc-x3000gs3
 endef
 TARGET_DEVICES += elecom_wrc-x3000gs3
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/gatonetworks_gdsp
   DEVICE_VENDOR := GatoNetworks
   DEVICE_MODEL := gdsp
   DEVICE_DTS := mt7981b-gatonetworks-gdsp
+<<<<<<< HEAD
   DEVICE_DTS_OVERLAY := \
   mt7981b-gatonetworks-gdsp-gps \
   mt7981b-gatonetworks-gdsp-sd \
@@ -1124,6 +1169,17 @@ define Device/gatonetworks_gdsp
   ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot gatonetworks_gdsp
   ARTIFACT/sdcard.img.gz := simplefit |\
   append-image squashfs-sysupgrade.itb | check-size | gzip
+=======
+  DEVICE_DTS_DIR := ../dts
+  IMAGES := sysupgrade.itb
+  IMAGE_SIZE := 32768k
+  DEVICE_PACKAGES := fitblk kmod-mt7915e kmod-mt7981-firmware \
+    kmod-usb-net-qmi-wwan kmod-usb-serial-option kmod-usb3 \
+    mt7981-wo-firmware -kmod-phy-aquantia automount
+  ARTIFACTS := preloader.bin bl31-uboot.fip
+  ARTIFACT/preloader.bin := mt7981-bl2 nor-ddr3
+  ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot gatonetworks_gdsp
+>>>>>>> 94392b39ec (稳定版本发布)
   KERNEL := kernel-bin | gzip
   KERNEL_INITRAMFS := kernel-bin | lzma | \
 	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
@@ -1140,12 +1196,17 @@ define Device/glinet_gl-mt2500
   DEVICE_DTS_LOADADDR := 0x47000000
   DEVICE_PACKAGES := -wpad-openssl e2fsprogs f2fsck mkf2fs kmod-usb3 automount
   SUPPORTED_DEVICES += glinet,mt2500-emmc glinet,gl-mt2500-airoha
+<<<<<<< HEAD
   IMAGES := sysupgrade.bin factory.bin
   IMAGE/factory.bin := append-kernel | pad-to 32M | append-rootfs
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-gl-metadata
   ARTIFACTS := emmc-preloader.bin emmc-bl31-uboot.fip
   ARTIFACT/emmc-preloader.bin := mt7981-bl2 emmc-ddr4
   ARTIFACT/emmc-bl31-uboot.fip := mt7981-bl31-uboot glinet_gl-mt2500
+=======
+  IMAGES := sysupgrade.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-gl-metadata
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += glinet_gl-mt2500
 
@@ -1157,7 +1218,11 @@ define Device/glinet_gl-mt2500-airoha
   DEVICE_DTS_DIR := ../dts
   DEVICE_DTS_LOADADDR := 0x47000000
   DEVICE_PACKAGES := -wpad-openssl e2fsprogs f2fsck mkf2fs kmod-usb3 \
+<<<<<<< HEAD
 	kmod-phy-airoha-en8811h airoha-en8811h-firmware automount
+=======
+		kmod-phy-airoha-en8811h airoha-en8811h-firmware automount
+>>>>>>> 94392b39ec (稳定版本发布)
   SUPPORTED_DEVICES += glinet,mt2500-emmc glinet,gl-mt2500
   IMAGES := sysupgrade.bin
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-gl-metadata
@@ -1254,6 +1319,31 @@ define Device/h3c_magic-nx30-pro
 endef
 TARGET_DEVICES += h3c_magic-nx30-pro
 
+<<<<<<< HEAD
+=======
+define Device/h3c_magic-nx30-pro-nmbm
+  DEVICE_VENDOR := H3C
+  DEVICE_MODEL := Magic NX30 Pro
+  DEVICE_VARIANT := (NMBM layout)
+  DEVICE_DTS := mt7981b-h3c-magic-nx30-pro-nmbm
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  IMAGE_SIZE := 65536k
+  KERNEL_IN_UBI := 1
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  KERNEL = kernel-bin | lzma | \
+        fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+  KERNEL_INITRAMFS = kernel-bin | lzma | \
+        fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
+endef
+TARGET_DEVICES += h3c_magic-nx30-pro-nmbm
+
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/huasifei_wh3000-emmc
   DEVICE_VENDOR := Huasifei
   DEVICE_MODEL := WH3000 eMMC
@@ -1271,6 +1361,7 @@ define Device/huasifei_wh3000-emmc
 endef
 TARGET_DEVICES += huasifei_wh3000-emmc
 
+<<<<<<< HEAD
 define Device/huasifei_wh3000-pro
   DEVICE_VENDOR := Huasifei
   DEVICE_MODEL := WH3000 Pro
@@ -1284,6 +1375,8 @@ define Device/huasifei_wh3000-pro
 endef
 TARGET_DEVICES += huasifei_wh3000-pro
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/imou_lc-hx3001
   DEVICE_VENDOR := Imou
   DEVICE_MODEL := LC-HX3001
@@ -1308,6 +1401,7 @@ define Device/imou_lc-hx3001
 endef
 TARGET_DEVICES += imou_lc-hx3001
 
+<<<<<<< HEAD
 define Device/iptime_ax3000q
   DEVICE_VENDOR := ipTIME
   DEVICE_MODEL := AX3000Q
@@ -1346,6 +1440,8 @@ define Device/iptime_ax3000sm
 endef
 TARGET_DEVICES += iptime_ax3000sm
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/jcg_q30-pro
   DEVICE_VENDOR := JCG
   DEVICE_MODEL := Q30 PRO
@@ -1643,7 +1739,11 @@ define Device/mediatek_mt7988a-rfb
   DEVICE_DTS_DIR := $(DTS_DIR)/
   DEVICE_DTC_FLAGS := --pad 4096
   DEVICE_DTS_LOADADDR := 0x45f00000
+<<<<<<< HEAD
   DEVICE_PACKAGES := mt7988-2p5g-phy-firmware kmod-sfp kmod-phy-aquantia
+=======
+  DEVICE_PACKAGES := mt7988-2p5g-phy-firmware kmod-sfp
+>>>>>>> 94392b39ec (稳定版本发布)
   KERNEL_LOADADDR := 0x46000000
   KERNEL := kernel-bin | gzip
   KERNEL_INITRAMFS := kernel-bin | lzma | \
@@ -1863,7 +1963,11 @@ define Device/nradio_c8-668gl
   DEVICE_DTS_DIR := ../dts
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware \
 	kmod-usb-serial-option kmod-usb-net-cdc-ether kmod-usb-net-qmi-wwan \
+<<<<<<< HEAD
 	kmod-usb3 automount
+=======
+	kmod-usb3
+>>>>>>> 94392b39ec (稳定版本发布)
   IMAGE_SIZE := 131072k
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata | check-size
 endef
@@ -1889,6 +1993,7 @@ define Device/openembed_som7981
 endef
 TARGET_DEVICES += openembed_som7981
 
+<<<<<<< HEAD
 define Device/openfi_6c
   DEVICE_VENDOR := OpenFi
   DEVICE_MODEL := 6C
@@ -1902,6 +2007,8 @@ define Device/openfi_6c
 endef
 TARGET_DEVICES += openfi_6c
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/openwrt_one
   DEVICE_VENDOR := OpenWrt
   DEVICE_MODEL := One
@@ -1909,8 +2016,12 @@ define Device/openwrt_one
   DEVICE_DTS_DIR := ../dts
   DEVICE_DTC_FLAGS := --pad 4096
   DEVICE_DTS_LOADADDR := 0x43f00000
+<<<<<<< HEAD
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware \
 	kmod-rtc-pcf8563 kmod-usb3 kmod-phy-airoha-en8811h automount
+=======
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware kmod-rtc-pcf8563 kmod-usb3 kmod-phy-airoha-en8811h
+>>>>>>> 94392b39ec (稳定版本发布)
   KERNEL_LOADADDR := 0x44000000
   KERNEL := kernel-bin | gzip
   KERNEL_INITRAMFS := kernel-bin | lzma | \
@@ -2007,7 +2118,11 @@ define Device/routerich_ax3000-ubootmod
   IMAGE/sysupgrade.itb := append-kernel | \
 	fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-static-with-rootfs | \
 	append-metadata
+<<<<<<< HEAD
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware kmod-usb3 mt7981-wo-firmware automount
+=======
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware kmod-usb3 mt7981-wo-firmware
+>>>>>>> 94392b39ec (稳定版本发布)
   ARTIFACTS := preloader.bin bl31-uboot.fip
   ARTIFACT/preloader.bin := mt7981-bl2 spim-nand-ddr3
   ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot routerich_ax3000
@@ -2020,7 +2135,11 @@ define Device/routerich_ax3000-v1
   DEVICE_VARIANT := v1
   DEVICE_DTS := mt7981b-routerich-ax3000-v1
   DEVICE_DTS_DIR := ../dts
+<<<<<<< HEAD
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware kmod-usb3 mt7981-wo-firmware automount
+=======
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware kmod-usb3 mt7981-wo-firmware
+>>>>>>> 94392b39ec (稳定版本发布)
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
   SUPPORTED_DEVICES += mediatek,mt7981-spim-snand-rfb
 endef
@@ -2061,6 +2180,7 @@ define Device/snr_snr-cpe-ax2
 endef
 TARGET_DEVICES += snr_snr-cpe-ax2
 
+<<<<<<< HEAD
 define Device/teltonika_rutc50
   DEVICE_VENDOR := Teltonika
   DEVICE_MODEL := RUTC50
@@ -2079,6 +2199,8 @@ define Device/teltonika_rutc50
 endef
 TARGET_DEVICES += teltonika_rutc50
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/tenbay_wr3000k
   DEVICE_VENDOR := Tenbay
   DEVICE_MODEL := WR3000K
@@ -2106,7 +2228,11 @@ define Device/tplink_archer-ax80-v1
   DEVICE_DTS := mt7986a-tplink-archer-ax80-v1
   DEVICE_DTS_DIR := ../dts
   DEVICE_PACKAGES := kmod-leds-lp5523 kmod-usb3 kmod-mt7915e \
+<<<<<<< HEAD
 	kmod-mt7986-firmware mt7986-wo-firmware automount
+=======
+		kmod-mt7986-firmware mt7986-wo-firmware automount
+>>>>>>> 94392b39ec (稳定版本发布)
   UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128k
   PAGESIZE := 2048
@@ -2115,6 +2241,7 @@ define Device/tplink_archer-ax80-v1
 endef
 TARGET_DEVICES += tplink_archer-ax80-v1
 
+<<<<<<< HEAD
 define Device/tplink_fr365-v1
   DEVICE_VENDOR := TP-Link
   DEVICE_MODEL := FR365
@@ -2135,6 +2262,8 @@ define Device/tplink_fr365-v1
 endef
 TARGET_DEVICES += tplink_fr365-v1
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/tplink_re6000xd
   DEVICE_VENDOR := TP-Link
   DEVICE_MODEL := RE6000XD
@@ -2149,6 +2278,7 @@ define Device/tplink_re6000xd
 endef
 TARGET_DEVICES += tplink_re6000xd
 
+<<<<<<< HEAD
 define Device/tplink_tl-7dr-common
   DEVICE_VENDOR := TP-Link
   DEVICE_DTS_DIR := ../dts
@@ -2201,6 +2331,8 @@ define Device/tplink_tl-7dr7250-v1
 endef
 TARGET_DEVICES += tplink_tl-7dr7250-v1
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/tplink_tl-xdr-common
   DEVICE_VENDOR := TP-Link
   DEVICE_DTS_DIR := ../dts
@@ -2287,6 +2419,7 @@ define Device/unielec_u7981-01-nand
 endef
 TARGET_DEVICES += unielec_u7981-01-nand
 
+<<<<<<< HEAD
 define Device/wavlink_wl-wn551x3
   DEVICE_VENDOR := WAVLINK
   DEVICE_MODEL := WL-WN551X3
@@ -2305,6 +2438,8 @@ define Device/wavlink_wl-wn551x3
 endef
 TARGET_DEVICES += wavlink_wl-wn551x3
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/wavlink_wl-wn586x3
   DEVICE_VENDOR := WAVLINK
   DEVICE_MODEL := WL-WN586X3
@@ -2316,6 +2451,7 @@ define Device/wavlink_wl-wn586x3
 endef
 TARGET_DEVICES += wavlink_wl-wn586x3
 
+<<<<<<< HEAD
 define Device/wavlink_wl-wn586x3b
   DEVICE_VENDOR := WAVLINK
   DEVICE_MODEL := WL-WN586X3B
@@ -2335,6 +2471,8 @@ define Device/wavlink_wl-wn586x3b
 endef
 TARGET_DEVICES += wavlink_wl-wn586x3b
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/wavlink_wl-wn573hx3
   DEVICE_VENDOR := WAVLINK
   DEVICE_MODEL := WL-WN573HX3
@@ -2530,6 +2668,7 @@ define Device/zbtlink_zbt-z8102ax
 endef
 TARGET_DEVICES += zbtlink_zbt-z8102ax
 
+<<<<<<< HEAD
 define Device/zbtlink_zbt-z8102ax-v2
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-Z8102AX-V2
@@ -2548,6 +2687,8 @@ define Device/zbtlink_zbt-z8102ax-v2
 endef
 TARGET_DEVICES += zbtlink_zbt-z8102ax-v2
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/zbtlink_zbt-z8103ax
   DEVICE_VENDOR := Zbtlink
   DEVICE_MODEL := ZBT-Z8103AX
@@ -2642,8 +2783,11 @@ TARGET_DEVICES += zyxel_ex5700-telenor
 define Device/zyxel_nwa50ax-pro
   DEVICE_VENDOR := Zyxel
   DEVICE_MODEL := NWA50AX Pro
+<<<<<<< HEAD
   DEVICE_ALT0_VENDOR := Zyxel
   DEVICE_ALT0_MODEL := NWA90AX Pro
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_DTS := mt7981b-zyxel-nwa50ax-pro
   DEVICE_DTS_DIR := ../dts
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware zyxel-bootconfig

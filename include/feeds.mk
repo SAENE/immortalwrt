@@ -20,7 +20,11 @@ opkg_package_files = $(wildcard \
 
 apk_package_files = $(wildcard \
 	$(foreach dir,$(PACKAGE_SUBDIRS), \
+<<<<<<< HEAD
 	  $(foreach pkg,$(1), $(dir)/$(pkg)-*.apk)))
+=======
+	  $(foreach pkg,$(1), $(dir)/$(pkg)_*.apk)))
+>>>>>>> 94392b39ec (稳定版本发布)
 
 # 1: package name
 define FeedPackageDir

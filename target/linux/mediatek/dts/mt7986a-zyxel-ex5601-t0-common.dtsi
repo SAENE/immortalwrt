@@ -8,7 +8,10 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
+<<<<<<< HEAD
 #include <dt-bindings/pinctrl/mt65xx.h>
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 / {
 	aliases {
@@ -24,9 +27,14 @@
 		stdout-path = "serial0:115200n8";
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x40000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0 0x40000000 0 0x40000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	reg_1p8v: regulator-1p8v {
@@ -158,6 +166,7 @@
 };
 
 &spi0 {
+<<<<<<< HEAD
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi_flash_pins>;
 	cs-gpios = <0>, <0>;
@@ -173,6 +182,23 @@
 		spi-max-frequency = <52000000>;
 		spi-tx-bus-width = <4>;
 		spi-rx-bus-width = <4>;
+=======
+        pinctrl-names = "default";
+        pinctrl-0 = <&spi_flash_pins>;
+        cs-gpios = <0>, <0>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+        status = "okay";
+
+        spi_nand: spi_nand@1 {
+                #address-cells = <1>;
+                #size-cells = <1>;
+                compatible = "spi-nand";
+                reg = <1>;
+                spi-max-frequency = <50000000>;
+                spi-tx-bus-width = <4>;
+                spi-rx-bus-width = <4>;
+>>>>>>> 94392b39ec (稳定版本发布)
 
 		nand_partitions: partitions {
 			compatible = "fixed-partitions";
@@ -329,6 +355,7 @@
 		};
 		conf-pu {
 			pins = "SPI2_CS", "SPI2_HOLD", "SPI2_WP";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-disable;	/* bias-disable */
 		};
@@ -336,15 +363,32 @@
 			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-disable;	/* bias-disable */
+=======
+			drive-strength = <8>;
+			mediatek,pull-up-adv = <0>;	/* bias-disable */
+		};
+		conf-pd {
+			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
+			drive-strength = <8>;
+			mediatek,pull-down-adv = <0>;	/* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
 	uart0_pins: uart0-pins {
+<<<<<<< HEAD
 		mux {
 			function = "uart";
 			groups = "uart0";
 		};
 	};
+=======
+                mux {
+                        function = "uart";
+                        groups = "uart0";
+                };
+        };
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	uart1_pins: uart1-pins {
 		mux {
@@ -373,7 +417,11 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
+=======
+			drive-strength = <4>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -390,6 +438,7 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
 		};
 	};
@@ -400,6 +449,18 @@
 		input;
 		line-name = "usb-oc";
 	};
+=======
+			drive-strength = <4>;
+		};
+	};
+
+        usb-oc-hog {
+                gpio-hog;
+                gpios = <7 GPIO_ACTIVE_LOW>;
+                input;
+                line-name = "usb-oc";
+        };
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &spi1 {

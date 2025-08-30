@@ -48,10 +48,16 @@
 #define RTL930X_MAC_FORCE_MODE_CTRL		(0xCA1C)
 #define RTL931X_MAC_FORCE_MODE_CTRL		(0x0dcc)
 
+<<<<<<< HEAD
 #define RTL839X_DMA_IF_INTR_NOTIFY_MASK		GENMASK(22, 20)
 #define RTL83XX_DMA_IF_INTR_RX_DONE_MASK	GENMASK(15, 8)
 #define RTL83XX_DMA_IF_INTR_RX_RUN_OUT_MASK	GENMASK(7, 0)
 #define RTL83XX_DMA_IF_INTR_RX_MASK(ring)	(BIT(ring) | BIT(ring + 8))
+=======
+#define RTL83XX_DMA_IF_INTR_STS_NOTIFY_MASK	GENMASK(22, 20)
+#define RTL83XX_DMA_IF_INTR_STS_RX_DONE_MASK	GENMASK(15, 8)
+#define RTL83XX_DMA_IF_INTR_STS_RX_RUN_OUT_MASK	GENMASK(7, 0)
+>>>>>>> 94392b39ec (稳定版本发布)
 
 /* MAC address settings */
 #define RTL838X_MAC				(0xa9ec)
@@ -94,6 +100,10 @@
 #define RTL838X_SDS_MODE_SEL			(0x0028)
 #define RTL838X_SDS_CFG_REG			(0x0034)
 #define RTL838X_INT_MODE_CTRL			(0x005c)
+<<<<<<< HEAD
+=======
+#define RTL838X_CHIP_INFO			(0x00d8)
+>>>>>>> 94392b39ec (稳定版本发布)
 #define RTL838X_SDS4_REG28			(0xef80)
 #define RTL838X_SDS4_DUMMY0			(0xef8c)
 #define RTL838X_SDS5_EXT_REG6			(0xf18c)
@@ -165,7 +175,10 @@
 #define RTL839X_L2_NOTIFICATION_CTRL		(0x7808)
 #define RTL931X_L2_NTFY_CTRL			(0xCDC8)
 #define RTL838X_L2_CTRL_0			(0x3200)
+<<<<<<< HEAD
 #define RTL838X_L2_CTRL_1			(0x3204)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #define RTL839X_L2_CTRL_0			(0x3800)
 #define RTL930X_L2_CTRL				(0x8FD8)
 #define RTL931X_L2_CTRL				(0xC800)
@@ -308,6 +321,7 @@ inline u32 rtl930x_get_mac_link_sts(int port)
 	return link & BIT(port);
 }
 
+<<<<<<< HEAD
 inline u32 rtldsa_931x_get_mac_link_sts(int port)
 {
 	unsigned int reg = RTL931X_MAC_LINK_STS + (port / 32) * 4;
@@ -318,6 +332,11 @@ inline u32 rtldsa_931x_get_mac_link_sts(int port)
 	link = sw_r32(reg);
 
 	return (link & mask);
+=======
+inline u32 rtl931x_get_mac_link_sts(int p)
+{
+	return (sw_r32(RTL931X_MAC_LINK_STS + ((p >> 5) << 2)) & BIT(p % 32));
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 inline u32 rtl838x_get_mac_link_dup_sts(int port)
@@ -460,6 +479,7 @@ int phy_package_write_paged(struct phy_device *phydev, int page, u32 regnum, u16
 int phy_port_read_paged(struct phy_device *phydev, int port, int page, u32 regnum);
 int phy_port_write_paged(struct phy_device *phydev, int port, int page, u32 regnum, u16 val);
 
+<<<<<<< HEAD
 int rtmdio_838x_read_phy(u32 port, u32 page, u32 reg, u32 *val);
 int rtmdio_838x_write_phy(u32 port, u32 page, u32 reg, u32 val);
 
@@ -472,4 +492,6 @@ int rtmdio_931x_write_sds_phy(int sds, int page, int regnum, u16 val);
 int rtmdio_931x_read_sds_phy_new(int sds, int page, int regnum);
 int rtmdio_931x_write_sds_phy_new(int sds, int page, int regnum, u16 val);
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #endif /* _RTL838X_ETH_H */

@@ -8,7 +8,11 @@ as adding/removing interfaces.
 
 --- a/hostapd/config_file.c
 +++ b/hostapd/config_file.c
+<<<<<<< HEAD
 @@ -4983,7 +4983,14 @@ struct hostapd_config * hostapd_config_r
+=======
+@@ -4981,7 +4981,12 @@ struct hostapd_config * hostapd_config_r
+>>>>>>> 94392b39ec (稳定版本发布)
  	int errors = 0;
  	size_t i;
  
@@ -19,8 +23,11 @@ as adding/removing interfaces.
 +	} else {
 +		f = fopen(fname, "r");
 +	}
+<<<<<<< HEAD
 +	wpa_printf(MSG_INFO, "Configuration file: Reading configuration file '%s'",
 +	     fname);
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
  	if (f == NULL) {
  		wpa_printf(MSG_ERROR, "Could not open configuration file '%s' "
  			   "for reading.", fname);
@@ -41,6 +48,7 @@ as adding/removing interfaces.
  	if (f == NULL) {
  		wpa_printf(MSG_ERROR, "Failed to open config file '%s', "
  			   "error: %s", name, strerror(errno));
+<<<<<<< HEAD
 --- a/hostapd/main.c
 +++ b/hostapd/main.c
 @@ -406,7 +406,11 @@ hostapd_interface_init(struct hapd_inter
@@ -74,3 +82,5 @@ as adding/removing interfaces.
  
  	conf = interfaces->config_read_cb(config_fname);
  	if (!conf)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

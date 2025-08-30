@@ -23,7 +23,11 @@ Signed-off-by: Rameshkumar Sundaram <quic_ramess@quicinc.com>
 
 --- a/drivers/net/wireless/ath/ath11k/mac.c
 +++ b/drivers/net/wireless/ath/ath11k/mac.c
+<<<<<<< HEAD
 @@ -4232,7 +4232,9 @@ static int ath11k_install_key(struct ath
+=======
+@@ -4222,7 +4222,9 @@ static int ath11k_install_key(struct ath
+>>>>>>> 94392b39ec (稳定版本发布)
  		return 0;
  
  	if (cmd == DISABLE_KEY) {

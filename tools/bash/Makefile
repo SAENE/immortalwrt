@@ -8,11 +8,19 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bash
 PKG_CPE_ID:=cpe:/a:gnu:bash
+<<<<<<< HEAD
 PKG_VERSION:=5.3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@GNU/bash
 PKG_HASH:=0d5cd86965f869a26cf64f4b71be7b96f90a3ba8b3d74e27e8e9d9d5550f31ba
+=======
+PKG_VERSION:=5.2.21
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=@GNU/bash
+PKG_HASH:=c8e31bdc59b69aaffc5b36509905ba3e5cbb12747091d27b4b977f078560d5b8
+>>>>>>> 94392b39ec (稳定版本发布)
 
 HOST_BUILD_PARALLEL := 1
 

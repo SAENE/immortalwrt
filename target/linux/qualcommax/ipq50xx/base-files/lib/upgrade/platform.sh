@@ -84,6 +84,7 @@ platform_do_upgrade() {
 		CI_ROOT_UBIPART="rootfs"
 		nand_do_upgrade "$1"
 		;;
+<<<<<<< HEAD
 	yuncore,ax830)
 		CI_UBIPART="rootfs"
 		remove_oem_ubi_volume ubi_rootfs
@@ -91,6 +92,8 @@ platform_do_upgrade() {
 		remove_oem_ubi_volume wifi_fw
 		nand_do_upgrade "$1"
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	jdcloud,re-cs-03)
 		CI_KERNPART="0:HLOS"
 		CI_ROOTPART="rootfs"

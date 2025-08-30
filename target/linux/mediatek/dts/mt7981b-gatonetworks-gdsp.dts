@@ -22,9 +22,14 @@
 		rootdisk = <&firmware>;
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x10000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0 0x40000000 0 0x10000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	reg_3p3v: regulator-3p3v {
@@ -128,6 +133,7 @@
 	status = "okay";
 };
 
+<<<<<<< HEAD
 &mmc0 {
 	status = "disabled";
 
@@ -145,6 +151,8 @@
 	no-sdio;
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 &eth {
 	status = "okay";
 
@@ -352,6 +360,7 @@
 		};
 	};
 
+<<<<<<< HEAD
 	mmc0_pins_default: mmc0-pins-default {
 		mux {
 			function = "flash";
@@ -402,6 +411,8 @@
 		};
 	};
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	uart2_pins: uart2-pins {
 		mux {
 			function = "uart";
@@ -436,7 +447,11 @@
 &uart1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart1_pins>;
+<<<<<<< HEAD
 	status = "disabled";
+=======
+	status = "okay";
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &uart2 {

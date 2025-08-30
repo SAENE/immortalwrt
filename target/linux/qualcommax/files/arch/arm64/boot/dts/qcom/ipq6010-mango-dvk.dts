@@ -53,6 +53,7 @@
 			linux,default-trigger = "phy1radio";
 		};
 	};
+<<<<<<< HEAD
 
 	vcc_sd: regulator-vcc-sd {
 		compatible = "regulator-fixed";
@@ -63,6 +64,8 @@
 		enable-active-high;
 		regulator-always-on;
 	};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &tlmm {
@@ -219,7 +222,10 @@
 	pinctrl-names = "default";
 
 	cd-gpios = <&tlmm 62 GPIO_ACTIVE_LOW>;
+<<<<<<< HEAD
 	vqmmc-supply = <&vcc_sd>;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	bus-width = <4>;
 };
 

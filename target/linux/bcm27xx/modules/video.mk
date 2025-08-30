@@ -39,6 +39,7 @@ endef
 $(eval $(call KernelPackage,rp1-cfe))
 
 
+<<<<<<< HEAD
 define KernelPackage/rpi-panel-attiny-regulator
   TITLE:=Raspberry Pi 7-inch touchscreen panel ATTINY regulator
   SUBMENU:=$(VIDEO_MENU)
@@ -75,6 +76,8 @@ endef
 $(eval $(call KernelPackage,rpi-panel-7inch-touchscreen))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/codec-bcm2835
   TITLE:=BCM2835 Video Codec
   KCONFIG:= \

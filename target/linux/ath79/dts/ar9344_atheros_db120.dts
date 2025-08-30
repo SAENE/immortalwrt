@@ -21,6 +21,15 @@
 	leds {
 		compatible = "gpio-leds";
 
+<<<<<<< HEAD
+=======
+		wlan2g {
+			label = "green:wlan2g";
+			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "phy0tpt";
+		};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 		wlan5g {
 			label = "green:wlan5g";
 			gpios = <&gpio 12 GPIO_ACTIVE_LOW>;
@@ -42,6 +51,19 @@
 		};
 	};
 
+<<<<<<< HEAD
+=======
+	leds-ath9k {
+		compatible = "gpio-leds";
+
+		wlan5g-ath {
+			label = "green:wlan5g-ath";
+			gpios = <&ath9k 0 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "phy1tpt";
+		};
+	};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 	keys {
 		compatible = "gpio-keys";
 
@@ -209,17 +231,26 @@
 &pcie {
 	status = "okay";
 
+<<<<<<< HEAD
 	wifi@0,0 {
+=======
+	ath9k: wifi@0,0 {
+>>>>>>> 94392b39ec (稳定版本发布)
 		compatible = "pci168c,0030";
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&calibration_art_5000>;
 		nvmem-cell-names = "calibration";
 		ieee80211-freq-limit = <4900000 5990000>;
+<<<<<<< HEAD
 
 		led {
 			led-sources = <0>;
 			led-active-low;
 		};
+=======
+		#gpio-cells = <2>;
+		gpio-controller;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -228,11 +259,14 @@
 
 	nvmem-cells = <&calibration_art_1000>;
 	nvmem-cell-names = "calibration";
+<<<<<<< HEAD
 
 	led {
 		led-sources = <13>;
 		led-active-low;
 	};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &usb {

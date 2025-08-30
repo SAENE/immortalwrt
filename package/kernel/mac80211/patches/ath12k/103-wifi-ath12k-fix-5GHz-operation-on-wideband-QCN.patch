@@ -124,6 +124,7 @@ Best regards,
 
 --- a/drivers/net/wireless/ath/ath12k/mac.c
 +++ b/drivers/net/wireless/ath/ath12k/mac.c
+<<<<<<< HEAD
 @@ -6985,9 +6985,7 @@ static void ath12k_mac_setup_ht_vht_cap(
  						    rate_cap_rx_chainmask);
  	}
@@ -132,6 +133,16 @@ Best regards,
 -	    (ar->ab->hw_params->single_pdev_only ||
 -	     !ar->supports_6ghz)) {
 +	if (cap->supported_bands & WMI_HOST_WLAN_5GHZ_CAP) {
+=======
+@@ -5186,9 +5186,7 @@ static void ath12k_mac_setup_ht_vht_cap(
+ 						    rate_cap_rx_chainmask);
+ 	}
+ 
+-	if (cap->supported_bands & WMI_HOST_WLAN_5G_CAP &&
+-	    (ar->ab->hw_params->single_pdev_only ||
+-	     !ar->supports_6ghz)) {
++	if (cap->supported_bands & WMI_HOST_WLAN_5G_CAP) {
+>>>>>>> 94392b39ec (稳定版本发布)
  		band = &ar->mac.sbands[NL80211_BAND_5GHZ];
  		ht_cap = cap->band[NL80211_BAND_5GHZ].ht_cap_info;
  		if (ht_cap_info)

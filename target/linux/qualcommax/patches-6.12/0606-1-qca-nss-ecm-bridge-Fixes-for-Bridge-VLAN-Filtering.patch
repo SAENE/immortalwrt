@@ -122,7 +122,11 @@ Signed-off-by: Vishnu Vardhan Bantanahal <quic_vishvard@quicinc.com>
  	return netdev;
 --- a/net/bridge/br_private.h
 +++ b/net/bridge/br_private.h
+<<<<<<< HEAD
 @@ -1594,6 +1594,7 @@ void br_vlan_fill_forward_path_pvid(stru
+=======
+@@ -1588,6 +1588,7 @@ void br_vlan_fill_forward_path_pvid(stru
+>>>>>>> 94392b39ec (稳定版本发布)
  int br_vlan_fill_forward_path_mode(struct net_bridge *br,
  				   struct net_bridge_port *dst,
  				   struct net_device_path *path);

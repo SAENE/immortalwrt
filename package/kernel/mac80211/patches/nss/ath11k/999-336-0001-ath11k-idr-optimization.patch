@@ -28,7 +28,11 @@ Signed-off-by: Tamizh Chelvam <quic_tamizhr@quicinc.com>
  }
 --- a/drivers/net/wireless/ath/ath11k/dp_rx.c
 +++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
+<<<<<<< HEAD
 @@ -3369,18 +3369,16 @@ try_again:
+=======
+@@ -3376,18 +3376,16 @@ try_again:
+>>>>>>> 94392b39ec (稳定版本发布)
  		ar = ab->pdevs[mac_id].ar;
  		rx_ring = &ar->dp.rx_refill_buf_ring;
  		spin_lock_bh(&rx_ring->idr_lock);
@@ -70,12 +74,20 @@ Signed-off-by: Tamizh Chelvam <quic_tamizhr@quicinc.com>
  	rxcb = ATH11K_SKB_RXCB(msdu);
  	dma_unmap_single(ar->ab->dev, rxcb->paddr,
  			 msdu->len + skb_tailroom(msdu),
+<<<<<<< HEAD
 @@ -5075,18 +5070,16 @@ int ath11k_dp_rx_process_wbm_err(struct
+=======
+@@ -5074,18 +5069,16 @@ int ath11k_dp_rx_process_wbm_err(struct
+>>>>>>> 94392b39ec (稳定版本发布)
  		rx_ring = &ar->dp.rx_refill_buf_ring;
  
  		spin_lock_bh(&rx_ring->idr_lock);
 -		msdu = idr_find(&rx_ring->bufs_idr, buf_id);
+<<<<<<< HEAD
 +		msdu = idr_remove(&rx_ring->bufs_idr, buf_id);
+=======
++ 		msdu = idr_remove(&rx_ring->bufs_idr, buf_id);
+>>>>>>> 94392b39ec (稳定版本发布)
 +		spin_unlock_bh(&rx_ring->idr_lock);
  		if (!msdu) {
  			ath11k_warn(ab, "frame rx with invalid buf_id %d pdev %d\n",
@@ -92,7 +104,11 @@ Signed-off-by: Tamizh Chelvam <quic_tamizhr@quicinc.com>
  		dma_unmap_single(ab->dev, rxcb->paddr,
  				 msdu->len + skb_tailroom(msdu),
  				 DMA_FROM_DEVICE);
+<<<<<<< HEAD
 @@ -5201,16 +5194,14 @@ int ath11k_dp_process_rxdma_err(struct a
+=======
+@@ -5200,16 +5193,14 @@ int ath11k_dp_process_rxdma_err(struct a
+>>>>>>> 94392b39ec (稳定版本发布)
  					   msdu_cookies[i]);
  
  			spin_lock_bh(&rx_ring->idr_lock);
@@ -111,7 +127,11 @@ Signed-off-by: Tamizh Chelvam <quic_tamizhr@quicinc.com>
  
  			rxcb = ATH11K_SKB_RXCB(skb);
  			dma_unmap_single(ab->dev, rxcb->paddr,
+<<<<<<< HEAD
 @@ -6422,16 +6413,14 @@ ath11k_dp_rx_full_mon_mpdu_pop(struct at
+=======
+@@ -6417,16 +6408,14 @@ ath11k_dp_rx_full_mon_mpdu_pop(struct at
+>>>>>>> 94392b39ec (稳定版本发布)
  					   msdu_list.sw_cookie[i]);
  
  			spin_lock_bh(&rx_ring->idr_lock);
@@ -123,7 +143,11 @@ Signed-off-by: Tamizh Chelvam <quic_tamizhr@quicinc.com>
  					   "full mon msdu_pop: invalid buf_id %d\n",
  					    buf_id);
 -				spin_unlock_bh(&rx_ring->idr_lock);
+<<<<<<< HEAD
  				goto next_msdu;
+=======
+ 				break;
+>>>>>>> 94392b39ec (稳定版本发布)
  			}
 -			idr_remove(&rx_ring->bufs_idr, buf_id);
 -			spin_unlock_bh(&rx_ring->idr_lock);

@@ -7,6 +7,7 @@
 
 RTC_MENU:=RTC Real-Time Clock Support
 
+<<<<<<< HEAD
 define KernelPackage/rtc-bq32k
   SUBMENU:=$(RTC_MENU)
   TITLE:=Texas Instruments BQ32000 RTC support
@@ -25,6 +26,8 @@ endef
 $(eval $(call KernelPackage,rtc-bq32k))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/rtc-ds1307
   SUBMENU:=$(RTC_MENU)
   TITLE:=Dallas/Maxim DS1307 (and compatible) RTC support

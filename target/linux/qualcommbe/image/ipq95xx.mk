@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 define Device/8devices_kiwi-dvk
 	$(call Device/FitImage)
 	$(call Device/EmmcImage)
@@ -10,6 +11,8 @@ define Device/8devices_kiwi-dvk
 endef
 TARGET_DEVICES += 8devices_kiwi-dvk
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/qcom_rdp433
 	$(call Device/FitImageLzma)
 	DEVICE_VENDOR := Qualcomm Technologies, Inc.

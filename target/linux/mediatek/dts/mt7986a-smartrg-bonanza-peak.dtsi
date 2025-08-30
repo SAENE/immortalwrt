@@ -8,7 +8,10 @@
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/leds/common.h>
+<<<<<<< HEAD
 #include <dt-bindings/pinctrl/mt65xx.h>
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 #include "mt7986a.dtsi"
 
@@ -409,6 +412,7 @@
 			       "EMMC_DATA_3", "EMMC_DATA_4", "EMMC_DATA_5",
 			       "EMMC_DATA_6", "EMMC_DATA_7", "EMMC_CMD";
 			input-enable;
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
 		};
@@ -425,6 +429,24 @@
 			pins = "EMMC_RSTB";
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
+=======
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+		};
+		conf-clk {
+			pins = "EMMC_CK";
+			drive-strength = <6>;
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-ds {
+			pins = "EMMC_DSL";
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-rst {
+			pins = "EMMC_RSTB";
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -438,6 +460,7 @@
 			       "EMMC_DATA_3", "EMMC_DATA_4", "EMMC_DATA_5",
 			       "EMMC_DATA_6", "EMMC_DATA_7", "EMMC_CMD";
 			input-enable;
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
 		};
@@ -454,6 +477,24 @@
 			pins = "EMMC_RSTB";
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
+=======
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+		};
+		conf-clk {
+			pins = "EMMC_CK";
+			drive-strength = <6>;
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-ds {
+			pins = "EMMC_DSL";
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-rst {
+			pins = "EMMC_RSTB";
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -466,7 +507,11 @@
 
 	button_pins: button-pins {
 		pins = "GPIO_12";
+<<<<<<< HEAD
 		bias-disable; /* bias-disable */
+=======
+		mediatek,pull-down-adv = <0>; /* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	uart1_pins: uart1-pins {
@@ -503,7 +548,11 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
+=======
+			drive-strength = <4>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 

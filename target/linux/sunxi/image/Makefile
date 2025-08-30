@@ -16,6 +16,10 @@ define Build/sunxi-sdcard
 	mkfs.fat $@.boot -C $(FAT32_BLOCKS)
 
 	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-boot.scr ::boot.scr
+<<<<<<< HEAD
+=======
+	mcopy -i $@.boot $(DTS_DIR)/$(SUNXI_DTS).dtb ::dtb
+>>>>>>> 94392b39ec (稳定版本发布)
 	mcopy -i $@.boot $(IMAGE_KERNEL) ::uImage
 	./gen_sunxi_sdcard_img.sh $@ \
 		$@.boot \
@@ -33,6 +37,7 @@ define Device/Default
   KERNEL := kernel-bin | uImage none
   IMAGES := sdcard.img.gz
   IMAGE/sdcard.img.gz := sunxi-sdcard | append-metadata | gzip
+<<<<<<< HEAD
   SUNXI_DTS_DIR := allwinner/
   SUNXI_DTS = $$(SUNXI_DTS_DIR)$$(SOC)-$(lastword $(subst _, ,$(1)))
 endef
@@ -45,6 +50,12 @@ define Device/FitImageGzip
   KERNEL = kernel-bin | gzip | fit gzip $$(DTS_DIR)/$$(SUNXI_DTS).dtb
 endef
 
+=======
+  SUNXI_DTS_DIR :=allwinner/
+  SUNXI_DTS = $$(SUNXI_DTS_DIR)$$(SOC)-$(lastword $(subst _, ,$(1)))
+endef
+
+>>>>>>> 94392b39ec (稳定版本发布)
 include $(SUBTARGET).mk
 
 $(eval $(call BuildImage))

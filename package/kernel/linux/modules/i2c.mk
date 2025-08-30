@@ -162,6 +162,7 @@ endef
 $(eval $(call KernelPackage,i2c-gpio))
 
 
+<<<<<<< HEAD
 I2C_HID_MODULES:= \
   CONFIG_I2C_HID_CORE:drivers/hid/i2c-hid/i2c-hid
 
@@ -194,6 +195,8 @@ endef
 $(eval $(call KernelPackage,i2c-hid-acpi))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 I2C_I801_MODULES:= \
   CONFIG_I2C_I801:drivers/i2c/busses/i2c-i801
 
@@ -288,6 +291,7 @@ endef
 $(eval $(call KernelPackage,i2c-mux-mlxcpld))
 
 
+<<<<<<< HEAD
 I2C_MUX_PINCTRL_MODULES:= \
   CONFIG_I2C_MUX_PINCTRL:drivers/i2c/muxes/i2c-mux-pinctrl
 
@@ -304,6 +308,8 @@ endef
 $(eval $(call KernelPackage,i2c-mux-pinctrl))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 I2C_MUX_REG_MODULES:= \
   CONFIG_I2C_MUX_REG:drivers/i2c/muxes/i2c-mux-reg
 

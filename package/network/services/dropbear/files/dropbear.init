@@ -177,7 +177,11 @@ validate_section_dropbear()
 		'SSHKeepAlive:uinteger:300' \
 		'IdleTimeout:uinteger:0' \
 		'MaxAuthTries:uinteger:3' \
+<<<<<<< HEAD
 		'RecvWindowSize:uinteger:0' \
+=======
+		'RecvWindowSize:uinteger:262144' \
+>>>>>>> 94392b39ec (稳定版本发布)
 		'mdns:bool:1'
 }
 

@@ -1,6 +1,10 @@
 --- a/libdw/Makefile.am
 +++ b/libdw/Makefile.am
+<<<<<<< HEAD
 @@ -136,19 +136,19 @@ uninstall: uninstall-am
+=======
+@@ -137,19 +137,19 @@ uninstall: uninstall-am
+>>>>>>> 94392b39ec (稳定版本发布)
  	rm -f $(DESTDIR)$(libdir)/libdw.so
  	rmdir --ignore-fail-on-non-empty $(DESTDIR)$(includedir)/elfutils
  
@@ -25,7 +29,11 @@
  libdw_a_LIBADD += $(addprefix ../libcpu/,$(libcpu_objects))
  
  if !BUILD_SHARED
+<<<<<<< HEAD
 @@ -160,5 +160,10 @@ noinst_HEADERS = libdwP.h memory-access.
+=======
+@@ -161,4 +161,9 @@ noinst_HEADERS = libdwP.h memory-access.
+>>>>>>> 94392b39ec (稳定版本发布)
  
  EXTRA_DIST = libdw.map
  
@@ -36,10 +44,16 @@
 +	echo $^ > $@
 +
 +MOSTLYCLEANFILES = $(am_libdw_pic_a_OBJECTS) $(EXTRA_libdw_a_DEPENDENCIES) libdw.so libdw.so.$(VERSION)
+<<<<<<< HEAD
  MAINTAINERCLEANFILES = $(srcdir)/known-dwarf.h
 --- a/libdwfl/Makefile.am
 +++ b/libdwfl/Makefile.am
 @@ -94,4 +94,10 @@ am_libdwfl_pic_a_OBJECTS = $(libdwfl_a_S
+=======
+--- a/libdwfl/Makefile.am
++++ b/libdwfl/Makefile.am
+@@ -93,4 +93,10 @@ am_libdwfl_pic_a_OBJECTS = $(libdwfl_a_S
+>>>>>>> 94392b39ec (稳定版本发布)
  
  noinst_HEADERS = libdwflP.h
  
@@ -78,7 +92,11 @@
 +MOSTLYCLEANFILES = $(am_libebl_pic_a_OBJECTS) $(EXTRA_libebl_a_DEPENDENCIES)
 --- a/backends/Makefile.am
 +++ b/backends/Makefile.am
+<<<<<<< HEAD
 @@ -122,4 +122,9 @@ am_libebl_backends_pic_a_OBJECTS = $(lib
+=======
+@@ -119,4 +119,9 @@ am_libebl_backends_pic_a_OBJECTS = $(lib
+>>>>>>> 94392b39ec (稳定版本发布)
  noinst_HEADERS = libebl_CPU.h common-reloc.c linux-core-note.c x86_corenote.c
  EXTRA_DIST = $(modules:=_reloc.def)
  
@@ -119,9 +137,15 @@
  CLEANFILES += $(am_libelf_pic_a_OBJECTS) libelf.so libelf.so.$(VERSION)
 --- a/lib/Makefile.am
 +++ b/lib/Makefile.am
+<<<<<<< HEAD
 @@ -42,3 +42,10 @@ noinst_HEADERS = fixedsizehash.h libeu.h
  		 atomics.h stdatomic-fbsd.h dynamicsizehash_concurrent.h \
  		 eu-search.h locks.h
+=======
+@@ -41,3 +41,10 @@ noinst_HEADERS = fixedsizehash.h libeu.h
+ 		 eu-config.h color.h printversion.h bpf.h \
+ 		 atomics.h stdatomic-fbsd.h dynamicsizehash_concurrent.h
+>>>>>>> 94392b39ec (稳定版本发布)
  EXTRA_DIST = dynamicsizehash.c dynamicsizehash_concurrent.c
 +
 +EXTRA_libeu_a_DEPENDENCIES = libeu.manifest

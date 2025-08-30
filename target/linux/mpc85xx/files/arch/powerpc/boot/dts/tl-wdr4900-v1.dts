@@ -398,6 +398,7 @@
 		compatible = "gpio-leds";
 
 		led-0 {
+<<<<<<< HEAD
 			gpios = <&ath9k 0 GPIO_ACTIVE_LOW>;
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_WLAN_5GHZ;
@@ -405,18 +406,28 @@
 		};
 
 		led-1 {
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&ath9k 1 GPIO_ACTIVE_LOW>;
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_WPS;
 		};
 
+<<<<<<< HEAD
 		system_green: led-2 {
+=======
+		system_green: led-1 {
+>>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_STATUS;
 		};
 
+<<<<<<< HEAD
 		led-3 {
+=======
+		led-2 {
+>>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_USB;
@@ -425,7 +436,11 @@
 			trigger-sources = <&hub_port1>;
 		};
 
+<<<<<<< HEAD
 		led-4 {
+=======
+		led-3 {
+>>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_USB;

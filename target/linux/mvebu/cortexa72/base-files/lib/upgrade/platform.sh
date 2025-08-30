@@ -9,6 +9,7 @@ REQUIRE_IMAGE_METADATA=1
 
 platform_check_image() {
 	case "$(board_name)" in
+<<<<<<< HEAD
 	checkpoint,v-80|\
 	checkpoint,v-81)
 		local root="$(cmdline_get_var root)"
@@ -39,6 +40,8 @@ platform_check_image() {
 			;;
 		esac
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	globalscale,mochabin|\
 	iei,puzzle-m901|\
 	iei,puzzle-m902|\
@@ -56,6 +59,7 @@ platform_check_image() {
 
 platform_do_upgrade() {
 	case "$(board_name)" in
+<<<<<<< HEAD
 	checkpoint,v-80|\
 	checkpoint,v-81)
 		local root="$(cmdline_get_var root)"
@@ -72,6 +76,8 @@ platform_do_upgrade() {
 			;;
 		esac
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	iei,puzzle-m901|\
 	iei,puzzle-m902)
 		platform_do_upgrade_emmc "$1"
@@ -93,6 +99,7 @@ platform_do_upgrade() {
 }
 platform_copy_config() {
 	case "$(board_name)" in
+<<<<<<< HEAD
 	checkpoint,v-80|\
 	checkpoint,v-81)
 		local root="$(cmdline_get_var root)"
@@ -112,6 +119,8 @@ platform_copy_config() {
 			;;
 		esac
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	globalscale,mochabin|\
 	iei,puzzle-m901|\
 	iei,puzzle-m902|\

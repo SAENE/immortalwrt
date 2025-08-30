@@ -51,10 +51,16 @@ hostapd_append_wpa_key_mgmt() {
 			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-EAP-SHA384"
 		;;
 		eap-eap2)
+<<<<<<< HEAD
 			append wpa_key_mgmt "WPA-EAP-SHA256"
 			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-EAP"
 			[ "$rsn_override" -gt 0 ] && rsn_override_key_mgmt="$wpa_key_mgmt"
 			append wpa_key_mgmt "WPA-EAP"
+=======
+			append wpa_key_mgmt "WPA-EAP"
+			append wpa_key_mgmt "WPA-EAP-SHA256"
+			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-EAP"
+>>>>>>> 94392b39ec (稳定版本发布)
 		;;
 		eap2)
 			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-EAP"
@@ -65,6 +71,7 @@ hostapd_append_wpa_key_mgmt() {
 			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-SAE"
 		;;
 		psk-sae)
+<<<<<<< HEAD
 			append wpa_key_mgmt "SAE"
 			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-SAE"
 			[ "$rsn_override" -gt 0 ] && rsn_override_key_mgmt="$wpa_key_mgmt"
@@ -74,6 +81,13 @@ hostapd_append_wpa_key_mgmt() {
 				[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-PSK"
 				[ "${ieee80211w:-0}" -gt 0 ] && append wpa_key_mgmt "WPA-PSK-SHA256"
 			}
+=======
+			append wpa_key_mgmt "WPA-PSK"
+			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-PSK"
+			[ "${ieee80211w:-0}" -gt 0 ] && append wpa_key_mgmt "WPA-PSK-SHA256"
+			append wpa_key_mgmt "SAE"
+			[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt "FT-SAE"
+>>>>>>> 94392b39ec (稳定版本发布)
 		;;
 		owe)
 			append wpa_key_mgmt "OWE"
@@ -89,6 +103,7 @@ hostapd_append_wpa_key_mgmt() {
 			eap*)
 				append wpa_key_mgmt FILS-SHA256
 				[ "${ieee80211r:-0}" -gt 0 ] && append wpa_key_mgmt FT-FILS-SHA256
+<<<<<<< HEAD
 
 				[ "$rsn_override" -gt 0 ] && {
 					append rsn_override_key_mgmt FILS-SHA256
@@ -97,6 +112,13 @@ hostapd_append_wpa_key_mgmt() {
 			;;
 		esac
 	}
+=======
+			;;
+		esac
+	}
+
+	[ "$auth_osen" = "1" ] && append wpa_key_mgmt "OSEN"
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 hostapd_add_log_config() {
@@ -349,7 +371,10 @@ hostapd_common_add_bss_config() {
 	config_add_array r0kh r1kh
 
 	config_add_int ieee80211w_max_timeout ieee80211w_retry_timeout
+<<<<<<< HEAD
 	config_add_int rsn_override
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	config_add_string macfilter 'macfile:file'
 	config_add_array 'maclist:list(macaddr)'
@@ -374,11 +399,22 @@ hostapd_common_add_bss_config() {
 	config_add_array iw_roaming_consortium iw_domain_name iw_anqp_3gpp_cell_net iw_nai_realm
 	config_add_array iw_anqp_elem iw_venue_name iw_venue_url
 
+<<<<<<< HEAD
 	config_add_boolean hs20 disable_dgaf
 	config_add_int anqp_domain_id
 	config_add_int hs20_deauth_req_timeout
 	config_add_array hs20_conn_capab
 	config_add_string hs20_wan_metrics hs20_operating_class hs20_t_c_filename hs20_t_c_timestamp
+=======
+	config_add_boolean hs20 disable_dgaf osen
+	config_add_int anqp_domain_id
+	config_add_int hs20_deauth_req_timeout
+	config_add_array hs20_oper_friendly_name
+	config_add_array osu_provider
+	config_add_array operator_icon
+	config_add_array hs20_conn_capab
+	config_add_string osu_ssid hs20_wan_metrics hs20_operating_class hs20_t_c_filename hs20_t_c_timestamp
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	config_add_string hs20_t_c_server_url
 
@@ -502,6 +538,70 @@ append_iw_venue_url() {
 	append bss_conf "venue_url=$1" "$N"
 }
 
+<<<<<<< HEAD
+=======
+append_hs20_oper_friendly_name() {
+	append bss_conf "hs20_oper_friendly_name=$1" "$N"
+}
+
+append_osu_provider_friendly_name() {
+	append bss_conf "osu_friendly_name=$1" "$N"
+}
+
+append_osu_provider_service_desc() {
+	append bss_conf "osu_service_desc=$1" "$N"
+}
+
+append_hs20_icon() {
+	local width height lang type path
+	config_get width "$1" width
+	config_get height "$1" height
+	config_get lang "$1" lang
+	config_get type "$1" type
+	config_get path "$1" path
+
+	append bss_conf "hs20_icon=$width:$height:$lang:$type:$1:$path" "$N"
+}
+
+append_hs20_icons() {
+	config_load wireless
+	config_foreach append_hs20_icon hs20-icon
+}
+
+append_operator_icon() {
+	append bss_conf "operator_icon=$1" "$N"
+}
+
+append_osu_icon() {
+	append bss_conf "osu_icon=$1" "$N"
+}
+
+append_osu_provider() {
+	local cfgtype osu_server_uri osu_friendly_name osu_nai osu_nai2 osu_method_list
+
+	config_load wireless
+	config_get cfgtype "$1" TYPE
+	[ "$cfgtype" != "osu-provider" ] && return
+
+	append bss_conf "# provider $1" "$N"
+	config_get osu_server_uri "$1" osu_server_uri
+	config_get osu_nai "$1" osu_nai
+	config_get osu_nai2 "$1" osu_nai2
+	config_get osu_method_list "$1" osu_method
+
+	append bss_conf "osu_server_uri=$osu_server_uri" "$N"
+	append bss_conf "osu_nai=$osu_nai" "$N"
+	append bss_conf "osu_nai2=$osu_nai2" "$N"
+	append bss_conf "osu_method_list=$osu_method_list" "$N"
+
+	config_list_foreach "$1" osu_service_desc append_osu_provider_service_desc
+	config_list_foreach "$1" osu_friendly_name append_osu_friendly_name
+	config_list_foreach "$1" osu_icon append_osu_icon
+
+	append bss_conf "$N"
+}
+
+>>>>>>> 94392b39ec (稳定版本发布)
 append_hs20_conn_capab() {
 	[ -n "$1" ] && append bss_conf "hs20_conn_capab=$1" "$N"
 }
@@ -556,9 +656,14 @@ hostapd_set_bss_options() {
 		ppsk airtime_bss_weight airtime_bss_limit airtime_sta_weight \
 		multicast_to_unicast_all proxy_arp per_sta_vif \
 		eap_server eap_user_file ca_cert server_cert private_key private_key_passwd server_id radius_server_clients radius_server_auth_port \
+<<<<<<< HEAD
 		vendor_elements fils ocv apup rsn_override
 
 	set_default rsn_override 1
+=======
+		vendor_elements fils ocv apup
+
+>>>>>>> 94392b39ec (稳定版本发布)
 	set_default fils 0
 	set_default isolate 0
 	set_default maxassoc 0
@@ -637,11 +742,15 @@ hostapd_set_bss_options() {
 			[ "$ppsk" -eq 0 ] && set_default sae_pwe 2
 		;;
 		psk-sae|eap-eap2)
+<<<<<<< HEAD
 			if [ "$band" = 6g ]; then
 				set_default ieee80211w 2
 			else
 				set_default ieee80211w 1
 			fi
+=======
+			set_default ieee80211w 1
+>>>>>>> 94392b39ec (稳定版本发布)
 			set_default sae_require_mfp 1
 			[ "$ppsk" -eq 0 ] && set_default sae_pwe 2
 		;;
@@ -907,11 +1016,14 @@ hostapd_set_bss_options() {
 
 		hostapd_append_wpa_key_mgmt
 		[ -n "$wpa_key_mgmt" ] && append bss_conf "wpa_key_mgmt=$wpa_key_mgmt" "$N"
+<<<<<<< HEAD
 		[ -n "$rsn_override_key_mgmt" -o -n "$rsn_override_pairwise" ] && {
 			append bss_conf "rsn_override_key_mgmt=${rsn_override_key_mgmt:-$wpa_key_mgmt}" "$N"
 			append bss_conf "rsn_override_pairwise=${rsn_override_pairwise:-$wpa_pairwise}" "$N"
 			append bss_conf "rsn_override_mfp=$ieee80211w" "$N"
 		}
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	fi
 
 	if [ "$wpa" -ge "2" ]; then
@@ -1118,28 +1230,56 @@ hostapd_set_bss_options() {
 	esac
 	[ -n "$iw_qos_map_set" ] && append bss_conf "qos_map_set=$iw_qos_map_set" "$N"
 
+<<<<<<< HEAD
 	local hs20 disable_dgaf anqp_domain_id hs20_deauth_req_timeout \
 		hs20_wan_metrics hs20_operating_class hs20_t_c_filename hs20_t_c_timestamp \
 		hs20_t_c_server_url
 	json_get_vars hs20 disable_dgaf anqp_domain_id hs20_deauth_req_timeout \
 		hs20_wan_metrics hs20_operating_class hs20_t_c_filename hs20_t_c_timestamp \
+=======
+	local hs20 disable_dgaf osen anqp_domain_id hs20_deauth_req_timeout \
+		osu_ssid hs20_wan_metrics hs20_operating_class hs20_t_c_filename hs20_t_c_timestamp \
+		hs20_t_c_server_url
+	json_get_vars hs20 disable_dgaf osen anqp_domain_id hs20_deauth_req_timeout \
+		osu_ssid hs20_wan_metrics hs20_operating_class hs20_t_c_filename hs20_t_c_timestamp \
+>>>>>>> 94392b39ec (稳定版本发布)
 		hs20_t_c_server_url
 
 	set_default hs20 0
 	set_default disable_dgaf $hs20
+<<<<<<< HEAD
+=======
+	set_default osen 0
+>>>>>>> 94392b39ec (稳定版本发布)
 	set_default anqp_domain_id 0
 	set_default hs20_deauth_req_timeout 60
 	if [ "$hs20" = "1" ]; then
 		append bss_conf "hs20=1" "$N"
+<<<<<<< HEAD
 		append bss_conf "disable_dgaf=$disable_dgaf" "$N"
 		append bss_conf "anqp_domain_id=$anqp_domain_id" "$N"
 		append bss_conf "hs20_deauth_req_timeout=$hs20_deauth_req_timeout" "$N"
+=======
+		append_hs20_icons
+		append bss_conf "disable_dgaf=$disable_dgaf" "$N"
+		append bss_conf "osen=$osen" "$N"
+		append bss_conf "anqp_domain_id=$anqp_domain_id" "$N"
+		append bss_conf "hs20_deauth_req_timeout=$hs20_deauth_req_timeout" "$N"
+		[ -n "$osu_ssid" ] && append bss_conf "osu_ssid=$osu_ssid" "$N"
+>>>>>>> 94392b39ec (稳定版本发布)
 		[ -n "$hs20_wan_metrics" ] && append bss_conf "hs20_wan_metrics=$hs20_wan_metrics" "$N"
 		[ -n "$hs20_operating_class" ] && append bss_conf "hs20_operating_class=$hs20_operating_class" "$N"
 		[ -n "$hs20_t_c_filename" ] && append bss_conf "hs20_t_c_filename=$hs20_t_c_filename" "$N"
 		[ -n "$hs20_t_c_timestamp" ] && append bss_conf "hs20_t_c_timestamp=$hs20_t_c_timestamp" "$N"
 		[ -n "$hs20_t_c_server_url" ] && append bss_conf "hs20_t_c_server_url=$hs20_t_c_server_url" "$N"
+<<<<<<< HEAD
 		json_for_each_item append_hs20_conn_capab hs20_conn_capab
+=======
+		json_for_each_item append_hs20_oper_friendly_name hs20_oper_friendly_name
+		json_for_each_item append_hs20_conn_capab hs20_conn_capab
+		json_for_each_item append_osu_provider osu_provider
+		json_for_each_item append_operator_icon operator_icon
+>>>>>>> 94392b39ec (稳定版本发布)
 	fi
 
 	if [ "$eap_server" = "1" ]; then
@@ -1318,16 +1458,24 @@ wpa_supplicant_add_network() {
 	wireless_vif_parse_encryption
 
 	json_get_vars \
+<<<<<<< HEAD
 		ssid bssid key rsn_override \
 		mcast_rate \
+=======
+		ssid bssid key \
+		basic_rate mcast_rate \
+>>>>>>> 94392b39ec (稳定版本发布)
 		ieee80211w ieee80211r fils ocv \
 		multi_ap \
 		default_disabled
 
+<<<<<<< HEAD
 	json_get_values basic_rate_list basic_rate
 
 	set_default rsn_override 1
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	case "$auth_type" in
 		sae|owe|eap2|eap192)
 			set_default ieee80211w 2
@@ -1378,12 +1526,15 @@ wpa_supplicant_add_network() {
 
 	[ -n "$ocv" ] && append network_data "ocv=$ocv" "$N$T"
 
+<<<<<<< HEAD
 	rsn_overriding=0
 	case "$htmode" in
 	EHT*|HE*) [ "$rsn_override" -gt 0 ] && rsn_overriding=1;;
 	esac
 	append network_data "rsn_overriding=$rsn_overriding" "$N$T"
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	case "$auth_type" in
 		none) ;;
 		owe)
@@ -1594,6 +1745,7 @@ wpa_supplicant_add_network() {
 	[ -n "$bssid_blacklist" ] && append network_data "bssid_blacklist=$bssid_blacklist" "$N$T"
 	[ -n "$bssid_whitelist" ] && append network_data "bssid_whitelist=$bssid_whitelist" "$N$T"
 
+<<<<<<< HEAD
 	[ -n "$basic_rate_list" ] && {
 		local br rate rate_list=
 
@@ -1609,6 +1761,14 @@ wpa_supplicant_add_network() {
 			done
 			[ -n "$rate_list" ] && append network_data "rates=$rate_list" "$N$T"
 		fi
+=======
+	[ -n "$basic_rate" ] && {
+		local br rate_list=
+		for br in $basic_rate; do
+			wpa_supplicant_add_rate rate_list "$br"
+		done
+		[ -n "$rate_list" ] && append network_data "rates=$rate_list" "$N$T"
+>>>>>>> 94392b39ec (稳定版本发布)
 	}
 
 	[ -n "$mcast_rate" ] && {

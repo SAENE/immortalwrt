@@ -137,7 +137,11 @@
 &pcie0 {
 	wifi@0,0 {
 		compatible = "mediatek,mt76";
+<<<<<<< HEAD
 		reg = <0x0000 0 0 0 0>;
+=======
+		reg = <0x0 0 0 0 0>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		nvmem-cells = <&eeprom_factory_8000>;
 		nvmem-cell-names = "eeprom";
 		ieee80211-freq-limit = <5000000 6000000>;
@@ -147,7 +151,11 @@
 &pcie2 {
 	wifi@0,0 {
 		compatible = "mediatek,mt76";
+<<<<<<< HEAD
 		reg = <0x0000 0 0 0 0>;
+=======
+		reg = <0x0 0 0 0 0>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		nvmem-cells = <&eeprom_factory_0>;
 		nvmem-cell-names = "eeprom";
 		ieee80211-freq-limit = <2400000 2500000>;

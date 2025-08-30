@@ -15,7 +15,11 @@ Subject: [PATCH] Allow HT40 also on 2.4GHz if noscan option is set, which also
  	{ STR(id_str) },
 --- a/wpa_supplicant/config_file.c
 +++ b/wpa_supplicant/config_file.c
+<<<<<<< HEAD
 @@ -869,6 +869,7 @@ static void wpa_config_write_network(FIL
+=======
+@@ -868,6 +868,7 @@ static void wpa_config_write_network(FIL
+>>>>>>> 94392b39ec (稳定版本发布)
  	INT(mode);
  #ifdef CONFIG_MESH
  	INT(no_auto_peer);
@@ -47,7 +51,11 @@ Subject: [PATCH] Allow HT40 also on 2.4GHz if noscan option is set, which also
  		/*
 --- a/wpa_supplicant/wpa_supplicant.c
 +++ b/wpa_supplicant/wpa_supplicant.c
+<<<<<<< HEAD
 @@ -3048,7 +3048,7 @@ static bool ibss_mesh_can_use_vht(struct
+=======
+@@ -3035,7 +3035,7 @@ static bool ibss_mesh_can_use_vht(struct
+>>>>>>> 94392b39ec (稳定版本发布)
  				  const struct wpa_ssid *ssid,
  				  struct hostapd_hw_modes *mode)
  {
@@ -56,7 +64,11 @@ Subject: [PATCH] Allow HT40 also on 2.4GHz if noscan option is set, which also
  		return false;
  
  	if (!drv_supports_vht(wpa_s, ssid))
+<<<<<<< HEAD
 @@ -3122,7 +3122,7 @@ static void ibss_mesh_select_40mhz(struc
+=======
+@@ -3109,7 +3109,7 @@ static void ibss_mesh_select_40mhz(struc
+>>>>>>> 94392b39ec (稳定版本发布)
  	int i, res;
  	unsigned int j;
  	static const int ht40plus_5ghz[] = {
@@ -65,7 +77,11 @@ Subject: [PATCH] Allow HT40 also on 2.4GHz if noscan option is set, which also
  		149, 157, 165, 173, 184, 192
  	};
  	static const int ht40plus_6ghz[] = {
+<<<<<<< HEAD
 @@ -3475,7 +3475,7 @@ void ibss_mesh_setup_freq(struct wpa_sup
+=======
+@@ -3462,7 +3462,7 @@ void ibss_mesh_setup_freq(struct wpa_sup
+>>>>>>> 94392b39ec (稳定版本发布)
  	int ieee80211_mode = wpas_mode_to_ieee80211_mode(ssid->mode);
  	enum hostapd_hw_mode hw_mode;
  	struct hostapd_hw_modes *mode = NULL;
@@ -74,7 +90,11 @@ Subject: [PATCH] Allow HT40 also on 2.4GHz if noscan option is set, which also
  	u8 channel;
  	bool is_6ghz, is_24ghz;
  	bool dfs_enabled = wpa_s->conf->country[0] && (wpa_s->drv_flags & WPA_DRIVER_FLAGS_RADAR);
+<<<<<<< HEAD
 @@ -3519,6 +3519,8 @@ void ibss_mesh_setup_freq(struct wpa_sup
+=======
+@@ -3506,6 +3506,8 @@ void ibss_mesh_setup_freq(struct wpa_sup
+>>>>>>> 94392b39ec (稳定版本发布)
  		freq->he_enabled = ibss_mesh_can_use_he(wpa_s, ssid, mode,
  							ieee80211_mode);
  	freq->channel = channel;

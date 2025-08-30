@@ -315,6 +315,7 @@ macaddr_canonicalize() {
 dt_is_enabled() {
 	grep -q okay "/proc/device-tree/$1/status"
 }
+<<<<<<< HEAD
 
 get_linux_version() {
 	local ver=$(uname -r)
@@ -322,3 +323,5 @@ get_linux_version() {
 
 	printf "%d%02d%03d" ${ver%%\.*} ${minor#*\.} ${ver##*\.} 2>/dev/null
 }
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

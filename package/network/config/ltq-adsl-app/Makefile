@@ -10,7 +10,11 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=dsl_cpe_control_danube
 PKG_VERSION:=3.24.4.4
+<<<<<<< HEAD
 PKG_RELEASE:=15
+=======
+PKG_RELEASE:=14
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_BUILD_DIR:=$(BUILD_DIR)/dsl_cpe_control-$(PKG_VERSION)
 PKG_SOURCE_URL:=@OPENWRT

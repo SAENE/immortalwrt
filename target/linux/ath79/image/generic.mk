@@ -13,7 +13,10 @@ DEVICE_VARS += ELECOM_HWID
 DEVICE_VARS += MOXA_MAGIC MOXA_HWID
 DEVICE_VARS += OPENMESH_CE_TYPE ZYXEL_MODEL_STRING
 DEVICE_VARS += SUPPORTED_TELTONIKA_DEVICES
+<<<<<<< HEAD
 DEVICE_VARS += SUPPORTED_TELTONIKA_HW_MODS
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define Build/addpattern
 	-$(STAGING_DIR_HOST)/bin/addpattern -B $(ADDPATTERN_ID) \
@@ -154,6 +157,38 @@ define Build/teltonika-v1-header
 	@mv $@.new $@
 endef
 
+<<<<<<< HEAD
+=======
+metadata_json_teltonika = \
+	'{ $(if $(IMAGE_METADATA),$(IMAGE_METADATA)$(comma)) \
+		"metadata_version": "1.1", \
+		"compat_version": "$(call json_quote,$(compat_version))", \
+		"version":"$(call json_quote,$(VERSION_DIST))-$(call json_quote,$(VERSION_NUMBER))-$(call json_quote,$(REVISION))", \
+		"device_code": [".*"], \
+		"hwver": [".*"], \
+		"batch": [".*"], \
+		"serial": [".*"], \
+		$(if $(DEVICE_COMPAT_MESSAGE),"compat_message": "$(call json_quote,$(DEVICE_COMPAT_MESSAGE))"$(comma)) \
+		$(if $(filter-out 1.0,$(compat_version)),"new_supported_devices": \
+			[$(call metadata_devices,$(SUPPORTED_TELTONIKA_DEVICES))]$(comma) \
+			"supported_devices": ["$(call json_quote,$(legacy_supported_message))"]$(comma)) \
+		$(if $(filter 1.0,$(compat_version)),"supported_devices":[$(call metadata_devices,$(SUPPORTED_TELTONIKA_DEVICES))]$(comma)) \
+		"version_wrt": { \
+			"dist": "$(call json_quote,$(VERSION_DIST))", \
+			"version": "$(call json_quote,$(VERSION_NUMBER))", \
+			"revision": "$(call json_quote,$(REVISION))", \
+			"target": "$(call json_quote,$(TARGETID))", \
+			"board": "$(call json_quote,$(if $(BOARD_NAME),$(BOARD_NAME),$(DEVICE_NAME)))" \
+		}, \
+		"hw_support": {}, \
+		"hw_mods": {} \
+	}'
+
+define Build/append-metadata-teltonika
+	echo $(call metadata_json_teltonika) | fwtool -I - $@
+endef
+
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/wrgg-pad-rootfs
 	$(STAGING_DIR_HOST)/bin/padjffs2 $(IMAGE_ROOTFS) -c 64 >>$@
 endef
@@ -951,18 +986,30 @@ define Device/compex_wpj563
 endef
 TARGET_DEVICES += compex_wpj563
 
+<<<<<<< HEAD
 define Device/dell_apl2x
   SOC := qca9550
   DEVICE_VENDOR := Dell
   DEVICE_MODEL := SonicPoint
   DEVICE_ALT0_VENDOR := SonicWall
   DEVICE_ALT0_MODEL := SonicPoint
+=======
+define Device/dell_apl26-0ae
+  SOC := qca9550
+  DEVICE_VENDOR := Dell
+  DEVICE_MODEL := SonicPoint
+  DEVICE_VARIANT := ACe (APL26-0AE)
+  DEVICE_ALT0_VENDOR := SonicWall
+  DEVICE_ALT0_MODEL := SonicPoint
+  DEVICE_ALT0_VARIANT := ACe (APL26-0AE)
+>>>>>>> 94392b39ec (稳定版本发布)
   DEVICE_PACKAGES := ath10k-firmware-qca988x-ct kmod-ath10k-ct kmod-usb2
   KERNEL_SIZE := 5952k
   IMAGE_SIZE := 31680k
   IMAGE/sysupgrade.bin = append-kernel | pad-to $$$$(BLOCKSIZE) | \
 	append-rootfs | pad-rootfs | check-size | append-metadata
 endef
+<<<<<<< HEAD
 
 define Device/dell_apl26-0ae
   $(Device/dell_apl2x)
@@ -979,6 +1026,10 @@ define Device/dell_apl27-0b1
 endef
 TARGET_DEVICES += dell_apl27-0b1
 
+=======
+TARGET_DEVICES += dell_apl26-0ae
+
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/devolo_dlan-pro-1200plus-ac
   SOC := ar9344
   DEVICE_VENDOR := devolo
@@ -3130,7 +3181,11 @@ define Device/teltonika_rut300
   IMAGE_SIZE := 15552k
   IMAGES += factory.bin
   IMAGE/factory.bin = append-kernel | pad-to $$$$(BLOCKSIZE) | \
+<<<<<<< HEAD
 			 append-rootfs | pad-rootfs | append-teltonika-metadata | \
+=======
+			 append-rootfs | pad-rootfs | append-metadata-teltonika | \
+>>>>>>> 94392b39ec (稳定版本发布)
 			 check-size $$$$(IMAGE_SIZE)
   IMAGE/sysupgrade.bin = append-kernel | pad-to $$$$(BLOCKSIZE) | \
 			 append-rootfs | pad-rootfs | append-metadata | \
@@ -3305,7 +3360,11 @@ define Device/xiaomi_aiot-ac2350
   SOC := qca9563
   DEVICE_VENDOR := Xiaomi
   DEVICE_MODEL := AIoT AC2350
+<<<<<<< HEAD
   DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9984-ct ipq-wifi-xiaomi_aiot-ac2350
+=======
+  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9984-ct
+>>>>>>> 94392b39ec (稳定版本发布)
   IMAGE_SIZE := 14336k
 endef
 TARGET_DEVICES += xiaomi_aiot-ac2350
@@ -3426,7 +3485,10 @@ define Device/zyxel_nwa11xx
 	append-kernel | pad-to $$$$(BLOCKSIZE) | append-rootfs | \
 	pad-rootfs | pad-to 8192k | check-size | zyxel-tar-bz2 \
 	vmlinux_mi124_f1e mi124_f1e-jffs2 | append-md5sum-bin
+<<<<<<< HEAD
   DEFAULT := n
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 define Device/zyxel_nwa1100-nh

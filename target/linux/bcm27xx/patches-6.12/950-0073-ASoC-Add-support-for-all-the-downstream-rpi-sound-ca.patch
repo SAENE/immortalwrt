@@ -18589,7 +18589,11 @@ Signed-off-by: j-schambacher <joerg@hifiberry.com>
  	u32 xfer_resolution;
 --- a/sound/soc/soc-core.c
 +++ b/sound/soc/soc-core.c
+<<<<<<< HEAD
 @@ -1437,7 +1437,15 @@ int snd_soc_runtime_set_dai_fmt(struct s
+=======
+@@ -1434,7 +1434,15 @@ int snd_soc_runtime_set_dai_fmt(struct s
+>>>>>>> 94392b39ec (稳定版本发布)
  		return 0;
  
  	for_each_rtd_codec_dais(rtd, i, codec_dai) {
@@ -18626,7 +18630,11 @@ Signed-off-by: j-schambacher <joerg@hifiberry.com>
  	 * For devices with more than one control interface, we assume the
 --- a/sound/usb/quirks.c
 +++ b/sound/usb/quirks.c
+<<<<<<< HEAD
 @@ -2360,6 +2360,8 @@ static const struct usb_audio_quirk_flag
+=======
+@@ -2358,6 +2358,8 @@ static const struct usb_audio_quirk_flag
+>>>>>>> 94392b39ec (稳定版本发布)
  		   QUIRK_FLAG_ALIGN_TRANSFER),
  	DEVICE_FLG(0x534d, 0x2109, /* MacroSilicon MS2109 */
  		   QUIRK_FLAG_ALIGN_TRANSFER),

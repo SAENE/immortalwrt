@@ -1,8 +1,11 @@
 // SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 /dts-v1/;
 
+<<<<<<< HEAD
 #include <dt-bindings/pinctrl/mt65xx.h>
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #include "mt7622-buffalo-wsr.dtsi"
 
 / {
@@ -13,9 +16,14 @@
 		label-mac-device = &gmac0;
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x0f000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0 0x40000000 0 0x0F000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	rtkgsw: rtkgsw@0 {
@@ -41,7 +49,11 @@
 				  "NALE", "NDL0", "NDL1",
 				  "NDL2", "NDL3";
 			input-enable;
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_8mA>;
+=======
+			drive-strength = <8>;
+>>>>>>> 94392b39ec (稳定版本发布)
 			bias-pull-up;
 		};
 	};

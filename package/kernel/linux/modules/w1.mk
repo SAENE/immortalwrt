@@ -174,6 +174,7 @@ define KernelPackage/w1-slave-ds2413/description
 endef
 
 $(eval $(call KernelPackage,w1-slave-ds2413))
+<<<<<<< HEAD
 
 
 define KernelPackage/w1-slave-ds2438
@@ -190,3 +191,5 @@ define KernelPackage/w1-slave-ds2438/description
 endef
 
 $(eval $(call KernelPackage,w1-slave-ds2438))
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

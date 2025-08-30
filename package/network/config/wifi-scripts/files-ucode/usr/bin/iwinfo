@@ -2,8 +2,11 @@
 
 'use strict';
 
+<<<<<<< HEAD
 import { find_phy } from 'wifi.utils';
 import * as uci from 'uci';
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 import * as iwinfo from 'iwinfo';
 
 function print_assoclist(stations) {
@@ -125,6 +128,7 @@ const commands = {
 	txpowerlist: [ iwinfo.txpowerlist, print_txpowerlist ],
 };
 
+<<<<<<< HEAD
 if (ARGV[0] == 'nl80211' && ARGV[1] == 'phyname') {
 	let sec_name = ARGV[2];
 	let sec = uci.cursor(null, null, null, { strict: false }).get_all('wireless', sec_name);
@@ -143,6 +147,8 @@ if (ARGV[0] == 'nl80211' && ARGV[1] == 'phyname') {
 	return 0;
 }
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 if (length(ARGV) == 2 && iwinfo.ifaces[ARGV[0]])
 	for (let cmd, cb in commands)
 		if (substr(cmd, 0, length(ARGV[1])) == ARGV[1]) {
@@ -165,7 +171,11 @@ case 'iface':
 	return 0;
 }
 
+<<<<<<< HEAD
 warn('Usage:\n' +
+=======
+printf('Usage:\n' +
+>>>>>>> 94392b39ec (稳定版本发布)
 	'\tiwinfo <device> info\n' +
 	'\tiwinfo <device> scan\n' +
 	'\tiwinfo <device> txpowerlist\n' +
@@ -173,5 +183,9 @@ warn('Usage:\n' +
 	'\tiwinfo <device> assoclist\n' +
 	'\tiwinfo <device> countrylist\n' +
 	'\tiwinfo <device> htmodelist\n' +
+<<<<<<< HEAD
 	'\tiwinfo nl80211 phyname <section>\n');
 return 1;
+=======
+	'\tiwinfo <backend> phyname <section>\n');
+>>>>>>> 94392b39ec (稳定版本发布)

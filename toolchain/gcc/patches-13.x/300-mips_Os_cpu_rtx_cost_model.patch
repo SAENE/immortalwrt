@@ -10,7 +10,11 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
 
 --- a/gcc/config/mips/mips.cc
 +++ b/gcc/config/mips/mips.cc
+<<<<<<< HEAD
 @@ -20228,7 +20228,7 @@ mips_option_override (void)
+=======
+@@ -20219,7 +20219,7 @@ mips_option_override (void)
+>>>>>>> 94392b39ec (稳定版本发布)
      flag_pcc_struct_return = 0;
  
    /* Decide which rtx_costs structure to use.  */

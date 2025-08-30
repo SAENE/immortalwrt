@@ -32,9 +32,12 @@ config PCIE_SUPPORT
 config PCMCIA_SUPPORT
 	bool
 
+<<<<<<< HEAD
 config PINCTRL_SUPPORT
 	bool
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 config PWM_SUPPORT
 	bool
 
@@ -51,9 +54,12 @@ config RTC_SUPPORT
 config BIG_ENDIAN
 	bool
 
+<<<<<<< HEAD
 config USES_PM
 	bool
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 config USES_DEVICETREE
 	bool
 
@@ -75,9 +81,12 @@ config USES_JFFS2_NAND
 config USES_EXT4
 	bool
 
+<<<<<<< HEAD
 config USES_EROFS
 	bool
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 config USES_TARGZ
 	bool
 

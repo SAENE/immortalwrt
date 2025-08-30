@@ -130,6 +130,7 @@ define Build/append-gl-metadata
 	}
 endef
 
+<<<<<<< HEAD
 define Build/append-teltonika-metadata
 	echo \
 		'{$(if $(IMAGE_METADATA),$(IMAGE_METADATA)$(comma)) \
@@ -157,6 +158,8 @@ define Build/append-teltonika-metadata
 		}' | fwtool -I - $@
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/append-rootfs
 	dd if=$(IMAGE_ROOTFS) >> $@
 endef
@@ -713,12 +716,18 @@ define Build/senao-header
 endef
 
 define Build/sysupgrade-tar
+<<<<<<< HEAD
 	$(eval dtb=$(call param_get,dtb,$(1)))
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	sh $(TOPDIR)/scripts/sysupgrade-tar.sh \
 		--board $(if $(BOARD_NAME),$(BOARD_NAME),$(DEVICE_NAME)) \
 		--kernel $(call param_get_default,kernel,$(1),$(IMAGE_KERNEL)) \
 		--rootfs $(call param_get_default,rootfs,$(1),$(IMAGE_ROOTFS)) \
+<<<<<<< HEAD
 		$(if $(dtb),--dtb $(dtb)) \
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 		$@
 endef
 

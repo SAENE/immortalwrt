@@ -13,9 +13,13 @@ CONFIG_32BIT=y
 # CONFIG_ACENIC is not set
 # CONFIG_ACERHDF is not set
 # CONFIG_ACER_WIRELESS is not set
+<<<<<<< HEAD
 # CONFIG_ACER_WMI is not set
 # CONFIG_ACORN_PARTITION is not set
 # CONFIG_ACPI_AGDI is not set
+=======
+# CONFIG_ACORN_PARTITION is not set
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_ACPI_ALS is not set
 # CONFIG_ACPI_APEI is not set
 # CONFIG_ACPI_APEI_PCIEAER is not set
@@ -26,7 +30,10 @@ CONFIG_32BIT=y
 # CONFIG_ACPI_NFIT is not set
 # CONFIG_ACPI_REDUCED_HARDWARE_ONLY is not set
 # CONFIG_ACPI_TABLE_UPGRADE is not set
+<<<<<<< HEAD
 # CONFIG_ACPI_TOSHIBA is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_ACPI_VIDEO is not set
 # CONFIG_AD2S1200 is not set
 # CONFIG_AD2S1210 is not set
@@ -463,9 +470,13 @@ CONFIG_ARM_MODULE_PLTS=y
 # CONFIG_ASM9260_TIMER is not set
 # CONFIG_ASN1 is not set
 # CONFIG_ASUS_LAPTOP is not set
+<<<<<<< HEAD
 # CONFIG_ASUS_TF103C_DOCK is not set
 # CONFIG_ASUS_WIRELESS is not set
 # CONFIG_ASUS_WMI is not set
+=======
+# CONFIG_ASUS_WIRELESS is not set
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_ASYMMETRIC_KEY_TYPE is not set
 # CONFIG_ASYMMETRIC_PUBLIC_KEY_SUBTYPE is not set
 # CONFIG_ASYNC_RAID6_TEST is not set
@@ -936,7 +947,10 @@ CONFIG_CIFS_XATTR=y
 # CONFIG_CLK_ICST is not set
 # CONFIG_CLK_QORIQ is not set
 # CONFIG_CLK_SP810 is not set
+<<<<<<< HEAD
 # CONFIG_CLK_TWL is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 CONFIG_CLS_U32_MARK=y
 # CONFIG_CLS_U32_PERF is not set
 # CONFIG_CM32181 is not set
@@ -996,7 +1010,10 @@ CONFIG_COMPACTION=y
 # CONFIG_COMPAT is not set
 # CONFIG_COMPAT_BRK is not set
 # CONFIG_COMPILE_TEST is not set
+<<<<<<< HEAD
 # CONFIG_COMPRESSED_INSTALL is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_CONFIGFS_FS is not set
 # CONFIG_CONNECTOR is not set
 CONFIG_CONSOLE_LOGLEVEL_DEFAULT=7
@@ -1040,7 +1057,10 @@ CONFIG_CPU_SW_DOMAIN_PAN=y
 CONFIG_CRAMFS_BLOCKDEV=y
 # CONFIG_CRAMFS_MTD is not set
 # CONFIG_CRASH_DUMP is not set
+<<<<<<< HEAD
 # CONFIG_CRASH_HOTPLUG is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_CRC16 is not set
 CONFIG_CRC32=y
 # CONFIG_CRC32_BIT is not set
@@ -1473,9 +1493,12 @@ CONFIG_DQL=y
 # CONFIG_DRAGONRISE_FF is not set
 # CONFIG_DRM is not set
 # CONFIG_DRM_ACCEL is not set
+<<<<<<< HEAD
 # CONFIG_DRM_ACCEL_HABANALABS is not set
 # CONFIG_DRM_ACCEL_IVPU is not set
 # CONFIG_DRM_ACCEL_QAIC is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_DRM_AMDGPU is not set
 # CONFIG_DRM_AMDGPU_CIK is not set
 # CONFIG_DRM_AMDGPU_SI is not set
@@ -1483,7 +1506,10 @@ CONFIG_DQL=y
 # CONFIG_DRM_AMDGPU_WERROR is not set
 # CONFIG_DRM_AMD_ACP is not set
 # CONFIG_DRM_AMD_DC_SI is not set
+<<<<<<< HEAD
 # CONFIG_DRM_AMD_ISP is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_DRM_AMD_SECURE_DISPLAY is not set
 # CONFIG_DRM_ANALOGIX_ANX6345 is not set
 # CONFIG_DRM_ANALOGIX_ANX7625 is not set
@@ -1523,9 +1549,12 @@ CONFIG_DQL=y
 # CONFIG_DRM_I2C_NXP_TDA998X is not set
 # CONFIG_DRM_I2C_SIL164 is not set
 # CONFIG_DRM_I915 is not set
+<<<<<<< HEAD
 # CONFIG_DRM_I915_DEBUG_WAKEREF is not set
 # CONFIG_DRM_I915_GVT_KVMGT is not set
 # CONFIG_DRM_I915_REPLAY_GPU_HANGS_API is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_DRM_IMX_LCDIF is not set
 # CONFIG_DRM_ITE_IT6505 is not set
 # CONFIG_DRM_ITE_IT66121 is not set
@@ -1913,6 +1942,7 @@ CONFIG_ELFCORE=y
 CONFIG_EPOLL=y
 # CONFIG_EQUALIZER is not set
 # CONFIG_EROFS_FS is not set
+<<<<<<< HEAD
 # CONFIG_EROFS_FS_BACKED_BY_FILE is not set
 # CONFIG_EROFS_FS_DEBUG is not set
 # CONFIG_EROFS_FS_ONDEMAND is not set
@@ -1924,6 +1954,8 @@ CONFIG_EROFS_FS_PCPU_KTHREAD_HIPRI=y
 # CONFIG_EROFS_FS_ZIP is not set
 # CONFIG_EROFS_FS_ZIP_DEFLATE is not set
 # CONFIG_EROFS_FS_ZIP_ZSTD is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_ET131X is not set
 CONFIG_ETHERNET=y
 # CONFIG_ETHOC is not set
@@ -2201,7 +2233,10 @@ CONFIG_GENERIC_VDSO_TIME_NS=y
 # CONFIG_GENEVE is not set
 # CONFIG_GENWQE is not set
 # CONFIG_GFS2_FS is not set
+<<<<<<< HEAD
 # CONFIG_GIGABYTE_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_GLOB_SELFTEST is not set
 # CONFIG_GNSS is not set
 # CONFIG_GOLDFISH is not set
@@ -2323,7 +2358,10 @@ CONFIG_HARDEN_BRANCH_HISTORY=y
 # CONFIG_HI6421V600_IRQ is not set
 # CONFIG_HI8435 is not set
 # CONFIG_HIBERNATION is not set
+<<<<<<< HEAD
 # CONFIG_HIBERNATION_COMP_LZ4 is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_HID is not set
 # CONFIG_HIDRAW is not set
 # CONFIG_HID_A4TECH is not set
@@ -2480,7 +2518,10 @@ CONFIG_HPET_MMAP_DEFAULT=y
 # CONFIG_HTE is not set
 # CONFIG_HTS221 is not set
 # CONFIG_HTU21 is not set
+<<<<<<< HEAD
 # CONFIG_HUAWEI_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_HUGETLBFS is not set
 # CONFIG_HUGETLB_PAGE is not set
 # CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON is not set
@@ -2694,7 +2735,10 @@ CONFIG_IIO_CONSUMERS_PER_TRIGGER=2
 # CONFIG_IMX8QXP_ADC is not set
 # CONFIG_IMX93_ADC is not set
 # CONFIG_IMX_IPUV3_CORE is not set
+<<<<<<< HEAD
 # CONFIG_IMX_SCMI_BBM_EXT is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_IMX_SCMI_MISC_DRV is not set
 # CONFIG_IMX_THERMAL is not set
 # CONFIG_INA2XX_ADC is not set
@@ -2801,7 +2845,10 @@ CONFIG_INPUT_MISC=y
 # CONFIG_INPUT_UINPUT is not set
 # CONFIG_INPUT_WISTRON_BTNS is not set
 # CONFIG_INPUT_YEALINK is not set
+<<<<<<< HEAD
 # CONFIG_INSPUR_PLATFORM_PROFILE is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_INT340X_THERMAL is not set
 # CONFIG_INTEGRITY is not set
 # CONFIG_INTEGRITY_AUDIT is not set
@@ -2830,8 +2877,11 @@ CONFIG_INPUT_MISC=y
 # CONFIG_INTEL_SOC_PMIC_CHTWC is not set
 # CONFIG_INTEL_TH is not set
 # CONFIG_INTEL_VBTN is not set
+<<<<<<< HEAD
 # CONFIG_INTEL_WMI_SBL_FW_UPDATE is not set
 # CONFIG_INTEL_WMI_THUNDERBOLT is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_INTEL_XWAY_PHY is not set
 # CONFIG_INTERCONNECT is not set
 # CONFIG_INTERVAL_TREE_TEST is not set
@@ -3114,12 +3164,16 @@ CONFIG_KUSER_HELPERS=y
 # CONFIG_KVM_AMD is not set
 # CONFIG_KVM_AMD_SEV is not set
 # CONFIG_KVM_GUEST is not set
+<<<<<<< HEAD
 # CONFIG_KVM_HYPERV is not set
 # CONFIG_KVM_INTEL is not set
 # CONFIG_KVM_INTEL_PROVE_VE is not set
 CONFIG_KVM_MAX_NR_VCPUS=1024
 # CONFIG_KVM_PROVE_MMU is not set
 # CONFIG_KVM_SW_PROTECTED_VM is not set
+=======
+# CONFIG_KVM_INTEL is not set
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_KVM_WERROR is not set
 # CONFIG_KVM_XEN is not set
 # CONFIG_KXCJK1013 is not set
@@ -3234,9 +3288,12 @@ CONFIG_LEDS_TRIGGER_TIMER=y
 # CONFIG_LED_TRIGGER_PHY is not set
 # CONFIG_LEGACY_PTYS is not set
 # CONFIG_LEGACY_TIOCSTI is not set
+<<<<<<< HEAD
 # CONFIG_LENOVO_WMI_CAMERA is not set
 # CONFIG_LENOVO_YMC is not set
 # CONFIG_LG_LAPTOP is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_LIB80211 is not set
 # CONFIG_LIB80211_CRYPT_CCMP is not set
 # CONFIG_LIB80211_CRYPT_TKIP is not set
@@ -3762,8 +3819,11 @@ CONFIG_MODULE_UNLOAD=y
 # CONFIG_MOST is not set
 # CONFIG_MOTORCOMM_PHY is not set
 # CONFIG_MOUSE_APPLETOUCH is not set
+<<<<<<< HEAD
 # CONFIG_MOUSE_BCM5974 is not set
 # CONFIG_MOUSE_CYAPA is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_MOUSE_ELAN_I2C is not set
 # CONFIG_MOUSE_GPIO is not set
 # CONFIG_MOUSE_INPORT is not set
@@ -3771,10 +3831,15 @@ CONFIG_MODULE_UNLOAD=y
 # CONFIG_MOUSE_PC110PAD is not set
 # CONFIG_MOUSE_PS2_FOCALTECH is not set
 # CONFIG_MOUSE_PS2_SENTELIC is not set
+<<<<<<< HEAD
 # CONFIG_MOUSE_SERIAL is not set
 # CONFIG_MOUSE_SYNAPTICS_I2C is not set
 # CONFIG_MOUSE_SYNAPTICS_USB is not set
 # CONFIG_MOUSE_VSXXXAA is not set
+=======
+# CONFIG_MOUSE_SYNAPTICS_I2C is not set
+# CONFIG_MOUSE_SYNAPTICS_USB is not set
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_MOXTET is not set
 # CONFIG_MPL115 is not set
 # CONFIG_MPL115_I2C is not set
@@ -3797,8 +3862,11 @@ CONFIG_MSDOS_PARTITION=y
 # CONFIG_MSE102X is not set
 # CONFIG_MSI_BITMAP_SELFTEST is not set
 # CONFIG_MSI_LAPTOP is not set
+<<<<<<< HEAD
 # CONFIG_MSI_WMI is not set
 # CONFIG_MSI_WMI_PLATFORM is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_MSM_GCC_8953 is not set
 # CONFIG_MSM_MMCC_8994 is not set
 # CONFIG_MST_IRQ is not set
@@ -3940,7 +4008,10 @@ CONFIG_MTD_SPLIT_FIRMWARE_NAME="firmware"
 # CONFIG_MTD_SPLIT_JIMAGE_FW is not set
 # CONFIG_MTD_SPLIT_LZMA_FW is not set
 # CONFIG_MTD_SPLIT_MINOR_FW is not set
+<<<<<<< HEAD
 # CONFIG_MTD_SPLIT_MSTC_BOOT is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_MTD_SPLIT_SEAMA_FW is not set
 # CONFIG_MTD_SPLIT_SEIL_FW is not set
 CONFIG_MTD_SPLIT_SQUASHFS_ROOT=y
@@ -3976,7 +4047,10 @@ CONFIG_MULTIUSER=y
 # CONFIG_MWL8K is not set
 # CONFIG_MXC4005 is not set
 # CONFIG_MXC6255 is not set
+<<<<<<< HEAD
 # CONFIG_MXM_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_MYRI10GE is not set
 # CONFIG_NAMESPACES is not set
 # CONFIG_NATIONAL_PHY is not set
@@ -4089,7 +4163,10 @@ CONFIG_NETWORK_FILESYSTEMS=y
 # CONFIG_NETXEN_NIC is not set
 # CONFIG_NET_9P is not set
 # CONFIG_NET_9P_USBG is not set
+<<<<<<< HEAD
 # CONFIG_NET_9P_XEN is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_NET_ACT_BPF is not set
 # CONFIG_NET_ACT_CSUM is not set
 # CONFIG_NET_ACT_CT is not set
@@ -4146,7 +4223,10 @@ CONFIG_NET_CORE=y
 # CONFIG_NET_DSA_TAG_AR9331 is not set
 # CONFIG_NET_DSA_TAG_BRCM is not set
 # CONFIG_NET_DSA_TAG_BRCM_LEGACY is not set
+<<<<<<< HEAD
 # CONFIG_NET_DSA_TAG_BRCM_LEGACY_FCS is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_NET_DSA_TAG_BRCM_PREPEND is not set
 # CONFIG_NET_DSA_TAG_DSA is not set
 # CONFIG_NET_DSA_TAG_EDSA is not set
@@ -4498,7 +4578,10 @@ CONFIG_NLS_DEFAULT="iso8859-1"
 # CONFIG_NUMA is not set
 # CONFIG_NVGRACE_GPU_VFIO_PCI is not set
 # CONFIG_NVIDIA_CARMEL_CNP_ERRATUM is not set
+<<<<<<< HEAD
 # CONFIG_NVIDIA_WMI_EC_BACKLIGHT is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_NVMEM is not set
 # CONFIG_NVMEM_BCM_OCOTP is not set
 # CONFIG_NVMEM_BLOCK is not set
@@ -4786,7 +4869,10 @@ CONFIG_PINCONF=y
 # CONFIG_PINCTRL_CY8C95X0 is not set
 # CONFIG_PINCTRL_EXYNOS is not set
 # CONFIG_PINCTRL_ICELAKE is not set
+<<<<<<< HEAD
 # CONFIG_PINCTRL_IMX_SCMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_PINCTRL_INGENIC is not set
 # CONFIG_PINCTRL_LPASS_LPI is not set
 # CONFIG_PINCTRL_MCP23S08 is not set
@@ -5542,7 +5628,10 @@ CONFIG_SELECT_MEMORY_MODEL=y
 # CONFIG_SENSORS_ASC7621 is not set
 # CONFIG_SENSORS_ASPEED is not set
 # CONFIG_SENSORS_ASUS_ROG_RYUJIN is not set
+<<<<<<< HEAD
 # CONFIG_SENSORS_ASUS_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SENSORS_ATK0110 is not set
 # CONFIG_SENSORS_ATXP1 is not set
 # CONFIG_SENSORS_AXI_FAN_CONTROL is not set
@@ -5583,7 +5672,10 @@ CONFIG_SELECT_MEMORY_MODEL=y
 # CONFIG_SENSORS_HMC5843 is not set
 # CONFIG_SENSORS_HMC5843_I2C is not set
 # CONFIG_SENSORS_HMC5843_SPI is not set
+<<<<<<< HEAD
 # CONFIG_SENSORS_HP_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SENSORS_HS3001 is not set
 # CONFIG_SENSORS_I5500 is not set
 # CONFIG_SENSORS_I5K_AMB is not set
@@ -5811,7 +5903,10 @@ CONFIG_SERIAL_EARLYCON=y
 # CONFIG_SERIAL_JSM is not set
 # CONFIG_SERIAL_MAX3100 is not set
 # CONFIG_SERIAL_MAX310X is not set
+<<<<<<< HEAD
 # CONFIG_SERIAL_MULTI_INSTANTIATE is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SERIAL_NONSTANDARD is not set
 # CONFIG_SERIAL_OF_PLATFORM is not set
 # CONFIG_SERIAL_PCH_UART is not set
@@ -5841,7 +5936,10 @@ CONFIG_SERIAL_EARLYCON=y
 # CONFIG_SERIO_RAW is not set
 # CONFIG_SERIO_SERPORT is not set
 # CONFIG_SERIO_SUN4I_PS2 is not set
+<<<<<<< HEAD
 # CONFIG_SERIO_XILINX_XPS_PS2 is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SFC is not set
 # CONFIG_SFC_FALCON is not set
 # CONFIG_SFC_SIENA is not set
@@ -5981,17 +6079,23 @@ CONFIG_SND_DRIVERS=y
 # CONFIG_SND_GUSEXTREME is not set
 # CONFIG_SND_GUSMAX is not set
 # CONFIG_SND_HDA_CODEC_CS8409 is not set
+<<<<<<< HEAD
 # CONFIG_SND_HDA_CODEC_SENARYTECH is not set
 # CONFIG_SND_HDA_CTL_DEV_ID is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SND_HDA_INTEL is not set
 # CONFIG_SND_HDA_INTEL_HDMI_SILENT_STREAM is not set
 CONFIG_SND_HDA_POWER_SAVE_DEFAULT=0
 CONFIG_SND_HDA_PREALLOC_SIZE=64
+<<<<<<< HEAD
 # CONFIG_SND_HDA_SCODEC_CS35L41_I2C is not set
 # CONFIG_SND_HDA_SCODEC_CS35L41_SPI is not set
 # CONFIG_SND_HDA_SCODEC_CS35L56_I2C is not set
 # CONFIG_SND_HDA_SCODEC_CS35L56_SPI is not set
 # CONFIG_SND_HDA_SCODEC_TAS2781_I2C is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SND_HDSP is not set
 # CONFIG_SND_HDSPM is not set
 # CONFIG_SND_HRTIMER is not set
@@ -6095,11 +6199,15 @@ CONFIG_SND_PROC_FS=y
 # CONFIG_SND_SOC_AMD_ACP is not set
 # CONFIG_SND_SOC_AMD_ACP3x is not set
 # CONFIG_SND_SOC_AMD_ACP5x is not set
+<<<<<<< HEAD
 # CONFIG_SND_SOC_AMD_ACP6x is not set
 # CONFIG_SND_SOC_AMD_ACP_COMMON is not set
 # CONFIG_SND_SOC_AMD_PS is not set
 # CONFIG_SND_SOC_AMD_RENOIR is not set
 # CONFIG_SND_SOC_AMD_RPL_ACP6x is not set
+=======
+# CONFIG_SND_SOC_AMD_RENOIR is not set
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SND_SOC_AU1XAUDIO is not set
 # CONFIG_SND_SOC_AU1XPSC is not set
 # CONFIG_SND_SOC_AUDIO_IIO_AUX is not set
@@ -6176,7 +6284,10 @@ CONFIG_SND_PROC_FS=y
 # CONFIG_SND_SOC_IMX_HDMI is not set
 # CONFIG_SND_SOC_IMX_RPMSG is not set
 # CONFIG_SND_SOC_INNO_RK3036 is not set
+<<<<<<< HEAD
 # CONFIG_SND_SOC_INTEL_AVS is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_SND_SOC_INTEL_BDW_RT5677_MACH is not set
 # CONFIG_SND_SOC_INTEL_BYTCR_RT5640_MACH is not set
 # CONFIG_SND_SOC_INTEL_BYTCR_RT5651_MACH is not set
@@ -6695,7 +6806,10 @@ CONFIG_TEXTSEARCH=y
 # CONFIG_THERMAL_NETLINK is not set
 # CONFIG_THERMAL_STATISTICS is not set
 # CONFIG_THINKPAD_ACPI is not set
+<<<<<<< HEAD
 # CONFIG_THINKPAD_LMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_THRUSTMASTER_FF is not set
 # CONFIG_THUMB2_KERNEL is not set
 # CONFIG_THUNDER_NIC_BGX is not set
@@ -6767,7 +6881,10 @@ CONFIG_TMPFS_XATTR=y
 # CONFIG_TOPSTAR_LAPTOP is not set
 # CONFIG_TORTURE_TEST is not set
 # CONFIG_TOSHIBA_HAPS is not set
+<<<<<<< HEAD
 # CONFIG_TOSHIBA_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_TOUCHSCREEN_88PM860X is not set
 # CONFIG_TOUCHSCREEN_AD7877 is not set
 # CONFIG_TOUCHSCREEN_AD7879 is not set
@@ -7371,7 +7488,10 @@ CONFIG_VDSO=y
 # CONFIG_VGA_CONSOLE is not set
 # CONFIG_VGA_SWITCHEROO is not set
 # CONFIG_VHOST_CROSS_ENDIAN_LEGACY is not set
+<<<<<<< HEAD
 CONFIG_VHOST_ENABLE_FORK_OWNER_CONTROL=y
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 CONFIG_VHOST_MENU=y
 # CONFIG_VHOST_NET is not set
 # CONFIG_VHOST_VSOCK is not set
@@ -7460,8 +7580,11 @@ CONFIG_VHOST_MENU=y
 # CONFIG_VIDEO_IMX8_JPEG is not set
 # CONFIG_VIDEO_IMX_MIPI_CSIS is not set
 # CONFIG_VIDEO_IMX_PXP is not set
+<<<<<<< HEAD
 # CONFIG_VIDEO_INTEL_IPU6 is not set
 # CONFIG_VIDEO_IPU3_CIO2 is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_VIDEO_IR_I2C is not set
 # CONFIG_VIDEO_ISL7998X is not set
 # CONFIG_VIDEO_IVTV is not set
@@ -7692,7 +7815,10 @@ CONFIG_WLAN=y
 # CONFIG_WLAN_VENDOR_TI is not set
 # CONFIG_WLAN_VENDOR_ZYDAS is not set
 # CONFIG_WLCORE is not set
+<<<<<<< HEAD
 # CONFIG_WMI_BMOF is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_WPCM450_SOC is not set
 # CONFIG_WQ_CPU_INTENSIVE_REPORT is not set
 CONFIG_WQ_POWER_EFFICIENT_DEFAULT=y
@@ -7702,9 +7828,13 @@ CONFIG_WQ_POWER_EFFICIENT_DEFAULT=y
 # CONFIG_WW_MUTEX_SELFTEST is not set
 # CONFIG_X25 is not set
 # CONFIG_X509_CERTIFICATE_PARSER is not set
+<<<<<<< HEAD
 # CONFIG_X86_KERNEL_IBT is not set
 # CONFIG_X86_PKG_TEMP_THERMAL is not set
 # CONFIG_X86_USER_SHADOW_STACK is not set
+=======
+# CONFIG_X86_PKG_TEMP_THERMAL is not set
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_X9250 is not set
 # CONFIG_XDP_SOCKETS is not set
 # CONFIG_XEN is not set
@@ -7727,7 +7857,10 @@ CONFIG_XFRM=y
 # CONFIG_XFS_SUPPORT_ASCII_CI is not set
 # CONFIG_XFS_SUPPORT_V4 is not set
 # CONFIG_XFS_WARN is not set
+<<<<<<< HEAD
 # CONFIG_XIAOMI_WMI is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_XILINX_AXI_EMAC is not set
 # CONFIG_XILINX_DMA is not set
 # CONFIG_XILINX_EMACLITE is not set
@@ -7766,7 +7899,10 @@ CONFIG_XZ_DEC=y
 # CONFIG_YENTA_RICOH is not set
 # CONFIG_YENTA_TI is not set
 # CONFIG_YENTA_TOSHIBA is not set
+<<<<<<< HEAD
 # CONFIG_YOGABOOK is not set
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 # CONFIG_ZBUD is not set
 # CONFIG_ZD1211RW is not set
 # CONFIG_ZD1211RW_DEBUG is not set

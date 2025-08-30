@@ -81,7 +81,10 @@ platform_do_upgrade() {
 	beeline,smartbox-turbo|\
 	beeline,smartbox-turbo-plus|\
 	belkin,rt1800|\
+<<<<<<< HEAD
 	c-life,xg1|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	dlink,covr-x1860-a1|\
 	dlink,dap-x1860-a1|\
 	dlink,dir-1960-a1|\
@@ -139,7 +142,10 @@ platform_do_upgrade() {
 	sercomm,na502|\
 	sercomm,na502s|\
 	sim,simax1800t|\
+<<<<<<< HEAD
 	sim,simax1800u|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	tplink,ec330-g5u-v1|\
 	wifire,s1500-nbn|\
 	xiaomi,mi-router-3g|\

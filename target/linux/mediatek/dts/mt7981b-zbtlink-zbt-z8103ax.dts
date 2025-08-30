@@ -19,12 +19,20 @@
 
 	chosen {
 		stdout-path = "serial0:115200n8";
+<<<<<<< HEAD
 		bootargs = "earlycon=uart8250,mmio32,0x11002000 console=ttyS0,115200n8";
 	};
 
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x10000000>;
 		device_type = "memory";
+=======
+		bootargs = "earlycon=uart8250,mmio32,0x11002000 console=ttyS0,115200n8 loglevel=8";
+	};
+
+	memory {
+		reg = <0 0x40000000 0 0x10000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	gpio-keys {

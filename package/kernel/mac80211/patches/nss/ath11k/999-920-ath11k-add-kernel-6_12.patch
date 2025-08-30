@@ -1,6 +1,10 @@
 --- a/drivers/net/wireless/ath/ath11k/core.c
 +++ b/drivers/net/wireless/ath/ath11k/core.c
+<<<<<<< HEAD
 @@ -2837,13 +2837,13 @@ err_sc_free:
+=======
+@@ -2431,13 +2431,13 @@ err_sc_free:
+>>>>>>> 94392b39ec (稳定版本发布)
  }
  EXPORT_SYMBOL(ath11k_core_alloc);
  
@@ -36,7 +40,11 @@
  			struct htt_ppdu_user_stats* usr_stats)
  {
  	usr_stats->rate.reserved0 = peer->ppdu_stats_delayba.reserved0;
+<<<<<<< HEAD
 @@ -6293,7 +6293,7 @@ static void ath11k_dp_rx_mon_dest_proces
+=======
+@@ -6289,7 +6289,7 @@ static void ath11k_dp_rx_mon_dest_proces
+>>>>>>> 94392b39ec (稳定版本发布)
  	}
  }
  
@@ -130,7 +138,11 @@
  {
  	struct ath11k *ar = ab->pdevs[radio_id].ar;
  	struct nss_wifili_pdev_init_msg *pdevmsg;
+<<<<<<< HEAD
 @@ -4686,7 +4686,7 @@ dealloc:
+=======
+@@ -4684,7 +4684,7 @@ dealloc:
+>>>>>>> 94392b39ec (稳定版本发布)
  /* TODO : Check if start, reset and stop messages can be done using single function as
   * body is similar, having it now for clarity */
  
@@ -139,7 +151,11 @@
  {
  	struct nss_wifili_msg *wlmsg = NULL;
  	nss_wifili_msg_callback_t msg_cb;
+<<<<<<< HEAD
 @@ -4851,7 +4851,7 @@ free:
+=======
+@@ -4849,7 +4849,7 @@ free:
+>>>>>>> 94392b39ec (稳定版本发布)
  	return ret;
  }
  

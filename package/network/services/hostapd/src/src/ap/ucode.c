@@ -10,7 +10,10 @@
 #include "dfs.h"
 #include "acs.h"
 #include "ieee802_11_auth.h"
+<<<<<<< HEAD
 #include "neighbor_db.h"
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #include <libubox/uloop.h>
 
 static uc_resource_type_t *global_type, *bss_type, *iface_type;
@@ -47,11 +50,16 @@ hostapd_ucode_iface_get_uval(struct hostapd_iface *hapd)
 }
 
 static void
+<<<<<<< HEAD
 hostapd_ucode_update_bss_list(struct hostapd_iface *iface, uc_value_t *bss)
+=======
+hostapd_ucode_update_bss_list(struct hostapd_iface *iface, uc_value_t *if_bss, uc_value_t *bss)
+>>>>>>> 94392b39ec (稳定版本发布)
 {
 	uc_value_t *list;
 	int i;
 
+<<<<<<< HEAD
 	list = ucv_object_new(vm);
 	for (i = 0; iface->bss && i < iface->num_bss; i++) {
 		struct hostapd_data *hapd = iface->bss[i];
@@ -60,24 +68,50 @@ hostapd_ucode_update_bss_list(struct hostapd_iface *iface, uc_value_t *bss)
 		ucv_object_add(list, hapd->conf->iface, uval);
 	}
 	ucv_object_add(bss, iface->phy, list);
+=======
+	list = ucv_array_new(vm);
+	for (i = 0; iface->bss && i < iface->num_bss; i++) {
+		struct hostapd_data *hapd = iface->bss[i];
+
+		ucv_array_set(list, i, ucv_string_new(hapd->conf->iface));
+		ucv_object_add(bss, hapd->conf->iface, hostapd_ucode_bss_get_uval(hapd));
+	}
+	ucv_object_add(if_bss, iface->phy, list);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void
 hostapd_ucode_update_interfaces(void)
 {
 	uc_value_t *ifs = ucv_object_new(vm);
+<<<<<<< HEAD
 	uc_value_t *if_bss = ucv_object_new(vm);
+=======
+	uc_value_t *if_bss = ucv_array_new(vm);
+	uc_value_t *bss = ucv_object_new(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 	int i;
 
 	for (i = 0; i < interfaces->count; i++) {
 		struct hostapd_iface *iface = interfaces->iface[i];
 
 		ucv_object_add(ifs, iface->phy, hostapd_ucode_iface_get_uval(iface));
+<<<<<<< HEAD
 		hostapd_ucode_update_bss_list(iface, if_bss);
 	}
 
 	ucv_object_add(ucv_prototype_get(global), "interfaces", ifs);
 	ucv_object_add(ucv_prototype_get(global), "bss", if_bss);
+=======
+		hostapd_ucode_update_bss_list(iface, if_bss, bss);
+	}
+
+	ucv_object_add(ucv_prototype_get(global), "interfaces", ifs);
+	ucv_object_add(ucv_prototype_get(global), "interface_bss", if_bss);
+	ucv_object_add(ucv_prototype_get(global), "bss", bss);
+
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static uc_value_t *
@@ -201,6 +235,7 @@ bss_reload_vlans(struct hostapd_data *hapd, struct hostapd_bss_config *bss)
 	return 0;
 }
 
+<<<<<<< HEAD
 static void
 __uc_hostapd_bss_stop(struct hostapd_data *hapd)
 {
@@ -244,6 +279,8 @@ __uc_hostapd_bss_start(struct hostapd_data *hapd)
 	return ret;
 }
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 static uc_value_t *
 uc_hostapd_bss_set_config(uc_vm_t *vm, size_t nargs)
 {
@@ -256,7 +293,10 @@ uc_hostapd_bss_set_config(uc_vm_t *vm, size_t nargs)
 	uc_value_t *files_only = uc_fn_arg(2);
 	unsigned int i, idx = 0;
 	int ret = -1;
+<<<<<<< HEAD
 	bool started;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	if (!hapd || ucv_type(file) != UC_STRING)
 		goto out;
@@ -285,11 +325,20 @@ uc_hostapd_bss_set_config(uc_vm_t *vm, size_t nargs)
 
 		swap_field(ssid.wpa_psk_file);
 		ret = bss_reload_vlans(hapd, bss);
+<<<<<<< HEAD
 		goto free;
 	}
 
 	started = hapd->started;
 	__uc_hostapd_bss_stop(hapd);
+=======
+		goto done;
+	}
+
+	hostapd_bss_deinit_no_free(hapd);
+	hostapd_drv_stop_ap(hapd);
+	hostapd_free_hapd_data(hapd);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	old_bss = hapd->conf;
 	for (i = 0; i < iface->conf->num_bss; i++)
@@ -298,6 +347,7 @@ uc_hostapd_bss_set_config(uc_vm_t *vm, size_t nargs)
 	hapd->conf = conf->bss[idx];
 	conf->bss[idx] = old_bss;
 
+<<<<<<< HEAD
 	if (hapd == iface->bss[0])
 		memcpy(hapd->own_addr, hapd->conf->bssid, ETH_ALEN);
 
@@ -307,6 +357,14 @@ uc_hostapd_bss_set_config(uc_vm_t *vm, size_t nargs)
 		ret = 0;
 	hostapd_ucode_update_interfaces();
 
+=======
+	hostapd_setup_bss(hapd, hapd == iface->bss[0], true);
+	hostapd_ucode_update_interfaces();
+	hostapd_owe_update_trans(iface);
+
+done:
+	ret = 0;
+>>>>>>> 94392b39ec (稳定版本发布)
 free:
 	hostapd_config_free(conf);
 out:
@@ -368,6 +426,7 @@ uc_hostapd_bss_delete(uc_vm_t *vm, size_t nargs)
 	hostapd_bss_deinit(hapd);
 	hostapd_remove_iface_bss_conf(iface->conf, hapd->conf);
 	hostapd_config_free_bss(hapd->conf);
+<<<<<<< HEAD
 #ifdef CONFIG_IEEE80211BE
 	if (hapd->mld)
 		hapd->mld->refcount--;
@@ -376,6 +435,12 @@ uc_hostapd_bss_delete(uc_vm_t *vm, size_t nargs)
 
 	hostapd_cleanup_unused_mlds(iface->interfaces);
 	hostapd_ucode_update_interfaces();
+=======
+	os_free(hapd);
+
+	hostapd_ucode_update_interfaces();
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	return NULL;
 }
@@ -412,12 +477,16 @@ uc_hostapd_iface_add_bss(uc_vm_t *vm, size_t nargs)
 #ifdef CONFIG_IEEE80211BE
 	os_strlcpy(hapd->ctrl_sock_iface, hapd->conf->iface,
 		   sizeof(hapd->ctrl_sock_iface));
+<<<<<<< HEAD
 	if (hapd->conf->mld_ap) {
 		hostapd_bss_setup_multi_link(hapd, iface->interfaces);
 		hostapd_set_ctrl_sock_iface(hapd);
 	}
 #endif
 
+=======
+#endif
+>>>>>>> 94392b39ec (稳定版本发布)
 	if (interfaces->ctrl_iface_init &&
 	    interfaces->ctrl_iface_init(hapd) < 0)
 		goto free_hapd;
@@ -436,7 +505,10 @@ uc_hostapd_iface_add_bss(uc_vm_t *vm, size_t nargs)
 	iface->conf->bss[iface->conf->num_bss] = bss;
 	conf->bss[idx] = NULL;
 	ret = hostapd_ucode_bss_get_uval(hapd);
+<<<<<<< HEAD
 	hostapd_neighbor_set_own_report(hapd);
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	hostapd_ucode_update_interfaces();
 	hostapd_owe_update_trans(iface);
 	goto out;
@@ -725,7 +797,10 @@ uc_hostapd_bss_rename(uc_vm_t *vm, size_t nargs)
 {
 	struct hostapd_data *hapd = uc_fn_thisval("hostapd.bss");
 	uc_value_t *ifname_arg = uc_fn_arg(0);
+<<<<<<< HEAD
 	uc_value_t *skip_rename = uc_fn_arg(1);
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	char prev_ifname[IFNAMSIZ + 1];
 	struct sta_info *sta;
 	const char *ifname;
@@ -741,11 +816,17 @@ uc_hostapd_bss_rename(uc_vm_t *vm, size_t nargs)
 	if (interfaces->ctrl_iface_deinit)
 		interfaces->ctrl_iface_deinit(hapd);
 
+<<<<<<< HEAD
 	if (!ucv_is_truish(skip_rename)) {
 		ret = hostapd_drv_if_rename(hapd, WPA_IF_AP_BSS, NULL, ifname);
 		if (ret)
 			goto out;
 	}
+=======
+	ret = hostapd_drv_if_rename(hapd, WPA_IF_AP_BSS, NULL, ifname);
+	if (ret)
+		goto out;
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	for (sta = hapd->sta_list; sta; sta = sta->next) {
 		char cur_name[IFNAMSIZ + 1], new_name[IFNAMSIZ + 1];
@@ -832,6 +913,10 @@ int hostapd_ucode_sta_auth(struct hostapd_data *hapd, struct sta_info *sta)
 		ret = ucv_int64_get(cur);
 
 	ucv_put(val);
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	return ret;
 }
@@ -957,6 +1042,10 @@ int hostapd_ucode_init(struct hapd_interfaces *ifaces)
 
 	if (wpa_ucode_run(HOSTAPD_UC_PATH "hostapd.uc"))
 		goto free_vm;
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	return 0;
 
@@ -990,6 +1079,10 @@ void hostapd_ucode_bss_cb(struct hostapd_data *hapd, const char *type)
 	uc_value_push(ucv_get(val));
 	ucv_put(wpa_ucode_call(3));
 	ucv_put(val);
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 void hostapd_ucode_free_bss(struct hostapd_data *hapd)
@@ -1009,6 +1102,10 @@ void hostapd_ucode_free_bss(struct hostapd_data *hapd)
 	ucv_put(wpa_ucode_call(2));
 
 	ucv_put(val);
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 #ifdef CONFIG_APUP
@@ -1025,5 +1122,9 @@ void hostapd_ucode_apup_newpeer(struct hostapd_data *hapd, const char *ifname)
 	uc_value_push(ucv_string_new(ifname)); // APuP peer ifname
 	ucv_put(wpa_ucode_call(2));
 	ucv_put(val);
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 #endif // def CONFIG_APUP

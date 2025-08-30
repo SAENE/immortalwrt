@@ -39,7 +39,11 @@ Signed-off-by: Bjorn Andersson <andersson@kernel.org>
   */
  
  /dts-v1/;
+<<<<<<< HEAD
 @@ -171,6 +171,21 @@
+=======
+@@ -164,6 +164,21 @@
+>>>>>>> 94392b39ec (稳定版本发布)
  	status = "okay";
  };
  

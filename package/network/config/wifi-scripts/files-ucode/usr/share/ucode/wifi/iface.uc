@@ -3,6 +3,7 @@
 import { append_value, log } from 'wifi.common';
 import * as fs from 'fs';
 
+<<<<<<< HEAD
 export function parse_encryption(config, dev_config) {
 	let encryption = split(config.encryption, '+', 2);
 
@@ -72,6 +73,12 @@ export function parse_encryption(config, dev_config) {
 		wpa3_pairwise = null;
 		break;
 	}
+=======
+export function parse_encryption(config) {
+	let encryption = split(config.encryption, '+', 2);
+
+	config.wpa_pairwise = (config.hw_mode == 'ad') ? 'GCMP' : 'CCMP';
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	switch(encryption[1]){
 	case 'tkip+aes':
@@ -103,6 +110,7 @@ export function parse_encryption(config, dev_config) {
 		break;
 
 	default:
+<<<<<<< HEAD
 		if (config.encryption == 'wpa3-192') {
 			config.wpa_pairwise = 'GCMP-256';
 			break;
@@ -118,6 +126,60 @@ export function parse_encryption(config, dev_config) {
 		break;
 	}
 
+=======
+		if (config.encryption == 'wpa3-192')
+			config.wpa_pairwise = 'GCMP-256';
+		break;
+	}
+
+	config.wpa = 0;
+	for (let k, v in { 'wpa2*': 2, 'wpa3*': 2, '*psk2*': 2, 'psk3*': 2, 'sae*': 2,
+			'owe*': 2, 'wpa*mixed*': 3, '*psk*mixed*': 3, 'wpa*': 1, '*psk*': 1, })
+		if (wildcard(config.encryption, k)) {
+			config.wpa = v;
+			break;
+		}
+	if (!config.wpa)
+		config.wpa_pairwise = null;
+
+	config.auth_type = encryption[0] ?? 'none';
+	switch(config.auth_type) {
+	case 'owe':
+		config.auth_type = 'owe';
+		break;
+
+	case 'wpa3-192':
+		config.auth_type = 'eap192';
+		break;
+
+	case 'wpa3-mixed':
+		config.auth_type = 'eap-eap2';
+		break;
+
+	case 'wpa3':
+		config.auth_type = 'eap2';
+		break;
+
+	case 'psk-mixed':
+		config.auth_type = "psk";
+		break;
+
+	case 'psk3':
+		config.auth_type = 'sae';
+		break;
+
+	case 'psk3-mixed':
+	case 'sae-mixed':
+		config.auth_type = 'psk-sae';
+		break;
+
+	case 'wpa':
+	case 'wpa2':
+	case 'wpa-mixed':
+		config.auth_type = 'eap';
+		break;
+	}
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 export function wpa_key_mgmt(config) {
@@ -149,12 +211,19 @@ export function wpa_key_mgmt(config) {
 		break;
 
 	case 'eap-eap2':
+<<<<<<< HEAD
 		append_value(config, 'wpa_key_mgmt', 'WPA-EAP-SHA256');
 		if (config.ieee80211r)
 			append_value(config, 'wpa_key_mgmt', 'FT-EAP');
 
 		config.rsn_override_key_mgmt = config.wpa_key_mgmt;
 		append_value(config, 'wpa_key_mgmt', 'WPA-EAP');
+=======
+		append_value(config, 'wpa_key_mgmt', 'WPA-EAP');
+		append_value(config, 'wpa_key_mgmt', 'WPA-EAP-SHA256');
+		if (config.ieee80211r)
+			append_value(config, 'wpa_key_mgmt', 'FT-EAP');
+>>>>>>> 94392b39ec (稳定版本发布)
 		break;
 
 	case 'eap2':
@@ -170,6 +239,7 @@ export function wpa_key_mgmt(config) {
 		break;
 
 	case 'psk-sae':
+<<<<<<< HEAD
 		append_value(config, 'wpa_key_mgmt', 'SAE');
 		if (config.ieee80211r)
 			append_value(config, 'wpa_key_mgmt', 'FT-SAE');
@@ -187,6 +257,16 @@ export function wpa_key_mgmt(config) {
 			append_value(config, 'wpa_key_mgmt', 'WPA-PSK-SHA256');
 		if (config.ieee80211r)
 			append_value(config, 'wpa_key_mgmt', 'FT-PSK');
+=======
+		append_value(config, 'wpa_key_mgmt', 'WPA-PSK');
+		append_value(config, 'wpa_key_mgmt', 'SAE');
+		if (config.ieee80211w)
+			append_value(config, 'wpa_key_mgmt', 'WPA-PSK-SHA256');
+		if (config.ieee80211r) {
+			append_value(config, 'wpa_key_mgmt', 'FT-PSK');
+			append_value(config, 'wpa_key_mgmt', 'FT-SAE');
+		}
+>>>>>>> 94392b39ec (稳定版本发布)
 		break;
 
 	case 'owe':
@@ -208,6 +288,7 @@ export function wpa_key_mgmt(config) {
 			append_value(config, 'wpa_key_mgmt', 'FILS-SHA256');
 			if (config.ieee80211r)
 				append_value(config, 'wpa_key_mgmt', 'FT-FILS-SHA256');
+<<<<<<< HEAD
 
 			if (!config.rsn_override_key_mgmt)
 				break;
@@ -215,6 +296,8 @@ export function wpa_key_mgmt(config) {
 			append_value(config, 'rsn_override_key_mgmt', 'FILS-SHA256');
 			if (config.ieee80211r)
 				append_value(config, 'rsn_override_key_mgmt', 'FT-FILS-SHA256');
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			break;
 		}
 	}
@@ -223,7 +306,11 @@ export function wpa_key_mgmt(config) {
 };
 
 function macaddr_random() {
+<<<<<<< HEAD
 	let f = fs.open("/dev/urandom", "r");
+=======
+	let f = open("/dev/urandom", "r");
+>>>>>>> 94392b39ec (稳定版本发布)
 	let addr = f.read(6);
 
 	addr = map(split(addr, ""), (v) => ord(v));
@@ -236,17 +323,26 @@ function macaddr_random() {
 let mac_idx = 0;
 export function prepare(data, phy, num_global_macaddr, macaddr_base) {
 	if (!data.macaddr) {
+<<<<<<< HEAD
 		let pipe = fs.popen(`ucode /usr/share/hostap/wdev.uc ${phy} get_macaddr id=${mac_idx} num_global=${num_global_macaddr} mbssid=${data.mbssid ?? 0} macaddr_base=${macaddr_base ?? ""}`);
+=======
+		let pipe = fs.popen(`ucode /usr/share/hostap/wdev.uc ${phy} get_macaddr id=${mac_idx} num_global=${num_global_macaddr} mbssid=${data.mbssid ?? 0} macaddr_base=${macaddr_base}`);
+>>>>>>> 94392b39ec (稳定版本发布)
 
 		data.macaddr = trim(pipe.read("all"), '\n');
 		pipe.close();
 
 		data.default_macaddr = true;
 		mac_idx++;
+<<<<<<< HEAD
 	} else if (data.macaddr == 'random') {
 		data.macaddr = macaddr_random();
 		data.random_macaddr = true;
 	}
+=======
+	} else if (data.macaddr == 'random')
+		data.macaddr = macaddr_random();
+>>>>>>> 94392b39ec (稳定版本发布)
 
 	log(`Preparing interface: ${data.ifname} with MAC: ${data.macaddr}`);
 };

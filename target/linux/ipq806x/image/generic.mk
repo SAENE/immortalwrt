@@ -201,6 +201,7 @@ define Device/fortinet_fap-421e
 endef
 TARGET_DEVICES += fortinet_fap-421e
 
+<<<<<<< HEAD
 define Device/ignitenet_ss-w2-ac2600
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
@@ -216,6 +217,8 @@ define Device/ignitenet_ss-w2-ac2600
 endef
 TARGET_DEVICES += ignitenet_ss-w2-ac2600
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/linksys_e8350-v1
 	$(call Device/LegacyImage)
 	DEVICE_VENDOR := Linksys

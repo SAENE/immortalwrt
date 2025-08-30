@@ -3,6 +3,7 @@
 . /etc/openwrt_release
 
 IEEE_PATH="/sys/class/ieee80211"
+<<<<<<< HEAD
 THERMAL_PATH="/sys/class/thermal/thermal_zone0/temp"
 
 case "$DISTRIB_TARGET" in
@@ -16,10 +17,24 @@ mediatek/mt7622)
 	;;
 *)
 	wifi_temp="$(cat $IEEE_PATH/phy*/hwmon*/temp1_input 2>/dev/null | awk '{printf("%.1f°C ", $0 / 1000)}')"
+=======
+THERMAL_PATH="/sys/class/thermal"
+
+case "$DISTRIB_TARGET" in
+ipq40xx/*|ipq806x/*)
+	wifi_temp="$(cat "$IEEE_PATH"/phy*/device/hwmon/hwmon*/temp1_input 2>"/dev/null" | awk '{printf("%.1f°C ", $0 / 1000)}' | awk '$1=$1')"
+	;;
+mediatek/mt7622)
+	wifi_temp="$(cat "$IEEE_PATH"/wl*/hwmon*/temp1_input 2>"/dev/null" | awk '{printf("%.1f°C ", $0 / 1000)}' | awk '$1=$1')"
+	;;
+*)
+	wifi_temp="$(cat "$IEEE_PATH"/phy*/hwmon*/temp1_input 2>"/dev/null" | awk '{printf("%.1f°C ", $0 / 1000)}' | awk '$1=$1')"
+>>>>>>> 94392b39ec (稳定版本发布)
 	;;
 esac
 
 case "$DISTRIB_TARGET" in
+<<<<<<< HEAD
 bcm27xx/*)
 	cpu_temp="$(vcgencmd measure_temp | awk -F '=' '{print $2}' | awk -F "'" '{print $1}')°C"
 	;;
@@ -43,6 +58,25 @@ elif [ -n "$cpu_temp" ] && [ -z "$wifi_temp" ]; then
 	echo -n "CPU: $cpu_temp"
 elif [ -z "$cpu_temp" ] && [ -n "$wifi_temp" ]; then
 	echo -n "WiFi: $wifi_temp"
+=======
+ipq40xx/*)
+	if [ -e "$IEEE_PATH/phy0/hwmon0/temp1_input" ]; then
+		mt76_temp="$(cat "$IEEE_PATH"/phy0/hwmon0/temp1_input 2>"/dev/null" | awk -F ': ' '{print $2}')°C"
+	fi
+	[ -z "$mt76_temp" ] || wifi_temp="${wifi_temp:+$wifi_temp }$mt76_temp"
+	;;
+*)
+	cpu_temp="$(cat "$THERMAL_PATH"/thermal_zone0/temp 2>"/dev/null" | awk '{printf("%.1f°C", $0 / 1000)}')"
+	;;
+esac
+
+if [ -n "$cpu_temp" ] && [ -z "$wifi_temp" ]; then
+	echo -n "CPU: $cpu_temp"
+elif [ -z "$cpu_temp" ] && [ -n "$wifi_temp" ]; then
+	echo -n "WiFi: $wifi_temp"
+elif [ -n "$cpu_temp" ] && [ -n "$wifi_temp" ]; then
+	echo -n "CPU: $cpu_temp, WiFi: $wifi_temp"
+>>>>>>> 94392b39ec (稳定版本发布)
 else
 	echo -n "No temperature info"
 fi

@@ -31,7 +31,11 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
 
 --- a/arch/arm/dts/Makefile
 +++ b/arch/arm/dts/Makefile
+<<<<<<< HEAD
 @@ -172,6 +172,7 @@ dtb-$(CONFIG_ARCH_MVEBU) +=			\
+=======
+@@ -165,6 +165,7 @@ dtb-$(CONFIG_ARCH_MVEBU) +=			\
+>>>>>>> 94392b39ec (稳定版本发布)
  	armada-3720-uDPU.dtb			\
  	armada-7040-db-nand.dtb			\
  	armada-7040-db.dtb			\

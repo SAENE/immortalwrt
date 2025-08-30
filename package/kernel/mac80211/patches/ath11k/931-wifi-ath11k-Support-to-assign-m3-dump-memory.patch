@@ -10,7 +10,11 @@ Signed-off-by: Ziyang Huang <hzyitc@outlook.com>
 
 --- a/drivers/net/wireless/ath/ath11k/qmi.c
 +++ b/drivers/net/wireless/ath/ath11k/qmi.c
+<<<<<<< HEAD
 @@ -2118,6 +2118,18 @@ static int ath11k_qmi_assign_target_mem_
+=======
+@@ -2104,6 +2104,18 @@ static int ath11k_qmi_assign_target_mem_
+>>>>>>> 94392b39ec (稳定版本发布)
  			ab->qmi.target_mem[idx].type = ab->qmi.target_mem[i].type;
  			idx++;
  			break;

@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 define Build/append-bootscript
 	cat $@-boot.scr >> $@
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/FitImage
   KERNEL_SUFFIX := -uImage.itb
   KERNEL = kernel-bin | gzip | fit gzip $$(KDIR)/image-$$(DEVICE_DTS).dtb
@@ -15,6 +18,7 @@ define Device/UbiFit
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
 
+<<<<<<< HEAD
 define Device/checkpoint_v-80
   $(call Device/Default-arm64)
   DEVICE_VENDOR := Check Point
@@ -51,6 +55,8 @@ define Device/checkpoint_v-81
 endef
 TARGET_DEVICES += checkpoint_v-81
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/globalscale_mochabin
   $(call Device/Default-arm64)
   DEVICE_VENDOR := Globalscale

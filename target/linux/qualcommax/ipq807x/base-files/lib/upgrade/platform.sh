@@ -134,8 +134,12 @@ platform_do_upgrade() {
 		nand_do_upgrade "$1"
 		;;
 	redmi,ax6-stock|\
+<<<<<<< HEAD
 	xiaomi,ax3600-stock|\
 	xiaomi,ax9000-stock)
+=======
+	xiaomi,ax3600-stock)
+>>>>>>> 94392b39ec (稳定版本发布)
 		part_num="$(fw_printenv -n flag_boot_rootfs)"
 		if [ "$part_num" -eq "1" ]; then
 			CI_UBIPART="rootfs_1"

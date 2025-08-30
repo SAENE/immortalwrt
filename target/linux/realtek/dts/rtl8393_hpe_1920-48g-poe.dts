@@ -16,6 +16,7 @@
 		alarm-gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
 		#cooling-cells = <2>;
 	};
+<<<<<<< HEAD
 
         i2c0: i2c-gpio-0 {
                 compatible = "i2c-gpio";
@@ -107,6 +108,8 @@
 		SWITCH_PORT(50, 51, qsgmii)
 		SWITCH_PORT(51, 52, qsgmii)
 	};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &uart1 {

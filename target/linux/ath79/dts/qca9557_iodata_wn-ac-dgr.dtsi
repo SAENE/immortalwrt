@@ -35,6 +35,15 @@
 			linux,default-trigger = "phy0tpt";
 		};
 
+<<<<<<< HEAD
+=======
+		wlan2g {
+			label = "green:wlan2g";
+			gpios = <&gpio 22 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "phy1tpt";
+		};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 		notification {
 			label = "amber:notification";
 			gpios = <&gpio 23 GPIO_ACTIVE_LOW>;
@@ -142,10 +151,13 @@
 					#address-cells = <1>;
 					#size-cells = <1>;
 
+<<<<<<< HEAD
 					cal_art_1000: calibration@1000 {
 						reg = <0x1000 0x440>;
 					};
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 					cal_art_5000: calibration@5000 {
 						reg = <0x5000 0x844>;
 					};
@@ -179,7 +191,11 @@
 	status = "okay";
 
 	wifi@0,0 {
+<<<<<<< HEAD
 		compatible = "qcom,ath10k";
+=======
+		compatible = "pci168c,003c";
+>>>>>>> 94392b39ec (稳定版本发布)
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&cal_art_5000>;
 		nvmem-cell-names = "calibration";
@@ -197,6 +213,7 @@
 &wmac {
 	status = "okay";
 
+<<<<<<< HEAD
 	nvmem-cells = <&cal_art_1000>;
 	nvmem-cell-names = "calibration";
 
@@ -204,4 +221,7 @@
 		led-sources = <22>;
 		led-active-low;
 	};
+=======
+	qca,no-eeprom;
+>>>>>>> 94392b39ec (稳定版本发布)
 };

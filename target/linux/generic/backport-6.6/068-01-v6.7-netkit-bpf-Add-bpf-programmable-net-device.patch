@@ -1125,7 +1125,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  	MAX_BPF_LINK_TYPE,
  };
  
+<<<<<<< HEAD
 @@ -1662,6 +1665,13 @@ union bpf_attr {
+=======
+@@ -1661,6 +1664,13 @@ union bpf_attr {
+>>>>>>> 94392b39ec (稳定版本发布)
  				__u32		flags;
  				__u32		pid;
  			} uprobe_multi;
@@ -1139,7 +1143,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  		};
  	} link_create;
  
+<<<<<<< HEAD
 @@ -6585,6 +6595,10 @@ struct bpf_link_info {
+=======
+@@ -6584,6 +6594,10 @@ struct bpf_link_info {
+>>>>>>> 94392b39ec (稳定版本发布)
  			__u32 ifindex;
  			__u32 attach_type;
  		} tcx;
@@ -1216,7 +1224,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  			return -EINVAL;
  		return 0;
  	default:
+<<<<<<< HEAD
 @@ -3968,7 +3973,11 @@ static int bpf_prog_attach(const union b
+=======
+@@ -3967,7 +3972,11 @@ static int bpf_prog_attach(const union b
+>>>>>>> 94392b39ec (稳定版本发布)
  			ret = cgroup_bpf_prog_attach(attr, ptype, prog);
  		break;
  	case BPF_PROG_TYPE_SCHED_CLS:
@@ -1229,7 +1241,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  		break;
  	default:
  		ret = -EINVAL;
+<<<<<<< HEAD
 @@ -4029,7 +4038,11 @@ static int bpf_prog_detach(const union b
+=======
+@@ -4028,7 +4037,11 @@ static int bpf_prog_detach(const union b
+>>>>>>> 94392b39ec (稳定版本发布)
  		ret = cgroup_bpf_prog_detach(attr, ptype);
  		break;
  	case BPF_PROG_TYPE_SCHED_CLS:
@@ -1242,7 +1258,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  		break;
  	default:
  		ret = -EINVAL;
+<<<<<<< HEAD
 @@ -4091,6 +4104,9 @@ static int bpf_prog_query(const union bp
+=======
+@@ -4090,6 +4103,9 @@ static int bpf_prog_query(const union bp
+>>>>>>> 94392b39ec (稳定版本发布)
  	case BPF_TCX_INGRESS:
  	case BPF_TCX_EGRESS:
  		return tcx_prog_query(attr, uattr);
@@ -1252,7 +1272,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  	default:
  		return -EINVAL;
  	}
+<<<<<<< HEAD
 @@ -5072,7 +5088,11 @@ static int link_create(union bpf_attr *a
+=======
+@@ -5071,7 +5087,11 @@ static int link_create(union bpf_attr *a
+>>>>>>> 94392b39ec (稳定版本发布)
  		ret = bpf_xdp_link_attach(attr, prog);
  		break;
  	case BPF_PROG_TYPE_SCHED_CLS:
@@ -1284,7 +1308,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  	MAX_BPF_LINK_TYPE,
  };
  
+<<<<<<< HEAD
 @@ -1662,6 +1665,13 @@ union bpf_attr {
+=======
+@@ -1661,6 +1664,13 @@ union bpf_attr {
+>>>>>>> 94392b39ec (稳定版本发布)
  				__u32		flags;
  				__u32		pid;
  			} uprobe_multi;
@@ -1298,7 +1326,11 @@ Signed-off-by: Martin KaFai Lau <martin.lau@kernel.org>
  		};
  	} link_create;
  
+<<<<<<< HEAD
 @@ -6588,6 +6598,10 @@ struct bpf_link_info {
+=======
+@@ -6587,6 +6597,10 @@ struct bpf_link_info {
+>>>>>>> 94392b39ec (稳定版本发布)
  			__u32 ifindex;
  			__u32 attach_type;
  		} tcx;

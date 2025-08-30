@@ -10,7 +10,11 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=perf
 PKG_VERSION:=$(LINUX_VERSION)
+<<<<<<< HEAD
 PKG_RELEASE:=7
+=======
+PKG_RELEASE:=6
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_BUILD_FLAGS:=no-mips16 no-lto
 PKG_BUILD_PARALLEL:=1
@@ -50,7 +54,10 @@ MAKE_FLAGS = \
 	NO_LZMA=1 \
 	NO_BACKTRACE=1 \
 	NO_LIBNUMA=1 \
+<<<<<<< HEAD
 	NO_SLANG=1 \
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	NO_GTK2=1 \
 	NO_SLANG=1 \
 	NO_LIBAUDIT=1 \
@@ -58,8 +65,11 @@ MAKE_FLAGS = \
 	NO_LIBUNWIND=1 \
 	NO_LIBZSTD=1 \
 	NO_LIBCAP=1 \
+<<<<<<< HEAD
 	NO_SHELLCHECK=1 \
 	BUILD_BPF_SKEL=0 \
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	CROSS_COMPILE="$(TARGET_CROSS)" \
 	CC="$(TARGET_CC)" \
 	LD="$(TARGET_CROSS)ld" \
@@ -75,7 +85,11 @@ MAKE_FLAGS = \
 	O=$(PKG_BUILD_DIR) \
 	prefix=/usr
 
+<<<<<<< HEAD
 ifneq ($(filter $(LINUX_KARCH),powerpc mips),)
+=======
+ifeq ($(LINUX_KARCH),powerpc)
+>>>>>>> 94392b39ec (稳定版本发布)
 	MAKE_FLAGS += NO_AUXTRACE=1
 endif
 

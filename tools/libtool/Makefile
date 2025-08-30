@@ -14,6 +14,11 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@GNU/$(PKG_NAME)
 PKG_HASH:=da8ebb2ce4dcf46b90098daf962cffa68f4b4f62ea60f798d0ef12929ede6adf
 
+<<<<<<< HEAD
+=======
+HOST_BUILD_PARALLEL:=1
+
+>>>>>>> 94392b39ec (稳定版本发布)
 include $(INCLUDE_DIR)/host-build.mk
 
 export GNULIB_SRCDIR:=$(HOST_GNULIB_SRCDIR)
@@ -21,10 +26,13 @@ export GNULIB_SRCDIR:=$(HOST_GNULIB_SRCDIR)
 HOST_CONFIGURE_VARS += \
 	lt_cv_sys_dlsearch_path=""
 
+<<<<<<< HEAD
 HOST_MAKE_FLAGS += \
 	am__CONFIG_DISTCLEAN_FILES= \
 	CONFIG_STATUS_DEPENDENCIES=
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Host/Bootstrap
 	( \
 		cd $(HOST_BUILD_DIR); \
@@ -47,7 +55,10 @@ endef
 define Host/Configure
 	$(if $(QUILT),$(call Host/Bootstrap))
 	$(call Host/Configure/Default)
+<<<<<<< HEAD
 	$(call Host/Uninstall)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 define Host/Install
@@ -57,7 +68,10 @@ endef
 
 define Host/Uninstall
 	-$(call Host/Compile/Default,uninstall)
+<<<<<<< HEAD
 	-$(call Host/Compile/Default,maintainer-clean) # Clean bootstrap files from the release
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	(cd $(STAGING_DIR_HOST)/share/aclocal/ && rm -f libtool.m4 ltdl.m4 lt~obsolete.m4 ltoptions.m4 ltsugar.m4 ltversion.m4)
 endef
 

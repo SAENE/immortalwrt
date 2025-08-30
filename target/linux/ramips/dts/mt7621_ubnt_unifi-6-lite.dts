@@ -118,6 +118,11 @@
 };
 
 &wlan_5g {
+<<<<<<< HEAD
+=======
+	compatible = "mediatek,mt76";
+
+>>>>>>> 94392b39ec (稳定版本发布)
 	/* This is a workaround.
 	 *
 	 * Ubiquiti uses a +2 offset in the first octet relative

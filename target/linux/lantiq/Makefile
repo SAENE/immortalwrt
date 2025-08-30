@@ -9,7 +9,11 @@ BOARDNAME:=Lantiq
 FEATURES:=squashfs
 SUBTARGETS:=xrx200 xrx200_legacy xway xway_legacy falcon ase
 
+<<<<<<< HEAD
 KERNEL_PATCHVER:=6.12
+=======
+KERNEL_PATCHVER:=6.6
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define Target/Description
 	Build firmware images for Lantiq SoC

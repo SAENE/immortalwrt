@@ -1,10 +1,68 @@
 // SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 
+<<<<<<< HEAD
 #include "macros.dtsi"
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #include <dt-bindings/clock/rtl83xx-clk.h>
 
 /dts-v1/;
 
+<<<<<<< HEAD
+=======
+#define STRINGIZE(s) #s
+#define LAN_LABEL(p, s) STRINGIZE(p ## s)
+#define SWITCH_PORT_LABEL(n) LAN_LABEL(lan, n)
+
+#define INTERNAL_PHY(n) \
+	phy##n: ethernet-phy@##n { \
+		reg = <##n>; \
+		compatible = "ethernet-phy-ieee802.3-c22"; \
+		phy-is-integrated; \
+	};
+
+#define EXTERNAL_PHY(n) \
+	phy##n: ethernet-phy@##n { \
+		reg = <##n>; \
+		compatible = "ethernet-phy-ieee802.3-c22"; \
+	};
+
+#define EXTERNAL_SFP_PHY(n) \
+	phy##n: ethernet-phy@##n { \
+		compatible = "ethernet-phy-ieee802.3-c22"; \
+		sfp; \
+		media = "fibre"; \
+		reg = <##n>; \
+	};
+
+#define EXTERNAL_SFP_PHY_FULL(n, s) \
+	phy##n: ethernet-phy@##n { \
+		compatible = "ethernet-phy-ieee802.3-c22"; \
+		sfp = <&sfp##s>; \
+		reg = <##n>; \
+	};
+
+#define SWITCH_PORT(n, s, m) \
+	port@##n { \
+		reg = <##n>; \
+		label = SWITCH_PORT_LABEL(s) ; \
+		phy-handle = <&phy##n>; \
+		phy-mode = #m ; \
+	};
+
+#define SWITCH_SFP_PORT(n, s, m) \
+	port@##n { \
+		reg = <##n>; \
+		label = SWITCH_PORT_LABEL(s) ; \
+		phy-handle = <&phy##n>; \
+		phy-mode = #m ; \
+		fixed-link { \
+			speed = <1000>; \
+			full-duplex; \
+		}; \
+	};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 / {
 	#address-cells = <1>;
 	#size-cells = <1>;
@@ -209,7 +267,11 @@
 
 	switchcore@1b000000 {
 		compatible = "syscon", "simple-mfd";
+<<<<<<< HEAD
 		reg = <0x1b000000 0x10000>;
+=======
+		reg = <0x1b000000 0x20000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 
 		mdio_aux: mdio-aux {
 			compatible = "realtek,rtl8390-aux-mdio";

@@ -220,7 +220,11 @@ define KernelPackage/pinctrl-mcp23s08
   SUBMENU:=$(OTHER_MENU)
   TITLE:=Microchip MCP23xxx I/O expander
   HIDDEN:=1
+<<<<<<< HEAD
   DEPENDS:=@GPIO_SUPPORT @PINCTRL_SUPPORT +kmod-regmap-core
+=======
+  DEPENDS:=@GPIO_SUPPORT +kmod-regmap-core
+>>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_PINCTRL_MCP23S08
   FILES:=$(LINUX_DIR)/drivers/pinctrl/pinctrl-mcp23s08.ko
   AUTOLOAD:=$(call AutoLoad,40,pinctrl-mcp23s08)
@@ -566,6 +570,11 @@ define KernelPackage/serial-8250
   DEPENDS:=@!TARGET_uml
   KCONFIG:= CONFIG_SERIAL_8250 \
 	CONFIG_SERIAL_8250_PCI \
+<<<<<<< HEAD
+=======
+	CONFIG_SERIAL_8250_NR_UARTS=16 \
+	CONFIG_SERIAL_8250_RUNTIME_UARTS=16 \
+>>>>>>> 94392b39ec (稳定版本发布)
 	CONFIG_SERIAL_8250_EXTENDED=y \
 	CONFIG_SERIAL_8250_MANY_PORTS=y \
 	CONFIG_SERIAL_8250_SHARE_IRQ=y \
@@ -583,6 +592,7 @@ define KernelPackage/serial-8250/description
  Kernel module for 8250 UART based serial ports
 endef
 
+<<<<<<< HEAD
 define KernelPackage/serial-8250/config
 menu "Configuration"
 	depends on PACKAGE_kmod-serial-8250
@@ -608,6 +618,8 @@ config KERNEL_SERIAL_8250_RUNTIME_UARTS
 endmenu
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 $(eval $(call KernelPackage,serial-8250))
 
 
@@ -991,7 +1003,11 @@ $(eval $(call KernelPackage,tpm))
 define KernelPackage/tpm-tis
   SUBMENU:=$(OTHER_MENU)
   TITLE:=TPM TIS 1.2 Interface / TPM 2.0 FIFO Interface
+<<<<<<< HEAD
 	DEPENDS:= @(TARGET_x86||TARGET_armsr) +kmod-tpm
+=======
+	DEPENDS:= @TARGET_x86 +kmod-tpm
+>>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:= CONFIG_TCG_TIS
   FILES:= \
 	$(LINUX_DIR)/drivers/char/tpm/tpm_tis.ko \
@@ -1086,6 +1102,7 @@ define KernelPackage/mhi-pci-generic/description
 endef
 
 $(eval $(call KernelPackage,mhi-pci-generic))
+<<<<<<< HEAD
 
 
 define KernelPackage/regulator-userspace-consumer
@@ -1103,3 +1120,5 @@ define KernelPackage/regulator-userspace-consumer/description
 endef
 
 $(eval $(call KernelPackage,regulator-userspace-consumer))
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

@@ -3,12 +3,21 @@
 # Copyright (C) 2013-2016 OpenWrt.org
 # Copyright (C) 2016 Yousong Zhou
 
+<<<<<<< HEAD
 KERNEL_LOADADDR:=0x40080000
 
 define Device/sun50i
   $(call Device/FitImageLzma)
   SUNXI_DTS_DIR := allwinner/
   KERNEL_NAME := Image
+=======
+KERNEL_LOADADDR:=0x40008000
+
+define Device/sun50i
+  SUNXI_DTS_DIR := allwinner/
+  KERNEL_NAME := Image
+  KERNEL := kernel-bin
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 define Device/sun50i-a64
@@ -127,6 +136,7 @@ define Device/xunlong_orangepi-zero2
 endef
 TARGET_DEVICES += xunlong_orangepi-zero2
 
+<<<<<<< HEAD
 define Device/xunlong_orangepi-zero2w
   DEVICE_VENDOR := Xunlong
   DEVICE_MODEL := Orange Pi Zero 2W
@@ -134,6 +144,8 @@ define Device/xunlong_orangepi-zero2w
 endef
 TARGET_DEVICES += xunlong_orangepi-zero2w
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Device/xunlong_orangepi-zero3
   DEVICE_VENDOR := Xunlong
   DEVICE_MODEL := Orange Pi Zero 3

@@ -20,8 +20,11 @@ PKG_LICENSE:=bzip2-1.0.8
 PKG_LICENSE_FILES:=LICENSE
 PKG_CPE_ID:=cpe:/a:bzip:bzip2
 
+<<<<<<< HEAD
 PKG_BUILD_FLAGS:=no-lto
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 

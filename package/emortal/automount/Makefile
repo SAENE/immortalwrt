@@ -39,6 +39,10 @@ define Package/ntfs3-mount
   SUBMENU:=Filesystem
   TITLE:=NTFS mount script for Paragon NTFS3 driver
   DEPENDS:=+kmod-fs-ntfs3
+<<<<<<< HEAD
+=======
+  CONFLICTS:=ntfs-3g
+>>>>>>> 94392b39ec (稳定版本发布)
   VARIANT:=ntfs3-mount
   PKGARCH:=all
 endef

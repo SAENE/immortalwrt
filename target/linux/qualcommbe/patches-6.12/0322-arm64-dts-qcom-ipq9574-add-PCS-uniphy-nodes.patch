@@ -99,10 +99,17 @@ Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
 +			};
 +		};
 +
+<<<<<<< HEAD
 +		pcs_uniphy1: ethernet-pcs@7a10000 {
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +			compatible = "qcom,ipq9574-pcs";
+=======
++		pcs_uniphy1: ethernet-uniphy@7a10000 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			compatible = "qcom,ipq9574-uniphy";
+>>>>>>> 94392b39ec (稳定版本发布)
 +			reg = <0x7a10000 0x10000>;
 +			clocks = <&gcc GCC_UNIPHY1_SYS_CLK>,
 +				 <&gcc GCC_UNIPHY1_AHB_CLK>;
@@ -116,7 +123,11 @@ Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
 +				      "xpcs";
 +			#clock-cells = <1>;
 +
+<<<<<<< HEAD
 +			pcsuniphy1_ch0: pcs-mii@0 {
+=======
++			pcsuniphy1_ch0: uniphy-ch@0 {
+>>>>>>> 94392b39ec (稳定版本发布)
 +				reg = <0>;
 +				clocks = <&nsscc NSS_CC_UNIPHY_PORT5_RX_CLK>,
 +					 <&nsscc NSS_CC_UNIPHY_PORT5_TX_CLK>;

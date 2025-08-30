@@ -10,7 +10,10 @@ FEATURES:=fpu dt gpio ramdisk squashfs usb
 SUBTARGETS:=nand sata
 
 KERNEL_PATCHVER:=6.6
+<<<<<<< HEAD
 KERNEL_TESTING_PATCHVER:=6.12
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define Target/Description
 	Build images for AppliedMicro APM821xx based boards.

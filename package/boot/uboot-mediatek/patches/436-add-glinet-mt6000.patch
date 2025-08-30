@@ -1,6 +1,10 @@
 --- /dev/null
 +++ b/arch/arm/dts/mt7986a-glinet-gl-mt6000.dts
+<<<<<<< HEAD
 @@ -0,0 +1,131 @@
+=======
+@@ -0,0 +1,135 @@
+>>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: GPL-2.0
 +
 +/dts-v1/;
@@ -132,6 +136,13 @@
 +	non-removable;
 +	status = "okay";
 +};
+<<<<<<< HEAD
+=======
++
++&wmcpu_emi {
++	status = "disabled";
++};
+>>>>>>> 94392b39ec (稳定版本发布)
 --- /dev/null
 +++ b/configs/mt7986a_glinet_gl-mt6000_defconfig
 @@ -0,0 +1,104 @@

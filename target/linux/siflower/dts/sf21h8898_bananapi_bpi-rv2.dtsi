@@ -22,6 +22,7 @@
 		gpio = <&gpio 37 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 	};
+<<<<<<< HEAD
 
 	m2keyb_pwren: regulator@1 {
 		compatible = "regulator-fixed";
@@ -32,6 +33,8 @@
 		enable-active-high;
 		regulator-always-on;
 	};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &spi0_pins {
@@ -194,7 +197,10 @@
 };
 
 &usb {
+<<<<<<< HEAD
 	vbus-supply = <&usb_vbus>;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	status = "okay";
 };
 

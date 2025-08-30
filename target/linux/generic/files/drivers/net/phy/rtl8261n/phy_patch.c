@@ -98,11 +98,14 @@ static int32 _phy_patch_process(uint32 unit, rtk_port_t port, uint8 portOffset, 
     return (chk_ret == RT_ERR_CHECK_FAILED) ? chk_ret : RT_ERR_OK;
 }
 
+<<<<<<< HEAD
 rtk_hwpatch_t rtl826XB_patch_rtk_conf[] = {
     {RTK_PATCH_OP_PSDS0   , 0xff , 0x07  , 0x10  , 15, 0, 0x80aa, RTK_PATCH_CMP_WC  , 0, 0, 0, 0},
     {RTK_PATCH_OP_PSDS0   , 0xff , 0x06  , 0x12  , 15, 0, 0x5078, RTK_PATCH_CMP_WC  , 0, 0, 0, 0},
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 /* Function Name:
  *      phy_patch
  * Description:
@@ -175,6 +178,7 @@ int32 phy_patch(uint32 unit, rtk_port_t port, uint8 portOffset, uint8 patch_mode
             break;
         }
     }
+<<<<<<< HEAD
     ret = _phy_patch_process(unit, port, portOffset, rtl826XB_patch_rtk_conf, sizeof(rtl826XB_patch_rtk_conf), patch_mode);
     if (ret == RT_ERR_CHECK_FAILED)
         chk_ret = ret;
@@ -186,3 +190,12 @@ int32 phy_patch(uint32 unit, rtk_port_t port, uint8 portOffset, uint8 patch_mode
 
     return (chk_ret == RT_ERR_CHECK_FAILED) ? chk_ret : RT_ERR_OK;
 }
+=======
+
+    return (chk_ret == RT_ERR_CHECK_FAILED) ? chk_ret : RT_ERR_OK;
+}
+
+
+
+
+>>>>>>> 94392b39ec (稳定版本发布)

@@ -96,9 +96,12 @@ platform_do_upgrade() {
 	qihoo,360t7|\
 	routerich,ax3000-ubootmod|\
 	snr,snr-cpe-ax2|\
+<<<<<<< HEAD
 	tplink,tl-7dr7230-v1|\
 	tplink,tl-7dr7230-v2|\
 	tplink,tl-7dr7250-v1|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	tplink,tl-xdr4288|\
 	tplink,tl-xdr6086|\
 	tplink,tl-xdr6088|\
@@ -118,7 +121,10 @@ platform_do_upgrade() {
 	glinet,gl-x3000|\
 	glinet,gl-xe3000|\
 	huasifei,wh3000-emmc|\
+<<<<<<< HEAD
 	huasifei,wh3000-pro|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	smartrg,sdg-8612|\
 	smartrg,sdg-8614|\
 	smartrg,sdg-8622|\
@@ -154,6 +160,7 @@ platform_do_upgrade() {
 		fw_setenv sw_tryactive 0
 		nand_do_upgrade "$1"
 		;;
+<<<<<<< HEAD
 	elecom,wrc-x3000gs3)
 		local bootnum="$(mstc_rw_bootnum)"
 		case "$bootnum" in
@@ -169,6 +176,8 @@ platform_do_upgrade() {
 		esac
 		nand_do_upgrade "$1"
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	mercusys,mr80x-v3|\
 	mercusys,mr90x-v1|\
 	tplink,archer-ax80-v1|\
@@ -176,6 +185,7 @@ platform_do_upgrade() {
 		CI_UBIPART="ubi0"
 		nand_do_upgrade "$1"
 		;;
+<<<<<<< HEAD
 	tplink,fr365-v1)
 		CI_UBIPART="ubi"
 		CI_KERNPART="kernel"
@@ -186,6 +196,8 @@ platform_do_upgrade() {
 		CI_UBIPART="$(cmdline_get_var ubi.mtd)"
 		nand_do_upgrade "$1"
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	nradio,c8-668gl)
 		CI_DATAPART="rootfs_data"
 		CI_KERNPART="kernel_2nd"
@@ -263,9 +275,12 @@ platform_check_image() {
 	netcore,n60-pro|\
 	qihoo,360t7|\
 	routerich,ax3000-ubootmod|\
+<<<<<<< HEAD
 	tplink,tl-7dr7230-v1|\
 	tplink,tl-7dr7230-v2|\
 	tplink,tl-7dr7250-v1|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	tplink,tl-xdr4288|\
 	tplink,tl-xdr6086|\
 	tplink,tl-xdr6088|\
@@ -277,8 +292,11 @@ platform_check_image() {
 		fit_check_image "$1"
 		return $?
 		;;
+<<<<<<< HEAD
 	creatlentem,clt-r30b1|\
 	creatlentem,clt-r30b1-112m|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	nradio,c8-668gl)
 		# tar magic `ustar`
 		magic="$(dd if="$1" bs=1 skip=257 count=5 2>/dev/null)"
@@ -310,7 +328,10 @@ platform_copy_config() {
 	glinet,gl-x3000|\
 	glinet,gl-xe3000|\
 	huasifei,wh3000-emmc|\
+<<<<<<< HEAD
 	huasifei,wh3000-pro|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	jdcloud,re-cp-03|\
 	nradio,c8-668gl|\
 	smartrg,sdg-8612|\
@@ -329,9 +350,13 @@ platform_copy_config() {
 	bananapi,bpi-r4-2g5|\
 	bananapi,bpi-r4-poe|\
 	cmcc,rax3000m|\
+<<<<<<< HEAD
 	cmcc,rax3000me|\
 	gatonetworks,gdsp|\
 	mediatek,mt7988a-rfb)
+=======
+	cmcc,rax3000me)
+>>>>>>> 94392b39ec (稳定版本发布)
 		if [ "$CI_METHOD" = "emmc" ]; then
 			emmc_copy_config
 		fi

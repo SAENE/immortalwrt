@@ -53,6 +53,7 @@ platform_do_upgrade() {
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
 	netgear,wax214|\
+<<<<<<< HEAD
 	qihoo,360v6)
 		nand_do_upgrade "$1"
 		;;
@@ -60,6 +61,11 @@ platform_do_upgrade() {
 	netgear,wax610y)
 		remove_oem_ubi_volume wifi_fw
 		remove_oem_ubi_volume ubi_rootfs
+=======
+	netgear,wax610|\
+	netgear,wax610y|\
+	qihoo,360v6)
+>>>>>>> 94392b39ec (稳定版本发布)
 		nand_do_upgrade "$1"
 		;;
 	linksys,mr7350|\

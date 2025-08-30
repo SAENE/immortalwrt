@@ -19,6 +19,7 @@ DEVICE_VARS += \
 	LINKSYS_HEADER \
         ZYXEL_VERS
 
+<<<<<<< HEAD
 define Build/rt-compress
 	$(STAGING_DIR_HOST)/bin/xz -9 --format=lzma --stdout "$@" > "$@.new"
 	mv "$@.new" "$@"
@@ -30,6 +31,8 @@ define Build/rt-loader
 	mv "$@.new" "$@"
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/zyxel-vers
        ( echo VERS;\
        for hw in $(ZYXEL_VERS); do\
@@ -119,6 +122,7 @@ define Device/Default
 	append-metadata
 endef
 
+<<<<<<< HEAD
 define Device/kernel-lzma
   KERNEL := \
 	kernel-bin | \
@@ -138,6 +142,8 @@ define Device/uimage-rt-loader
 	KERNEL_INITRAMFS := $$(KERNEL/rt-loader) | uImage none
 endef
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 include $(SUBTARGET).mk
 
 $(eval $(call BuildImage))

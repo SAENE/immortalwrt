@@ -25,6 +25,11 @@
 #define RTL838X_SDS_MODE_SEL			(0x0028)
 #define RTL838X_SDS_CFG_REG			(0x0034)
 #define RTL838X_INT_MODE_CTRL			(0x005c)
+<<<<<<< HEAD
+=======
+#define RTL838X_CHIP_INFO			(0x00d8)
+#define RTL839X_CHIP_INFO			(0x0ff4)
+>>>>>>> 94392b39ec (稳定版本发布)
 #define RTL838X_PORT_ISO_CTRL(port)		(0x4100 + ((port) << 2))
 #define RTL839X_PORT_ISO_CTRL(port)		(0x1400 + ((port) << 3))
 
@@ -32,7 +37,10 @@
 #define RTL838X_STAT_PORT_STD_MIB		(0x1200)
 #define RTL839X_STAT_PORT_STD_MIB		(0xC000)
 #define RTL930X_STAT_PORT_MIB_CNTR		(0x0664)
+<<<<<<< HEAD
 #define RTL930X_STAT_PORT_PRVTE_CNTR		(0x2364)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #define RTL838X_STAT_RST			(0x3100)
 #define RTL839X_STAT_RST			(0xF504)
 #define RTL930X_STAT_RST			(0x3240)
@@ -246,8 +254,11 @@
 #define RTL838X_L2_LRN_CONSTRT_EN		(0x3368)
 #define RTL838X_L2_PORT_LRN_CONSTRT		(0x32A0)
 #define RTL839X_L2_PORT_LRN_CONSTRT		(0x3914)
+<<<<<<< HEAD
 #define RTL930X_L2_LRN_PORT_CONSTRT_CTRL	(0x90A4)
 #define RTL931X_L2_LRN_PORT_CONSTRT_CTRL	(0xC96C)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 #define RTL838X_L2_PORT_NEW_SALRN(p)		(0x328c + (((p >> 4) << 2)))
 #define RTL839X_L2_PORT_NEW_SALRN(p)		(0x38F0 + (((p >> 4) << 2)))
@@ -278,7 +289,10 @@
 #define MV_ACT_COPY2CPU				3
 
 #define RTL930X_ST_CTRL				(0x8798)
+<<<<<<< HEAD
 #define RTL931x_ST_CTRL				(0x8000)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 #define RTL930X_L2_PORT_SABLK_CTRL		(0x905c)
 #define RTL930X_L2_PORT_DABLK_CTRL		(0x9060)
@@ -471,7 +485,10 @@ typedef enum {
 #define RTL931X_RMA_LLDP_CTRL			(0x8918)
 
 #define RTL930X_RMA_EAPOL_CTRL			(0x9F08)
+<<<<<<< HEAD
 #define RTL930X_SPCL_TRAP_PORT_CTRL		(0xA1A0)
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #define RTL931X_RMA_EAPOL_CTRL			(0x8930)
 #define RTL931X_TRAP_ARP_GRAT_PORT_ACT		(0x8C04)
 
@@ -641,6 +658,7 @@ enum pbvlan_mode {
 	PBVLAN_MODE_ALL_PKT,
 };
 
+<<<<<<< HEAD
 struct rtldsa_counter {
 	uint64_t val;
 	uint32_t last;
@@ -686,6 +704,8 @@ struct rtldsa_counter_state {
 	struct rtldsa_counter tx_pause_frames;
 };
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 struct rtl838x_port {
 	bool enable;
 	u64 pm;
@@ -698,7 +718,10 @@ struct rtl838x_port {
 	int sds_num;
 	int led_set;
 	int leds_on_this_port;
+<<<<<<< HEAD
 	struct rtldsa_counter_state counters;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	const struct dsa_port *dp;
 };
 
@@ -710,7 +733,11 @@ struct rtl838x_pcs {
 
 struct rtl838x_vlan_info {
 	u64 untagged_ports;
+<<<<<<< HEAD
 	u64 member_ports;
+=======
+	u64 tagged_ports;
+>>>>>>> 94392b39ec (稳定版本发布)
 	u8 profile_id;
 	bool hash_mc_fid;
 	bool hash_uc_fid;
@@ -1030,7 +1057,10 @@ struct rtl838x_reg {
 	int stat_port_rst;
 	int stat_rst;
 	int stat_port_std_mib;
+<<<<<<< HEAD
 	int stat_port_prv_mib;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	int (*port_iso_ctrl)(int p);
 	void (*traffic_enable)(int source, int dest);
 	void (*traffic_disable)(int source, int dest);
@@ -1147,7 +1177,10 @@ struct rtl838x_switch_priv {
 	u32 lag_primary[MAX_LAGS];
 	u32 is_lagmember[57];
 	u64 lagmembers;
+<<<<<<< HEAD
 	struct workqueue_struct *wq;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	struct notifier_block nb;  /* TODO: change to different name */
 	struct notifier_block ne_nb;
 	struct notifier_block fib_nb;
@@ -1165,7 +1198,10 @@ struct rtl838x_switch_priv {
 	struct rtl838x_l3_intf *interfaces[MAX_INTERFACES];
 	u16 intf_mtus[MAX_INTF_MTUS];
 	int intf_mtu_count[MAX_INTF_MTUS];
+<<<<<<< HEAD
 	struct delayed_work counters_work;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 void rtl838x_dbgfs_init(struct rtl838x_switch_priv *priv);

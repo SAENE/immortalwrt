@@ -5,7 +5,10 @@
 board=""
 kernel=""
 rootfs=""
+<<<<<<< HEAD
 dtb=""
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 outfile=""
 err=""
 
@@ -29,12 +32,15 @@ while [ "$1" ]; do
 		shift
 		continue
 		;;
+<<<<<<< HEAD
 	"--dtb")
 		dtb="$2"
 		shift
 		shift
 		continue
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	*)
 		if [ ! "$outfile" ]; then
 			outfile=$1
@@ -45,8 +51,13 @@ while [ "$1" ]; do
 	esac
 done
 
+<<<<<<< HEAD
 if [ ! -n "$board" -o ! -r "$kernel" -a  ! -r "$rootfs" -o ! "$outfile" -o -n "$dtb" -a ! -r "$dtb" ]; then
 	echo "syntax: $0 [--board boardname] [--kernel kernelimage] [--rootfs rootfs] [--dtb dtb] out"
+=======
+if [ ! -n "$board" -o ! -r "$kernel" -a  ! -r "$rootfs" -o ! "$outfile" ]; then
+	echo "syntax: $0 [--board boardname] [--kernel kernelimage] [--rootfs rootfs] out"
+>>>>>>> 94392b39ec (稳定版本发布)
 	exit 1
 fi
 
@@ -73,7 +84,10 @@ if [ -n "${rootfs}" ]; then
 	esac
 fi
 [ -z "${kernel}" ] || cp "${kernel}" "${tmpdir}/sysupgrade-${board}/kernel"
+<<<<<<< HEAD
 [ -z "${dtb}" ] || cp "${dtb}" "${tmpdir}/sysupgrade-${board}/dtb"
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 mtime=""
 if [ -n "$SOURCE_DATE_EPOCH" ]; then

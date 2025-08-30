@@ -10,7 +10,11 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ncurses
 PKG_CPE_ID:=cpe:/a:gnu:ncurses
 PKG_VERSION:=6.4
+<<<<<<< HEAD
 PKG_RELEASE:=3
+=======
+PKG_RELEASE:=2
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@GNU/$(PKG_NAME)
@@ -52,7 +56,11 @@ define Package/libncurses-dev
   TITLE:=Development files for the ncurses library
 endef
 
+<<<<<<< HEAD
 TARGET_CFLAGS += $(FPIC) -std=gnu17
+=======
+TARGET_CFLAGS += $(FPIC)
+>>>>>>> 94392b39ec (稳定版本发布)
 
 CONFIGURE_ARGS += \
 	--enable-echo \

@@ -34,7 +34,11 @@
        if [ ! "$inst_ver" ]; then
          warn_ "Error: '$app' not found"
          ret=1
+<<<<<<< HEAD
 @@ -1205,7 +1205,7 @@ autogen()
+=======
+@@ -1157,7 +1157,7 @@ autogen()
+>>>>>>> 94392b39ec (稳定版本发布)
    # two just-pre-run programs.
  
    # Import from gettext.
@@ -43,6 +47,7 @@
    grep '^[	 ]*AM_GNU_GETTEXT_VERSION(' configure.ac >/dev/null || \
        with_gettext=no
  
+<<<<<<< HEAD
 --- a/bootstrap.conf
 +++ b/bootstrap.conf
 @@ -354,11 +354,8 @@ gnulib_tool_option_extras="--tests-base=
@@ -57,3 +62,5 @@
  gzip       -
  m4         -
  makeinfo   6.1
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

@@ -98,6 +98,7 @@
 &usb3 {
 	status = "okay";
 };
+<<<<<<< HEAD
 
 &cpu_opp_table {
 	opp-864000000 {
@@ -132,3 +133,5 @@
 		opp-supported-hw = <0x1>;
 	};
 };
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

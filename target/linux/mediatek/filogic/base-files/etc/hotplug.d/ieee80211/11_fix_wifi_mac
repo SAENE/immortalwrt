@@ -27,11 +27,14 @@ case "$board" in
 		[ "$PHYNBR" = "0" ] && mmc_get_mac_ascii u-boot-env 2gMAC > /sys${DEVPATH}/macaddress
 		[ "$PHYNBR" = "1" ] && mmc_get_mac_ascii u-boot-env 5gMAC > /sys${DEVPATH}/macaddress
 		;;
+<<<<<<< HEAD
 	acer,predator-w6x)
 		hw_mac_addr="$(mtd_get_mac_ascii u-boot-env ethaddr)"
 		[ "$PHYNBR" = "0" ] && macaddr_add $hw_mac_addr 2 > /sys${DEVPATH}/macaddress
 		[ "$PHYNBR" = "1" ] && macaddr_add $hw_mac_addr 3 > /sys${DEVPATH}/macaddress
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	asus,rt-ax59u)
 		CI_UBIPART="UBI_DEV"
 		addr=$(mtd_get_mac_binary_ubi "Factory" 0x4)
@@ -75,7 +78,10 @@ case "$board" in
 	cudy,ap3000-v1|\
 	cudy,m3000-v1|\
 	cudy,re3000-v1|\
+<<<<<<< HEAD
 	cudy,tr3000-256mb-v1|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	cudy,tr3000-v1|\
 	cudy,tr3000-v1-ubootmod|\
 	cudy,wr3000e-v1|\
@@ -100,11 +106,17 @@ case "$board" in
 		[ "$PHYNBR" = "0" ] && echo "$addr" > /sys${DEVPATH}/macaddress
 		[ "$PHYNBR" = "1" ] && macaddr_add $addr 1 > /sys${DEVPATH}/macaddress
 		;;
+<<<<<<< HEAD
 	h3c,magic-nx30-pro)
+=======
+	h3c,magic-nx30-pro|\
+	h3c,magic-nx30-pro-nmbm)
+>>>>>>> 94392b39ec (稳定版本发布)
 		addr=$(mtd_get_mac_ascii pdt_data_1 ethaddr)
 		[ "$PHYNBR" = "0" ] && macaddr_add $addr 2 > /sys${DEVPATH}/macaddress
 		[ "$PHYNBR" = "1" ] && macaddr_add $addr 3 > /sys${DEVPATH}/macaddress
 		;;
+<<<<<<< HEAD
 	iptime,ax3000q)
 		addr=$(mtd_get_mac_binary "Factory" 0x4)
 		[ "$PHYNBR" = "1" ] && macaddr_setbit_la $addr > /sys${DEVPATH}/macaddress
@@ -114,6 +126,8 @@ case "$board" in
 		[ "$PHYNBR" = "1" ] && macaddr_setbit_la $(macaddr_unsetbit $(macaddr_unsetbit $(macaddr_unsetbit $(macaddr_setbit $addr 26) 25) 27) 28) > \
 			/sys${DEVPATH}/macaddress
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	jcg,q30-pro|\
 	netcore,n60|\
 	netcore,n60-pro)
@@ -175,11 +189,14 @@ case "$board" in
 		[ "$PHYNBR" = "0" ] && macaddr_add $addr 2 > /sys${DEVPATH}/macaddress
 		[ "$PHYNBR" = "1" ] && macaddr_add $addr 3 > /sys${DEVPATH}/macaddress
 		;;
+<<<<<<< HEAD
 	tplink,fr365-v1)
 		addr=$(strings /dev/mtd11 | grep 'option macaddr' | awk -F"'" '{print $2}')
 		[ "$PHYNBR" = "0" ] && echo $addr > /sys${DEVPATH}/macaddress
 		[ "$PHYNBR" = "1" ] && macaddr_add $addr 1 > /sys${DEVPATH}/macaddress
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	tplink,tl-xdr4288|\
 	tplink,tl-xdr6086|\
 	tplink,tl-xdr6088)
@@ -196,7 +213,10 @@ case "$board" in
 	routerich,ax3000|\
 	routerich,ax3000-ubootmod|\
 	zbtlink,zbt-z8102ax|\
+<<<<<<< HEAD
 	zbtlink,zbt-z8102ax-v2|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	zbtlink,zbt-z8103ax|\
 	zyxel,ex5601-t0-stock|\
 	zyxel,ex5601-t0-ubootmod)

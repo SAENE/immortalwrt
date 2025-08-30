@@ -230,7 +230,11 @@
 		};
 
 		wmac: wmac@18100000 {
+<<<<<<< HEAD
 			compatible = "qca,qca9550-wifi";
+=======
+			compatible = "qca,qca9550-wmac";
+>>>>>>> 94392b39ec (稳定版本发布)
 			reg = <0x18100000 0x10000>;
 
 			interrupt-parent = <&intc2>;

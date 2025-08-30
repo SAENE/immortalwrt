@@ -14,7 +14,11 @@ Signed-off-by: Aloka Dixit <quic_alokad@quicinc.com>
 
 --- a/net/mac80211/tx.c
 +++ b/net/mac80211/tx.c
+<<<<<<< HEAD
 @@ -4785,6 +4785,67 @@ out_free:
+=======
+@@ -4791,6 +4791,67 @@ out_free:
+>>>>>>> 94392b39ec (稳定版本发布)
  	kfree_skb(skb);
  }
  
@@ -82,7 +86,11 @@ Signed-off-by: Aloka Dixit <quic_alokad@quicinc.com>
  netdev_tx_t ieee80211_subif_start_xmit_8023(struct sk_buff *skb,
  					    struct net_device *dev)
  {
+<<<<<<< HEAD
 @@ -4824,6 +4885,11 @@ netdev_tx_t ieee80211_subif_start_xmit_8
+=======
+@@ -4830,6 +4891,11 @@ netdev_tx_t ieee80211_subif_start_xmit_8
+>>>>>>> 94392b39ec (稳定版本发布)
  	if (key && (!(key->flags & KEY_FLAG_UPLOADED_TO_HARDWARE)))
  		goto skip_offload;
  

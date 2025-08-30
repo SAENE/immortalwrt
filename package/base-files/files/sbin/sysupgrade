@@ -273,7 +273,11 @@ create_backup_archive() {
 
 		if [ $ret -eq 0 ]; then
 			for service in /etc/init.d/*; do
+<<<<<<< HEAD
 				if ! $service enabled >/dev/null 2>&1; then
+=======
+				if ! $service enabled; then
+>>>>>>> 94392b39ec (稳定版本发布)
 				disabled="$disabled$service disable\n"
 				fi
 			done

@@ -23,6 +23,7 @@ boot() {
 		EOF
 		logger "bootcount: rd23 model detected, nvram was updated"
 		;;
+<<<<<<< HEAD
 	teltonika,rutc50)
 		#Bootloader expect successfull startup value after update, we need to write success value to bootconfig partition
 		#otherwise bootloader will fallback to previous root partition
@@ -45,6 +46,8 @@ boot() {
 			;;
 		esac
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	zyxel,ex5700-telenor)
 		fw_setenv uboot_bootcount 0
 		;;

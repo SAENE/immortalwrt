@@ -5,7 +5,10 @@
  */
 
 /dts-v1/;
+<<<<<<< HEAD
 #include <dt-bindings/pinctrl/mt65xx.h>
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 #include "mt7986a.dtsi"
 
 / {
@@ -20,9 +23,14 @@
 		stdout-path = "serial0:115200n8";
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x40000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0 0x40000000 0 0x40000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	reg_1p8v: regulator-1p8v {
@@ -151,6 +159,7 @@
 			       "EMMC_DATA_3", "EMMC_DATA_4", "EMMC_DATA_5",
 			       "EMMC_DATA_6", "EMMC_DATA_7", "EMMC_CMD";
 			input-enable;
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
 		};
@@ -167,6 +176,24 @@
 			pins = "EMMC_RSTB";
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
+=======
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+		};
+		conf-clk {
+			pins = "EMMC_CK";
+			drive-strength = <6>;
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-ds {
+			pins = "EMMC_DSL";
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-rst {
+			pins = "EMMC_RSTB";
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -180,6 +207,7 @@
 			       "EMMC_DATA_3", "EMMC_DATA_4", "EMMC_DATA_5",
 			       "EMMC_DATA_6", "EMMC_DATA_7", "EMMC_CMD";
 			input-enable;
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
 		};
@@ -196,6 +224,24 @@
 			pins = "EMMC_RSTB";
 			drive-strength = <MTK_DRIVE_4mA>;
 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;	/* pull-up 10K */
+=======
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+		};
+		conf-clk {
+			pins = "EMMC_CK";
+			drive-strength = <6>;
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-ds {
+			pins = "EMMC_DSL";
+			mediatek,pull-down-adv = <2>;	/* pull-down 50K */
+		};
+		conf-rst {
+			pins = "EMMC_RSTB";
+			drive-strength = <4>;
+			mediatek,pull-up-adv = <1>;	/* pull-up 10K */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -220,6 +266,7 @@
 		};
 		conf-pu {
 			pins = "SPI2_CS", "SPI2_HOLD", "SPI2_WP";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_8mA>;
 			bias-disable;	/* bias-disable */
 		};
@@ -227,6 +274,15 @@
 			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
 			drive-strength = <MTK_DRIVE_8mA>;
 			bias-disable;	/* bias-disable */
+=======
+			drive-strength = <8>;
+			mediatek,pull-up-adv = <0>;	/* bias-disable */
+		};
+		conf-pd {
+			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
+			drive-strength = <8>;
+			mediatek,pull-down-adv = <0>;	/* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -257,7 +313,11 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
+=======
+			drive-strength = <4>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -274,7 +334,11 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_4mA>;
+=======
+			drive-strength = <4>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };

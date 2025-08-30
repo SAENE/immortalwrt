@@ -10,7 +10,11 @@ Signed-off-by: Eneas U de Queiroz <cote2004-github@yahoo.com>
 
 --- a/Configure
 +++ b/Configure
+<<<<<<< HEAD
 @@ -1811,7 +1811,9 @@ $config{CFLAGS} = [ map { $_ eq '--ossl-
+=======
+@@ -1810,7 +1810,9 @@ $config{CFLAGS} = [ map { $_ eq '--ossl-
+>>>>>>> 94392b39ec (稳定版本发布)
  
  unless ($disabled{afalgeng}) {
      $config{afalgeng}="";

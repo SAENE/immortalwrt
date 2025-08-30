@@ -11,4 +11,7 @@ proto_send_update "$PPP_IPPARAM"
 		[ -x "$SCRIPT" ] && "$SCRIPT" "$@"
 	done
 }
+<<<<<<< HEAD
 sleep 3
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

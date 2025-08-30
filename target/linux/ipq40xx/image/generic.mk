@@ -2,8 +2,11 @@
 DEVICE_VARS += NETGEAR_BOARD_ID NETGEAR_HW_ID
 DEVICE_VARS += RAS_BOARD RAS_ROOTFS_SIZE RAS_VERSION
 DEVICE_VARS += WRGG_DEVNAME WRGG_SIGNATURE
+<<<<<<< HEAD
 DEVICE_VARS += SUPPORTED_TELTONIKA_DEVICES
 DEVICE_VARS += SUPPORTED_TELTONIKA_HW_MODS
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 define Build/netgear-fit-padding
 	./netgear-fit-padding.py $@ $@.new
@@ -54,6 +57,20 @@ define Build/append-rootfshdr
 	dd if=$@.new bs=64 count=1 >> $@.$1
 endef
 
+<<<<<<< HEAD
+=======
+define Build/append-rutx-metadata
+	echo \
+		'{ \
+			"device_code": [".*"], \
+			"hwver": [".*"], \
+			"batch": [".*"], \
+			"serial": [".*"], \
+			"supported_devices":["teltonika,rutx"] \
+		}' | fwtool -I - $@
+endef
+
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/copy-file
 	cat "$(1)" > "$@"
 endef
@@ -454,7 +471,10 @@ define Device/engenius_eap1300
 	KERNEL_SIZE := 5120k
 	IMAGE_SIZE := 25344k
 	IMAGE/sysupgrade.bin := append-kernel | append-rootfs | pad-rootfs | append-metadata
+<<<<<<< HEAD
 	DEFAULT := n
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += engenius_eap1300
 
@@ -524,7 +544,10 @@ define Device/engenius_ens620ext
 	IMAGE/sysupgrade.bin := append-kernel | append-rootfs | pad-rootfs | check-size | append-metadata
 	IMAGE/factory_30.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | append-rootfs | pad-rootfs | check-size | SenaoFW $$$$(PRODUCT_ID) $$$$(FW_VER)
 	IMAGE/factory_35.bin := qsdk-ipq-factory-nor | check-size | SenaoFW $$$$(PRODUCT_ID_NEW) $$$$(FW_VER_NEW)
+<<<<<<< HEAD
 	DEFAULT := n
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 endef
 # Missing DSA Setup
 #TARGET_DEVICES += engenius_ens620ext
@@ -1113,15 +1136,22 @@ define Device/teltonika_rutx10
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := Teltonika
 	DEVICE_MODEL := RUTX10
+<<<<<<< HEAD
 	SUPPORTED_TELTONIKA_DEVICES := teltonika,rutx
 	SUPPORTED_TELTONIKA_HW_MODS := W25N02KV NAND_GD5F2GXX EG060K RUTX_V12
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	SOC := qcom-ipq4018
 	DEVICE_DTS_CONFIG := config@5
 	KERNEL_INSTALL := 1
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	FILESYSTEMS := squashfs
+<<<<<<< HEAD
 	IMAGE/factory.ubi := append-ubi | qsdk-ipq-factory-nand | append-teltonika-metadata
+=======
+	IMAGE/factory.ubi := append-ubi | qsdk-ipq-factory-nand | append-rutx-metadata
+>>>>>>> 94392b39ec (稳定版本发布)
 	DEVICE_PACKAGES := kmod-btusb
 endef
 # Missing DSA Setup

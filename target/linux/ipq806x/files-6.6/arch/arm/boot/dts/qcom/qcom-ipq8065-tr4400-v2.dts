@@ -457,7 +457,11 @@
 		ranges;
 
 		wifi0: wifi@1,0 {
+<<<<<<< HEAD
 			compatible = "qcom,ath10k";
+=======
+			compatible = "pci168c,0046";
+>>>>>>> 94392b39ec (稳定版本发布)
 			reg = <0x00010000 0 0 0 0>;
 
 			nvmem-cells = <&precal_ART_1000>, <&macaddr_fw_env_12>;
@@ -480,7 +484,11 @@
 		ranges;
 
 		wifi1: wifi@1,0 {
+<<<<<<< HEAD
 			compatible = "qcom,ath10k";
+=======
+			compatible = "pci168c,0040";
+>>>>>>> 94392b39ec (稳定版本发布)
 			reg = <0x00010000 0 0 0 0>;
 
 			nvmem-cells = <&precal_ART_5000>, <&macaddr_fw_env_c>;

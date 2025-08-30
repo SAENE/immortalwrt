@@ -5,7 +5,11 @@ But have issues on BPI-Rx boards.
 
 --- a/drivers/net/wireless/ath/ath12k/pci.c
 +++ b/drivers/net/wireless/ath/ath12k/pci.c
+<<<<<<< HEAD
 @@ -279,6 +279,9 @@ static void ath12k_pci_enable_ltssm(stru
+=======
+@@ -277,6 +277,9 @@ static void ath12k_pci_enable_ltssm(stru
+>>>>>>> 94392b39ec (稳定版本发布)
  	u32 val;
  	int i;
  

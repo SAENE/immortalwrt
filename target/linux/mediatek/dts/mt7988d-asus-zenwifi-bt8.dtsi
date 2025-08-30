@@ -86,9 +86,14 @@
 		led-upgrade = &led_status_blue;
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0x0 0x40000000 0x0 0x40000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0x0 0x40000000 0x0 0x40000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	cpus {
@@ -300,7 +305,11 @@
 &pio {
 	button_pins: button-pins {
 		pins = "GPIO_RESET", "GPIO_WPS";
+<<<<<<< HEAD
 		bias-disable; /* bias-disable */
+=======
+		mediatek,pull-down-adv = <0>; /* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	mdio0_pins: mdio0-pins {

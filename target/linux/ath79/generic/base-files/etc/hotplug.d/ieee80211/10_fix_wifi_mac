@@ -73,12 +73,19 @@ case "$board" in
 		;;
 	iodata,wn-ac1167dgr|\
 	iodata,wn-ac1600dgr|\
+<<<<<<< HEAD
 	iodata,wn-ac1600dgr2)
+=======
+	iodata,wn-ac1600dgr2|\
+	sitecom,wlr-7100|\
+	sitecom,wlr-8100)
+>>>>>>> 94392b39ec (稳定版本发布)
 		# There is no eeprom data for 5 GHz wlan in "art" partition
 		# which would allow to patch the macaddress
 		[ "$PHYNBR" -eq 0 ] && \
 			macaddr_add "$(mtd_get_mac_ascii u-boot-env ethaddr)" 1 > /sys${DEVPATH}/macaddress
 		;;
+<<<<<<< HEAD
 		[ "$PHYNBR" -eq 1 ] && \
 			macaddr_add "$(mtd_get_mac_ascii u-boot-env ethaddr)" 0 > /sys${DEVPATH}/macaddress
 		;;
@@ -90,6 +97,12 @@ case "$board" in
 	sitecom,wlr-7100|\
 	sitecom,wlr-8100)
 		[ "$PHYNBR" -eq 0 ] && \
+=======
+	iodata,wn-ag300dgr)
+		# There is no eeprom data for 5 GHz wlan in "art" partition
+		# which would allow to patch the macaddress
+		[ "$PHYNBR" -eq 1 ] && \
+>>>>>>> 94392b39ec (稳定版本发布)
 			macaddr_add "$(mtd_get_mac_ascii u-boot-env ethaddr)" 1 > /sys${DEVPATH}/macaddress
 		;;
 	nec,wf1200cr|\
@@ -117,6 +130,17 @@ case "$board" in
 		[ "$PHYNBR" -eq 1 ] && \
 			macaddr_add $base_mac 1 > /sys${DEVPATH}/macaddress
 		;;
+<<<<<<< HEAD
+=======
+	trendnet,tew-823dru)
+		# set the 2.4G interface mac address to LAN MAC
+		[ "$PHYNBR" -eq 1 ] && \
+			mtd_get_mac_text mac 4 > /sys${DEVPATH}/macaddress
+		# set the 5G interface mac address to WAN MAC + 1
+		[ "$PHYNBR" -eq 0 ] && \
+			macaddr_add "$(mtd_get_mac_text mac 0x18)" 1 > /sys${DEVPATH}/macaddress
+		;;
+>>>>>>> 94392b39ec (稳定版本发布)
 	zyxel,nwa1123-ac)
 		[ "$PHYNBR" -eq 0 ] && \
 			mtd_get_mac_text mib0 0x66 > /sys${DEVPATH}/macaddress

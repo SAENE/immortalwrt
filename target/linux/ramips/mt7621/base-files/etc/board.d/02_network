@@ -23,7 +23,10 @@ ramips_setup_interfaces()
 	mercusys,mr70x-v1|\
 	netgear,wax202|\
 	sim,simax1800t|\
+<<<<<<< HEAD
 	sim,simax1800u|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	tplink,mr600-v2-eu|\
 	xiaomi,mi-router-3-pro|\
 	xiaomi,mi-router-ac2100|\
@@ -92,7 +95,10 @@ ramips_setup_interfaces()
 	asiarf,ap7621-nv1|\
 	beeline,smartbox-flash|\
 	beeline,smartbox-giga|\
+<<<<<<< HEAD
 	c-life,xg1|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	elecom,wmc-x1800gst|\
 	elecom,wrc-x1800gs|\
 	gemtek,wvrtm-127acn|\
@@ -285,7 +291,11 @@ ramips_setup_macs()
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		;;
 	jdcloud,re-sp-01b)
+<<<<<<< HEAD
 		lan_mac=$(mtd_get_mac_ascii config mac)
+=======
+		lan_mac=$(macaddr_canonicalize "$(strings "$(find_mtd_part config)" | sed -n 's/^'"mac"'=//p' | head -n1)")
+>>>>>>> 94392b39ec (稳定版本发布)
 		wan_mac=$lan_mac
 		label_mac=$lan_mac
 		;;

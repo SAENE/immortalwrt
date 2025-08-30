@@ -183,8 +183,12 @@
 };
 
 &pcie0 {
+<<<<<<< HEAD
 	wifi@0,0 {
 		compatible = "mediatek,mt76";
+=======
+	mt76@0,0 {
+>>>>>>> 94392b39ec (稳定版本发布)
 		reg = <0x0000 0 0 0 0>;
 		ieee80211-freq-limit = <5000000 6000000>;
 		nvmem-cells = <&eeprom_radio_8000>, <&macaddr_romfile_f100 (-1)>;

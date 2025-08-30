@@ -110,8 +110,11 @@ config MTD_SPLIT_SEIL_FW
 	bool "IIJ SEIL firmware parser"
 	depends on MTD_SPLIT_SUPPORT
 	select MTD_SPLIT
+<<<<<<< HEAD
 
 config MTD_SPLIT_MSTC_BOOT
 	bool "MSTC bootnum-based parser"
 	depends on MTD_SPLIT_SUPPORT
 	select MTD_SPLIT
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

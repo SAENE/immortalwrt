@@ -39,6 +39,10 @@ wpas_ucode_update_interfaces(void)
 		ucv_object_add(ifs, wpa_s->ifname, wpas_ucode_iface_get_uval(wpa_s));
 
 	ucv_object_add(ucv_prototype_get(global), "interfaces", ifs);
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 void wpas_ucode_add_bss(struct wpa_supplicant *wpa_s)
@@ -51,6 +55,10 @@ void wpas_ucode_add_bss(struct wpa_supplicant *wpa_s)
 	uc_value_push(ucv_string_new(wpa_s->ifname));
 	uc_value_push(wpas_ucode_iface_get_uval(wpa_s));
 	ucv_put(wpa_ucode_call(2));
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 void wpas_ucode_free_bss(struct wpa_supplicant *wpa_s)
@@ -69,6 +77,10 @@ void wpas_ucode_free_bss(struct wpa_supplicant *wpa_s)
 	uc_value_push(ucv_get(val));
 	ucv_put(wpa_ucode_call(2));
 	ucv_put(val);
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 void wpas_ucode_update_state(struct wpa_supplicant *wpa_s)
@@ -88,6 +100,10 @@ void wpas_ucode_update_state(struct wpa_supplicant *wpa_s)
 	uc_value_push(ucv_get(val));
 	uc_value_push(ucv_string_new(state));
 	ucv_put(wpa_ucode_call(3));
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 void wpas_ucode_event(struct wpa_supplicant *wpa_s, int event, union wpa_event_data *data)
@@ -120,6 +136,10 @@ void wpas_ucode_event(struct wpa_supplicant *wpa_s, int event, union wpa_event_d
 	}
 
 	ucv_put(wpa_ucode_call(4));
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static const char *obj_stringval(uc_value_t *obj, const char *name)
@@ -305,6 +325,10 @@ int wpas_ucode_init(struct wpa_global *gl)
 	if (wpa_ucode_run(HOSTAPD_UC_PATH "wpa_supplicant.uc"))
 		goto free_vm;
 
+<<<<<<< HEAD
+=======
+	ucv_gc(vm);
+>>>>>>> 94392b39ec (稳定版本发布)
 	return 0;
 
 free_vm:

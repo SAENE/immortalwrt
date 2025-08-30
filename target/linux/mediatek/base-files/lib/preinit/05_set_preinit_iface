@@ -1,7 +1,10 @@
 set_preinit_iface() {
 	case $(board_name) in
 	cudy,m3000-v1|\
+<<<<<<< HEAD
 	cudy,tr3000-256mb-v1|\
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	cudy,tr3000-v1|\
 	cudy,tr3000-v1-ubootmod|\
 	glinet,gl-mt2500|\

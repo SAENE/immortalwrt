@@ -1,6 +1,19 @@
 --- a/bin/automake.in
 +++ b/bin/automake.in
+<<<<<<< HEAD
 @@ -5700,7 +5700,7 @@ sub check_gnu_standards ()
+=======
+@@ -4513,7 +4513,7 @@ sub handle_gettext ()
+ 	    && grep ($_ eq 'intl', @subdirs));
+     }
+ 
+-  require_file ($ac_gettext_location, GNU, 'ABOUT-NLS');
++  require_file ($ac_gettext_location, GNITS, 'ABOUT-NLS');
+ }
+ 
+ # Emit makefile footer.
+@@ -5641,7 +5641,7 @@ sub check_gnu_standards ()
+>>>>>>> 94392b39ec (稳定版本发布)
            # otherwise require non-.md.
            my $required
             = (! -f $file && -f "$file.md") ? "$file.md" : $file;
@@ -9,7 +22,11 @@
          }
  
        # Accept one of these three licenses; default to COPYING.
+<<<<<<< HEAD
 @@ -5714,7 +5714,7 @@ sub check_gnu_standards ()
+=======
+@@ -5655,7 +5655,7 @@ sub check_gnu_standards ()
+>>>>>>> 94392b39ec (稳定版本发布)
  	      last;
  	    }
  	}

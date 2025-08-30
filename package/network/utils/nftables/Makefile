@@ -6,17 +6,29 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nftables
+<<<<<<< HEAD
 PKG_VERSION:=1.1.3
+=======
+PKG_VERSION:=1.1.1
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://netfilter.org/projects/$(PKG_NAME)/files
+<<<<<<< HEAD
 PKG_HASH:=9c8a64b59c90b0825e540a9b8fcb9d2d942c636f81ba50199f068fde44f34ed8
+=======
+PKG_HASH:=6358830f3a64f31e39b0ad421d7dadcd240b72343ded48d8ef13b8faf204865a
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=GPL-2.0
 PKG_LICENSE_FILES:=COPYING
 
+<<<<<<< HEAD
+=======
+PKG_FIXUP:=autoreconf
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_INSTALL:=1
 
 PKG_BUILD_FLAGS:=lto

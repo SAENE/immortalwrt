@@ -216,10 +216,13 @@ default_prerm() {
 	local filelist="${root}/usr/lib/opkg/info/${pkgname}.list"
 	[ -f "$root/lib/apk/packages/${pkgname}.list" ] && filelist="$root/lib/apk/packages/${pkgname}.list"
 
+<<<<<<< HEAD
 	if [ -e "$root/lib/apk/packages/${pkgname}.alternatives" ]; then
 		update_alternatives remove "${pkgname}"
 	fi
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	if [ -f "$root/usr/lib/opkg/info/${pkgname}.prerm-pkg" ]; then
 		( . "$root/usr/lib/opkg/info/${pkgname}.prerm-pkg" )
 		ret=$?
@@ -356,7 +359,12 @@ default_postinst() {
 		add_group_and_user "${pkgname}"
 	fi
 
+<<<<<<< HEAD
 	if [ -e "${root}/lib/apk/packages/${pkgname}.alternatives" ]; then
+=======
+	if [ -e "${root}/lib/apk/packages/${pkgname}.list" ]; then
+		filelist="${root}/lib/apk/packages/${pkgname}.list"
+>>>>>>> 94392b39ec (稳定版本发布)
 		update_alternatives install "${pkgname}"
 	fi
 
@@ -447,7 +455,11 @@ find_mmc_part() {
 	fi
 
 	for DEVNAME in /sys/block/$ROOTDEV/mmcblk*p*; do
+<<<<<<< HEAD
 		PARTNAME="$(grep PARTNAME ${DEVNAME}/uevent | cut -f2 -d'=' 2>/dev/null)"
+=======
+		PARTNAME="$(grep PARTNAME ${DEVNAME}/uevent | cut -f2 -d'=')"
+>>>>>>> 94392b39ec (稳定版本发布)
 		[ "$PARTNAME" = "$1" ] && echo "/dev/$(basename $DEVNAME)" && return 0
 	done
 }

@@ -14,7 +14,11 @@ Signed-off-by: Phil Elwell <phil@raspberrypi.com>
 
 --- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
 +++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
+<<<<<<< HEAD
 @@ -3343,6 +3343,7 @@ brcmf_cfg80211_set_power_mgmt(struct wip
+=======
+@@ -3338,6 +3338,7 @@ brcmf_cfg80211_set_power_mgmt(struct wip
+>>>>>>> 94392b39ec (稳定版本发布)
  			bphy_err(drvr, "error (%d)\n", err);
  	}
  

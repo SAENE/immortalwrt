@@ -292,7 +292,11 @@ static void mt7620_gsw_remove(struct platform_device *pdev)
 
 static struct platform_driver gsw_driver = {
 	.probe = mt7620_gsw_probe,
+<<<<<<< HEAD
 	.remove = mt7620_gsw_remove,
+=======
+	.remove_new = mt7620_gsw_remove,
+>>>>>>> 94392b39ec (稳定版本发布)
 	.driver = {
 		.name = "mt7620-gsw",
 		.of_match_table = mediatek_gsw_match,

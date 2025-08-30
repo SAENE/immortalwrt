@@ -8,14 +8,23 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dropbear
+<<<<<<< HEAD
 PKG_VERSION:=2025.88
 PKG_RELEASE:=4
+=======
+PKG_VERSION:=2024.86
+PKG_RELEASE:=1
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:= \
 	https://matt.ucc.asn.au/dropbear/releases/ \
 	https://dropbear.nl/mirror/releases/
+<<<<<<< HEAD
 PKG_HASH:=783f50ea27b17c16da89578fafdb6decfa44bb8f6590e5698a4e4d3672dc53d4
+=======
+PKG_HASH:=e78936dffc395f2e0db099321d6be659190966b99712b55c530dd0a1822e0a5e
+>>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE libtomcrypt/LICENSE libtommath/LICENSE
@@ -28,6 +37,7 @@ PKG_FIXUP:=autoreconf
 PKG_FLAGS:=nonshared
 
 PKG_CONFIG_DEPENDS:= \
+<<<<<<< HEAD
 	CONFIG_DROPBEAR_STATIC_BUILD CONFIG_DROPBEAR_LEGACY_COMPAT CONFIG_DROPBEAR_SMALL_CODE CONFIG_DROPBEAR_DEBUG_TRACE CONFIG_DROPBEAR_LOG_COMMANDS CONFIG_DROPBEAR_INETD_MODE \
 	CONFIG_DROPBEAR_DO_HOST_LOOKUP CONFIG_DROPBEAR_SVR_PUBKEY_OPTIONS CONFIG_DROPBEAR_LASTLOG CONFIG_DROPBEAR_LASTLOG_PATH CONFIG_DROPBEAR_WTMP CONFIG_DROPBEAR_WTMP_PATH CONFIG_DROPBEAR_UTMP CONFIG_DROPBEAR_UTMP_PATH CONFIG_DROPBEAR_PUTUTLINE CONFIG_DROPBEAR_LOGINFUNC \
 	CONFIG_DROPBEAR_REEXEC CONFIG_DROPBEAR_ZLIB CONFIG_DROPBEAR_DELAY_HOSTKEY CONFIG_DROPBEAR_SVR_AGENTFWD CONFIG_DROPBEAR_SVR_REMOTETCPFWD CONFIG_DROPBEAR_SVR_LOCALTCPFWD CONFIG_DROPBEAR_SVR_LOCALSTREAMFWD CONFIG_DROPBEAR_X11FWD CONFIG_DROPBEAR_SCP CONFIG_DROPBEAR_SFTPSERVER \
@@ -41,6 +51,16 @@ PKG_CONFIG_DEPENDS:= \
 	CONFIG_DROPBEAR_ECC_256 CONFIG_DROPBEAR_ECC_384 CONFIG_DROPBEAR_ECC_521 \
 	CONFIG_DROPBEAR_SK_KEYS CONFIG_DROPBEAR_SK_ECDSA CONFIG_DROPBEAR_SK_ED25519 \
 
+=======
+	CONFIG_TARGET_INIT_PATH CONFIG_DROPBEAR_ECC CONFIG_DROPBEAR_ECC_FULL \
+	CONFIG_DROPBEAR_CURVE25519 CONFIG_DROPBEAR_ZLIB \
+	CONFIG_DROPBEAR_ED25519 CONFIG_DROPBEAR_CHACHA20POLY1305 \
+	CONFIG_DROPBEAR_U2F CONFIG_DROPBEAR_ECDSA_SK CONFIG_DROPBEAR_ED25519_SK \
+	CONFIG_DROPBEAR_UTMP CONFIG_DROPBEAR_PUTUTLINE \
+	CONFIG_DROPBEAR_DBCLIENT CONFIG_DROPBEAR_SCP CONFIG_DROPBEAR_ASKPASS \
+	CONFIG_DROPBEAR_DBCLIENT_AGENTFORWARD CONFIG_DROPBEAR_AGENTFORWARD \
+	CONFIG_DROPBEAR_MODERN_ONLY
+>>>>>>> 94392b39ec (稳定版本发布)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -61,8 +81,12 @@ define Package/dropbear
   SECTION:=net
   CATEGORY:=Base system
   TITLE:=Small SSH2 client/server
+<<<<<<< HEAD
   MENU:=1
   DEPENDS:= +USE_GLIBC:libcrypt-compat +DROPBEAR_ZLIB:zlib
+=======
+  DEPENDS:= +DROPBEAR_ZLIB:zlib
+>>>>>>> 94392b39ec (稳定版本发布)
   ALTERNATIVES:=100:/usr/bin/ssh-keygen:/usr/sbin/dropbear
   $(if $(CONFIG_DROPBEAR_SCP),ALTERNATIVES+= \
 	  100:/usr/bin/scp:/usr/sbin/dropbear,)
@@ -93,6 +117,7 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-pam \
+<<<<<<< HEAD
 	--disable-pututxline \
 	--disable-utmpx \
 	--disable-wtmpx \
@@ -102,6 +127,18 @@ CONFIGURE_ARGS += \
 	$(if $(CONFIG_DROPBEAR_STATIC_BUILD),--enable-static,--disable-static) \
 	$(if $(CONFIG_DROPBEAR_UTMP),,--disable-utmp) \
 	$(if $(CONFIG_DROPBEAR_WTMP),,--disable-wtmp) \
+=======
+	--enable-openpty \
+	--enable-syslog \
+	--disable-lastlog \
+	--disable-utmpx \
+	$(if $(CONFIG_DROPBEAR_UTMP),,--disable-utmp) \
+	--disable-wtmp \
+	--disable-wtmpx \
+	--disable-loginfunc \
+	$(if $(CONFIG_DROPBEAR_PUTUTLINE),,--disable-pututline) \
+	--disable-pututxline \
+>>>>>>> 94392b39ec (稳定版本发布)
 	$(if $(CONFIG_DROPBEAR_ZLIB),,--disable-zlib) \
 	--enable-bundled-libtom
 
@@ -114,6 +151,7 @@ CONFIGURE_ARGS += \
 
 # adjust allowed shell list (if getusershell(3) is missing):
 # - COMPAT_USER_SHELLS
+<<<<<<< HEAD
 # remove version number from protocol ident:
 # - IDENT_VERSION_PART
 # disable unused functionality:
@@ -141,6 +179,26 @@ DB_OPT_COMMON = \
 	$(if $(CONFIG_DROPBEAR_LASTLOG),LASTLOG_FILE$(comma)$(CONFIG_DROPBEAR_LASTLOG_PATH)) \
 	$(if $(CONFIG_DROPBEAR_UTMP),UTMP_FILE$(comma)$(CONFIG_DROPBEAR_UTMP_PATH)) \
 	$(if $(CONFIG_DROPBEAR_WTMP),WTMP_FILE$(comma)$(CONFIG_DROPBEAR_WTMP_PATH)) \
+=======
+# remove protocol idented software version number:
+# - LOCAL_IDENT
+# disable legacy/unsafe methods and unused functionality:
+# - DROPBEAR_CLI_NETCAT
+# - DROPBEAR_DSS
+# - DO_MOTD
+# - DROPBEAR_DH_GROUP14_SHA1
+# - DROPBEAR_SHA1_HMAC
+DB_OPT_COMMON = \
+	!!LOCAL_IDENT,"SSH-2.0-dropbear" \
+	COMPAT_USER_SHELLS,"/bin/ash","/bin/sh" \
+	DEFAULT_PATH,"$(TARGET_INIT_PATH)" \
+	DEFAULT_ROOT_PATH,"$(TARGET_INIT_PATH)" \
+	DROPBEAR_DSS,0 \
+	DROPBEAR_CLI_NETCAT,0 \
+	DO_MOTD,0 \
+	DROPBEAR_DH_GROUP14_SHA1,0 \
+	DROPBEAR_SHA1_HMAC,0 \
+>>>>>>> 94392b39ec (稳定版本发布)
 
 
 ##############################################################################
@@ -153,6 +211,7 @@ DB_OPT_COMMON = \
 ##############################################################################
 
 DB_OPT_CONFIG = \
+<<<<<<< HEAD
 	!!DROPBEAR_CLI_MULTIHOP,CONFIG_DROPBEAR_CLI_MULTIHOP,1,0 \
 	!!DROPBEAR_ECC_256,CONFIG_DROPBEAR_ECC_256,1,0 \
 	!!DROPBEAR_ECC_384,CONFIG_DROPBEAR_ECC_384,1,0 \
@@ -208,6 +267,26 @@ DB_OPT_CONFIG = \
 	DROPBEAR_X11FWD,CONFIG_DROPBEAR_X11FWD,1,0 \
 	INETD_MODE,CONFIG_DROPBEAR_INETD_MODE,1,0 \
 	LOG_COMMANDS,CONFIG_DROPBEAR_LOG_COMMANDS,1,0 \
+=======
+	!!DROPBEAR_ECC_384,CONFIG_DROPBEAR_ECC_FULL,1,0 \
+	!!DROPBEAR_ECC_521,CONFIG_DROPBEAR_ECC_FULL,1,0 \
+	DROPBEAR_CURVE25519,CONFIG_DROPBEAR_CURVE25519,1,0 \
+	DROPBEAR_CHACHA20POLY1305,CONFIG_DROPBEAR_CHACHA20POLY1305,1,0 \
+	DROPBEAR_ED25519,CONFIG_DROPBEAR_ED25519,1,0 \
+	DROPBEAR_ECDSA,CONFIG_DROPBEAR_ECC,1,0 \
+	DROPBEAR_ECDH,CONFIG_DROPBEAR_ECC,1,0 \
+	DROPBEAR_SK_KEYS,CONFIG_DROPBEAR_U2F,1,0 \
+	DROPBEAR_SK_ECDSA,CONFIG_DROPBEAR_ECDSA_SK,1,0 \
+	DROPBEAR_SK_ED25519,CONFIG_DROPBEAR_ED25519_SK,1,0 \
+	DROPBEAR_CLI_ASKPASS_HELPER,CONFIG_DROPBEAR_ASKPASS,1,0 \
+	DROPBEAR_CLI_AGENTFWD,CONFIG_DROPBEAR_DBCLIENT_AGENTFORWARD,1,0 \
+	DROPBEAR_SVR_AGENTFWD,CONFIG_DROPBEAR_AGENTFORWARD,1,0 \
+	DROPBEAR_AES128,CONFIG_DROPBEAR_MODERN_ONLY,0,1 \
+	DROPBEAR_AES256,CONFIG_DROPBEAR_MODERN_ONLY,0,1 \
+	DROPBEAR_ENABLE_CTR_MODE,CONFIG_DROPBEAR_MODERN_ONLY,0,1 \
+	DROPBEAR_RSA,CONFIG_DROPBEAR_MODERN_ONLY,0,1 \
+	DROPBEAR_RSA_SHA1,CONFIG_DROPBEAR_MODERN_ONLY,0,1 \
+>>>>>>> 94392b39ec (稳定版本发布)
 
 
 TARGET_CFLAGS += -DARGTYPE=3
@@ -233,6 +312,14 @@ define Build/Configure/dropbear_headers
 	))
 endef
 
+<<<<<<< HEAD
+=======
+define Build/Configure/dropbear_objects
+	grep -ERZl -e '($(subst $(space),|,$(strip $(sort $(patsubst !!%,%,$(foreach s,$(DB_OPT_COMMON) $(DB_OPT_CONFIG),$(word 1,$(subst $(comma),$(space),$(s)))))))))' \
+	$(PKG_BUILD_DIR)/ | sed -zE 's/^(.+)\.[^.]+$$$$/\1.o/' | sort -uV | xargs -0 -r rm -fv || :
+endef
+
+>>>>>>> 94392b39ec (稳定版本发布)
 define Build/Configure
 	rm -f $(PKG_BUILD_DIR)/localoptions.h
 	$(Build/Configure/Default)
@@ -240,8 +327,15 @@ define Build/Configure
 	: > $(PKG_BUILD_DIR)/localoptions.h
 	$(Build/Configure/dropbear_headers)
 
+<<<<<<< HEAD
 	# Enforce rebuild
 	rm -rf $(PKG_BUILD_DIR)/obj
+=======
+	# Enforce rebuild of files depending on configured options
+	$(Build/Configure/dropbear_objects)
+
+	# Rebuild them on config change
+>>>>>>> 94392b39ec (稳定版本发布)
 	+$(MAKE) -C $(PKG_BUILD_DIR)/libtomcrypt clean
 	+$(MAKE) -C $(PKG_BUILD_DIR)/libtommath clean
 endef

@@ -4,7 +4,10 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
+<<<<<<< HEAD
 #include <dt-bindings/pinctrl/mt65xx.h>
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 #include "mt7981b.dtsi"
 
@@ -20,15 +23,24 @@
 		led-upgrade = &led_status_red;
 	};
 
+<<<<<<< HEAD
 	chosen {
+=======
+	chosen: chosen {
+>>>>>>> 94392b39ec (稳定版本发布)
 		bootargs-append = " root=/dev/fit0 rootwait";
 		rootdisk = <&ubi_rootdisk>;
 		stdout-path = "serial0:115200n8";
 	};
 
+<<<<<<< HEAD
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x10000000>;
 		device_type = "memory";
+=======
+	memory {
+		reg = <0 0x40000000 0 0x10000000>;
+>>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	gpio-keys {
@@ -104,7 +116,11 @@
 	pinctrl-0 = <&spi0_flash_pins>;
 	status = "okay";
 
+<<<<<<< HEAD
 	spi_nand@0 {
+=======
+	spi_nand: spi_nand@0 {
+>>>>>>> 94392b39ec (稳定版本发布)
 		compatible = "spi-nand";
 		#address-cells = <1>;
 		#size-cells = <1>;
@@ -142,7 +158,11 @@
 				read-only;
 			};
 
+<<<<<<< HEAD
 			partition@580000 {
+=======
+			ubi: partition@580000 {
+>>>>>>> 94392b39ec (稳定版本发布)
 				label = "ubi";
 				reg = <0x0580000 0x4000000>;
 				compatible = "linux,ubi";
@@ -226,14 +246,24 @@
 
 		conf-pu {
 			pins = "SPI0_CS", "SPI0_HOLD", "SPI0_WP";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_8mA>;
 			bias-disable; /* bias-disable */
+=======
+			drive-strength = <8>;
+			mediatek,pull-up-adv = <0>; /* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		conf-pd {
 			pins = "SPI0_CLK", "SPI0_MOSI", "SPI0_MISO";
+<<<<<<< HEAD
 			drive-strength = <MTK_DRIVE_8mA>;
 			bias-disable; /* bias-disable */
+=======
+			drive-strength = <8>;
+			mediatek,pull-up-adv = <0>; /* bias-disable */
+>>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };

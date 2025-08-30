@@ -11,6 +11,10 @@ PKG_NAME:=omnia-eeprom
 PKG_VERSION:=0.1
 PKG_RELEASE:=1
 
+<<<<<<< HEAD
+=======
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-v$(PKG_VERSION)
+>>>>>>> 94392b39ec (稳定版本发布)
 PKG_SOURCE:=$(PKG_NAME)-v$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://gitlab.nic.cz/turris/omnia-eeprom/-/archive/v$(PKG_VERSION)/
 PKG_HASH:=6f949d0b8080adca8bae088774ce615b563ba6ec2807cce97ee6769b4eee7bbf
@@ -18,7 +22,12 @@ PKG_FLAGS:=nonshared
 
 PKG_MAINTAINER:=Marek Behun <kabel@kernel.org>
 PKG_LICENSE:=GPL-2.0-or-later
+<<<<<<< HEAD
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-v$(PKG_VERSION)
+=======
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
+>>>>>>> 94392b39ec (稳定版本发布)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -42,8 +51,16 @@ the DDR training algorithm).
 endef
 
 MAKE_VARS += OMNIA_EEPROM_VERSION="v$(PKG_VERSION)"
+<<<<<<< HEAD
 TARGET_CFLAGS += -Wall
 
+=======
+
+TARGET_CFLAGS += -Wall
+
+Build/Compile = $(Build/Compile/Default)
+
+>>>>>>> 94392b39ec (稳定版本发布)
 define Package/omnia-eeprom/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/omnia-eeprom $(1)/usr/bin/

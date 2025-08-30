@@ -40,6 +40,15 @@
 			gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
 		};
 
+<<<<<<< HEAD
+=======
+		wlan2g {
+			label = "green:wlan2g";
+			gpios = <&gpio 12 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "phy0tpt";
+		};
+
+>>>>>>> 94392b39ec (稳定版本发布)
 		wlan5g {
 			label = "green:wlan5g";
 			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
@@ -153,6 +162,7 @@
 				label = "art";
 				reg = <0xff0000 0x010000>;
 				read-only;
+<<<<<<< HEAD
 
 				nvmem-layout {
 					compatible = "fixed-layout";
@@ -163,6 +173,8 @@
 						reg = <0x1000 0x440>;
 					};
 				};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			};
 		};
 	};
@@ -211,6 +223,7 @@
 &wmac {
 	status = "okay";
 
+<<<<<<< HEAD
 	nvmem-cells = <&cal_art_1000>;
 	nvmem-cell-names = "calibration";
 
@@ -218,4 +231,7 @@
 		led-sources = <12>;
 		led-active-low;
 	};
+=======
+	qca,no-eeprom;
+>>>>>>> 94392b39ec (稳定版本发布)
 };

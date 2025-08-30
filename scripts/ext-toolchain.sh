@@ -154,11 +154,14 @@ test_feature() {
 find_libs() {
 	local spec="$(echo "$LIB_SPECS" | sed -ne "s#^[[:space:]]*$1:##ip")"
 
+<<<<<<< HEAD
 	# glibc doesn't have libcrypt since 2.39
 	if [ "$LIBC_TYPE" = "glibc" ]; then
 		spec=$(printf '%s' "${spec}" | sed 's/,crypt,//')
 	fi
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	if [ -n "$spec" ] && probe_cpp; then
 		local libdir libdirs
 		for libdir in $(

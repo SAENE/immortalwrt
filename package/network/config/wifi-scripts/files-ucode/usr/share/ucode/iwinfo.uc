@@ -285,7 +285,11 @@ function hwmodelist(name) {
 	const mode = { 'HT*': 'n', 'VHT*': 'ac', 'HE*': 'ax' };
 	let iface = ifaces[name];
 	let phy = board_data.wlan?.['phy' + iface.wiphy];
+<<<<<<< HEAD
 	if (!phy || !iface.radio?.band)
+=======
+	if (!phy)
+>>>>>>> 94392b39ec (稳定版本发布)
 		return '';
 	let htmodes = phy.info.bands[uc(iface.radio.band)].modes;
 	let list = [];
@@ -393,7 +397,11 @@ export function info(name) {
 			mode: data.mode,
 			channel: format_channel(data.wiphy_freq),
 			freq: format_frequency(data.wiphy_freq),
+<<<<<<< HEAD
 			htmode: data.radio?.htmode,
+=======
+			htmode: data.radio.htmode,
+>>>>>>> 94392b39ec (稳定版本发布)
 			center_freq1: format_channel(data.center_freq1) || 'unknown',
 			center_freq2: format_channel(data.center_freq2) || 'unknown',
 			txpower: data.wiphy_tx_power_level / 100,
@@ -446,7 +454,11 @@ export function info(name) {
 export function htmodelist(name) {
 	let iface = ifaces[name];
 	let phy = board_data.wlan?.['phy' + iface.wiphy];
+<<<<<<< HEAD
 	if (!phy || !iface.radio.band)
+=======
+	if (!phy)
+>>>>>>> 94392b39ec (稳定版本发布)
 		return [];
 
 	return filter(phy.info.bands[uc(iface.radio.band)].modes, (v) => v != 'NOHT');

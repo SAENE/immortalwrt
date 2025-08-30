@@ -37,6 +37,7 @@ endef
 
 $(eval $(call KernelPackage,hid-generic))
 
+<<<<<<< HEAD
 
 define KernelPackage/hid-alps
   SUBMENU:=$(INPUT_MODULES_MENU)
@@ -54,6 +55,8 @@ endef
 $(eval $(call KernelPackage,hid-alps))
 
 
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/input-core
   SUBMENU:=$(INPUT_MODULES_MENU)
   TITLE:=Input device core
@@ -246,6 +249,7 @@ define KernelPackage/input-uinput/description
 endef
 
 $(eval $(call KernelPackage,input-uinput))
+<<<<<<< HEAD
 
 
 define KernelPackage/input-mouse-ps2
@@ -314,3 +318,5 @@ define KernelPackage/input-serio-libps2/description
 endef
 
 $(eval $(call KernelPackage,input-serio-libps2))
+=======
+>>>>>>> 94392b39ec (稳定版本发布)

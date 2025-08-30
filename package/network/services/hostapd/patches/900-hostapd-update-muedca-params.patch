@@ -22,7 +22,11 @@
  #include "wps/wps.h"
  #include "fst/fst.h"
  #include "wnm_ap.h"
+<<<<<<< HEAD
 @@ -2358,6 +2359,47 @@ static void hostapd_event_wds_sta_interf
+=======
+@@ -2320,6 +2321,47 @@ static void hostapd_event_wds_sta_interf
+>>>>>>> 94392b39ec (稳定版本发布)
  		ifname, MAC2STR(addr));
  }
  
@@ -70,7 +74,11 @@
  
  #ifdef CONFIG_OWE
  static int hostapd_notif_update_dh_ie(struct hostapd_data *hapd,
+<<<<<<< HEAD
 @@ -2916,6 +2958,9 @@ void hostapd_wpa_event(void *ctx, enum w
+=======
+@@ -2878,6 +2920,9 @@ void hostapd_wpa_event(void *ctx, enum w
+>>>>>>> 94392b39ec (稳定版本发布)
  			   hapd->conf->iface);
  		hostapd_event_color_change(hapd, true);
  		break;
@@ -82,7 +90,11 @@
  	case EVENT_MLD_INTERFACE_FREED:
 --- a/src/ap/hostapd.c
 +++ b/src/ap/hostapd.c
+<<<<<<< HEAD
 @@ -4680,6 +4680,10 @@ static int hostapd_fill_csa_settings(str
+=======
+@@ -4646,6 +4646,10 @@ static int hostapd_fill_csa_settings(str
+>>>>>>> 94392b39ec (稳定版本发布)
  	hapd->cs_count = settings->cs_count;
  	hapd->cs_block_tx = settings->block_tx;
  
@@ -157,7 +169,11 @@
  			  size_t len);
 --- a/src/drivers/driver.h
 +++ b/src/drivers/driver.h
+<<<<<<< HEAD
 @@ -6156,6 +6156,16 @@ enum wpa_event_type {
+=======
+@@ -6111,6 +6111,16 @@ enum wpa_event_type {
+>>>>>>> 94392b39ec (稳定版本发布)
  	EVENT_LINK_CH_SWITCH_STARTED,
  
  	/**
@@ -174,7 +190,11 @@
  	 * EVENT_TID_LINK_MAP - MLD event to set TID-to-link mapping
  	 *
  	 * This event is used by the driver to indicate the received TID-to-link
+<<<<<<< HEAD
 @@ -7144,6 +7154,16 @@ union wpa_event_data {
+=======
+@@ -7094,6 +7104,16 @@ union wpa_event_data {
+>>>>>>> 94392b39ec (稳定版本发布)
  	struct pasn_auth pasn_auth;
  
  	/**
@@ -211,7 +231,11 @@
  	C2S(NL80211_CMD_SET_HW_TIMESTAMP)
  	C2S(NL80211_CMD_LINKS_REMOVED)
  	C2S(NL80211_CMD_SET_TID_TO_LINK_MAPPING)
+<<<<<<< HEAD
 @@ -3875,6 +3876,35 @@ static void nl80211_port_authorized(stru
+=======
+@@ -3725,6 +3726,35 @@ static void nl80211_port_authorized(stru
+>>>>>>> 94392b39ec (稳定版本发布)
  	wpa_supplicant_event(drv->ctx, EVENT_PORT_AUTHORIZED, &event);
  }
  
@@ -247,9 +271,15 @@
  
  static void nl80211_sta_opmode_change_event(struct wpa_driver_nl80211_data *drv,
  					    struct nlattr **tb)
+<<<<<<< HEAD
 @@ -4405,6 +4435,9 @@ static void do_process_drv_event(struct
  	case NL80211_CMD_ASSOC_MLO_RECONF:
  		mlme_event_link_addition(drv, nla_data(frame), nla_len(frame));
+=======
+@@ -4252,6 +4282,9 @@ static void do_process_drv_event(struct
+ 	case NL80211_CMD_LINKS_REMOVED:
+ 		wpa_supplicant_event(drv->ctx, EVENT_LINK_RECONFIG, NULL);
+>>>>>>> 94392b39ec (稳定版本发布)
  		break;
 +	case NL80211_CMD_UPDATE_HE_MUEDCA_PARAMS:
 +		nl80211_update_muedca_params_event(drv, tb);

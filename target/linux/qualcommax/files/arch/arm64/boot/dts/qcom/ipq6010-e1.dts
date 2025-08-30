@@ -93,7 +93,13 @@
 
 	fan: pwm-fan {
 		compatible = "pwm-fan";
+<<<<<<< HEAD
 		pwms = <&pwm 0 40000 0>;
+=======
+		pwms = <&pwm 1 40000 0>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <31 IRQ_TYPE_EDGE_RISING>;
+>>>>>>> 94392b39ec (稳定版本发布)
 		cooling-levels = <64 128 192 255>;
 		#cooling-cells = <2>;
 	};
@@ -118,12 +124,15 @@
 					hysteresis = <2000>;
 					type = "active";
 				};
+<<<<<<< HEAD
 
 				cpu_trip_idle: active-idle {
 					temperature = <25000>;
 					hysteresis = <2000>;
 					type = "active";
 				};
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 			};
 
 			cooling-maps {
@@ -141,6 +150,7 @@
 					cooling-device = <&fan 1 1>;
 					trip = <&cpu_trip_low>;
 				};
+<<<<<<< HEAD
 
 				cpu-active-idle {
 					cooling-device = <&fan 0 0>;
@@ -159,6 +169,11 @@
 		enable-active-high;
 		regulator-always-on;
 	};
+=======
+			};
+		};
+	};
+>>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &tlmm {
@@ -256,7 +271,10 @@
 	pinctrl-names = "default";
 
 	cd-gpios = <&tlmm 62 GPIO_ACTIVE_LOW>;
+<<<<<<< HEAD
 	vqmmc-supply = <&vcc_sd>;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	bus-width = <4>;
 };
 

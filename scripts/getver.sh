@@ -23,9 +23,12 @@ try_git() {
 		BASE_REV="$(git rev-list ${REBOOT}..HEAD 2>/dev/null | wc -l | awk '{print $1}')"
 		[ $((BASE_REV - GET_REV)) -ge 0 ] && REV="$(git rev-parse HEAD~$((BASE_REV - GET_REV)))"
 		;;
+<<<<<<< HEAD
 	*-*-*)  # ISO date format - for approximating when packages were removed or renamed
 		GET_REV="$(git log -n 1 --format="%h" --until "$GET_REV")"
 		;&  # FALLTHROUGH
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	*)
 		BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 		ORIGIN="$(git rev-parse --verify --symbolic-full-name ${BRANCH}@{u} 2>/dev/null)"

@@ -18,8 +18,12 @@ case "$FIRMWARE" in
 	linksys,mr5500|\
 	linksys,mx2000|\
 	linksys,mx5500|\
+<<<<<<< HEAD
 	linksys,spnmx56|\
 	yuncore,ax830)
+=======
+	linksys,spnmx56)
+>>>>>>> 94392b39ec (稳定版本发布)
 		caldata_extract "0:ART" 0x1000 0x20000
 		ath11k_remove_regdomain
 		;;
@@ -39,10 +43,13 @@ case "$FIRMWARE" in
 		caldata_extract "0:ART" 0x26800 0x20000
 		ath11k_remove_regdomain
 		;;
+<<<<<<< HEAD
 	yuncore,ax830)
 		caldata_extract "0:ART" 0x4c000 0x20000
 		ath11k_remove_regdomain
 		;;
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 	jdcloud,re-cs-03)
 		caldata_extract_mmc "0:ART" 0x26800 0x20000
 		;;

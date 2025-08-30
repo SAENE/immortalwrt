@@ -6,7 +6,10 @@
 # See https://lists.openwrt.org/pipermail/openwrt-devel/2024-March/042448.html
 
 . /lib/functions.sh
+<<<<<<< HEAD
 . /lib/functions/system.sh
+=======
+>>>>>>> 94392b39ec (稳定版本发布)
 
 ten64_update_gpioswitch_num() {
 	local section="$1"
@@ -27,7 +30,12 @@ if [ "${board}" != "traverse,ten64" ]; then
 	exit 0
 fi
 
+<<<<<<< HEAD
 if [ "$(get_linux_version)" -lt "60600" ]; then
+=======
+KERNEL_MINOR=$(uname -r | awk -F '.' '{print $2}')
+if [ "${KERNEL_MINOR}" -lt "6" ]; then
+>>>>>>> 94392b39ec (稳定版本发布)
 	exit 0
 fi
 

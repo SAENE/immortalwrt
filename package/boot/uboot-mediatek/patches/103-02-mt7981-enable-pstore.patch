@@ -1,6 +1,10 @@
 --- a/arch/arm/dts/mt7981.dtsi
 +++ b/arch/arm/dts/mt7981.dtsi
+<<<<<<< HEAD
 @@ -33,6 +33,30 @@
+=======
+@@ -33,6 +33,35 @@
+>>>>>>> 94392b39ec (稳定版本发布)
  		};
  	};
  
@@ -21,11 +25,24 @@
 +			record-size = <0x1000>;
 +		};
 +
+<<<<<<< HEAD
 +		/* 192 KiB reserved for ARM Trusted Firmware (BL31 + BL32) */
 +		secmon@43000000 {
 +			reg = <0x43000000 0x30000>;
 +			no-map;
 +		};
+=======
++		/* 192 KiB reserved for ARM Trusted Firmware (BL31) */
++		secmon_reserved: secmon@43000000 {
++			reg = <0x43000000 0x30000>;
++			no-map;
++		};
++
++		wmcpu_emi: wmcpu-reserved@4fc00000 {
++			no-map;
++			reg = <0x4fc00000 0x00100000>;
++		};
+>>>>>>> 94392b39ec (稳定版本发布)
 +	};
 +
  	gpt_clk: gpt_dummy20m {

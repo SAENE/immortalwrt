@@ -36,7 +36,11 @@ Signed-off-by: Rajat Soni <quic_rajson@quicinc.com>
 
 --- a/drivers/net/wireless/ath/ath11k/mac.c
 +++ b/drivers/net/wireless/ath/ath11k/mac.c
+<<<<<<< HEAD
 @@ -6653,7 +6653,9 @@ static int ath11k_mac_op_start(struct ie
+=======
+@@ -6599,7 +6599,9 @@ static int ath11k_mac_op_start(struct ie
+>>>>>>> 94392b39ec (稳定版本发布)
  		break;
  	case ATH11K_STATE_RESTARTING:
  		ar->state = ATH11K_STATE_RESTARTED;
@@ -48,7 +52,11 @@ Signed-off-by: Rajat Soni <quic_rajson@quicinc.com>
  	case ATH11K_STATE_WEDGED:
 --- a/drivers/net/wireless/ath/ath11k/qmi.c
 +++ b/drivers/net/wireless/ath/ath11k/qmi.c
+<<<<<<< HEAD
 @@ -2075,6 +2075,8 @@ static int ath11k_qmi_assign_target_mem_
+=======
+@@ -2062,6 +2062,8 @@ static int ath11k_qmi_assign_target_mem_
+>>>>>>> 94392b39ec (稳定版本发布)
  			if (!ab->qmi.target_mem[idx].iaddr)
  				return -EIO;
  
