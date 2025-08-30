@@ -82,11 +82,7 @@
  	help
 --- a/local-symbols
 +++ b/local-symbols
-<<<<<<< HEAD
-@@ -90,6 +90,7 @@ ADM8211=
-=======
 @@ -96,6 +96,7 @@ ADM8211=
->>>>>>> 94392b39ec (稳定版本发布)
  ATH_COMMON=
  WLAN_VENDOR_ATH=
  ATH_DEBUG=

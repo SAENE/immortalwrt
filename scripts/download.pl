@@ -163,10 +163,6 @@ sub download
 	my $mirror = shift;
 	my $download_filename = shift;
 	my @additional_mirrors = @_;
-<<<<<<< HEAD
-	my @cmd;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 	$mirror =~ s!/$!!;
 
@@ -213,15 +209,7 @@ sub download
 			}
 		};
 	} else {
-<<<<<<< HEAD
-		if ($mirror =~ /a=snapshot/) {
-			@cmd = download_cmd("$mirror", $download_filename, @additional_mirrors);
-		} else {
-			@cmd = download_cmd("$mirror/$download_filename", $download_filename, @additional_mirrors);
-		}
-=======
 		my @cmd = download_cmd("$mirror/$download_filename", $download_filename, @additional_mirrors);
->>>>>>> 94392b39ec (稳定版本发布)
 		print STDERR "+ ".join(" ",@cmd)."\n";
 		open(FETCH_FD, '-|', @cmd) or die "Cannot launch aria2c, curl or wget.\n";
 		$hash_cmd and do {
@@ -337,31 +325,14 @@ if (-f "$target/$filename") {
 
 $download_tool = select_tool();
 
-<<<<<<< HEAD
-my $mirror = shift @mirrors;
-
-# Try snapshot original source last
-if ($mirror =~ /snapshot/) {
-	push @mirrors, $mirror;
-	$mirror = shift @mirrors;
-}
-
-while (!-f "$target/$filename") {
-=======
 while (!-f "$target/$filename") {
 	my $mirror = shift @mirrors;
->>>>>>> 94392b39ec (稳定版本发布)
 	$mirror or die "No more mirrors to try - giving up.\n";
 
 	download($mirror, $url_filename, @mirrors);
 	if (!-f "$target/$filename" && $url_filename ne $filename) {
 		download($mirror, $filename, @mirrors);
 	}
-<<<<<<< HEAD
-
-	$mirror = shift @mirrors;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 $SIG{INT} = \&cleanup;

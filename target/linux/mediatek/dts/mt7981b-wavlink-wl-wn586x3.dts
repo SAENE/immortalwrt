@@ -2,11 +2,6 @@
 
 /dts-v1/;
 
-<<<<<<< HEAD
-#include <dt-bindings/pinctrl/mt65xx.h>
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 #include "mt7981b.dtsi"
 
 / {
@@ -226,24 +221,14 @@
 
 		conf-pu {
 			pins = "SPI2_CS", "SPI2_HOLD", "SPI2_WP";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-pull-up = <MTK_PUPD_SET_R1R0_11>;
-=======
 			drive-strength = <8>;
 			bias-pull-up = <103>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		conf-pd {
 			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-pull-down = <MTK_PUPD_SET_R1R0_11>;
-=======
 			drive-strength = <8>;
 			bias-pull-down = <103>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };

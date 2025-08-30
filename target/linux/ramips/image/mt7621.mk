@@ -676,21 +676,6 @@ define Device/bolt_arion
 endef
 TARGET_DEVICES += bolt_arion
 
-<<<<<<< HEAD
-define Device/c-life_xg1
-  $(Device/nand)
-  DEVICE_VENDOR := C-Life
-  DEVICE_MODEL := XG1
-  DEVICE_PACKAGES := kmod-mt7915-firmware kmod-usb3 kmod-usb-audio
-  IMAGE_SIZE := 254720k
-  IMAGES += factory.bin
-  IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
-	check-size
-endef
-TARGET_DEVICES += c-life_xg1
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Device/comfast_cf-e390ax
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
@@ -1879,11 +1864,7 @@ define Device/jdcloud_re-sp-01b
   IMAGE_SIZE := 27328k
   DEVICE_VENDOR := JDCloud
   DEVICE_MODEL := RE-SP-01B
-<<<<<<< HEAD
-  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615-firmware \
-=======
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7615-firmware \
->>>>>>> 94392b39ec (稳定版本发布)
 	kmod-mmc-mtk kmod-usb3 automount
 endef
 TARGET_DEVICES += jdcloud_re-sp-01b
@@ -2637,16 +2618,6 @@ define Device/sim_simax1800t
 endef
 TARGET_DEVICES += sim_simax1800t
 
-<<<<<<< HEAD
-define Device/sim_simax1800u
-  $(Device/haier-sim_wr1800k)
-  DEVICE_VENDOR := SIM
-  DEVICE_MODEL := SIMAX1800U
-endef
-TARGET_DEVICES += sim_simax1800u
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Device/snr_snr-cpe-me1
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
@@ -2856,13 +2827,8 @@ define Device/tplink_eap615-wall-v1
   DEVICE_VARIANT := v1
   DEVICE_PACKAGES := kmod-mt7915-firmware -uboot-envtools
   TPLINK_BOARD_ID := EAP615-WALL-V1
-<<<<<<< HEAD
-  KERNEL := kernel-bin | lzma -d22 | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb | pad-to 64k
-  KERNEL_INITRAMFS := kernel-bin | lzma -d22 | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
-=======
   KERNEL := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb | pad-to 64k
   KERNEL_INITRAMFS := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
->>>>>>> 94392b39ec (稳定版本发布)
   IMAGE_SIZE := 13248k
 endef
 TARGET_DEVICES += tplink_eap615-wall-v1
@@ -2922,23 +2888,6 @@ define Device/tplink_ex220-v1
 endef
 TARGET_DEVICES += tplink_ex220-v1
 
-<<<<<<< HEAD
-define Device/tplink_ex220-v2
-  $(Device/dsa-migration)
-  DEVICE_VENDOR := TP-Link
-  DEVICE_MODEL := EX220
-  DEVICE_VARIANT := v2
-  DEVICE_PACKAGES := kmod-mt7915-firmware -uboot-envtools
-  TPLINK_BOARD_ID := EX220-V2
-  KERNEL_LOADADDR := 0x82000000
-  KERNEL := kernel-bin | relocate-kernel $(loadaddr-y) | lzma | \
-	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
-  IMAGE_SIZE := 15744k
-endef
-TARGET_DEVICES += tplink_ex220-v2
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Device/tplink_mr600-v2-eu
   $(Device/dsa-migration)
   $(Device/tplink-v2)

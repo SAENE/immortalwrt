@@ -58,21 +58,6 @@ const types = {
 			return;
 		}
 	},
-<<<<<<< HEAD
-	json: {
-		parse: function(ctx, name, val) {
-			try {
-				val = json(val);
-			} catch (e) {
-				return ctx.invalid_argument('Invalid JSON data');
-			}
-			if (this.data_type != null && type(val) != this.data_type)
-				ctx.invalid_argument(`Invalid data type: %s, expected: %s`, type(val), this.data_type);
-			return val;
-		}
-	},
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	enum: {
 		parse: function(ctx, name, val) {
 			if (this.no_validate)

@@ -8,22 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uboot-layerscape
-<<<<<<< HEAD
-PKG_VERSION:=6.12.20.2.0.0
-=======
 PKG_VERSION:=6.6.23.2.0.0
->>>>>>> 94392b39ec (稳定版本发布)
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/nxp-qoriq/u-boot
-<<<<<<< HEAD
-PKG_SOURCE_VERSION:=lf-6.12.20-2.0.0
-PKG_MIRROR_HASH:=13594333aa3ee131d5832b4da88f73cf0744d98c28e90ad3e03594788c486e37
-=======
 PKG_SOURCE_VERSION:=lf-6.6.23-2.0.0
 PKG_MIRROR_HASH:=41e089fde1d0b3b0998e6af33d5f4c2b62860bda6cd1e6a0e8d47dfd5749005d
->>>>>>> 94392b39ec (稳定版本发布)
 
 include $(INCLUDE_DIR)/u-boot.mk
 include $(INCLUDE_DIR)/package.mk
@@ -160,12 +151,6 @@ UBOOT_TARGETS := \
   fsl_ls1021a-twr-sdboot \
   fsl_ls1021a-iot-sdboot
 
-<<<<<<< HEAD
-UBOOT_CUSTOMIZE_CONFIG := \
-	--disable TOOLS_MKEFICAPSULE
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Build/InstallDev
 	$(INSTALL_DIR) $(STAGING_DIR_IMAGE)
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/$(UBOOT_IMAGE) \

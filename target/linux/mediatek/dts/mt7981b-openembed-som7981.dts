@@ -5,11 +5,6 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
-<<<<<<< HEAD
-#include <dt-bindings/pinctrl/mt65xx.h>
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 #include "mt7981b.dtsi"
 
 / {
@@ -30,10 +25,6 @@
 
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x40000000>;
-<<<<<<< HEAD
-		device_type = "memory";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	beeper {
@@ -233,24 +224,14 @@
 
 		conf-pu {
 			pins = "SPI0_CS", "SPI0_HOLD", "SPI0_WP";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable;
-=======
 			drive-strength = <8>;
 			mediatek,pull-up-adv = <0>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		conf-pd {
 			pins = "SPI0_CLK", "SPI0_MOSI", "SPI0_MISO";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable;
-=======
 			drive-strength = <8>;
 			mediatek,pull-down-adv = <0>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -270,13 +251,8 @@
 
 	wwan_rst_h: wwan-rst-h {
 		pins = "GPIO_WPS";
-<<<<<<< HEAD
-		drive-strength = <MTK_DRIVE_8mA>;
-		bias-disable;
-=======
 		drive-strength = <8>;
 		mediatek,pull-down-adv = <0>;
->>>>>>> 94392b39ec (稳定版本发布)
 		output-low;
 	};
 };

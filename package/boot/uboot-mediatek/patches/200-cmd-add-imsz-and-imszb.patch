@@ -1,29 +1,17 @@
 --- a/cmd/bootm.c
 +++ b/cmd/bootm.c
-<<<<<<< HEAD
-@@ -260,6 +260,76 @@ U_BOOT_CMD(
- /* iminfo - print header info for a requested image */
- /*******************************************************************/
- #if defined(CONFIG_CMD_IMI)
-=======
 @@ -260,6 +260,67 @@ U_BOOT_CMD(
  /* iminfo - print header info for a requested image */
  /*******************************************************************/
  #if defined(CONFIG_CMD_IMI)
 +#if defined(CONFIG_FIT)
->>>>>>> 94392b39ec (稳定版本发布)
 +#define SECTOR_SHIFT 9
 +static int image_totalsize(struct cmd_tbl *cmdtp, int flag, int argc,
 +			   char *const argv[], short int in_blocks)
 +{
 +	ulong addr;
-<<<<<<< HEAD
-+	void *hdr;
-+	uint32_t bsize, tsize = 0;
-=======
 +	void *fit;
 +	int bsize, tsize;
->>>>>>> 94392b39ec (稳定版本发布)
 +	char buf[16];
 +
 +	if (argc >= 2)
@@ -31,26 +19,9 @@
 +	else
 +		addr = image_load_addr;
 +
-<<<<<<< HEAD
-+	hdr = (void *)map_sysmem(addr, 0);
-+
-+	switch (genimg_get_format(hdr)) {
-+	case IMAGE_FORMAT_LEGACY:
-+		if(CONFIG_IS_ENABLED(LEGACY_IMAGE_FORMAT))
-+			tsize = image_get_image_size(hdr);
-+		break;
-+	case IMAGE_FORMAT_FIT:
-+		if(CONFIG_IS_ENABLED(FIT))
-+			tsize = fit_get_totalsize(hdr);
-+		break;
-+	}
-+
-+	unmap_sysmem(hdr);
-=======
 +	fit = (void *)map_sysmem(addr, 0);
 +	tsize = fit_get_totalsize(fit);
 +	unmap_sysmem(fit);
->>>>>>> 94392b39ec (稳定版本发布)
 +	if (tsize == 0)
 +		return 1;
 +
@@ -93,10 +64,7 @@
 +	"addr [maxhdrlen] [varname]\n"
 +);
 +
-<<<<<<< HEAD
-=======
 +#endif
->>>>>>> 94392b39ec (稳定版本发布)
  static int do_iminfo(struct cmd_tbl *cmdtp, int flag, int argc,
  		     char *const argv[])
  {

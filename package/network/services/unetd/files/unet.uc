@@ -1024,16 +1024,6 @@ const host_editor = {
 					return keys(groups);
 				}
 			}
-<<<<<<< HEAD
-		},
-		meta: {
-			help: "Metadata",
-			args: {
-				type: "json",
-				data_type: "object",
-			},
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		}
 	},
 };

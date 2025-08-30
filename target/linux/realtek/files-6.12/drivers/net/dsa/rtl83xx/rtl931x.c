@@ -25,10 +25,7 @@
 #define RTL931X_VLAN_PORT_TAG_ITPID_IDX_MASK			GENMASK(2,1)
 #define RTL931X_VLAN_PORT_TAG_ITPID_KEEP_MASK			GENMASK(0,0)
 
-<<<<<<< HEAD
-=======
 extern struct mutex smi_lock;
->>>>>>> 94392b39ec (稳定版本发布)
 extern struct rtl83xx_soc_info soc_info;
 
 /* Definition of the RTL931X-specific template field IDs as used in the PIE */
@@ -182,15 +179,9 @@ static void rtl931x_stp_set(struct rtl838x_switch_priv *priv, u16 msti, u32 port
 	priv->r->exec_tbl0_cmd(cmd);
 }
 
-<<<<<<< HEAD
-inline static int rtldsa_931x_trk_mbr_ctr(int group)
-{
-	return RTL931X_TRK_MBR_CTRL + (group << 3);
-=======
 inline static int rtl931x_trk_mbr_ctr(int group)
 {
 	return RTL931X_TRK_MBR_CTRL + (group << 2);
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void rtl931x_vlan_tables_read(u32 vlan, struct rtl838x_vlan_info *info)
@@ -207,25 +198,12 @@ static void rtl931x_vlan_tables_read(u32 vlan, struct rtl838x_vlan_info *info)
 	rtl_table_release(r);
 
 	pr_debug("VLAN_READ %d: %08x %08x %08x %08x\n", vlan, v, w, x, y);
-<<<<<<< HEAD
-	info->member_ports = ((u64) v) << 25 | (w >> 7);
-=======
 	info->tagged_ports = ((u64) v) << 25 | (w >> 7);
->>>>>>> 94392b39ec (稳定版本发布)
 	info->profile_id = (x >> 16) & 0xf;
 	info->fid = w & 0x7f;				/* AKA MSTI depending on context */
 	info->hash_uc_fid = !!(x & BIT(31));
 	info->hash_mc_fid = !!(x & BIT(30));
 	info->if_id = (x >> 20) & 0x3ff;
-<<<<<<< HEAD
-	info->multicast_grp_mask = x & 0xffff;
-	if (y & BIT(31))
-		info->l2_tunnel_list_id = y >> 18;
-	else
-		info->l2_tunnel_list_id = -1;
-	pr_debug("%s read member %016llx, profile-id %d, uc %d, mc %d, intf-id %d\n", __func__,
-		info->member_ports, info->profile_id, info->hash_uc_fid, info->hash_mc_fid,
-=======
 	info->profile_id = (x >> 16) & 0xf;
 	info->multicast_grp_mask = x & 0xffff;
 	if (x & BIT(31))
@@ -234,42 +212,26 @@ static void rtl931x_vlan_tables_read(u32 vlan, struct rtl838x_vlan_info *info)
 		info->l2_tunnel_list_id = -1;
 	pr_debug("%s read tagged %016llx, profile-id %d, uc %d, mc %d, intf-id %d\n", __func__,
 		info->tagged_ports, info->profile_id, info->hash_uc_fid, info->hash_mc_fid,
->>>>>>> 94392b39ec (稳定版本发布)
 		info->if_id);
 
 	/* Read UNTAG table via table register 3 */
 	r = rtl_table_get(RTL9310_TBL_3, 0);
 	rtl_table_read(r, vlan);
-<<<<<<< HEAD
-	info->untagged_ports = ((u64)sw_r32(rtl_table_data(r, 0))) << 25;
-	info->untagged_ports |= sw_r32(rtl_table_data(r, 1)) >> 7;
-
-	rtl_table_release(r);
-=======
 	v = ((u64)sw_r32(rtl_table_data(r, 0))) << 25;
 	v |= sw_r32(rtl_table_data(r, 1)) >> 7;
 	rtl_table_release(r);
 
 	info->untagged_ports = v;
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void rtl931x_vlan_set_tagged(u32 vlan, struct rtl838x_vlan_info *info)
 {
-<<<<<<< HEAD
-	struct table_reg *r;
-	u32 v, w, x, y;
-
-	v = info->member_ports >> 25;
-	w = (info->member_ports & GENMASK(24, 0)) << 7;
-=======
 	u32 v, w, x, y;
 	/* Access VLAN table (1) via register 0 */
 	struct table_reg *r = rtl_table_get(RTL9310_TBL_0, 3);
 
 	v = info->tagged_ports >> 25;
 	w = (info->tagged_ports & 0x1fffff) << 7;
->>>>>>> 94392b39ec (稳定版本发布)
 	w |= info->fid & 0x7f;
 	x = info->hash_uc_fid ? BIT(31) : 0;
 	x |= info->hash_mc_fid ? BIT(30) : 0;
@@ -283,10 +245,6 @@ static void rtl931x_vlan_set_tagged(u32 vlan, struct rtl838x_vlan_info *info)
 		y = 0;
 	}
 
-<<<<<<< HEAD
-	r = rtl_table_get(RTL9310_TBL_0, 3);
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	sw_w32(v, rtl_table_data(r, 0));
 	sw_w32(w, rtl_table_data(r, 1));
 	sw_w32(x, rtl_table_data(r, 2));
@@ -361,21 +319,6 @@ irqreturn_t rtl931x_switch_irq(int irq, void *dev_id)
 	return IRQ_HANDLED;
 }
 
-<<<<<<< HEAD
-void rtl931x_print_matrix(void)
-{
-	struct table_reg *r = rtl_table_get(RTL9310_TBL_2, 1);
-
-	for (int i = 0; i < 64; i++) {
-		rtl_table_read(r, i);
-		pr_info("> %08x %08x\n", sw_r32(rtl_table_data(r, 0)),
-			sw_r32(rtl_table_data(r, 1)));
-	}
-	rtl_table_release(r);
-}
-
-void rtldsa_931x_set_receive_management_action(int port, rma_ctrl_t type, action_type_t action)
-=======
 int rtl931x_write_phy(u32 port, u32 page, u32 reg, u32 val)
 {
 	u32 v;
@@ -530,7 +473,6 @@ void rtl931x_print_matrix(void)
 }
 
 void rtl931x_set_receive_management_action(int port, rma_ctrl_t type, action_type_t action)
->>>>>>> 94392b39ec (稳定版本发布)
 {
 	u32 value = 0;
 
@@ -588,17 +530,6 @@ void rtl931x_set_receive_management_action(int port, rma_ctrl_t type, action_typ
 
 static u64 rtl931x_traffic_get(int source)
 {
-<<<<<<< HEAD
-	u64 v;
-	struct table_reg *r = rtl_table_get(RTL9310_TBL_2, 1);
-
-	rtl_table_read(r, source);
-	v = sw_r32(rtl_table_data(r, 0));
-	v <<= 32;
-	v |= sw_r32(rtl_table_data(r, 1));
-	v >>= 7;
-	rtl_table_release(r);
-=======
 	u32 v;
 	struct table_reg *r = rtl_table_get(RTL9310_TBL_0, 6);
 
@@ -606,7 +537,6 @@ static u64 rtl931x_traffic_get(int source)
 	v = sw_r32(rtl_table_data(r, 0));
 	rtl_table_release(r);
 	v = v >> 3;
->>>>>>> 94392b39ec (稳定版本发布)
 
 	return v;
 }
@@ -614,55 +544,31 @@ static u64 rtl931x_traffic_get(int source)
 /* Enable traffic between a source port and a destination port matrix */
 static void rtl931x_traffic_set(int source, u64 dest_matrix)
 {
-<<<<<<< HEAD
-	struct table_reg *r = rtl_table_get(RTL9310_TBL_2, 1);
-
-	sw_w32(dest_matrix >> (32 - 7), rtl_table_data(r, 0));
-	sw_w32(dest_matrix << 7, rtl_table_data(r, 1));
-=======
 	struct table_reg *r = rtl_table_get(RTL9310_TBL_0, 6);
 
 	sw_w32((dest_matrix << 3), rtl_table_data(r, 0));
->>>>>>> 94392b39ec (稳定版本发布)
 	rtl_table_write(r, source);
 	rtl_table_release(r);
 }
 
 static void rtl931x_traffic_enable(int source, int dest)
 {
-<<<<<<< HEAD
-	struct table_reg *r = rtl_table_get(RTL9310_TBL_2, 1);
-	rtl_table_read(r, source);
-	sw_w32_mask(0, BIT((dest + 7) % 32), rtl_table_data(r, (dest + 7) / 32 ? 0 : 1));
-=======
 	struct table_reg *r = rtl_table_get(RTL9310_TBL_0, 6);
 	rtl_table_read(r, source);
 	sw_w32_mask(0, BIT(dest + 3), rtl_table_data(r, 0));
->>>>>>> 94392b39ec (稳定版本发布)
 	rtl_table_write(r, source);
 	rtl_table_release(r);
 }
 
 static void rtl931x_traffic_disable(int source, int dest)
 {
-<<<<<<< HEAD
-	struct table_reg *r = rtl_table_get(RTL9310_TBL_2, 1);
-	rtl_table_read(r, source);
-	sw_w32_mask(BIT((dest + 7) % 32), 0, rtl_table_data(r, (dest + 7) / 32 ? 0 : 1));
-=======
 	struct table_reg *r = rtl_table_get(RTL9310_TBL_0, 6);
 	rtl_table_read(r, source);
 	sw_w32_mask(BIT(dest + 3), 0, rtl_table_data(r, 0));
->>>>>>> 94392b39ec (稳定版本发布)
 	rtl_table_write(r, source);
 	rtl_table_release(r);
 }
 
-<<<<<<< HEAD
-static u64 rtldsa_931x_l2_hash_seed(u64 mac, u32 vid)
-{
-	return (u64)vid << 48 | mac;
-=======
 static u64 rtl931x_l2_hash_seed(u64 mac, u32 vid)
 {
 	u64 v = vid;
@@ -671,7 +577,6 @@ static u64 rtl931x_l2_hash_seed(u64 mac, u32 vid)
 	v |= mac;
 
 	return v;
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 /* Calculate both the block 0 and the block 1 hash by applyingthe same hash
@@ -754,12 +659,8 @@ static void rtl931x_fill_l2_entry(u32 r[], struct rtl838x_l2_entry *e)
 		/* Check for trunk port */
 		if (r[2] & BIT(29)) {
 			e->is_trunk = true;
-<<<<<<< HEAD
-			e->trunk = e->port & 0xff;
-=======
 			e->stack_dev = (e->port >> 9) & 1;
 			e->trunk = e->port & 0x3f;
->>>>>>> 94392b39ec (稳定版本发布)
 		} else {
 			e->is_trunk = false;
 			e->stack_dev = (e->port >> 6) & 0xf;
@@ -769,13 +670,6 @@ static void rtl931x_fill_l2_entry(u32 r[], struct rtl838x_l2_entry *e)
 		e->block_da = !!(r[2] & BIT(14));
 		e->block_sa = !!(r[2] & BIT(15));
 		e->suspended = !!(r[2] & BIT(12));
-<<<<<<< HEAD
-		e->age = (r[2] >> 16) & 7;
-
-		/* HW doesn't use VID but FID for as key */
-		e->vid = (r[0] >> 16) & 0xfff;
-
-=======
 		e->age = (r[2] >> 16) & 3;
 
 		/* the UC_VID field in hardware is used for the VID or for the route id */
@@ -786,7 +680,6 @@ static void rtl931x_fill_l2_entry(u32 r[], struct rtl838x_l2_entry *e)
 			e->vid = r[2] & 0xfff;
 			e->nh_route_id = 0;
 		}
->>>>>>> 94392b39ec (稳定版本发布)
 		if (e->is_l2_tunnel)
 			e->l2_tunnel_id = ((r[2] & 0xff) << 4) | (r[3] >> 28);
 		/* TODO: Implement VLAN conversion */
@@ -805,51 +698,6 @@ static void rtl931x_fill_l2_row(u32 r[], struct rtl838x_l2_entry *e)
 	u32 port;
 
 	if (!e->valid) {
-<<<<<<< HEAD
-		r[0] = r[1] = r[2] = r[3] = 0;
-		return;
-	}
-
-	r[3] = 0;
-
-	r[0] = BIT(31); /* Set valid bit */
-
-	r[0] |= ((u32)e->mac[0]) << 8 |
-	       ((u32)e->mac[1]);
-	r[1] = ((u32)e->mac[2]) << 24 |
-	       ((u32)e->mac[3]) << 16 |
-		   ((u32)e->mac[4]) << 8 |
-		   ((u32)e->mac[5]);
-
-	r[0] |= e->is_open_flow ? BIT(30) : 0;
-	r[0] |= e->is_pe_forward ? BIT(29) : 0;
-	r[2] = e->next_hop ? BIT(30) : 0;
-	r[0] |= (e->rvid & 0xfff) << 16;
-
-	if (e->type == L2_UNICAST) {
-		r[2] |= e->is_l2_tunnel ? BIT(31) : 0;
-		r[2] |= e->is_static ? BIT(13) : 0;
-
-		if (e->is_trunk) {
-			r[2] |= BIT(29);
-			port = e->trunk & 0xff;
-		} else {
-			port = e->port & 0x3f;
-			port |= (e->stack_dev & 0xf) << 6;
-		}
-
-		r[2] |= (port & 0x3ff) << 19;
-		r[2] |= e->block_da ? BIT(14) : 0;
-		r[2] |= e->block_sa ? BIT(15) : 0;
-		r[2] |= e->suspended ? BIT(12) : 0;
-		r[2] |= (e->age & 0x7) << 16;
-		if (e->is_l2_tunnel) {
-			r[2] |= (e->l2_tunnel_id >> 4) & 0xff;
-			r[3] |= (e->l2_tunnel_id & 0xf) << 28;
-		}
-	} else { /* L2_MULTICAST */
-		r[2] |= (e->mc_portmask_index & 0xfff) << 18;
-=======
 		r[0] = r[1] = r[2] = 0;
 		return;
 	}
@@ -889,7 +737,6 @@ static void rtl931x_fill_l2_row(u32 r[], struct rtl838x_l2_entry *e)
 	} else { /* L2_MULTICAST */
 		r[2] |= (e->mc_portmask_index & 0x3ff) << 16;
 		r[2] |= e->mc_mac_index & 0x7ff;
->>>>>>> 94392b39ec (稳定版本发布)
 	}
 }
 
@@ -940,11 +787,7 @@ static u64 rtl931x_read_l2_entry_using_hash(u32 hash, u32 pos, struct rtl838x_l2
 	      ((u64)e->mac[4]) << 8 |
 	      ((u64)e->mac[5]);
 
-<<<<<<< HEAD
-	seed = rtldsa_931x_l2_hash_seed(mac, e->rvid);
-=======
 	seed = rtl931x_l2_hash_seed(mac, e->rvid);
->>>>>>> 94392b39ec (稳定版本发布)
 	pr_debug("%s: mac %016llx, seed %016llx\n", __func__, mac, seed);
 
 	/* return vid with concatenated mac as unique id */
@@ -953,38 +796,11 @@ static u64 rtl931x_read_l2_entry_using_hash(u32 hash, u32 pos, struct rtl838x_l2
 
 static u64 rtl931x_read_cam(int idx, struct rtl838x_l2_entry *e)
 {
-<<<<<<< HEAD
-	u32 r[4];
-	struct table_reg *q = rtl_table_get(RTL9310_TBL_0, 1);
-	rtl_table_read(q, idx);
-	for ( int i = 0; i < 4; i++)
-		r[i] = sw_r32(rtl_table_data(q, i));
-
-	rtl_table_release(q);
-	rtl931x_fill_l2_entry(r, e);
-	if (!e->valid)
-		return 0;
-
-	/* return mac with concatenated fid as unique id */
-	return ((((u64)(r[0] & 0xffff) << 32) | (u64)r[1]) << 12) | e->vid;
-=======
 	return 0;
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void rtl931x_write_cam(int idx, struct rtl838x_l2_entry *e)
 {
-<<<<<<< HEAD
-	u32 r[4];
-	struct table_reg *q = rtl_table_get(RTL9310_TBL_0, 1);
-	rtl931x_fill_l2_row(r, e);
-
-	for (int i = 0; i < 4; i++)
-		sw_w32(r[i], rtl_table_data(q, i));
-	rtl_table_write(q, idx);
-	rtl_table_release(q);
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void rtl931x_write_l2_entry_using_hash(u32 hash, u32 pos, struct rtl838x_l2_entry *e)
@@ -1055,29 +871,6 @@ static void rtl931x_l2_learning_setup(void)
 	sw_w32((0xffff << 3) | FORWARD, RTL931X_L2_LRN_CONSTRT_CTRL);
 }
 
-<<<<<<< HEAD
-static void rtldsa_931x_enable_learning(int port, bool enable)
-{
-	/* Limit learning to maximum: 64k entries */
-	sw_w32_mask(GENMASK(18, 3), enable ? (0xfffe << 3) : 0,
-		    RTL931X_L2_LRN_PORT_CONSTRT_CTRL + port * 4);
-}
-
-static void rtldsa_931x_enable_flood(int port, bool enable)
-{
-	/* 0: forward
-	 * 1: drop
-	 * 2: trap to local CPU
-	 * 3: copy to local CPU
-	 * 4: trap to master CPU
-	 * 5: copy to master CPU
-	 */
-	sw_w32_mask(GENMASK(2, 0), enable ? 0 : 1,
-		    RTL931X_L2_LRN_PORT_CONSTRT_CTRL + port * 4);
-}
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 static u64 rtl931x_read_mcast_pmask(int idx)
 {
 	u64 portmask;
@@ -1766,11 +1559,7 @@ static void rtl931x_set_distribution_algorithm(int group, int algoidx, u32 algom
 	sw_w32(newmask << l3shift, RTL931X_TRK_HASH_CTRL + (algoidx << 2));
 }
 
-<<<<<<< HEAD
-static void rtldsa_931x_led_init(struct rtl838x_switch_priv *priv)
-=======
 static void rtl931x_led_init(struct rtl838x_switch_priv *priv)
->>>>>>> 94392b39ec (稳定版本发布)
 {
 	u64 pm_copper = 0, pm_fiber = 0;
 	struct device_node *node;
@@ -1785,10 +1574,7 @@ static void rtl931x_led_init(struct rtl838x_switch_priv *priv)
 	for (int i = 0; i < priv->cpu_port; i++) {
 		int pos = (i << 1) % 32;
 		u32 set;
-<<<<<<< HEAD
-=======
 		u32 v;
->>>>>>> 94392b39ec (稳定版本发布)
 
 		sw_w32_mask(0x3 << pos, 0, RTL931X_LED_PORT_FIB_SET_SEL_CTRL(i));
 		sw_w32_mask(0x3 << pos, 0, RTL931X_LED_PORT_COPR_SET_SEL_CTRL(i));
@@ -1796,14 +1582,8 @@ static void rtl931x_led_init(struct rtl838x_switch_priv *priv)
 		if (!priv->ports[i].phy)
 			continue;
 
-<<<<<<< HEAD
-		/* 0x0 = 1 led, 0x1 = 2 leds, 0x2 = 3 leds, 0x3 = 4 leds per port */
-		sw_w32_mask(0x3 << pos, (priv->ports[i].leds_on_this_port - 1) << pos,
-			    RTL931X_LED_PORT_NUM_CTRL(i));
-=======
 		v = 0x1; /* Found on the EdgeCore, but we do not have any HW description */
 		sw_w32_mask(0x3 << pos, v << pos, RTL931X_LED_PORT_NUM_CTRL(i));
->>>>>>> 94392b39ec (稳定版本发布)
 
 		if (priv->ports[i].phy_is_integrated)
 			pm_fiber |= BIT_ULL(i);
@@ -1861,11 +1641,7 @@ const struct rtl838x_reg rtl931x_reg = {
 	.l2_ctrl_1 = RTL931X_L2_AGE_CTRL,
 	.l2_port_aging_out = RTL931X_L2_PORT_AGE_CTRL,
 	.set_ageing_time = rtl931x_set_ageing_time,
-<<<<<<< HEAD
-	.smi_poll_ctrl = RTL931X_SMI_PORT_POLLING_CTRL,
-=======
 	/* .smi_poll_ctrl does not exist */
->>>>>>> 94392b39ec (稳定版本发布)
 	.l2_tbl_flush_ctrl = RTL931X_L2_TBL_FLUSH_CTRL,
 	.exec_tbl0_cmd = rtl931x_exec_tbl0_cmd,
 	.exec_tbl1_cmd = rtl931x_exec_tbl1_cmd,
@@ -1901,20 +1677,11 @@ const struct rtl838x_reg rtl931x_reg = {
 	.vlan_port_keep_tag_set = rtl931x_vlan_port_keep_tag_set,
 	.vlan_port_pvidmode_set = rtl931x_vlan_port_pvidmode_set,
 	.vlan_port_pvid_set = rtl931x_vlan_port_pvid_set,
-<<<<<<< HEAD
-	.trk_mbr_ctr = rtldsa_931x_trk_mbr_ctr,
-	.rma_bpdu_fld_pmask = RTL931X_RMA_BPDU_FLD_PMSK,
-=======
 	.trk_mbr_ctr = rtl931x_trk_mbr_ctr,
->>>>>>> 94392b39ec (稳定版本发布)
 	.set_vlan_igr_filter = rtl931x_set_igr_filter,
 	.set_vlan_egr_filter = rtl931x_set_egr_filter,
 	.set_distribution_algorithm = rtl931x_set_distribution_algorithm,
 	.l2_hash_key = rtl931x_l2_hash_key,
-<<<<<<< HEAD
-	.l2_hash_seed = rtldsa_931x_l2_hash_seed,
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	.read_mcast_pmask = rtl931x_read_mcast_pmask,
 	.write_mcast_pmask = rtl931x_write_mcast_pmask,
 	.pie_init = rtl931x_pie_init,
@@ -1923,12 +1690,5 @@ const struct rtl838x_reg rtl931x_reg = {
 	.pie_rule_rm = rtl931x_pie_rule_rm,
 	.l2_learning_setup = rtl931x_l2_learning_setup,
 	.l3_setup = rtl931x_l3_setup,
-<<<<<<< HEAD
-	.led_init = rtldsa_931x_led_init,
-	.enable_learning = rtldsa_931x_enable_learning,
-	.enable_flood = rtldsa_931x_enable_flood,
-	.set_receive_management_action = rtldsa_931x_set_receive_management_action,
-=======
 	.led_init = rtl931x_led_init,
->>>>>>> 94392b39ec (稳定版本发布)
 };

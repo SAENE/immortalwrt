@@ -15,31 +15,13 @@ endef
 # Generates a make statement to return a wildcard for candidate ipkg files
 # 1: package name
 define gen_package_wildcard
-<<<<<<< HEAD
-  $(1)$$(if $$(filter -%,$$(ABIV_$(1))),,[^a-z$(if $(CONFIG_USE_APK),,-)])*
-endef
-
-# 1: command and initial arguments
-# 2: arguments list
-# 3: tmp filename
-define maybe_use_xargs
-  $(if $(word 512,$(2)), \
-    $(file >$(3),$(2)) $(XARGS) $(1) < "$(3)"; rm "$(3)", \
-    $(1) $(2))
-=======
   $(1)$$(if $$(filter -%,$$(ABIV_$(1))),,[^a-z-])*
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 # 1: package name
 # 2: candidate ipk files
 define remove_ipkg_files
-<<<<<<< HEAD
-  $(if $(strip $(2)), \
-    $(call maybe_use_xargs,$(SCRIPT_DIR)/ipkg-remove $(1),$(2),$(TMP_DIR)/$(1).in))
-=======
   $(if $(strip $(2)),$(SCRIPT_DIR)/ipkg-remove $(1) $(2))
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 # 1: package name
@@ -361,11 +343,7 @@ else
 
 	if [ -n "$(USERID)" ]; then echo $(USERID) > $$(IDIR_$(1))/lib/apk/packages/$(1).rusers; fi;
 	if [ -n "$(ALTERNATIVES)" ]; then echo $(ALTERNATIVES) > $$(IDIR_$(1))/lib/apk/packages/$(1).alternatives; fi;
-<<<<<<< HEAD
-	(cd $$(IDIR_$(1)) && find . -type f,l -printf "/%P\n" | sort > $(TMP_DIR)/$(1).list && mv $(TMP_DIR)/$(1).list $$(IDIR_$(1))/lib/apk/packages/$(1).list)
-=======
 	(cd $$(IDIR_$(1)) && find . -type f,l -printf "/%P\n" > $$(IDIR_$(1))/lib/apk/packages/$(1).list)
->>>>>>> 94392b39ec (稳定版本发布)
 	# Move conffiles to IDIR and build conffiles_static with csums
 	if [ -f $$(ADIR_$(1))/conffiles ]; then \
 		mv -f $$(ADIR_$(1))/conffiles $$(IDIR_$(1))/lib/apk/packages/$(1).conffiles; \
@@ -398,10 +376,6 @@ else
 	$(FAKEROOT) $(STAGING_DIR_HOST)/bin/apk mkpkg \
 	  --info "name:$(1)$$(ABIV_$(1))" \
 	  --info "version:$(VERSION)" \
-<<<<<<< HEAD
-	  $$(if $$(ABIV_$(1)),--info "tags:openwrt:abiversion=$$(ABIV_$(1))") \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	  --info "description:$$(call description_escape,$$(strip $$(Package/$(1)/description)))" \
 	  $(if $(findstring all,$(PKGARCH)),--info "arch:noarch",--info "arch:$(PKGARCH)") \
 	  --info "license:$(LICENSE)" \

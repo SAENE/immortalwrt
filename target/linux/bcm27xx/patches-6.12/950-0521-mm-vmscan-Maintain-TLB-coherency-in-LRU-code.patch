@@ -16,11 +16,7 @@ Signed-off-by: Phil Elwell <phil@raspberrypi.com>
 
 --- a/mm/vmscan.c
 +++ b/mm/vmscan.c
-<<<<<<< HEAD
-@@ -4136,7 +4136,7 @@ bool lru_gen_look_around(struct page_vma
-=======
 @@ -4128,7 +4128,7 @@ bool lru_gen_look_around(struct page_vma
->>>>>>> 94392b39ec (稳定版本发布)
  		if (!folio)
  			continue;
  

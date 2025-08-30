@@ -124,13 +124,6 @@
 &qpic_nand {
 	status = "okay";
 
-<<<<<<< HEAD
-	partitions {
-		status = "disabled";
-	};
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	nand@0 {
 		#address-cells = <1>;
 		#size-cells = <1>;
@@ -139,20 +132,6 @@
 		nand-ecc-strength = <4>;
 		nand-ecc-step-size = <512>;
 		nand-bus-width = <8>;
-<<<<<<< HEAD
-
-		partitions {
-			compatible = "fixed-partitions";
-			#address-cells = <1>;
-			#size-cells = <1>;
-
-			partition@0 {
-				label = "rootfs";
-				reg = <0x0 0x0>;
-			};
-		};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 

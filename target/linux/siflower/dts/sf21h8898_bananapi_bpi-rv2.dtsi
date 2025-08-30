@@ -22,19 +22,6 @@
 		gpio = <&gpio 37 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 	};
-<<<<<<< HEAD
-
-	m2keyb_pwren: regulator@1 {
-		compatible = "regulator-fixed";
-		regulator-name = "m2keyb_pwren";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		gpio = <&gpio 38 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-	};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &spi0_pins {
@@ -197,10 +184,6 @@
 };
 
 &usb {
-<<<<<<< HEAD
-	vbus-supply = <&usb_vbus>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	status = "okay";
 };
 

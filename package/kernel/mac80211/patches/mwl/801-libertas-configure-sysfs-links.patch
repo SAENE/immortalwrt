@@ -11,11 +11,7 @@
   err_wiphy_new:
 --- a/drivers/net/wireless/marvell/libertas/main.c
 +++ b/drivers/net/wireless/marvell/libertas/main.c
-<<<<<<< HEAD
-@@ -852,6 +852,7 @@ struct lbs_private *lbs_add_card(void *c
-=======
 @@ -935,6 +935,7 @@ struct lbs_private *lbs_add_card(void *c
->>>>>>> 94392b39ec (稳定版本发布)
  		goto err_adapter;
  	}
  

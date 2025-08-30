@@ -102,13 +102,9 @@ glinet,gl-ar300m-nor|\
 glinet,gl-ar300m16|\
 glinet,gl-s200-nor|\
 glinet,gl-s200-nor-nand)
-<<<<<<< HEAD
-	ubootenv_add_mtd "u-boot-env" "0x0" "0x10000" "0x10000"
-=======
 	idx="$(find_mtd_index u-boot-env)"
 	[ -n "$idx" ] && \
 		ubootenv_add_uci_config "/dev/mtd$idx" "0x0" "0x10000" "0x10000"
->>>>>>> 94392b39ec (稳定版本发布)
 	;;
 buffalo,wzr-hp-ag300h)
 	ubootenv_add_uci_config "/dev/mtd3" "0x0" "0x10000" "0x10000"
@@ -118,12 +114,7 @@ buffalo,wzr-hp-g300nh-s|\
 linksys,ea4500-v3)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x20000" "0x20000"
 	;;
-<<<<<<< HEAD
-dell,apl26-0ae|\
-dell,apl27-0b1)
-=======
 dell,apl26-0ae)
->>>>>>> 94392b39ec (稳定版本发布)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x40000" "0x10000"
 	;;
 domywifi,dw33d)

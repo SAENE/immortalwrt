@@ -11,10 +11,6 @@
 	model = "TRENDNET TEW-823DRU";
 
 	aliases {
-<<<<<<< HEAD
-		label-mac-device = &eth1;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		led-boot = &led_power_green;
 		led-failsafe = &led_power_green;
 		led-running = &led_power_green;
@@ -68,16 +64,6 @@
 
 &pcie0 {
 	status = "okay";
-<<<<<<< HEAD
-
-	wifi@0,0 {
-		compatible = "qcom,ath10k";
-		reg = <0 0 0 0 0>;
-		nvmem-cells = <&maccaddr_mac_wan 1>;
-		nvmem-cell-names = "mac-address";
-	};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &pcie1 {
@@ -147,27 +133,6 @@
 				label = "mac";
 				reg = <0xfe0000 0x010000>;
 				read-only;
-<<<<<<< HEAD
-
-				nvmem-layout {
-					compatible = "fixed-layout";
-					#address-cells = <1>;
-					#size-cells = <1>;
-
-					maccaddr_mac_lan: macaddr@4 {
-						compatible = "mac-base";
-						reg = <0x4 0x11>;
-						#nvmem-cell-cells = <1>;
-					};
-
-					maccaddr_mac_wan: macaddr@18 {
-						compatible = "mac-base";
-						reg = <0x18 0x11>;
-						#nvmem-cell-cells = <1>;
-					};
-				};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 			};
 
 			partition@ff0000 {
@@ -207,12 +172,6 @@
 &eth0 {
 	status = "okay";
 
-<<<<<<< HEAD
-	nvmem-cells = <&maccaddr_mac_lan 0>;
-	nvmem-cell-names = "mac-address";
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	phy-handle = <&phy0>;
 	pll-data = <0x56000000 0x00000101 0x00001616>;
 
@@ -225,12 +184,6 @@
 &eth1 {
 	status = "okay";
 
-<<<<<<< HEAD
-	nvmem-cells = <&maccaddr_mac_wan 0>;
-	nvmem-cell-names = "mac-address";
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	pll-data = <0x03000101 0x00000101 0x00001616>;
 
 	fixed-link {
@@ -242,11 +195,6 @@
 &wmac {
 	status = "okay";
 
-<<<<<<< HEAD
-	nvmem-cells = <&cal_art_1000>, <&maccaddr_mac_lan 0>;
-	nvmem-cell-names = "calibration", "mac-address";
-=======
 	nvmem-cells = <&cal_art_1000>;
 	nvmem-cell-names = "calibration";
->>>>>>> 94392b39ec (稳定版本发布)
 };

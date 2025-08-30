@@ -99,27 +99,11 @@ endif
 
 JFFS2_BLOCKSIZE ?= 64k 128k
 
-<<<<<<< HEAD
-EROFS_PCLUSTERSIZE = $(shell echo $$(($(CONFIG_TARGET_EROFS_PCLUSTER_SIZE)*1024)))
-EROFSOPT := -Efragments,dedupe,ztailpacking -Uclear --all-root
-EROFSOPT += $(if $(SOURCE_DATE_EPOCH),-T$(SOURCE_DATE_EPOCH) --ignore-mtime)
-EROFSOPT += $(if $(CONFIG_SELINUX),,-x-1)
-EROFSCOMP := lz4hc,12
-ifeq ($(CONFIG_EROFS_FS_ZIP_LZMA),y)
-EROFSCOMP := lzma,109
-endif
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 fs-types-$(CONFIG_TARGET_ROOTFS_SQUASHFS) += squashfs
 fs-types-$(CONFIG_TARGET_ROOTFS_JFFS2) += $(addprefix jffs2-,$(JFFS2_BLOCKSIZE))
 fs-types-$(CONFIG_TARGET_ROOTFS_JFFS2_NAND) += $(addprefix jffs2-nand-,$(NAND_BLOCKSIZE))
 fs-types-$(CONFIG_TARGET_ROOTFS_EXT4FS) += ext4
 fs-types-$(CONFIG_TARGET_ROOTFS_UBIFS) += ubifs
-<<<<<<< HEAD
-fs-types-$(CONFIG_TARGET_ROOTFS_EROFS) += erofs
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 fs-subtypes-$(CONFIG_TARGET_ROOTFS_JFFS2) += $(addsuffix -raw,$(addprefix jffs2-,$(JFFS2_BLOCKSIZE)))
 
 TARGET_FILESYSTEMS := $(fs-types-y)
@@ -325,16 +309,6 @@ define Image/mkfs/ext4
 		$@ $(call mkfs_target_dir,$(1))/
 endef
 
-<<<<<<< HEAD
-# Don't use the mkfs.erofs builtin $SOURCE_DATE_EPOCH behavior
-define Image/mkfs/erofs
-	env -u SOURCE_DATE_EPOCH $(STAGING_DIR_HOST)/bin/mkfs.erofs -z$(EROFSCOMP) \
-		-C$(EROFS_PCLUSTERSIZE) $(EROFSOPT) \
-		$@ $(call mkfs_target_dir,$(1))
-endef
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Image/Manifest
 	$(if $(CONFIG_USE_APK), \
 		$(call apk,$(TARGET_DIR_ORIG)) list --quiet --manifest --no-network \

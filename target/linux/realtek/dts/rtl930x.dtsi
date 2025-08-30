@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 
-<<<<<<< HEAD
-#include "macros.dtsi"
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 /dts-v1/;
 
 / {
@@ -56,11 +51,7 @@
 		compatible = "simple-bus";
 		#address-cells = <1>;
 		#size-cells = <1>;
-<<<<<<< HEAD
-		ranges = <0x0 0x18000000 0x20000>;
-=======
 		ranges = <0x0 0x18000000 0x10000>;
->>>>>>> 94392b39ec (稳定版本发布)
 
 		intc: interrupt-controller@3000 {
 			compatible = "realtek,rtl9300-intc", "realtek,rtl-intc";
@@ -72,21 +63,6 @@
 			interrupts = <2>, <3>, <4>, <5>, <6>, <7>;
 		};
 
-<<<<<<< HEAD
-		snand: spi@1a400 {
-			compatible = "realtek,rtl9301-snand";
-			reg = <0x1a400 0x44>;
-			interrupt-parent = <&intc>;
-			interrupts = <19 2>;
-			clocks = <&lx_clk>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			status = "disabled";
-		};
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		spi0: spi@1200 {
 			compatible = "realtek,rtl8380-spi";
 			reg = <0x1200 0x100>;
@@ -171,27 +147,6 @@
 		compatible = "syscon", "simple-mfd";
 		reg = <0x1b000000 0x10000>;
 
-<<<<<<< HEAD
-		i2c_mst1: i2c@36c {
-			compatible = "realtek,rtl9301-i2c";
-			reg = <0x36c 0x18>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			status = "disabled";
-		};
-
-		i2c_mst2: i2c@388 {
-			compatible = "realtek,rtl9301-i2c";
-			reg = <0x388 0x18>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			status = "disabled";
-		};
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		mdio_aux: mdio-aux {
 			compatible = "realtek,rtl9300-aux-mdio";
 			#address-cells = <1>;

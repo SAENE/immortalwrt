@@ -7,10 +7,6 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
-<<<<<<< HEAD
-#include <dt-bindings/pinctrl/mt65xx.h>
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 #include "mt7986a.dtsi"
 
@@ -34,10 +30,6 @@
 
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x40000000>;
-<<<<<<< HEAD
-		device_type = "memory";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	gpio-keys {
@@ -229,24 +221,6 @@
 			       "EMMC_DATA_3", "EMMC_DATA_4", "EMMC_DATA_5",
 			       "EMMC_DATA_6", "EMMC_DATA_7", "EMMC_CMD";
 			input-enable;
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_4mA>;
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-		};
-		conf-clk {
-			pins = "EMMC_CK";
-			drive-strength = <MTK_DRIVE_6mA>;
-			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-		};
-		conf-ds {
-			pins = "EMMC_DSL";
-			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-		};
-		conf-rst {
-			pins = "EMMC_RSTB";
-			drive-strength = <MTK_DRIVE_4mA>;
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-=======
 			drive-strength = <4>;
 			mediatek,pull-up-adv = <1>;
 		};
@@ -263,7 +237,6 @@
 			pins = "EMMC_RSTB";
 			drive-strength = <4>;
 			mediatek,pull-up-adv = <1>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -277,24 +250,6 @@
 			       "EMMC_DATA_3", "EMMC_DATA_4", "EMMC_DATA_5",
 			       "EMMC_DATA_6", "EMMC_DATA_7", "EMMC_CMD";
 			input-enable;
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_4mA>;
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-		};
-		conf-clk {
-			pins = "EMMC_CK";
-			drive-strength = <MTK_DRIVE_6mA>;
-			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-		};
-		conf-ds {
-			pins = "EMMC_DSL";
-			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-		};
-		conf-rst {
-			pins = "EMMC_RSTB";
-			drive-strength = <MTK_DRIVE_4mA>;
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-=======
 			drive-strength = <4>;
 			mediatek,pull-up-adv = <1>;
 		};
@@ -311,7 +266,6 @@
 			pins = "EMMC_RSTB";
 			drive-strength = <4>;
 			mediatek,pull-up-adv = <1>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -328,11 +282,7 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_4mA>;
-=======
 			drive-strength = <4>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };

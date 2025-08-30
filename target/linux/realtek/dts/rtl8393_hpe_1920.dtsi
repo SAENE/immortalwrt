@@ -22,8 +22,6 @@
 			gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
 		};
 	};
-<<<<<<< HEAD
-=======
 
 	i2c0: i2c-gpio-0 {
 		compatible = "i2c-gpio";
@@ -100,7 +98,6 @@
 		// tx-fault unconnected (TODO?)
 		// tx-disable connected to RTL8214FC (TODO?)
 	};
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &ethernet0 {
@@ -163,14 +160,11 @@
 		EXTERNAL_PHY(45)
 		EXTERNAL_PHY(46)
 		EXTERNAL_PHY(47)
-<<<<<<< HEAD
-=======
 
 		EXTERNAL_SFP_PHY_FULL(48, 1)
 		EXTERNAL_SFP_PHY_FULL(49, 3)
 		EXTERNAL_SFP_PHY_FULL(50, 0)
 		EXTERNAL_SFP_PHY_FULL(51, 2)
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -233,14 +227,11 @@
 		SWITCH_PORT(46, 47, qsgmii)
 		SWITCH_PORT(47, 48, qsgmii)
 
-<<<<<<< HEAD
-=======
 		SWITCH_PORT(48, 50, qsgmii)
 		SWITCH_PORT(49, 52, qsgmii)
 		SWITCH_PORT(50, 49, qsgmii)
 		SWITCH_PORT(51, 51, qsgmii)
 
->>>>>>> 94392b39ec (稳定版本发布)
 		port@52 {
 			ethernet = <&ethernet0>;
 			reg = <52>;

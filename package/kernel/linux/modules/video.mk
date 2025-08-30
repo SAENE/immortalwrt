@@ -86,11 +86,7 @@ $(eval $(call KernelPackage,backlight))
 define KernelPackage/backlight-pwm
 	SUBMENU:=$(VIDEO_MENU)
 	TITLE:=PWM Backlight support
-<<<<<<< HEAD
-	DEPENDS:=@PWM_SUPPORT +kmod-backlight
-=======
 	DEPENDS:=+kmod-backlight
->>>>>>> 94392b39ec (稳定版本发布)
 	KCONFIG:=CONFIG_BACKLIGHT_PWM
 	FILES:=$(LINUX_DIR)/drivers/video/backlight/pwm_bl.ko
 	AUTOLOAD:=$(call AutoProbe,video pwm_bl)
@@ -329,10 +325,6 @@ define KernelPackage/drm-buddy
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=A page based buddy allocator
   DEPENDS:=@DISPLAY_SUPPORT +kmod-drm
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_DRM_BUDDY
   FILES:= $(LINUX_DIR)/drivers/gpu/drm/drm_buddy.ko
   AUTOLOAD:=$(call AutoProbe,drm_buddy)
@@ -348,10 +340,6 @@ define KernelPackage/drm-display-helper
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=DRM helpers for display adapters drivers
   DEPENDS:=@DISPLAY_SUPPORT +kmod-drm-kms-helper
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_DRM_DISPLAY_HELPER
   FILES:=$(LINUX_DIR)/drivers/gpu/drm/display/drm_display_helper.ko
   AUTOLOAD:=$(call AutoProbe,drm_display_helper)
@@ -630,11 +618,7 @@ $(eval $(call KernelPackage,drm-imx))
 define KernelPackage/drm-imx-hdmi
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=Freescale i.MX HDMI DRM support
-<<<<<<< HEAD
-  DEPENDS:=+kmod-sound-core kmod-drm-imx +kmod-drm-display-helper
-=======
   DEPENDS:=+kmod-sound-core kmod-drm-imx kmod-drm-display-helper
->>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_DRM_IMX_HDMI \
 	CONFIG_DRM_DW_HDMI_AHB_AUDIO \
 	CONFIG_DRM_DW_HDMI_I2S_AUDIO
@@ -651,14 +635,6 @@ endef
 
 $(eval $(call KernelPackage,drm-imx-hdmi))
 
-<<<<<<< HEAD
-
-define KernelPackage/drm-imx-ldb
-  SUBMENU:=$(VIDEO_MENU)
-  TITLE:=Freescale i.MX LVDS DRM support
-  DEPENDS:=@(TARGET_imx&&TARGET_imx_cortexa9) +kmod-backlight +kmod-drm-panel-simple kmod-drm-imx
-  KCONFIG:=CONFIG_DRM_IMX_LDB \
-=======
 define KernelPackage/drm-imx-ldb
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=Freescale i.MX LVDS DRM support
@@ -666,7 +642,6 @@ define KernelPackage/drm-imx-ldb
   KCONFIG:=CONFIG_DRM_IMX_LDB \
 	CONFIG_DRM_PANEL_SIMPLE \
 	CONFIG_DRM_PANEL=y \
->>>>>>> 94392b39ec (稳定版本发布)
 	CONFIG_DRM_PANEL_SAMSUNG_LD9040=n \
 	CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=n \
 	CONFIG_DRM_PANEL_LG_LG4573=n \
@@ -675,12 +650,8 @@ define KernelPackage/drm-imx-ldb
 	CONFIG_DRM_PANEL_S6E8AA0=n \
 	CONFIG_DRM_PANEL_SITRONIX_ST7789V=n
   FILES:= \
-<<<<<<< HEAD
-	$(LINUX_DIR)/drivers/gpu/drm/imx/ipuv3/imx-ldb.ko
-=======
 	$(LINUX_DIR)/drivers/gpu/drm/imx/ipuv3/imx-ldb.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/panel/panel-simple.ko
->>>>>>> 94392b39ec (稳定版本发布)
   AUTOLOAD:=$(call AutoLoad,08,imx-ldb)
 endef
 
@@ -768,48 +739,6 @@ endef
 
 $(eval $(call KernelPackage,drm-panel-mipi-dbi))
 
-<<<<<<< HEAD
-
-define KernelPackage/drm-panel-simple
-  SUBMENU:=$(VIDEO_MENU)
-  TITLE:=Simple (non-eDP) TFT panels
-  DEPENDS:=@USES_DEVICETREE @USES_PM +kmod-drm +kmod-backlight
-  KCONFIG:=CONFIG_DRM_PANEL_SIMPLE \
-	CONFIG_DRM_PANEL=y
-  FILES:=$(LINUX_DIR)/drivers/gpu/drm/panel/panel-simple.ko
-  AUTOLOAD:=$(call AutoProbe,panel-simple)
-endef
-
-define KernelPackage/drm-panel-simple/description
-  Generic driver for simple raw (ie. non-eDP) TFT panels.
-endef
-
-$(eval $(call KernelPackage,drm-panel-simple))
-
-
-define KernelPackage/drm-panel-tc358762
-  SUBMENU:=$(VIDEO_MENU)
-  TITLE:=TC358762 DSI/DPI bridge
-  DEPENDS:=+kmod-drm-kms-helper
-  KCONFIG:=CONFIG_DRM_TOSHIBA_TC358762 \
-	CONFIG_DRM_BRIDGE=y \
-	CONFIG_DRM_MIPI_DSI=y \
-	CONFIG_DRM_PANEL=y
-	CONFIG_DRM_PANEL_BRIDGE=y
-  FILES:= \
-	$(LINUX_DIR)/drivers/gpu/drm/bridge/tc358762.ko
-  AUTOLOAD:=$(call AutoProbe,tc358762)
-endef
-
-define KernelPackage/drm-panel-tc358762/description
- Toshiba TC358762 DSI/DPI bridge driver
-endef
-
-$(eval $(call KernelPackage,drm-panel-tc358762))
-
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/drm-radeon
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=Radeon DRM support
@@ -894,10 +823,6 @@ $(eval $(call KernelPackage,video-videobuf2))
 
 define KernelPackage/video-async
   TITLE:=V4L2 ASYNC support
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_V4L2_ASYNC
   FILES:=$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/v4l2-async.ko
   $(call AddDepends/video)
@@ -908,10 +833,6 @@ $(eval $(call KernelPackage,video-async))
 
 define KernelPackage/video-fwnode
   TITLE:=V4L2 FWNODE support
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_V4L2_FWNODE
   FILES:=$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/v4l2-fwnode.ko
   $(call AddDepends/video,+kmod-video-async)
@@ -920,8 +841,6 @@ endef
 
 $(eval $(call KernelPackage,video-fwnode))
 
-<<<<<<< HEAD
-=======
 define KernelPackage/video-cpia2
   TITLE:=CPIA2 video driver
   DEPENDS:=@USB_SUPPORT
@@ -937,7 +856,6 @@ endef
 
 $(eval $(call KernelPackage,video-cpia2))
 
->>>>>>> 94392b39ec (稳定版本发布)
 
 define KernelPackage/video-pwc
   TITLE:=Philips USB webcam support

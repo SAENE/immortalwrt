@@ -19,20 +19,6 @@ DEVICE_VARS += \
 	LINKSYS_HEADER \
         ZYXEL_VERS
 
-<<<<<<< HEAD
-define Build/rt-compress
-	$(STAGING_DIR_HOST)/bin/xz -9 --format=lzma --stdout "$@" > "$@.new"
-	mv "$@.new" "$@"
-endef
-
-define Build/rt-loader
-	$(MAKE) all clean -C rt-loader CROSS_COMPILE="$(TARGET_CROSS)" \
-		KERNEL_IMG_IN="$@" KERNEL_IMG_OUT="$@.new" BUILD_DIR="$@.build"
-	mv "$@.new" "$@"
-endef
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Build/zyxel-vers
        ( echo VERS;\
        for hw in $(ZYXEL_VERS); do\
@@ -122,28 +108,6 @@ define Device/Default
 	append-metadata
 endef
 
-<<<<<<< HEAD
-define Device/kernel-lzma
-  KERNEL := \
-	kernel-bin | \
-	append-dtb | \
-	lzma | \
-	uImage lzma
-  KERNEL_INITRAMFS := \
-	kernel-bin | \
-	append-dtb | \
-	lzma | \
-	uImage lzma
-endef
-
-define Device/uimage-rt-loader
-	KERNEL/rt-loader := kernel-bin | append-dtb | rt-compress | rt-loader
-	KERNEL := $$(KERNEL/rt-loader) | uImage none
-	KERNEL_INITRAMFS := $$(KERNEL/rt-loader) | uImage none
-endef
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 include $(SUBTARGET).mk
 
 $(eval $(call BuildImage))

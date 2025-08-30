@@ -11,18 +11,11 @@
 	model = "JDCloud RE-SP-01B";
 
 	aliases {
-<<<<<<< HEAD
-		led-boot = &led_status_red;
-		led-failsafe = &led_status_red;
-		led-running = &led_status_green;
-		led-upgrade = &led_status_blue;
-=======
 		led-boot = &led_red;
 		led-failsafe = &led_red;
 		led-running = &led_green;
 		led-upgrade = &led_blue;
 		label-mac-device = &gmac0;
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	chosen {
@@ -42,15 +35,6 @@
 	leds {
 		compatible = "gpio-leds";
 
-<<<<<<< HEAD
-		led_status_red: led-red {
-			function = LED_FUNCTION_STATUS;
-			color = <LED_COLOR_ID_RED>;
-			gpios = <&gpio 6 GPIO_ACTIVE_LOW>;
-		};
-
-		led_status_green: led-green {
-=======
 		led_red: red {
 			function = LED_FUNCTION_STATUS;
 			color = <LED_COLOR_ID_RED>;
@@ -59,17 +43,12 @@
 		};
 
 		led_green: green {
->>>>>>> 94392b39ec (稳定版本发布)
 			function = LED_FUNCTION_STATUS;
 			color = <LED_COLOR_ID_GREEN>;
 			gpios = <&gpio 8 GPIO_ACTIVE_LOW>;
 		};
 
-<<<<<<< HEAD
-		led_status_blue: led-blue {
-=======
 		led_blue: blue {
->>>>>>> 94392b39ec (稳定版本发布)
 			function = LED_FUNCTION_STATUS;
 			color = <LED_COLOR_ID_BLUE>;
 			gpios = <&gpio 12 GPIO_ACTIVE_LOW>;
@@ -77,8 +56,6 @@
 	};
 };
 
-<<<<<<< HEAD
-=======
 &ethphy0 {
 	/delete-property/ interrupts;
 };
@@ -89,7 +66,6 @@
 	phy-handle = <&ethphy0>;
 };
 
->>>>>>> 94392b39ec (稳定版本发布)
 &sdhci {
 	status = "okay";
 };
@@ -160,19 +136,6 @@
 	};
 };
 
-<<<<<<< HEAD
-&gmac1 {
-	status = "okay";
-	label = "wan";
-	phy-handle = <&ethphy0>;
-};
-
-&ethphy0 {
-	/delete-property/ interrupts;
-};
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 &switch0 {
 	ports {
 		port@1 {
@@ -193,10 +156,6 @@
 
 &pcie0 {
 	wifi@0,0 {
-<<<<<<< HEAD
-		compatible = "mediatek,mt76";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&eeprom_factory_0>;
 		nvmem-cell-names = "eeprom";
@@ -205,10 +164,6 @@
 
 &pcie1 {
 	wifi@0,0 {
-<<<<<<< HEAD
-		compatible = "mediatek,mt76";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&eeprom_factory_8000>;
 		nvmem-cell-names = "eeprom";

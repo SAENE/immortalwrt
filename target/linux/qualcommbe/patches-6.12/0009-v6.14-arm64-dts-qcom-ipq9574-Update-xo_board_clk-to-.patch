@@ -19,11 +19,7 @@ Signed-off-by: Bjorn Andersson <andersson@kernel.org>
 
 --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-<<<<<<< HEAD
-@@ -182,8 +182,13 @@
-=======
 @@ -175,8 +175,13 @@
->>>>>>> 94392b39ec (稳定版本发布)
  	clock-mult = <1>;
  };
  

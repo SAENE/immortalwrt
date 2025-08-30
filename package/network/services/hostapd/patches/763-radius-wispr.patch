@@ -1,10 +1,6 @@
 --- a/src/ap/ieee802_1x.c
 +++ b/src/ap/ieee802_1x.c
-<<<<<<< HEAD
-@@ -2005,6 +2005,25 @@ static int ieee802_1x_update_vlan(struct
-=======
 @@ -2000,6 +2000,25 @@ static int ieee802_1x_update_vlan(struct
->>>>>>> 94392b39ec (稳定版本发布)
  }
  #endif /* CONFIG_NO_VLAN */
  
@@ -30,11 +26,7 @@
  
  /**
   * ieee802_1x_receive_auth - Process RADIUS frames from Authentication Server
-<<<<<<< HEAD
-@@ -2121,6 +2140,7 @@ ieee802_1x_receive_auth(struct radius_ms
-=======
 @@ -2116,6 +2135,7 @@ ieee802_1x_receive_auth(struct radius_ms
->>>>>>> 94392b39ec (稳定版本发布)
  		ieee802_1x_check_hs20(hapd, sta, msg,
  				      session_timeout_set ?
  				      (int) session_timeout : -1);

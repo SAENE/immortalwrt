@@ -13,9 +13,3 @@ https://github.com/LiBwrt/openwrt-6.x.git
 https://github.com/qosmio/openwrt-ipq.git
 
 https://github.com/King-Of-Knights/openwrt-6.x.git
-<<<<<<< HEAD
-
-#
-[![Stargazers over time](https://starchart.cc/VIKINGYFY/immortalwrt.svg?variant=adaptive)](https://starchart.cc/VIKINGYFY/immortalwrt)
-=======
->>>>>>> 94392b39ec (稳定版本发布)

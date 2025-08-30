@@ -50,11 +50,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
 +};
 --- a/drivers/irqchip/Kconfig
 +++ b/drivers/irqchip/Kconfig
-<<<<<<< HEAD
-@@ -110,6 +110,10 @@ config I8259
-=======
 @@ -109,6 +109,10 @@ config I8259
->>>>>>> 94392b39ec (稳定版本发布)
  	bool
  	select IRQ_DOMAIN
  

@@ -1652,11 +1652,7 @@ static void fe_remove(struct platform_device *pdev)
 
 static struct platform_driver fe_driver = {
 	.probe = fe_probe,
-<<<<<<< HEAD
-	.remove = fe_remove,
-=======
 	.remove_new = fe_remove,
->>>>>>> 94392b39ec (稳定版本发布)
 	.driver = {
 		.name = "mtk_soc_eth",
 		.of_match_table = of_fe_match,

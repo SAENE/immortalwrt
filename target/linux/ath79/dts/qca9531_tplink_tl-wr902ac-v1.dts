@@ -197,11 +197,7 @@
 	status = "okay";
 
 	wifi@0,0 {
-<<<<<<< HEAD
-		compatible = "qcom,ath10k";
-=======
 		compatible = "pci168c,0050";
->>>>>>> 94392b39ec (稳定版本发布)
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&cal_art_5000>, <&macaddr_info_8 (-1)>;
 		nvmem-cell-names = "calibration", "mac-address";

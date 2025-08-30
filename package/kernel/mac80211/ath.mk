@@ -323,11 +323,7 @@ define KernelPackage/ath10k-sdio
   FILES:= \
 	$(PKG_BUILD_DIR)/drivers/net/wireless/ath/ath10k/ath10k_core.ko \
 	$(PKG_BUILD_DIR)/drivers/net/wireless/ath/ath10k/ath10k_sdio.ko
-<<<<<<< HEAD
-  AUTOLOAD:=$(call AutoProbe,ath10k_core)
-=======
   AUTOLOAD:=$(call AutoProbe,ath10k_core ath10k_sdio)
->>>>>>> 94392b39ec (稳定版本发布)
   MODPARAMS.ath10k_core:=frame_mode=2
   VARIANT:=sdio
 endef

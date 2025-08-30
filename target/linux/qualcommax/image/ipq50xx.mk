@@ -29,11 +29,7 @@ define Device/elecom_wrc-x3000gs2
 	PAGESIZE := 2048
 	SOC := ipq5018
 	DEVICE_DTS_CONFIG := config@mp03.3
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-elecom_wrc-x3000gs2
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn6122 ipq-wifi-elecom_wrc-x3000gs2
->>>>>>> 94392b39ec (稳定版本发布)
 	IMAGES += factory.bin
 	IMAGE/factory.bin := append-ubi | qsdk-ipq-factory-nand | mstc-header 4.04(XZF.0)b90 | elecom-product-header WRC-X3000GS2
 endef
@@ -51,11 +47,7 @@ define Device/glinet_gl-b3000
 	PAGESIZE := 2048
 	SOC := ipq5018
 	DEVICE_DTS_CONFIG := config@mp03.5-c1
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-glinet_gl-b3000 dumpimage
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn6122 ipq-wifi-glinet_gl-b3000 dumpimage
->>>>>>> 94392b39ec (稳定版本发布)
 	IMAGES := factory.img sysupgrade.bin
 	IMAGE/factory.img := append-ubi | gl-qsdk-factory | append-metadata
 endef
@@ -72,11 +64,7 @@ define Device/iodata_wn-dax3000gr
 	PAGESIZE := 2048
 	SOC := ipq5018
 	DEVICE_DTS_CONFIG := config@mp03.3
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-iodata_wn-dax3000gr
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn6122 ipq-wifi-iodata_wn-dax3000gr
->>>>>>> 94392b39ec (稳定版本发布)
 	IMAGES += factory.bin
 	IMAGE/factory.bin := append-ubi | qsdk-ipq-factory-nand | mstc-header 4.04(XZH.1)b90 0x480
 endef
@@ -99,11 +87,7 @@ define Device/linksys_mr5500
 	$(call Device/linksys_ipq50xx_mx_base)
 	DEVICE_MODEL := MR5500
 	DEVICE_DTS_CONFIG := config@mp03.1
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-linksys_mr5500 ath11k-firmware-qcn9074 kmod-usb-ledtrig-usbport
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn9074 ipq-wifi-linksys_mr5500 kmod-usb-ledtrig-usbport
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_mr5500
 
@@ -111,11 +95,7 @@ define Device/linksys_mx2000
 	$(call Device/linksys_ipq50xx_mx_base)
 	DEVICE_MODEL := MX2000
 	DEVICE_DTS_CONFIG := config@mp03.5-c1
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-linksys_mx2000
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn6122 ipq-wifi-linksys_mx2000
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_mx2000
 
@@ -123,11 +103,7 @@ define Device/linksys_mx5500
 	$(call Device/linksys_ipq50xx_mx_base)
 	DEVICE_MODEL := MX5500
 	DEVICE_DTS_CONFIG := config@mp03.1
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-linksys_mx5500 ath11k-firmware-qcn9074
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn9074 ipq-wifi-linksys_mx5500
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_mx5500
 
@@ -135,11 +111,7 @@ define Device/linksys_spnmx56
 	$(call Device/linksys_ipq50xx_mx_base)
 	DEVICE_MODEL := SPNMX56
 	DEVICE_DTS_CONFIG := config@mp03.1
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-linksys_spnmx56 ath11k-firmware-qcn9074
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn9074 ipq-wifi-linksys_spnmx56
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_spnmx56
 
@@ -154,11 +126,7 @@ define Device/xiaomi_ax6000
 	PAGESIZE := 2048
 	SOC := ipq5018
 	DEVICE_DTS_CONFIG := config@mp03.1
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax6000 ath11k-firmware-qcn9074 ath10k-firmware-qca9887 kmod-ath10k-smallbuffers
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn9074 kmod-ath10k-smallbuffers ath10k-firmware-qca9887 ipq-wifi-xiaomi_ax6000
->>>>>>> 94392b39ec (稳定版本发布)
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
 	ARTIFACTS := initramfs-factory.ubi
 	ARTIFACT/initramfs-factory.ubi := append-image-stage initramfs-uImage.itb | ubinize-kernel
@@ -166,22 +134,6 @@ endif
 endef
 TARGET_DEVICES += xiaomi_ax6000
 
-<<<<<<< HEAD
-define Device/yuncore_ax830
-	$(call Device/FitImage)
-	$(call Device/UbiFit)
-	DEVICE_VENDOR := Yuncore
-	DEVICE_MODEL := AX830
-	BLOCKSIZE := 128k
-	PAGESIZE := 2048
-	SOC := ipq5018
-	DEVICE_DTS_CONFIG := config@mp03.5-c1
-	DEVICE_PACKAGES := ipq-wifi-yuncore_ax830
-endef
-TARGET_DEVICES += yuncore_ax830
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Device/jdcloud_re-cs-03
 	$(call Device/FitImage)
 	$(call Device/EmmcImage)

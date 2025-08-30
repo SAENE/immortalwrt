@@ -117,13 +117,7 @@
 				#size-cells = <1>;
 
 				macaddr_mrd_1fff8: macaddr@1fff8 {
-<<<<<<< HEAD
-					compatible = "mac-base";
 					reg = <0x1fff8 0x6>;
-					#nvmem-cell-cells = <1>;
-=======
-					reg = <0x1fff8 0x6>;
->>>>>>> 94392b39ec (稳定版本发布)
 				};
 			};
 		};
@@ -136,42 +130,16 @@
 
 &pcie1 {
 	wlan_5g: wifi@0,0 {
-<<<<<<< HEAD
-		compatible = "mediatek,mt76";
-		reg = <0x0000 0 0 0 0>;
-		nvmem-cells = <&eeprom_factory_0>, <&precal_factory_e10>;
-		nvmem-cell-names = "eeprom", "precal";
-
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		band@0 {
-			reg = <0>;
-			nvmem-cells = <&macaddr_mrd_1fff8 0>;
-			nvmem-cell-names = "mac-address";
-		};
-
-		band@1 {
-			reg = <1>;
-			nvmem-cells = <&macaddr_mrd_1fff8 1>;
-			nvmem-cell-names = "mac-address";
-		};
-=======
 		reg = <0x0 0 0 0 0>;
 		compatible = "mediatek,mt76";
 		nvmem-cells = <&eeprom_factory_0>, <&precal_factory_e10>;
 		nvmem-cell-names = "eeprom", "precal";
 		/* MAC-Address set in userspace */
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
 &gmac0 {
-<<<<<<< HEAD
-	nvmem-cells = <&macaddr_mrd_1fff8 0>;
-=======
 	nvmem-cells = <&macaddr_mrd_1fff8>;
->>>>>>> 94392b39ec (稳定版本发布)
 	nvmem-cell-names = "mac-address";
 };
 

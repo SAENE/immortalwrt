@@ -34,11 +34,7 @@ as adding/removing interfaces.
  ifdef CONFIG_CODE_COVERAGE
 --- a/hostapd/ctrl_iface.c
 +++ b/hostapd/ctrl_iface.c
-<<<<<<< HEAD
-@@ -6061,6 +6061,7 @@ try_again:
-=======
 @@ -6004,6 +6004,7 @@ try_again:
->>>>>>> 94392b39ec (稳定版本发布)
  		return -1;
  	}
  
@@ -46,11 +42,7 @@ as adding/removing interfaces.
  	wpa_msg_register_cb(hostapd_ctrl_iface_msg_cb);
  
  	return 0;
-<<<<<<< HEAD
-@@ -6162,6 +6163,7 @@ fail:
-=======
 @@ -6105,6 +6106,7 @@ fail:
->>>>>>> 94392b39ec (稳定版本发布)
  	os_free(fname);
  
  	interface->global_ctrl_sock = s;
@@ -121,18 +113,6 @@ as adding/removing interfaces.
  	hostapd_ubus_free_bss(hapd);
  	accounting_deinit(hapd);
  	hostapd_deinit_wpa(hapd);
-<<<<<<< HEAD
-@@ -625,7 +628,7 @@ void hostapd_free_hapd_data(struct hosta
-  * If the BSS being removed is the first link, the next link becomes the first
-  * link.
-  */
--static void hostapd_bss_link_deinit(struct hostapd_data *hapd)
-+void hostapd_bss_link_deinit(struct hostapd_data *hapd)
- {
- #ifdef CONFIG_IEEE80211BE
- 	int i;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 @@ -737,6 +740,7 @@ void hostapd_cleanup_iface_partial(struc
  static void hostapd_cleanup_iface(struct hostapd_iface *iface)
  {
@@ -159,56 +139,7 @@ as adding/removing interfaces.
  {
  	struct hostapd_bss_config *conf = hapd->conf;
  	u8 ssid[SSID_MAX_LEN + 1];
-<<<<<<< HEAD
-@@ -1434,12 +1438,17 @@ static int hostapd_setup_bss(struct host
- 
- 	if (!first || first == -1) {
- 		u8 *addr = hapd->own_addr;
-+		bool use_existing = first == -1;
- 
-+#ifdef CONFIG_IEEE80211BE
-+		if (hapd->conf->mld_ap)
-+			addr = NULL;
-+#endif /* CONFIG_IEEE80211BE */
- 		if (!is_zero_ether_addr(conf->bssid)) {
- 			/* Allocate the configured BSSID. */
- 			os_memcpy(hapd->own_addr, conf->bssid, ETH_ALEN);
- 
--			if (hostapd_mac_comp(hapd->own_addr,
-+			if (0 && hostapd_mac_comp(hapd->own_addr,
- 					     hapd->iface->bss[0]->own_addr) ==
- 			    0) {
- 				wpa_printf(MSG_ERROR, "BSS '%s' may not have "
-@@ -1469,6 +1478,7 @@ static int hostapd_setup_bss(struct host
- 					   hapd->mld_link_id, hapd->conf->iface);
- 				goto setup_mld;
- 			}
-+			use_existing = true;
- 		}
- #endif /* CONFIG_IEEE80211BE */
- 
-@@ -1477,7 +1487,7 @@ static int hostapd_setup_bss(struct host
- 				   conf->iface, addr, hapd,
- 				   &hapd->drv_priv, force_ifname, if_addr,
- 				   conf->bridge[0] ? conf->bridge : NULL,
--				   first == -1)) {
-+				   use_existing)) {
- 			wpa_printf(MSG_ERROR, "Failed to add BSS (BSSID="
- 				   MACSTR ")", MAC2STR(hapd->own_addr));
- 			hapd->interface_added = 0;
-@@ -1500,7 +1510,7 @@ static int hostapd_setup_bss(struct host
- 
- #ifdef CONFIG_IEEE80211BE
- setup_mld:
--	if (hapd->conf->mld_ap && !first) {
-+	if (hapd->conf->mld_ap && first != 1) {
- 		wpa_printf(MSG_DEBUG,
- 			   "MLD: Set link_id=%u, mld_addr=" MACSTR
- 			   ", own_addr=" MACSTR,
-@@ -1518,6 +1528,8 @@ setup_mld:
-=======
 @@ -1518,6 +1522,8 @@ setup_mld:
->>>>>>> 94392b39ec (稳定版本发布)
  	}
  #endif /* CONFIG_IEEE80211BE */
  
@@ -217,20 +148,7 @@ as adding/removing interfaces.
  	if (conf->wmm_enabled < 0)
  		conf->wmm_enabled = hapd->iconf->ieee80211n |
  			hapd->iconf->ieee80211ax;
-<<<<<<< HEAD
-@@ -1843,7 +1855,7 @@ int hostapd_set_acl(struct hostapd_data
- }
- 
- 
--static int hostapd_set_ctrl_sock_iface(struct hostapd_data *hapd)
-+int hostapd_set_ctrl_sock_iface(struct hostapd_data *hapd)
- {
- #ifdef CONFIG_IEEE80211BE
- 	int ret;
-@@ -2516,7 +2528,7 @@ static int hostapd_owe_iface_iter2(struc
-=======
 @@ -2508,7 +2514,7 @@ static int hostapd_owe_iface_iter2(struc
->>>>>>> 94392b39ec (稳定版本发布)
  #endif /* CONFIG_OWE */
  
  
@@ -239,11 +157,7 @@ as adding/removing interfaces.
  {
  #ifdef CONFIG_OWE
  	/* Check whether the enabled BSS can complete OWE transition mode
-<<<<<<< HEAD
-@@ -2986,7 +2998,7 @@ hostapd_alloc_bss_data(struct hostapd_if
-=======
 @@ -2976,7 +2982,7 @@ hostapd_alloc_bss_data(struct hostapd_if
->>>>>>> 94392b39ec (稳定版本发布)
  }
  
  
@@ -252,20 +166,7 @@ as adding/removing interfaces.
  {
  	if (!hapd)
  		return;
-<<<<<<< HEAD
-@@ -3194,7 +3206,7 @@ fail:
- }
- 
- 
--static void hostapd_cleanup_unused_mlds(struct hapd_interfaces *interfaces)
-+void hostapd_cleanup_unused_mlds(struct hapd_interfaces *interfaces)
- {
- #ifdef CONFIG_IEEE80211BE
- 	struct hostapd_mld *mld, **all_mld;
-@@ -4074,7 +4086,8 @@ int hostapd_remove_iface(struct hapd_int
-=======
 @@ -4051,7 +4057,8 @@ int hostapd_remove_iface(struct hapd_int
->>>>>>> 94392b39ec (稳定版本发布)
  		hapd_iface = interfaces->iface[i];
  		if (hapd_iface == NULL)
  			return -1;
@@ -312,36 +213,16 @@ as adding/removing interfaces.
  	void *owner;
  	char *config_fname;
  	struct hostapd_config *conf;
-<<<<<<< HEAD
-@@ -787,11 +794,16 @@ struct hostapd_iface * hostapd_init(stru
- struct hostapd_iface *
- hostapd_interface_init_bss(struct hapd_interfaces *interfaces, const char *phy,
- 			   const char *config_fname, int debug);
-+int hostapd_set_ctrl_sock_iface(struct hostapd_data *hapd);
-+int hostapd_setup_bss(struct hostapd_data *hapd, int first, bool start_beacon);
-+void hostapd_bss_link_deinit(struct hostapd_data *hapd);
-=======
 @@ -787,6 +794,8 @@ struct hostapd_iface * hostapd_init(stru
  struct hostapd_iface *
  hostapd_interface_init_bss(struct hapd_interfaces *interfaces, const char *phy,
  			   const char *config_fname, int debug);
 +int hostapd_setup_bss(struct hostapd_data *hapd, int first, bool start_beacon);
->>>>>>> 94392b39ec (稳定版本发布)
 +void hostapd_bss_deinit(struct hostapd_data *hapd);
  void hostapd_bss_setup_multi_link(struct hostapd_data *hapd,
  				  struct hapd_interfaces *interfaces);
  void hostapd_new_assoc_sta(struct hostapd_data *hapd, struct sta_info *sta,
-<<<<<<< HEAD
- 			   int reassoc);
- void hostapd_interface_deinit_free(struct hostapd_iface *iface);
-+void hostapd_cleanup_unused_mlds(struct hapd_interfaces *interfaces);
- int hostapd_enable_iface(struct hostapd_iface *hapd_iface);
- int hostapd_reload_iface(struct hostapd_iface *hapd_iface);
- int hostapd_reload_bss_only(struct hostapd_data *bss);
-@@ -817,6 +829,7 @@ hostapd_switch_channel_fallback(struct h
-=======
 @@ -817,6 +826,7 @@ hostapd_switch_channel_fallback(struct h
->>>>>>> 94392b39ec (稳定版本发布)
  void hostapd_cleanup_cs_params(struct hostapd_data *hapd);
  void hostapd_periodic_iface(struct hostapd_iface *iface);
  int hostapd_owe_trans_get_info(struct hostapd_data *hapd);
@@ -351,11 +232,7 @@ as adding/removing interfaces.
  void hostapd_switch_color(struct hostapd_data *hapd, u64 bitmap);
 --- a/src/drivers/driver.h
 +++ b/src/drivers/driver.h
-<<<<<<< HEAD
-@@ -4072,6 +4072,25 @@ struct wpa_driver_ops {
-=======
 @@ -4036,6 +4036,25 @@ struct wpa_driver_ops {
->>>>>>> 94392b39ec (稳定版本发布)
  			 const char *ifname);
  
  	/**
@@ -381,11 +258,7 @@ as adding/removing interfaces.
  	 * set_sta_vlan - Bind a station into a specific interface (AP only)
  	 * @priv: Private driver interface data
  	 * @ifname: Interface (main or virtual BSS or VLAN)
-<<<<<<< HEAD
-@@ -6901,6 +6920,7 @@ union wpa_event_data {
-=======
 @@ -6851,6 +6870,7 @@ union wpa_event_data {
->>>>>>> 94392b39ec (稳定版本发布)
  
  	/**
  	 * struct ch_switch
@@ -393,11 +266,7 @@ as adding/removing interfaces.
  	 * @freq: Frequency of new channel in MHz
  	 * @ht_enabled: Whether this is an HT channel
  	 * @ch_offset: Secondary channel offset
-<<<<<<< HEAD
-@@ -6911,6 +6931,7 @@ union wpa_event_data {
-=======
 @@ -6861,6 +6881,7 @@ union wpa_event_data {
->>>>>>> 94392b39ec (稳定版本发布)
  	 * @punct_bitmap: Puncturing bitmap
  	 */
  	struct ch_switch {
@@ -453,11 +322,7 @@ as adding/removing interfaces.
  	nl_cb_err(cb, NL_CB_CUSTOM, error_handler, &err);
  	nl_cb_set(cb, NL_CB_FINISH, NL_CB_CUSTOM, finish_handler, &err.err);
  	if (ack_handler_custom) {
-<<<<<<< HEAD
-@@ -973,6 +991,7 @@ nl80211_get_wiphy_data_ap(struct i802_bs
-=======
 @@ -955,6 +973,7 @@ nl80211_get_wiphy_data_ap(struct i802_bs
->>>>>>> 94392b39ec (稳定版本发布)
  			os_free(w);
  			return NULL;
  		}
@@ -465,11 +330,7 @@ as adding/removing interfaces.
  		nl_cb_set(w->nl_cb, NL_CB_SEQ_CHECK, NL_CB_CUSTOM,
  			  no_seq_check, NULL);
  		nl_cb_set(w->nl_cb, NL_CB_VALID, NL_CB_CUSTOM,
-<<<<<<< HEAD
-@@ -1401,7 +1420,7 @@ static void wpa_driver_nl80211_event_rtm
-=======
 @@ -1370,7 +1389,7 @@ static void wpa_driver_nl80211_event_rtm
->>>>>>> 94392b39ec (稳定版本发布)
  		}
  		wpa_printf(MSG_DEBUG, "nl80211: Interface down (%s/%s)",
  			   namebuf, ifname);
@@ -478,11 +339,7 @@ as adding/removing interfaces.
  			wpa_printf(MSG_DEBUG,
  				   "nl80211: Not the main interface (%s) - do not indicate interface down",
  				   drv->first_bss->ifname);
-<<<<<<< HEAD
-@@ -1437,7 +1456,7 @@ static void wpa_driver_nl80211_event_rtm
-=======
 @@ -1406,7 +1425,7 @@ static void wpa_driver_nl80211_event_rtm
->>>>>>> 94392b39ec (稳定版本发布)
  		}
  		wpa_printf(MSG_DEBUG, "nl80211: Interface up (%s/%s)",
  			   namebuf, ifname);
@@ -491,11 +348,7 @@ as adding/removing interfaces.
  			wpa_printf(MSG_DEBUG,
  				   "nl80211: Not the main interface (%s) - do not indicate interface up",
  				   drv->first_bss->ifname);
-<<<<<<< HEAD
-@@ -2130,6 +2149,7 @@ static int wpa_driver_nl80211_init_nl_gl
-=======
 @@ -2052,6 +2071,7 @@ static int wpa_driver_nl80211_init_nl_gl
->>>>>>> 94392b39ec (稳定版本发布)
  	genl_family_put(family);
  	nl_cache_free(cache);
  
@@ -503,11 +356,7 @@ as adding/removing interfaces.
  	nl_cb_set(global->nl_cb, NL_CB_SEQ_CHECK, NL_CB_CUSTOM,
  		  no_seq_check, NULL);
  	nl_cb_set(global->nl_cb, NL_CB_VALID, NL_CB_CUSTOM,
-<<<<<<< HEAD
-@@ -2300,6 +2320,7 @@ static int nl80211_init_bss(struct i802_
-=======
 @@ -2222,6 +2242,7 @@ static int nl80211_init_bss(struct i802_
->>>>>>> 94392b39ec (稳定版本发布)
  	if (!bss->nl_cb)
  		return -1;
  
@@ -515,11 +364,7 @@ as adding/removing interfaces.
  	nl_cb_set(bss->nl_cb, NL_CB_SEQ_CHECK, NL_CB_CUSTOM,
  		  no_seq_check, NULL);
  	nl_cb_set(bss->nl_cb, NL_CB_VALID, NL_CB_CUSTOM,
-<<<<<<< HEAD
-@@ -8854,6 +8875,7 @@ static void *i802_init(struct hostapd_da
-=======
 @@ -8763,6 +8784,7 @@ static void *i802_init(struct hostapd_da
->>>>>>> 94392b39ec (稳定版本发布)
  	char master_ifname[IFNAMSIZ];
  	int ifindex, br_ifindex = 0;
  	int br_added = 0;
@@ -527,11 +372,7 @@ as adding/removing interfaces.
  
  	bss = wpa_driver_nl80211_drv_init(hapd, params->ifname,
  					  params->global_priv, 1,
-<<<<<<< HEAD
-@@ -8914,21 +8936,17 @@ static void *i802_init(struct hostapd_da
-=======
 @@ -8823,21 +8845,17 @@ static void *i802_init(struct hostapd_da
->>>>>>> 94392b39ec (稳定版本发布)
  	    (params->num_bridge == 0 || !params->bridge[0]))
  		add_ifidx(drv, br_ifindex, drv->ifindex);
  
@@ -563,11 +404,7 @@ as adding/removing interfaces.
  	}
  
  	if (drv->capa.flags2 & WPA_DRIVER_FLAGS2_CONTROL_PORT_RX) {
-<<<<<<< HEAD
-@@ -9307,6 +9325,50 @@ static int wpa_driver_nl80211_if_remove(
-=======
 @@ -9210,6 +9228,50 @@ static int wpa_driver_nl80211_if_remove(
->>>>>>> 94392b39ec (稳定版本发布)
  	return 0;
  }
  
@@ -618,11 +455,7 @@ as adding/removing interfaces.
  
  static int cookie_handler(struct nl_msg *msg, void *arg)
  {
-<<<<<<< HEAD
-@@ -11192,6 +11254,37 @@ static bool nl80211_is_drv_shared(void *
-=======
 @@ -11088,6 +11150,37 @@ static bool nl80211_is_drv_shared(void *
->>>>>>> 94392b39ec (稳定版本发布)
  #endif /* CONFIG_IEEE80211BE */
  
  
@@ -660,11 +493,7 @@ as adding/removing interfaces.
  static int driver_nl80211_send_mlme(void *priv, const u8 *data,
  				    size_t data_len, int noack,
  				    unsigned int freq,
-<<<<<<< HEAD
-@@ -15011,6 +15104,8 @@ const struct wpa_driver_ops wpa_driver_n
-=======
 @@ -14813,6 +14906,8 @@ const struct wpa_driver_ops wpa_driver_n
->>>>>>> 94392b39ec (稳定版本发布)
  	.set_acl = wpa_driver_nl80211_set_acl,
  	.if_add = wpa_driver_nl80211_if_add,
  	.if_remove = driver_nl80211_if_remove,
@@ -675,11 +504,7 @@ as adding/removing interfaces.
  	.sta_add = wpa_driver_nl80211_sta_add,
 --- a/src/drivers/driver_nl80211_event.c
 +++ b/src/drivers/driver_nl80211_event.c
-<<<<<<< HEAD
-@@ -1254,6 +1254,7 @@ static void mlme_event_ch_switch(struct
-=======
 @@ -1213,6 +1213,7 @@ static void mlme_event_ch_switch(struct
->>>>>>> 94392b39ec (稳定版本发布)
  				 struct nlattr *bw, struct nlattr *cf1,
  				 struct nlattr *cf2,
  				 struct nlattr *punct_bitmap,
@@ -687,11 +512,7 @@ as adding/removing interfaces.
  				 int finished)
  {
  	struct i802_bss *bss;
-<<<<<<< HEAD
-@@ -1319,6 +1320,8 @@ static void mlme_event_ch_switch(struct
-=======
 @@ -1278,6 +1279,8 @@ static void mlme_event_ch_switch(struct
->>>>>>> 94392b39ec (稳定版本发布)
  		data.ch_switch.cf1 = nla_get_u32(cf1);
  	if (cf2)
  		data.ch_switch.cf2 = nla_get_u32(cf2);
@@ -700,11 +521,7 @@ as adding/removing interfaces.
  
  	if (link) {
  		data.ch_switch.link_id = nla_get_u8(link);
-<<<<<<< HEAD
-@@ -4279,6 +4282,7 @@ static void do_process_drv_event(struct
-=======
 @@ -4129,6 +4132,7 @@ static void do_process_drv_event(struct
->>>>>>> 94392b39ec (稳定版本发布)
  				     tb[NL80211_ATTR_CENTER_FREQ1],
  				     tb[NL80211_ATTR_CENTER_FREQ2],
  				     tb[NL80211_ATTR_PUNCT_BITMAP],
@@ -712,11 +529,7 @@ as adding/removing interfaces.
  				     0);
  		break;
  	case NL80211_CMD_CH_SWITCH_NOTIFY:
-<<<<<<< HEAD
-@@ -4291,6 +4295,7 @@ static void do_process_drv_event(struct
-=======
 @@ -4141,6 +4145,7 @@ static void do_process_drv_event(struct
->>>>>>> 94392b39ec (稳定版本发布)
  				     tb[NL80211_ATTR_CENTER_FREQ1],
  				     tb[NL80211_ATTR_CENTER_FREQ2],
  				     tb[NL80211_ATTR_PUNCT_BITMAP],
@@ -809,11 +622,7 @@ as adding/removing interfaces.
  CFLAGS += -DEAP_SERVER -DEAP_SERVER_IDENTITY
 --- a/wpa_supplicant/events.c
 +++ b/wpa_supplicant/events.c
-<<<<<<< HEAD
-@@ -6293,6 +6293,7 @@ void supplicant_event(void *ctx, enum wp
-=======
 @@ -6211,6 +6211,7 @@ void supplicant_event(void *ctx, enum wp
->>>>>>> 94392b39ec (稳定版本发布)
  		event_to_string(event), event);
  #endif /* CONFIG_NO_STDOUT_DEBUG */
  
@@ -823,25 +632,15 @@ as adding/removing interfaces.
  #ifdef CONFIG_FST
 --- a/wpa_supplicant/wpa_supplicant.c
 +++ b/wpa_supplicant/wpa_supplicant.c
-<<<<<<< HEAD
-@@ -1278,6 +1278,7 @@ void wpa_supplicant_set_state(struct wpa
-=======
 @@ -1271,6 +1271,7 @@ void wpa_supplicant_set_state(struct wpa
->>>>>>> 94392b39ec (稳定版本发布)
  		sme_sched_obss_scan(wpa_s, 0);
  	}
  	wpa_s->wpa_state = state;
 +	wpas_ucode_update_state(wpa_s);
  
-<<<<<<< HEAD
- #ifndef CONFIG_NO_ROBUST_AV
- 	if (state == WPA_COMPLETED && dl_list_len(&wpa_s->active_scs_ids) &&
-@@ -8290,6 +8291,7 @@ struct wpa_supplicant * wpa_supplicant_a
-=======
  #ifdef CONFIG_BGSCAN
  	if (state == WPA_COMPLETED && wpa_s->current_ssid != wpa_s->bgscan_ssid)
 @@ -8234,6 +8235,7 @@ struct wpa_supplicant * wpa_supplicant_a
->>>>>>> 94392b39ec (稳定版本发布)
  #endif /* CONFIG_P2P */
  
  	wpas_ubus_add_bss(wpa_s);
@@ -849,11 +648,7 @@ as adding/removing interfaces.
  
  	return wpa_s;
  }
-<<<<<<< HEAD
-@@ -8317,6 +8319,7 @@ int wpa_supplicant_remove_iface(struct w
-=======
 @@ -8261,6 +8263,7 @@ int wpa_supplicant_remove_iface(struct w
->>>>>>> 94392b39ec (稳定版本发布)
  	struct wpa_supplicant *parent = wpa_s->parent;
  #endif /* CONFIG_MESH */
  
@@ -861,11 +656,7 @@ as adding/removing interfaces.
  	wpas_ubus_free_bss(wpa_s);
  
  	/* Remove interface from the global list of interfaces */
-<<<<<<< HEAD
-@@ -8627,6 +8630,7 @@ struct wpa_global * wpa_supplicant_init(
-=======
 @@ -8571,6 +8574,7 @@ struct wpa_global * wpa_supplicant_init(
->>>>>>> 94392b39ec (稳定版本发布)
  
  	eloop_register_timeout(WPA_SUPPLICANT_CLEANUP_INTERVAL, 0,
  			       wpas_periodic, global, NULL);
@@ -873,11 +664,7 @@ as adding/removing interfaces.
  
  	return global;
  }
-<<<<<<< HEAD
-@@ -8665,12 +8669,8 @@ int wpa_supplicant_run(struct wpa_global
-=======
 @@ -8609,12 +8613,8 @@ int wpa_supplicant_run(struct wpa_global
->>>>>>> 94392b39ec (稳定版本发布)
  	eloop_register_signal_terminate(wpa_supplicant_terminate, global);
  	eloop_register_signal_reconfig(wpa_supplicant_reconfig, global);
  
@@ -890,11 +677,7 @@ as adding/removing interfaces.
  	return 0;
  }
  
-<<<<<<< HEAD
-@@ -8703,6 +8703,8 @@ void wpa_supplicant_deinit(struct wpa_gl
-=======
 @@ -8647,6 +8647,8 @@ void wpa_supplicant_deinit(struct wpa_gl
->>>>>>> 94392b39ec (稳定版本发布)
  
  	wpas_notify_supplicant_deinitialized(global);
  
@@ -913,11 +696,7 @@ as adding/removing interfaces.
  
  extern const char *const wpa_supplicant_version;
  extern const char *const wpa_supplicant_license;
-<<<<<<< HEAD
-@@ -701,6 +702,7 @@ struct wpa_supplicant {
-=======
 @@ -700,6 +701,7 @@ struct wpa_supplicant {
->>>>>>> 94392b39ec (稳定版本发布)
  	unsigned char perm_addr[ETH_ALEN];
  	char ifname[100];
  	struct wpas_ubus_bss ubus;
@@ -927,11 +706,7 @@ as adding/removing interfaces.
  #endif /* CONFIG_MATCH_IFACE */
 --- a/src/ap/ieee802_11.c
 +++ b/src/ap/ieee802_11.c
-<<<<<<< HEAD
-@@ -659,12 +659,17 @@ const char * sae_get_password(struct hos
-=======
 @@ -631,12 +631,17 @@ const char * sae_get_password(struct hos
->>>>>>> 94392b39ec (稳定版本发布)
  			      struct sae_pt **s_pt,
  			      const struct sae_pk **s_pk)
  {
@@ -950,11 +725,7 @@ as adding/removing interfaces.
  	/* With sae_track_password functionality enabled, try to first find the
  	 * next viable wildcard-address password if a password identifier was
  	 * not used. Select an wildcard-addr entry if the STA is known to have
-<<<<<<< HEAD
-@@ -725,12 +730,30 @@ const char * sae_get_password(struct hos
-=======
 @@ -697,12 +702,30 @@ const char * sae_get_password(struct hos
->>>>>>> 94392b39ec (稳定版本发布)
  		pt = hapd->conf->ssid.pt;
  	}
  
@@ -987,11 +758,7 @@ as adding/removing interfaces.
  		}
  	}
  
-<<<<<<< HEAD
-@@ -3489,6 +3512,12 @@ static void handle_auth(struct hostapd_d
-=======
 @@ -3429,6 +3452,12 @@ static void handle_auth(struct hostapd_d
->>>>>>> 94392b39ec (稳定版本发布)
  		goto fail;
  	}
  
@@ -1006,11 +773,7 @@ as adding/removing interfaces.
  
 --- a/src/ap/sta_info.c
 +++ b/src/ap/sta_info.c
-<<<<<<< HEAD
-@@ -477,6 +477,11 @@ void ap_free_sta(struct hostapd_data *ha
-=======
 @@ -476,6 +476,11 @@ void ap_free_sta(struct hostapd_data *ha
->>>>>>> 94392b39ec (稳定版本发布)
  	forced_memzero(sta->last_tk, WPA_TK_MAX_LEN);
  #endif /* CONFIG_TESTING_OPTIONS */
  
@@ -1022,11 +785,7 @@ as adding/removing interfaces.
  	os_free(sta);
  }
  
-<<<<<<< HEAD
-@@ -1576,6 +1581,8 @@ void ap_sta_set_authorized_event(struct
-=======
 @@ -1575,6 +1580,8 @@ void ap_sta_set_authorized_event(struct
->>>>>>> 94392b39ec (稳定版本发布)
  #endif /* CONFIG_P2P */
  	const u8 *ip_ptr = NULL;
  
@@ -1057,11 +816,7 @@ as adding/removing interfaces.
  	if (vlan_id)
  		*vlan_id = 0;
  	if (psk_len)
-<<<<<<< HEAD
-@@ -442,13 +443,18 @@ static const u8 * hostapd_wpa_auth_get_p
-=======
 @@ -438,13 +439,18 @@ static const u8 * hostapd_wpa_auth_get_p
->>>>>>> 94392b39ec (稳定版本发布)
  	 * returned psk which should not be returned again.
  	 * logic list (all hostapd_get_psk; all sta->psk)
  	 */
@@ -1081,11 +836,7 @@ as adding/removing interfaces.
  			if (pos->is_passphrase) {
  				if (pbkdf2_sha1(pos->passphrase,
  						hapd->conf->ssid.ssid,
-<<<<<<< HEAD
-@@ -462,9 +468,13 @@ static const u8 * hostapd_wpa_auth_get_p
-=======
 @@ -458,9 +464,13 @@ static const u8 * hostapd_wpa_auth_get_p
->>>>>>> 94392b39ec (稳定版本发布)
  			}
  			if (pos->psk == prev_psk) {
  				psk = pos->next ? pos->next->psk : NULL;

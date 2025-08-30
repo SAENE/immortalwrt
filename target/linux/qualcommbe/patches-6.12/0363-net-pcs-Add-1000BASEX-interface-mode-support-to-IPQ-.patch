@@ -10,13 +10,8 @@ Change-Id: Ied7298de3c1ecba74e6457a07fdd6b3ceab79728
 Signed-off-by: Lei Wei <quic_leiwei@quicinc.com>
 Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
 ---
-<<<<<<< HEAD
- drivers/net/pcs/pcs-qcom-ipq9574.c | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
-=======
  drivers/net/pcs/pcs-qcom-ipq9574.c | 18 ++++++++++++++++--
  1 file changed, 16 insertions(+), 2 deletions(-)
->>>>>>> 94392b39ec (稳定版本发布)
 
 --- a/drivers/net/pcs/pcs-qcom-ipq9574.c
 +++ b/drivers/net/pcs/pcs-qcom-ipq9574.c
@@ -67,19 +62,7 @@ Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
  		rate = ipq_unipcs_clock_rate_get_gmii(speed);
  		break;
  	case PHY_INTERFACE_MODE_2500BASEX:
-<<<<<<< HEAD
-@@ -657,6 +665,7 @@ static int ipq_pcs_validate(struct phyli
- 	case PHY_INTERFACE_MODE_SGMII:
- 	case PHY_INTERFACE_MODE_QSGMII:
- 	case PHY_INTERFACE_MODE_10GBASER:
-+	case PHY_INTERFACE_MODE_1000BASEX:
- 		return 0;
- 	case PHY_INTERFACE_MODE_2500BASEX:
- 		/* In-band autoneg is not supported for 2500BASEX */
-@@ -731,6 +740,10 @@ static void ipq_pcs_get_state(struct phy
-=======
 @@ -729,6 +737,10 @@ static void ipq_pcs_get_state(struct phy
->>>>>>> 94392b39ec (稳定版本发布)
  	case PHY_INTERFACE_MODE_SGMII:
  	case PHY_INTERFACE_MODE_QSGMII:
  	case PHY_INTERFACE_MODE_PSGMII:
@@ -90,11 +73,7 @@ Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
  		ipq_pcs_get_state_sgmii(qpcs, index, state);
  		break;
  	case PHY_INTERFACE_MODE_2500BASEX:
-<<<<<<< HEAD
-@@ -768,6 +781,7 @@ static int ipq_pcs_config(struct phylink
-=======
 @@ -766,6 +778,7 @@ static int ipq_pcs_config(struct phylink
->>>>>>> 94392b39ec (稳定版本发布)
  	case PHY_INTERFACE_MODE_SGMII:
  	case PHY_INTERFACE_MODE_QSGMII:
  	case PHY_INTERFACE_MODE_PSGMII:
@@ -102,11 +81,7 @@ Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
  		return ipq_pcs_config_sgmii(qpcs, index, neg_mode, interface);
  	case PHY_INTERFACE_MODE_2500BASEX:
  		return ipq_unipcs_config_2500basex(qpcs, interface);
-<<<<<<< HEAD
-@@ -800,6 +814,7 @@ static void ipq_pcs_link_up(struct phyli
-=======
 @@ -798,6 +811,7 @@ static void ipq_pcs_link_up(struct phyli
->>>>>>> 94392b39ec (稳定版本发布)
  	case PHY_INTERFACE_MODE_SGMII:
  	case PHY_INTERFACE_MODE_QSGMII:
  	case PHY_INTERFACE_MODE_PSGMII:

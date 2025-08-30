@@ -1,10 +1,6 @@
 --- a/drivers/net/wireless/ath/ath9k/init.c
 +++ b/drivers/net/wireless/ath/ath9k/init.c
-<<<<<<< HEAD
-@@ -1132,25 +1132,25 @@ static int __init ath9k_init(void)
-=======
 @@ -1178,25 +1178,25 @@ static int __init ath9k_init(void)
->>>>>>> 94392b39ec (稳定版本发布)
  {
  	int error;
  

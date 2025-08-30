@@ -40,10 +40,6 @@ tools-y += cpio
 tools-y += dosfstools
 tools-y += e2fsprogs
 tools-y += elfutils
-<<<<<<< HEAD
-tools-y += erofs-utils
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 tools-y += expat
 tools-y += fakeroot
 tools-y += findutils
@@ -101,17 +97,9 @@ $(curdir)/bison/compile := $(curdir)/flex/compile
 $(curdir)/bzip2/compile := $(curdir)/cmake/compile
 $(curdir)/cbootimage/compile += $(curdir)/automake/compile
 $(curdir)/cmake/compile += $(curdir)/libressl/compile $(curdir)/ninja/compile $(curdir)/expat/compile $(curdir)/xz/compile $(curdir)/zlib/compile $(curdir)/zstd/compile
-<<<<<<< HEAD
-$(curdir)/coreutils/compile := $(curdir)/automake/compile $(curdir)/bison/compile $(curdir)/gnulib/compile
-$(curdir)/dosfstools/compile := $(curdir)/automake/compile
-$(curdir)/e2fsprogs/compile := $(curdir)/libtool/compile $(curdir)/util-linux/compile
-$(curdir)/elfutils/compile := $(curdir)/bison/compile $(curdir)/gnulib/compile $(curdir)/m4/compile $(curdir)/zlib/compile
-$(curdir)/erofs-utils/compile := $(curdir)/libtool/compile $(curdir)/xz/compile $(curdir)/lz4/compile $(curdir)/util-linux/compile
-=======
 $(curdir)/dosfstools/compile := $(curdir)/automake/compile
 $(curdir)/e2fsprogs/compile := $(curdir)/libtool/compile $(curdir)/util-linux/compile
 $(curdir)/elfutils/compile := $(curdir)/m4/compile $(curdir)/zlib/compile $(curdir)/gnulib/compile $(curdir)/libtool/compile
->>>>>>> 94392b39ec (稳定版本发布)
 $(curdir)/fakeroot/compile := $(curdir)/libtool/compile
 $(curdir)/findutils/compile := $(curdir)/bison/compile
 $(curdir)/firmware-utils/compile += $(curdir)/cmake/compile
@@ -148,24 +136,10 @@ $(curdir)/util-linux/compile := $(curdir)/bison/compile $(curdir)/automake/compi
 $(curdir)/yafut/compile := $(curdir)/cmake/compile
 
 ifneq ($(HOST_OS),Linux)
-<<<<<<< HEAD
-  tools-y += coreutils
-else
-  tools-$(if $(CONFIG_BUILD_ALL_HOST_TOOLS)$(CONFIG_SDK),y) += coreutils
-endif
-ifneq ($(filter coreutils,$(tools-y)),)
-  $(curdir)/elfutils/compile += $(curdir)/coreutils/compile
-  $(curdir)/findutils/compile += $(curdir)/coreutils/compile
-  $(curdir)/squashfs4/compile += $(curdir)/coreutils/compile
-  $(curdir)/util-linux/compile += $(curdir)/coreutils/compile
-endif
-
-=======
   $(curdir)/coreutils/compile += $(curdir)/automake/compile $(curdir)/bison/compile $(curdir)/gnulib/compile
   $(curdir)/squashfs4/compile += $(curdir)/coreutils/compile
   tools-y += coreutils
 endif
->>>>>>> 94392b39ec (稳定版本发布)
 ifeq ($(HOST_OS),Darwin)
   tools-y += bash
 else

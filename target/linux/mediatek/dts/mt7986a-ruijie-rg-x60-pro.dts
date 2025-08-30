@@ -4,10 +4,6 @@
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/leds/common.h>
-<<<<<<< HEAD
-#include <dt-bindings/pinctrl/mt65xx.h>
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 #include "mt7986a.dtsi"
 
@@ -29,10 +25,6 @@
 
 	memory@40000000 {
 		reg = <0 0x40000000 0 0x20000000>;
-<<<<<<< HEAD
-		device_type = "memory";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	gpio-keys {
@@ -113,11 +105,6 @@
 		reset-deassert-us = <100000>;
 		reset-gpios = <&pio 6 GPIO_ACTIVE_LOW>;
 		realtek,aldps-enable;
-<<<<<<< HEAD
-		realtek,led-link-select = <0xa7 0x00 0x0>; /* led0 at 10/100/1000/2.5G/(2.5G lite)*/
-		realtek,led-act-select = <0x001b>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -129,15 +116,6 @@
 		};
 		conf-pu {
 			pins = "SPI2_CS", "SPI2_HOLD", "SPI2_WP";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable; /* bias-disable */
-		};
-		conf-pd {
-			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable; /* bias-disable */
-=======
 			drive-strength = <8>;
 			mediatek,pull-up-adv = <0>; /* bias-disable */
 		};
@@ -145,7 +123,6 @@
 			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
 			drive-strength = <8>;
 			mediatek,pull-down-adv = <0>; /* bias-disable */
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 
@@ -162,11 +139,7 @@
 			       "WF1_HB2", "WF1_HB3", "WF1_HB4", "WF1_HB0",
 			       "WF1_HB5", "WF1_HB6", "WF1_HB7", "WF1_HB8",
 			       "WF1_TOP_CLK", "WF1_TOP_DATA";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_4mA>;
-=======
 			drive-strength = <4>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };
@@ -257,37 +230,21 @@
 		port@0 {
 			reg = <0>;
 			label = "lan1";
-<<<<<<< HEAD
-			phy-handle = <&swphy0>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		port@1 {
 			reg = <1>;
 			label = "lan2";
-<<<<<<< HEAD
-			phy-handle = <&swphy1>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		port@2 {
 			reg = <2>;
 			label = "lan3";
-<<<<<<< HEAD
-			phy-handle = <&swphy2>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		port@3 {
 			reg = <3>;
 			label = "lan4";
-<<<<<<< HEAD
-			phy-handle = <&swphy3>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		port@6 {
@@ -303,70 +260,6 @@
 			};
 		};
 	};
-<<<<<<< HEAD
-
-	mdio {
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		swphy0: phy@0 {
-			reg = <0>;
-
-			mediatek,led-config = <
-				0x21 0x8009 /* BASIC_CTRL */
-				0x22 0x0c00 /* ON_DURATION */
-				0x23 0x1400 /* BLINK_DURATION */
-				0x24 0x8000 /* LED0_ON_CTRL */
-				0x25 0x0000 /* LED0_BLINK_CTRL */
-				0x26 0xc007 /* LED1_ON_CTRL */
-				0x27 0x003f /* LED1_BLINK_CTRL */
-			>;
-		};
-
-		swphy1: phy@1 {
-			reg = <1>;
-
-			mediatek,led-config = <
-				0x21 0x8009 /* BASIC_CTRL */
-				0x22 0x0c00 /* ON_DURATION */
-				0x23 0x1400 /* BLINK_DURATION */
-				0x24 0x8000 /* LED0_ON_CTRL */
-				0x25 0x0000 /* LED0_BLINK_CTRL */
-				0x26 0xc007 /* LED1_ON_CTRL */
-				0x27 0x003f /* LED1_BLINK_CTRL */
-			>;
-		};
-
-		swphy2: phy@2 {
-			reg = <2>;
-
-			mediatek,led-config = <
-				0x21 0x8009 /* BASIC_CTRL */
-				0x22 0x0c00 /* ON_DURATION */
-				0x23 0x1400 /* BLINK_DURATION */
-				0x24 0x8000 /* LED0_ON_CTRL */
-				0x25 0x0000 /* LED0_BLINK_CTRL */
-				0x26 0xc007 /* LED1_ON_CTRL */
-				0x27 0x003f /* LED1_BLINK_CTRL */
-			>;
-		};
-
-		swphy3: phy@3 {
-			reg = <3>;
-
-			mediatek,led-config = <
-				0x21 0x8009 /* BASIC_CTRL */
-				0x22 0x0c00 /* ON_DURATION */
-				0x23 0x1400 /* BLINK_DURATION */
-				0x24 0x8000 /* LED0_ON_CTRL */
-				0x25 0x0000 /* LED0_BLINK_CTRL */
-				0x26 0xc007 /* LED1_ON_CTRL */
-				0x27 0x003f /* LED1_BLINK_CTRL */
-			>;
-		};
-	};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &wifi {

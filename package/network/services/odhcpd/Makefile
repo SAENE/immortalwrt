@@ -8,11 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=odhcpd
-<<<<<<< HEAD
-PKG_RELEASE:=3
-=======
 PKG_RELEASE:=2
->>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL=$(PROJECT_GIT)/project/odhcpd.git

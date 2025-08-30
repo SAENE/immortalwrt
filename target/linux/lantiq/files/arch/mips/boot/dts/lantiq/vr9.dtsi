@@ -509,11 +509,7 @@
 			interrupts = <63>;
 		};
 
-<<<<<<< HEAD
-		ppe: ppe@e234000 {
-=======
 		ppe@e234000 {
->>>>>>> 94392b39ec (稳定版本发布)
 			compatible = "lantiq,ppe-xrx200";
 			reg = <0xe234000 0x3ffd>;
 			interrupt-parent = <&icu0>;

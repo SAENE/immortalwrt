@@ -137,8 +137,6 @@ config KERNEL_UBSAN_BOUNDS
 	  {str,mem}*cpy() family of functions (that is addressed by
 	  FORTIFY_SOURCE).
 
-<<<<<<< HEAD
-=======
 config KERNEL_UBSAN_NULL
 	bool "Enable checking of null pointers"
 	depends on KERNEL_UBSAN
@@ -146,7 +144,6 @@ config KERNEL_UBSAN_NULL
 	  This option enables detection of memory accesses via a
 	  null pointer.
 
->>>>>>> 94392b39ec (稳定版本发布)
 config KERNEL_UBSAN_TRAP
 	bool "On Sanitizer warnings, abort the running kernel code"
 	depends on KERNEL_UBSAN
@@ -448,11 +445,7 @@ config KERNEL_DEBUG_INFO
 
 config KERNEL_DEBUG_INFO_BTF
 	bool "Enable additional BTF type information"
-<<<<<<< HEAD
-	default y if (TARGET_armsr || TARGET_bcm27xx_bcm2709 || TARGET_bcm27xx_bcm2710 || TARGET_bcm27xx_bcm2711 || TARGET_bcm27xx_bcm2712 || TARGET_ipq806x_chromium || TARGET_mediatek_filogic || TARGET_mvebu_cortexa53 || TARGET_mvebu_cortexa72 || TARGET_qualcommax || TARGET_rockchip || TARGET_sunxi_cortexa53 || TARGET_x86_64) && BUILDBOT
-=======
 	default y if (TARGET_armsr || TARGET_bcm27xx_bcm2709 || TARGET_bcm27xx_bcm2710 || TARGET_bcm27xx_bcm2711 || TARGET_bcm27xx_bcm2712 || TARGET_ipq806x_chromium || TARGET_mediatek_filogic || TARGET_mvebu_cortexa53 || TARGET_mvebu_cortexa72 || TARGET_qualcommax || TARGET_rockchip || TARGET_sunxi || TARGET_x86_64) && BUILDBOT
->>>>>>> 94392b39ec (稳定版本发布)
 	depends on !HOST_OS_MACOS
 	depends on KERNEL_DEBUG_INFO && !KERNEL_DEBUG_INFO_REDUCED
 	select DWARVES
@@ -480,11 +473,7 @@ config KERNEL_MODULE_ALLOW_BTF_MISMATCH
 
 config KERNEL_DEBUG_INFO_REDUCED
 	bool "Reduce debugging information"
-<<<<<<< HEAD
-	default y if !(TARGET_armsr || TARGET_bcm27xx_bcm2709 || TARGET_bcm27xx_bcm2710 || TARGET_bcm27xx_bcm2711 || TARGET_bcm27xx_bcm2712 || TARGET_ipq806x_chromium || TARGET_mediatek_filogic || TARGET_mvebu_cortexa53 || TARGET_mvebu_cortexa72 || TARGET_qualcommax || TARGET_rockchip || TARGET_sunxi_cortexa53 || TARGET_x86_64) || !BUILDBOT
-=======
 	default y if !(TARGET_armsr || TARGET_bcm27xx_bcm2709 || TARGET_bcm27xx_bcm2710 || TARGET_bcm27xx_bcm2711 || TARGET_bcm27xx_bcm2712 || TARGET_ipq806x_chromium || TARGET_mediatek_filogic || TARGET_mvebu_cortexa53 || TARGET_mvebu_cortexa72 || TARGET_qualcommax || TARGET_rockchip || TARGET_sunxi || TARGET_x86_64) || !BUILDBOT
->>>>>>> 94392b39ec (稳定版本发布)
 	depends on KERNEL_DEBUG_INFO
 	help
 	  If you say Y here gcc is instructed to generate less debugging
@@ -511,11 +500,6 @@ config KERNEL_FRAME_WARN
 # KConfig wont evaluate them unless KERNEL_EARLY_PRINTK is selected
 # which means that buildroot wont override the DEBUG_LL symbols in target
 # kernel configurations and lead to devices that dont have working console
-<<<<<<< HEAD
-config KERNEL_DEBUG_LL
-	bool
-	depends on arm
-=======
 config KERNEL_DEBUG_LL_UART_NONE
 	bool
 	depends on arm
@@ -524,7 +508,6 @@ config KERNEL_DEBUG_LL
 	bool
 	depends on arm
 	select KERNEL_DEBUG_LL_UART_NONE
->>>>>>> 94392b39ec (稳定版本发布)
 	help
 	  ARM low level debugging.
 
@@ -774,14 +757,11 @@ config KERNEL_SLUB_DEBUG_ON
 	  This enables by default sanity_checks, red_zone, poison and store_user
 	  debugging options for all caches.
 
-<<<<<<< HEAD
-=======
 config KERNEL_SLABINFO
 	select KERNEL_SLUB_DEBUG
 	select KERNEL_SLUB_DEBUG_ON
 	bool "Enable /proc slab debug info"
 
->>>>>>> 94392b39ec (稳定版本发布)
 config KERNEL_STACKDEPOT_MAX_FRAMES
 	int
 	default 64
@@ -933,8 +913,6 @@ if KERNEL_CGROUPS
 		  Provides a simple Resource Controller for monitoring the
 		  total CPU consumed by the tasks in a cgroup.
 
-<<<<<<< HEAD
-=======
 	config KERNEL_RESOURCE_COUNTERS
 		bool "Resource counters"
 		default y
@@ -946,15 +924,11 @@ if KERNEL_CGROUPS
 		bool
 		default y if KERNEL_MEMCG
 
->>>>>>> 94392b39ec (稳定版本发布)
 	config KERNEL_MEMCG
 		bool "Memory Resource Controller for Control Groups"
 		default y
 		select KERNEL_FREEZER
-<<<<<<< HEAD
-=======
 		depends on KERNEL_RESOURCE_COUNTERS
->>>>>>> 94392b39ec (稳定版本发布)
 		help
 		  Provides a memory resource controller that manages both anonymous
 		  memory and page cache. (See Documentation/cgroups/memory.txt)
@@ -974,8 +948,6 @@ if KERNEL_CGROUPS
 		  This config option also selects MM_OWNER config option, which
 		  could in turn add some fork/exit overhead.
 
-<<<<<<< HEAD
-=======
 	config KERNEL_MEMCG_SWAP
 		bool "Memory Resource Controller Swap Extension"
 		default y
@@ -1010,7 +982,6 @@ if KERNEL_CGROUPS
 		  then swapaccount=0 does the trick).
 
 
->>>>>>> 94392b39ec (稳定版本发布)
 	config KERNEL_MEMCG_KMEM
 		bool "Memory Resource Controller Kernel Memory accounting (EXPERIMENTAL)"
 		default y
@@ -1181,8 +1152,6 @@ if KERNEL_NAMESPACES
 
 endif
 
-<<<<<<< HEAD
-=======
 config KERNEL_DEVPTS_MULTIPLE_INSTANCES
 	bool "Support multiple instances of devpts"
 	default y if !SMALL_FLASH
@@ -1193,7 +1162,6 @@ config KERNEL_DEVPTS_MULTIPLE_INSTANCES
 	  filesystem with the '-o newinstance' option will create an
 	  independent PTY namespace.
 
->>>>>>> 94392b39ec (稳定版本发布)
 config KERNEL_POSIX_MQUEUE
 	bool "POSIX Message Queues"
 	default y if !SMALL_FLASH
@@ -1397,26 +1365,6 @@ config KERNEL_BTRFS_FS
 	  Say Y here if you want to make the kernel to be able to boot off a
 	  BTRFS partition.
 
-<<<<<<< HEAD
-config KERNEL_EROFS_FS
-	bool "Compile the kernel with built-in EROFS support"
-	help
-	  Say Y here if you want to make the kernel to be able to boot off a
-	  EROFS partition.
-
-config KERNEL_EROFS_FS_XATTR
-	bool "EROFS XATTR support"
-
-config KERNEL_EROFS_FS_ZIP
-	bool
-	default y if KERNEL_EROFS_FS
-
-config KERNEL_EROFS_FS_ZIP_LZMA
-	bool
-	default y if KERNEL_EROFS_FS
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 menu "Filesystem ACL and attr support options"
 	config USE_FS_ACL_ATTR
 		bool "Use filesystem ACL and attr support by default"
@@ -1437,14 +1385,6 @@ menu "Filesystem ACL and attr support options"
 		select KERNEL_FS_POSIX_ACL
 		default y if USE_FS_ACL_ATTR
 
-<<<<<<< HEAD
-	config KERNEL_EROFS_FS_POSIX_ACL
-		bool "Enable POSIX ACL for EROFS Filesystems"
-		select KERNEL_FS_POSIX_ACL
-		default y if USE_FS_ACL_ATTR
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	config KERNEL_EXT4_FS_POSIX_ACL
 		bool "Enable POSIX ACL for Ext4 Filesystems"
 		select KERNEL_FS_POSIX_ACL
@@ -1517,8 +1457,6 @@ config KERNEL_DEVMEM
 	  The /dev/mem device is used to access areas of physical
 	  memory.
 
-<<<<<<< HEAD
-=======
 config KERNEL_DEVKMEM
 	bool "/dev/kmem virtual device support"
 	help
@@ -1526,7 +1464,6 @@ config KERNEL_DEVKMEM
 	  /dev/kmem device is rarely used, but can be used for certain
 	  kind of kernel debugging operations.
 
->>>>>>> 94392b39ec (稳定版本发布)
 config KERNEL_SQUASHFS_FRAGMENT_CACHE_SIZE
 	int "Number of squashfs fragments cached"
 	default 2 if (SMALL_FLASH && !LOW_MEMORY_FOOTPRINT)
@@ -1577,13 +1514,10 @@ config KERNEL_SECURITY_SELINUX_BOOTPARAM
 	depends on KERNEL_SECURITY_SELINUX
 	default y
 
-<<<<<<< HEAD
-=======
 config KERNEL_SECURITY_SELINUX_DISABLE
 	bool "NSA SELinux runtime disable"
 	depends on KERNEL_SECURITY_SELINUX
 
->>>>>>> 94392b39ec (稳定版本发布)
 config KERNEL_SECURITY_SELINUX_DEVELOP
 	bool "NSA SELinux Development Support"
 	depends on KERNEL_SECURITY_SELINUX
@@ -1604,14 +1538,6 @@ config KERNEL_LSM
 	default "lockdown,yama,loadpin,safesetid,integrity,selinux"
 	depends on KERNEL_SECURITY_SELINUX
 
-<<<<<<< HEAD
-config KERNEL_EROFS_FS_SECURITY
-	bool "EROFS Security Labels"
-	default y if !SMALL_FLASH
-	select KERNEL_EROFS_FS_XATTR
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 config KERNEL_EXT4_FS_SECURITY
 	bool "Ext4 Security Labels"
 	default y if !SMALL_FLASH

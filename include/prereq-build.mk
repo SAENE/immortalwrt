@@ -126,18 +126,10 @@ $(eval $(call SetupHostCommand,diff,Please install GNU diffutils, \
 	diff --version 2>&1 | grep GNU))
 
 $(eval $(call SetupHostCommand,cp,Please install GNU fileutils, \
-<<<<<<< HEAD
-	$(TOPDIR)/staging_dir/host/bin/gcp --help 2>&1 | grep 'Copy SOURCE', \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	gcp --help 2>&1 | grep 'Copy SOURCE', \
 	cp --help 2>&1 | grep 'Copy SOURCE'))
 
 $(eval $(call SetupHostCommand,seq,Please install seq, \
-<<<<<<< HEAD
-	$(TOPDIR)/staging_dir/host/bin/gseq --version, \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	gseq --version, \
 	seq --version 2>&1 | grep seq))
 
@@ -161,18 +153,10 @@ $(eval $(call SetupHostCommand,getopt, \
 	/opt/local/bin/getopt -o t --long test -- --test | grep '^ *--test *--'))
 
 $(eval $(call SetupHostCommand,realpath,Please install a 'realpath' utility, \
-<<<<<<< HEAD
-	$(TOPDIR)/staging_dir/host/bin/grealpath /, \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	grealpath /, \
 	realpath /))
 
 $(eval $(call SetupHostCommand,stat,Cannot find a file stat utility, \
-<<<<<<< HEAD
-	$(TOPDIR)/staging_dir/host/bin/gstat -c%s $(TOPDIR)/Makefile, \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	gnustat -c%s $(TOPDIR)/Makefile, \
 	gstat -c%s $(TOPDIR)/Makefile, \
 	stat -c%s $(TOPDIR)/Makefile))
@@ -191,10 +175,6 @@ $(eval $(call SetupHostCommand,wget,Please install GNU 'wget', \
 	wget --version | grep GNU))
 
 $(eval $(call SetupHostCommand,install,Please install GNU 'install', \
-<<<<<<< HEAD
-	$(TOPDIR)/staging_dir/host/bin/ginstall --version | grep GNU, \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	install --version | grep GNU, \
 	ginstall --version | grep GNU))
 

@@ -44,11 +44,7 @@ static  struct  sigaction sigact;
 #endif
 
 /*ARGSUSED*/
-<<<<<<< HEAD
-static void
-=======
 static RETSIGTYPE
->>>>>>> 94392b39ec (稳定版本发布)
 sig_catch (sig)
 int     sig;
 {

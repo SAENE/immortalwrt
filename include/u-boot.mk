@@ -29,11 +29,6 @@ endif
 ifdef UBOOT_USE_INTREE_DTC
   $(eval $(call TestHostCommand,python3-dev, \
     Please install the python3-dev package, \
-<<<<<<< HEAD
-    python3.13-config --includes 2>&1 | grep 'python3', \
-    python3.12-config --includes 2>&1 | grep 'python3', \
-=======
->>>>>>> 94392b39ec (稳定版本发布)
     python3.11-config --includes 2>&1 | grep 'python3', \
     python3.10-config --includes 2>&1 | grep 'python3', \
     python3.9-config --includes 2>&1 | grep 'python3', \

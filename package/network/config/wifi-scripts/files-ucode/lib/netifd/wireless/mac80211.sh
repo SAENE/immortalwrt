@@ -8,10 +8,6 @@ import * as supplicant from 'wifi.supplicant';
 import * as hostapd from 'wifi.hostapd';
 import * as netifd from 'wifi.netifd';
 import * as iface from 'wifi.iface';
-<<<<<<< HEAD
-import { find_phy } from 'wifi.utils';
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 import * as nl80211 from 'nl80211';
 import * as fs from 'fs';
 
@@ -45,8 +41,6 @@ function reset_config(phy, radio) {
 	system(`ucode /usr/share/hostap/wdev.uc ${name} set_config '{}'`);
 }
 
-<<<<<<< HEAD
-=======
 function phy_filename(phy, name) {
 	return `/sys/class/ieee80211/${phy}/${name}`;
 }
@@ -142,7 +136,6 @@ function find_phy(config) {
 	       find_phy_by_name(phys, config.phy);
 }
 
->>>>>>> 94392b39ec (稳定版本发布)
 function get_channel_frequency(band, channel) {
 	if (channel < 1)
 		return null;
@@ -205,15 +198,9 @@ function setup_phy(phy, config, data) {
 	system(`iw phy ${phy} set txpower ${config.txpower}`);
 
 	if (config.frag)
-<<<<<<< HEAD
-		system(`iw phy ${phy} set frag ${config.frag}`);
-	if (config.rts)
-		system(`iw phy ${phy} set rts ${config.rts}`);
-=======
 		system(`iw phy ${phy} set frag ${frag}`);
 	if (config.rts)
 		system(`iw phy ${phy} set rts ${rts}`);
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 function iw_htmode(config) {
@@ -264,47 +251,10 @@ function config_add_mesh_params(config, data) {
 		config_add(config, param, data[param]);
 }
 
-<<<<<<< HEAD
-function setup_mlo(data) {
-	let config = {};
-	let idx = 0;
-
-	for (let k, v in data.interfaces) {
-		let ifname = v.config.ifname;
-		if (!ifname)
-			ifname = 'ap-mld' + idx++;
-
-		delete v.config.ifname;
-		config[ifname] = v.config;
-		netifd.set_vif(k, ifname);
-
-		v.config.phy = find_phy(v.config.radio_config[0], true);
-		delete v.config.radio_config;
-	}
-
-	let ret = ubus.call('hostapd', 'mld_set', { config });
-	if (type(ret) != "object")
-		return netifd.setup_failed('HOSTAPD_START_FAILED');
-
-	netifd.add_process('/usr/sbin/hostapd', ret.pid, true, true);
-	netifd.set_up();
-
-	return 0;
-}
-
-function setup() {
-	let data = json(ARGV[3]);
-
-	if (ARGV[2] == "#mlo")
-		return setup_mlo(data);
-
-	data.phy = find_phy(data.config, true);
-=======
 function setup() {
 	let data = json(ARGV[3]);
 
 	data.phy = find_phy(data.config);
->>>>>>> 94392b39ec (稳定版本发布)
 	if (!data.phy) {
 		log('Bug: PHY is undefined for device');
 		netifd.set_retry(false);
@@ -344,10 +294,6 @@ function setup() {
 		}
 
 		switch (mode) {
-<<<<<<< HEAD
-		case 'link':
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		case 'ap':
 			has_ap = true;
 			// fallthrough
@@ -358,12 +304,7 @@ function setup() {
 				data.config.noscan = true;
 			validate('iface', v.config);
 			iface.prepare(v.config, data.phy + data.phy_suffix, data.config.num_global_macaddr, data.config.macaddr_base);
-<<<<<<< HEAD
-			if (mode != "link")
-				netifd.set_vif(k, v.config.ifname);
-=======
 			netifd.set_vif(k, v.config.ifname);
->>>>>>> 94392b39ec (稳定版本发布)
 			break;
 		}
 
@@ -430,12 +371,6 @@ function setup() {
 function teardown() {
 	let data = json(ARGV[3]);
 
-<<<<<<< HEAD
-	if (ARGV[2] == "#mlo")
-		return 0;
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	if (!data.data?.phy) {
 		log('Bug: PHY is undefined for device');
 		return 1;

@@ -563,10 +563,6 @@ mac80211_hostapd_setup_bss() {
 $hostapd_cfg
 bssid=$macaddr
 ${default_macaddr:+#default_macaddr}
-<<<<<<< HEAD
-${random_macaddr:+#random_macaddr}
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 ${dtim_period:+dtim_period=$dtim_period}
 ${max_listen_int:+max_listen_interval=$max_listen_int}
 EOF
@@ -695,20 +691,12 @@ mac80211_prepare_vif() {
 	json_add_string _ifname "$ifname"
 
 	default_macaddr=
-<<<<<<< HEAD
-	random_macaddr=
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	if [ -z "$macaddr" ]; then
 		macaddr="$(mac80211_generate_mac $phy)"
 		macidx="$(($macidx + 1))"
 		default_macaddr=1
 	elif [ "$macaddr" = 'random' ]; then
 		macaddr="$(macaddr_random)"
-<<<<<<< HEAD
-		random_macaddr=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	fi
 	json_add_string _macaddr "$macaddr"
 	json_add_string _default_macaddr "$default_macaddr"
@@ -1027,11 +1015,7 @@ mac80211_setup_supplicant() {
 	wpa_supplicant_prepare_interface "$ifname" nl80211 || return 1
 
 	if [ "$mode" = "sta" ]; then
-<<<<<<< HEAD
-		wpa_supplicant_add_network "$ifname" "" "$htmode"
-=======
 		wpa_supplicant_add_network "$ifname"
->>>>>>> 94392b39ec (稳定版本发布)
 	else
 		wpa_supplicant_add_network "$ifname" "$freq" "$htmode" "$hostapd_noscan"
 	fi

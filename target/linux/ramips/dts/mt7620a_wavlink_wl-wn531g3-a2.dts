@@ -175,11 +175,7 @@
 };
 
 &pcie0 {
-<<<<<<< HEAD
-	wifi@0,0 {
-=======
 	mt76@0,0 {
->>>>>>> 94392b39ec (稳定版本发布)
 		compatible = "mediatek,mt76";
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&eeprom_radio_8000>;

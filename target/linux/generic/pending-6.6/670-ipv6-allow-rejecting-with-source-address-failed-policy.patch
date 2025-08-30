@@ -185,11 +185,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  		cfg->fc_flags |= RTF_REJECT;
  
  	if (rtm->rtm_type == RTN_LOCAL)
-<<<<<<< HEAD
-@@ -6349,6 +6380,8 @@ static int ip6_route_dev_notify(struct n
-=======
 @@ -6341,6 +6372,8 @@ static int ip6_route_dev_notify(struct n
->>>>>>> 94392b39ec (稳定版本发布)
  #ifdef CONFIG_IPV6_MULTIPLE_TABLES
  		net->ipv6.ip6_prohibit_entry->dst.dev = dev;
  		net->ipv6.ip6_prohibit_entry->rt6i_idev = in6_dev_get(dev);
@@ -198,11 +194,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  		net->ipv6.ip6_blk_hole_entry->dst.dev = dev;
  		net->ipv6.ip6_blk_hole_entry->rt6i_idev = in6_dev_get(dev);
  #endif
-<<<<<<< HEAD
-@@ -6360,6 +6393,7 @@ static int ip6_route_dev_notify(struct n
-=======
 @@ -6352,6 +6385,7 @@ static int ip6_route_dev_notify(struct n
->>>>>>> 94392b39ec (稳定版本发布)
  		in6_dev_put_clear(&net->ipv6.ip6_null_entry->rt6i_idev);
  #ifdef CONFIG_IPV6_MULTIPLE_TABLES
  		in6_dev_put_clear(&net->ipv6.ip6_prohibit_entry->rt6i_idev);
@@ -210,11 +202,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  		in6_dev_put_clear(&net->ipv6.ip6_blk_hole_entry->rt6i_idev);
  #endif
  	}
-<<<<<<< HEAD
-@@ -6560,6 +6594,8 @@ static int __net_init ip6_route_net_init
-=======
 @@ -6552,6 +6586,8 @@ static int __net_init ip6_route_net_init
->>>>>>> 94392b39ec (稳定版本发布)
  
  #ifdef CONFIG_IPV6_MULTIPLE_TABLES
  	net->ipv6.fib6_has_custom_rules = false;
@@ -223,11 +211,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  	net->ipv6.ip6_prohibit_entry = kmemdup(&ip6_prohibit_entry_template,
  					       sizeof(*net->ipv6.ip6_prohibit_entry),
  					       GFP_KERNEL);
-<<<<<<< HEAD
-@@ -6570,11 +6606,21 @@ static int __net_init ip6_route_net_init
-=======
 @@ -6562,11 +6598,21 @@ static int __net_init ip6_route_net_init
->>>>>>> 94392b39ec (稳定版本发布)
  			 ip6_template_metrics, true);
  	INIT_LIST_HEAD(&net->ipv6.ip6_prohibit_entry->dst.rt_uncached);
  
@@ -250,11 +234,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  	net->ipv6.ip6_blk_hole_entry->dst.ops = &net->ipv6.ip6_dst_ops;
  	dst_init_metrics(&net->ipv6.ip6_blk_hole_entry->dst,
  			 ip6_template_metrics, true);
-<<<<<<< HEAD
-@@ -6601,6 +6647,8 @@ out:
-=======
 @@ -6593,6 +6639,8 @@ out:
->>>>>>> 94392b39ec (稳定版本发布)
  	return ret;
  
  #ifdef CONFIG_IPV6_MULTIPLE_TABLES
@@ -263,11 +243,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  out_ip6_prohibit_entry:
  	kfree(net->ipv6.ip6_prohibit_entry);
  out_ip6_null_entry:
-<<<<<<< HEAD
-@@ -6620,6 +6668,7 @@ static void __net_exit ip6_route_net_exi
-=======
 @@ -6612,6 +6660,7 @@ static void __net_exit ip6_route_net_exi
->>>>>>> 94392b39ec (稳定版本发布)
  	kfree(net->ipv6.ip6_null_entry);
  #ifdef CONFIG_IPV6_MULTIPLE_TABLES
  	kfree(net->ipv6.ip6_prohibit_entry);
@@ -275,11 +251,7 @@ Signed-off-by: Jonas Gorski <jogo@openwrt.org>
  	kfree(net->ipv6.ip6_blk_hole_entry);
  #endif
  	dst_entries_destroy(&net->ipv6.ip6_dst_ops);
-<<<<<<< HEAD
-@@ -6703,6 +6752,9 @@ void __init ip6_route_init_special_entri
-=======
 @@ -6695,6 +6744,9 @@ void __init ip6_route_init_special_entri
->>>>>>> 94392b39ec (稳定版本发布)
  	init_net.ipv6.ip6_prohibit_entry->rt6i_idev = in6_dev_get(init_net.loopback_dev);
  	init_net.ipv6.ip6_blk_hole_entry->dst.dev = init_net.loopback_dev;
  	init_net.ipv6.ip6_blk_hole_entry->rt6i_idev = in6_dev_get(init_net.loopback_dev);

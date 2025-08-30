@@ -15,11 +15,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 --- a/drivers/usb/host/xhci-pci.c
 +++ b/drivers/usb/host/xhci-pci.c
-<<<<<<< HEAD
-@@ -991,10 +991,10 @@ static const struct xhci_driver_data ren
-=======
 @@ -966,10 +966,10 @@ static const struct xhci_driver_data ren
->>>>>>> 94392b39ec (稳定版本发布)
  
  /* PCI driver selection metadata; PCI hotplugging uses this */
  static const struct pci_device_id pci_ids[] = {

@@ -1,10 +1,6 @@
 --- a/lib/ialloc.h
 +++ b/lib/ialloc.h
-<<<<<<< HEAD
-@@ -91,6 +91,8 @@ icalloc (idx_t n, idx_t s)
-=======
 @@ -106,6 +106,8 @@ icalloc (idx_t n, idx_t s)
->>>>>>> 94392b39ec (稳定版本发布)
    return calloc (n, s);
  }
  
@@ -13,13 +9,8 @@
  /* ireallocarray (ptr, num, size) is like reallocarray (ptr, num, size).
     It returns a non-NULL pointer to num * size bytes of memory.
     Upon failure, it returns NULL with errno set.  */
-<<<<<<< HEAD
-@@ -102,6 +104,8 @@ ireallocarray (void *p, idx_t n, idx_t s
-           : _gl_alloc_nomem ());
-=======
 @@ -131,6 +133,8 @@ ireallocarray (void *p, idx_t n, idx_t s
      return _gl_alloc_nomem ();
->>>>>>> 94392b39ec (稳定版本发布)
  }
  
 +#endif /* GNULIB_REALLOCARRAY */
@@ -30,11 +21,7 @@
 --- a/lib/xmalloc.c
 +++ b/lib/xmalloc.c
 @@ -51,12 +51,16 @@ ximalloc (idx_t s)
-<<<<<<< HEAD
-   return check_nonnull (imalloc (s));
-=======
    return nonnull (imalloc (s));
->>>>>>> 94392b39ec (稳定版本发布)
  }
  
 +#if GNULIB_REALLOCARRAY
@@ -51,11 +38,7 @@
     with error checking.  */
  
 @@ -75,6 +79,8 @@ xirealloc (void *p, idx_t s)
-<<<<<<< HEAD
-   return check_nonnull (irealloc (p, s));
-=======
    return nonnull (irealloc (p, s));
->>>>>>> 94392b39ec (稳定版本发布)
  }
  
 +#if GNULIB_REALLOCARRAY
@@ -74,28 +57,7 @@
     new size.  The new array will contain at least N_INCR_MIN more
 --- a/lib/xalloc.h
 +++ b/lib/xalloc.h
-<<<<<<< HEAD
-@@ -81,10 +81,16 @@ void *xrealloc (void *p, size_t s)
-   _GL_ATTRIBUTE_ALLOC_SIZE ((2));
- void *xirealloc (void *p, idx_t s)
-   _GL_ATTRIBUTE_ALLOC_SIZE ((2)) _GL_ATTRIBUTE_RETURNS_NONNULL;
-+
-+# if GNULIB_REALLOCARRAY
-+
- void *xreallocarray (void *p, size_t n, size_t s)
-   _GL_ATTRIBUTE_ALLOC_SIZE ((2, 3));
- void *xireallocarray (void *p, idx_t n, idx_t s)
-   _GL_ATTRIBUTE_ALLOC_SIZE ((2, 3)) _GL_ATTRIBUTE_RETURNS_NONNULL;
-+
-+# endif /* GNULIB_REALLOCARRAY */
-+
- void *x2realloc (void *p, size_t *ps) /* superseded by xpalloc */
-   _GL_ATTRIBUTE_RETURNS_NONNULL;
- void *x2nrealloc (void *p, size_t *pn, size_t s) /* superseded by xpalloc */
-@@ -129,6 +135,7 @@ char *xstrdup (char const *str)
-=======
 @@ -129,6 +129,7 @@ char *xstrdup (char const *str)
->>>>>>> 94392b39ec (稳定版本发布)
  # define XCALLOC(n, t) \
      ((t *) (sizeof (t) == 1 ? xzalloc (n) : xcalloc (n, sizeof (t))))
  
@@ -103,11 +65,7 @@
  
  /* Allocate an array of N objects, each with S bytes of memory,
     dynamically, with error checking.  S must be nonzero.  */
-<<<<<<< HEAD
-@@ -156,6 +163,8 @@ char *xcharalloc (size_t n)
-=======
 @@ -156,6 +157,8 @@ char *xcharalloc (size_t n)
->>>>>>> 94392b39ec (稳定版本发布)
    _GL_ATTRIBUTE_MALLOC _GL_ATTRIBUTE_DEALLOC_FREE
    _GL_ATTRIBUTE_ALLOC_SIZE ((1)) _GL_ATTRIBUTE_RETURNS_NONNULL;
  
@@ -118,17 +76,6 @@
  
 --- a/lib/safe-alloc.h
 +++ b/lib/safe-alloc.h
-<<<<<<< HEAD
-@@ -37,7 +37,6 @@ _GL_INLINE_HEADER_BEGIN
- extern "C" {
- #endif
- 
--
- /* Don't call this directly - use the macros below.  */
- _GL_ATTRIBUTE_NODISCARD SAFE_ALLOC_INLINE int
- safe_alloc_check (void *ptr)
-@@ -72,6 +71,8 @@ safe_alloc_check (void *ptr)
-=======
 @@ -36,6 +36,8 @@ _GL_INLINE_HEADER_BEGIN
  # define SAFE_ALLOC_INLINE _GL_INLINE
  #endif
@@ -149,7 +96,6 @@
  safe_alloc_check (void *ptr)
  {
 @@ -84,6 +89,8 @@ safe_alloc_check (void *ptr)
->>>>>>> 94392b39ec (稳定版本发布)
  #define ALLOC_N(ptr, count) \
    safe_alloc_check ((ptr) = calloc (count, sizeof *(ptr)))
  
@@ -158,94 +104,12 @@
  /**
   * ALLOC_N_UNINITIALIZED:
   * @ptr: pointer to allocated memory
-<<<<<<< HEAD
-@@ -100,6 +101,8 @@ safe_alloc_check (void *ptr)
- #define REALLOC_N(ptr, count) \
-   safe_alloc_check ((ptr) = reallocarray (ptr, count, sizeof *(ptr)))
-=======
 @@ -112,6 +119,8 @@ safe_alloc_check (void *ptr)
  #define REALLOC_N(ptr, count) \
    safe_alloc_check ((ptr) = safe_alloc_realloc_n (ptr, count, sizeof *(ptr)))
->>>>>>> 94392b39ec (稳定版本发布)
  
 +#endif /* GNULIB_REALLOCARRAY */
 +
  /**
   * FREE:
   * @ptr: pointer holding address to be freed
-<<<<<<< HEAD
---- a/lib/dfa.c
-+++ b/lib/dfa.c
-@@ -1620,6 +1620,8 @@ lex (struct dfa *dfa)
-     }
- }
- 
-+#if GNULIB_REALLOCARRAY
-+
- static void
- addtok_mb (struct dfa *dfa, token t, char mbprop)
- {
-@@ -1674,6 +1676,8 @@ addtok_mb (struct dfa *dfa, token t, cha
-     }
- }
- 
-+#endif /* GNULIB_REALLOCARRAY */
-+
- static void addtok_wc (struct dfa *dfa, wint_t wc);
- 
- /* Add the given token to the parse tree, maintaining the depth count and
-@@ -2934,6 +2938,8 @@ dfaanalyze (struct dfa *d, bool searchfl
-   free (tmp.elems);
- }
- 
-+#if GNULIB_REALLOCARRAY
-+
- /* Make sure D's state arrays are large enough to hold NEW_STATE.  */
- static void
- realloc_trans_if_necessary (struct dfa *d)
-@@ -2969,6 +2975,8 @@ realloc_trans_if_necessary (struct dfa *
-     }
- }
- 
-+#endif /* GNULIB_REALLOCARRAY */
-+
- /*
-    Calculate the transition table for a new state derived from state s
-    for a compiled dfa d after input character uc, and return the new
-@@ -4010,6 +4018,8 @@ freelist (char **cpp)
-     free (*cpp++);
- }
- 
-+#if GNULIB_REALLOCARRAY
-+
- static char **
- enlistnew (char **cpp, char *new)
- {
-@@ -4046,6 +4056,8 @@ enlist (char **cpp, char const *str, idx
-   return enlistnew (cpp, ximemdup0 (str, len));
- }
- 
-+#endif /* GNULIB_REALLOCARRAY */
-+
- /* Given pointers to two strings, return a pointer to an allocated
-    list of their distinct common substrings.  */
- static char **
---- a/lib/readtokens.c
-+++ b/lib/readtokens.c
-@@ -128,6 +128,8 @@ readtoken (FILE *stream,
-   return i;
- }
- 
-+#if GNULIB_REALLOCARRAY
-+
- /* Build a NULL-terminated array of pointers to tokens
-    read from STREAM.  Return the number of tokens read.
-    All storage is obtained through calls to xmalloc-like functions.
-@@ -190,3 +192,5 @@ readtokens (FILE *stream,
-     free (lengths);
-   return n_tokens;
- }
-+
-+#endif /* GNULIB_REALLOCARRAY */
-=======
->>>>>>> 94392b39ec (稳定版本发布)

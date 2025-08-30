@@ -18,10 +18,6 @@ sub target_config_features(@) {
 		/^dt$/ and $ret .= "\tselect USES_DEVICETREE\n";
 		/^dt-overlay$/ and $ret .= "\tselect HAS_DT_OVERLAY_SUPPORT\n";
 		/^emmc$/ and $ret .= "\tselect EMMC_SUPPORT\n";
-<<<<<<< HEAD
-		/^erofs$/ and $ret .= "\tselect USES_EROFS\n";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		/^ext4$/ and $ret .= "\tselect USES_EXT4\n";
 		/^fpu$/ and $ret .= "\tselect HAS_FPU\n";
 		/^gpio$/ and $ret .= "\tselect GPIO_SUPPORT\n";
@@ -36,11 +32,6 @@ sub target_config_features(@) {
 		/^pci$/ and $ret .= "\tselect PCI_SUPPORT\n";
 		/^pcie$/ and $ret .= "\tselect PCIE_SUPPORT\n";
 		/^pcmcia$/ and $ret .= "\tselect PCMCIA_SUPPORT\n";
-<<<<<<< HEAD
-		/^pinctrl$/ and $ret .= "\tselect PINCTRL_SUPPORT\n";
-		/^pm$/ and $ret .= "\tselect USES_PM\n";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		/^powerpc64$/ and $ret .= "\tselect powerpc64\n";
 		/^pwm$/ and $ret .= "\select PWM_SUPPORT\n";
 		/^ramdisk$/ and $ret .= "\tselect USES_INITRAMFS\n";

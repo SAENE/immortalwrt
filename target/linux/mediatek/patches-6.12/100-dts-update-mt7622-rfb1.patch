@@ -41,21 +41,6 @@
  		device_type = "memory";
  	};
  
-<<<<<<< HEAD
-@@ -134,9 +133,9 @@
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		switch@0 {
-+		switch@1f {
- 			compatible = "mediatek,mt7531";
--			reg = <0>;
-+			reg = <31>;
- 			reset-gpios = <&pio 54 0>;
- 
- 			ports {
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 @@ -145,22 +144,22 @@
  
  				port@0 {

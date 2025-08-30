@@ -1,10 +1,6 @@
 --- a/src/ap/sta_info.c
 +++ b/src/ap/sta_info.c
-<<<<<<< HEAD
-@@ -1981,3 +1981,22 @@ void ap_sta_free_sta_profile(struct mld_
-=======
 @@ -1971,3 +1971,22 @@ void ap_sta_free_sta_profile(struct mld_
->>>>>>> 94392b39ec (稳定版本发布)
  	}
  }
  #endif /* CONFIG_IEEE80211BE */
@@ -29,11 +25,7 @@
 +
 --- a/src/ap/sta_info.h
 +++ b/src/ap/sta_info.h
-<<<<<<< HEAD
-@@ -412,23 +412,8 @@ int ap_sta_re_add(struct hostapd_data *h
-=======
 @@ -411,23 +411,8 @@ int ap_sta_re_add(struct hostapd_data *h
->>>>>>> 94392b39ec (稳定版本发布)
  
  void ap_free_sta_pasn(struct hostapd_data *hapd, struct sta_info *sta);
  

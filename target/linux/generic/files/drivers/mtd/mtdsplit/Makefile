@@ -17,7 +17,3 @@ obj-$(CONFIG_MTD_SPLIT_MINOR_FW) += mtdsplit_minor.o
 obj-$(CONFIG_MTD_SPLIT_JIMAGE_FW) += mtdsplit_jimage.o
 obj-$(CONFIG_MTD_SPLIT_ELF_FW) += mtdsplit_elf.o
 obj-$(CONFIG_MTD_SPLIT_H3C_VFS) += mtdsplit_h3c_vfs.o
-<<<<<<< HEAD
-obj-$(CONFIG_MTD_SPLIT_MSTC_BOOT) += mtdsplit_mstc_boot.o
-=======
->>>>>>> 94392b39ec (稳定版本发布)

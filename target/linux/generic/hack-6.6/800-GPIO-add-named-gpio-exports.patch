@@ -15,11 +15,7 @@ Signed-off-by: John Crispin <blogic@openwrt.org>
  
  #include "gpiolib.h"
  #include "gpiolib-of.h"
-<<<<<<< HEAD
-@@ -1138,3 +1140,73 @@ void of_gpiochip_remove(struct gpio_chip
-=======
 @@ -1129,3 +1131,73 @@ void of_gpiochip_remove(struct gpio_chip
->>>>>>> 94392b39ec (稳定版本发布)
  {
  	of_node_put(dev_of_node(&chip->gpiodev->dev));
  }

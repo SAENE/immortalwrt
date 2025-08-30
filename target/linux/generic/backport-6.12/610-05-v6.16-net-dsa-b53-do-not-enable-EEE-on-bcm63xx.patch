@@ -26,11 +26,7 @@ Signed-off-by: Paolo Abeni <pabeni@redhat.com>
 
 --- a/drivers/net/dsa/b53/b53_common.c
 +++ b/drivers/net/dsa/b53/b53_common.c
-<<<<<<< HEAD
-@@ -2382,6 +2382,9 @@ int b53_eee_init(struct dsa_switch *ds,
-=======
 @@ -2353,6 +2353,9 @@ int b53_eee_init(struct dsa_switch *ds,
->>>>>>> 94392b39ec (稳定版本发布)
  {
  	int ret;
  
@@ -40,11 +36,7 @@ Signed-off-by: Paolo Abeni <pabeni@redhat.com>
  	ret = phy_init_eee(phy, false);
  	if (ret)
  		return 0;
-<<<<<<< HEAD
-@@ -2396,7 +2399,7 @@ bool b53_support_eee(struct dsa_switch *
-=======
 @@ -2367,7 +2370,7 @@ bool b53_support_eee(struct dsa_switch *
->>>>>>> 94392b39ec (稳定版本发布)
  {
  	struct b53_device *dev = ds->priv;
  

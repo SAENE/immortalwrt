@@ -1,24 +1,15 @@
 // SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 
-<<<<<<< HEAD
-#include "qca9550_dell_apl2x.dtsi"
-=======
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
 
 #include "qca955x.dtsi"
->>>>>>> 94392b39ec (稳定版本发布)
 
 / {
 	model = "Dell SonicPoint ACe (APL26-0AE)";
 	compatible = "dell,apl26-0ae", "qca,qca9550", "qca,qca9558";
 
-<<<<<<< HEAD
-	keys {
-		button-reset {
-			gpios = <&gpio 21 GPIO_ACTIVE_LOW>;
-=======
 	aliases {
 		label-mac-device = &eth0;
 		led-boot = &led_wrench;
@@ -33,7 +24,6 @@
 			label = "reset";
 			gpios = <&gpio 21 GPIO_ACTIVE_LOW>;
 			linux,code = <KEY_RESTART>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		/* Accessible only after disassembling the casing */
@@ -45,9 +35,6 @@
 	};
 
 	leds {
-<<<<<<< HEAD
-		led-lan1-amber {
-=======
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
 		pinctrl-0 = <&jtag_disable_pins>;
@@ -56,57 +43,38 @@
 			color = <LED_COLOR_ID_AMBER>;
 			function = LED_FUNCTION_LAN;
 			function-enumerator = <1>;
->>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
 		};
 
 		led-lan1-green {
-<<<<<<< HEAD
-=======
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_LAN;
 			function-enumerator = <1>;
->>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio 3 GPIO_ACTIVE_LOW>;
 		};
 
 		led-lan2-amber {
-<<<<<<< HEAD
-=======
 			color = <LED_COLOR_ID_AMBER>;
 			function = LED_FUNCTION_LAN;
 			function-enumerator = <2>;
->>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio 17 GPIO_ACTIVE_LOW>;
 		};
 
 		led-lan2-green {
-<<<<<<< HEAD
-=======
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_LAN;
 			function-enumerator = <2>;
->>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio 14 GPIO_ACTIVE_LOW>;
 		};
 
 		led-wlan2g {
-<<<<<<< HEAD
-=======
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_WLAN_2GHZ;
 			linux,default-trigger = "phy1tpt";
->>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio 1 GPIO_ACTIVE_LOW>;
 		};
 
 		led-wlan5g {
-<<<<<<< HEAD
-			gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
-		};
-
-		led-wrench {
-=======
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_WLAN_5GHZ;
 			linux,default-trigger = "phy0tpt";
@@ -116,16 +84,11 @@
 		led_wrench: led-wrench {
 			color = <LED_COLOR_ID_AMBER>;
 			function = LED_FUNCTION_STATUS;
->>>>>>> 94392b39ec (稳定版本发布)
 			gpios = <&gpio 0 GPIO_ACTIVE_LOW>;
 		};
 	};
 };
 
-<<<<<<< HEAD
-&pcie0 {
-	wifi@0,0 {
-=======
 &eth0 {
 	status = "okay";
 
@@ -175,7 +138,6 @@
 		compatible = "qcom,ath10k";
 		reg = <0x0000 0 0 0 0>;
 
->>>>>>> 94392b39ec (稳定版本发布)
 		/* OEM overwrites EEPROM stored adress and so do we */
 		nvmem-cells = <&macaddr_sysinfo_50 2>;
 		nvmem-cell-names = "mac-address";
@@ -183,12 +145,6 @@
 };
 
 &spi {
-<<<<<<< HEAD
-	flash@0 {
-		broken-flash-reset;
-	};
-};
-=======
 	status = "okay";
 
 	flash@0 {
@@ -270,4 +226,3 @@
 	nvmem-cells = <&macaddr_sysinfo_50 10>, <&cal_art_1000>;
 	nvmem-cell-names = "mac-address", "calibration";
 };
->>>>>>> 94392b39ec (稳定版本发布)

@@ -4,10 +4,6 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
-<<<<<<< HEAD
-#include <dt-bindings/pinctrl/mt65xx.h>
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 #include "mt7981b.dtsi"
 
@@ -29,14 +25,8 @@
 		stdout-path = "serial0:115200n8";
 	};
 
-<<<<<<< HEAD
-	memory@40000000 {
-		reg = <0 0x40000000 0 0x10000000>;
-		device_type = "memory";
-=======
 	memory {
 		reg = <0 0x40000000 0 0x10000000>;
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	gpio-keys {
@@ -224,24 +214,14 @@
 
 		conf-pu {
 			pins = "SPI0_CS", "SPI0_HOLD", "SPI0_WP";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable; /* bias-disable */
-=======
 			drive-strength = <8>;
 			mediatek,pull-up-adv = <0>; /* bias-disable */
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		conf-pd {
 			pins = "SPI0_CLK", "SPI0_MOSI", "SPI0_MISO";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable; /* bias-disable */
-=======
 			drive-strength = <8>;
 			mediatek,pull-up-adv = <0>; /* bias-disable */
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };

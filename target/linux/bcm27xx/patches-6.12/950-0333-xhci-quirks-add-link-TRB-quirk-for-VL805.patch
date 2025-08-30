@@ -24,11 +24,7 @@ Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
 
 --- a/drivers/usb/host/xhci-pci.c
 +++ b/drivers/usb/host/xhci-pci.c
-<<<<<<< HEAD
-@@ -455,6 +455,7 @@ static void xhci_pci_quirks(struct devic
-=======
 @@ -430,6 +430,7 @@ static void xhci_pci_quirks(struct devic
->>>>>>> 94392b39ec (稳定版本发布)
  		xhci->quirks |= XHCI_LPM_SUPPORT;
  		xhci->quirks |= XHCI_TRB_OVERFETCH;
  		xhci->quirks |= XHCI_EP_CTX_BROKEN_DCS;
@@ -38,11 +34,7 @@ Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
  	if (pdev->vendor == PCI_VENDOR_ID_ASMEDIA &&
 --- a/drivers/usb/host/xhci-ring.c
 +++ b/drivers/usb/host/xhci-ring.c
-<<<<<<< HEAD
-@@ -710,6 +710,16 @@ static int xhci_move_dequeue_past_td(str
-=======
 @@ -711,6 +711,16 @@ static int xhci_move_dequeue_past_td(str
->>>>>>> 94392b39ec (稳定版本发布)
  
  	} while (!cycle_found || !td_last_trb_found);
  
@@ -61,15 +53,9 @@ Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
  	if (addr == 0) {
 --- a/drivers/usb/host/xhci.h
 +++ b/drivers/usb/host/xhci.h
-<<<<<<< HEAD
-@@ -1628,6 +1628,9 @@ struct xhci_hcd {
- #define XHCI_ETRON_HOST	BIT_ULL(49)
- #define XHCI_LIMIT_ENDPOINT_INTERVAL_9 BIT_ULL(50)
-=======
 @@ -1627,6 +1627,9 @@ struct xhci_hcd {
  #define XHCI_CDNS_SCTX_QUIRK	BIT_ULL(48)
  #define XHCI_ETRON_HOST	BIT_ULL(49)
->>>>>>> 94392b39ec (稳定版本发布)
  
 +/* Downstream VLI fixes */
 +#define XHCI_AVOID_DQ_ON_LINK	BIT_ULL(56)

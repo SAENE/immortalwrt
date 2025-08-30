@@ -39,11 +39,7 @@ Link: https://patchwork.freedesktop.org/patch/msgid/20241202140615.74802-1-chris
  static const struct drm_driver v3d_drm_driver = {
 --- a/drivers/gpu/drm/v3d/v3d_drv.h
 +++ b/drivers/gpu/drm/v3d/v3d_drv.h
-<<<<<<< HEAD
-@@ -197,6 +197,12 @@ struct v3d_dev {
-=======
 @@ -189,6 +189,12 @@ struct v3d_dev {
->>>>>>> 94392b39ec (稳定版本发布)
  		u32 num_allocated;
  		u32 pages_allocated;
  	} bo_stats;
@@ -56,11 +52,7 @@ Link: https://patchwork.freedesktop.org/patch/msgid/20241202140615.74802-1-chris
  };
  
  static inline struct v3d_dev *
-<<<<<<< HEAD
-@@ -608,6 +614,8 @@ int v3d_perfmon_get_values_ioctl(struct
-=======
 @@ -600,6 +606,8 @@ int v3d_perfmon_get_values_ioctl(struct
->>>>>>> 94392b39ec (稳定版本发布)
  				 struct drm_file *file_priv);
  int v3d_perfmon_get_counter_ioctl(struct drm_device *dev, void *data,
  				  struct drm_file *file_priv);

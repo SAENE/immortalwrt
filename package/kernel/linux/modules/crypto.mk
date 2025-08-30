@@ -251,10 +251,6 @@ $(eval $(call KernelPackage,crypto-echainiv))
 
 define KernelPackage/crypto-engine
   TITLE:=Crypto engine
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   KCONFIG:=CONFIG_CRYPTO_ENGINE
   FILES:=$(LINUX_DIR)/crypto/crypto_engine.ko
   AUTOLOAD:=$(call AutoLoad,09,crypto_engine)
@@ -562,8 +558,6 @@ endef
 
 $(eval $(call KernelPackage,crypto-kpp))
 
-<<<<<<< HEAD
-=======
 define KernelPackage/crypto-lib-aescfb
   TITLE:=AES cipher operations feedback mode library
   DEPENDS:=@!LINUX_6_6
@@ -575,7 +569,6 @@ endef
 
 $(eval $(call KernelPackage,crypto-lib-aescfb))
 
->>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/crypto-lib-chacha20
   TITLE:=ChaCha library interface
   KCONFIG:=CONFIG_CRYPTO_LIB_CHACHA
@@ -1219,10 +1212,6 @@ endef
 
 $(eval $(call KernelPackage,crypto-xts))
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/crypto-xxhash
   TITLE:=xxHash non-cryptographic hash algorithm
   DEPENDS:=+kmod-crypto-hash +kmod-lib-xxhash
@@ -1234,8 +1223,6 @@ endef
 
 $(eval $(call KernelPackage,crypto-xxhash))
 
-<<<<<<< HEAD
-=======
 define KernelPackage/crypto-qce
   TITLE:=QTI Crypto Engine (QCE)
   KCONFIG:= \
@@ -1253,4 +1240,3 @@ define KernelPackage/crypto-qce
 endef
 
 $(eval $(call KernelPackage,crypto-qce))
->>>>>>> 94392b39ec (稳定版本发布)

@@ -9,11 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libpcap
 PKG_VERSION:=1.10.5
-<<<<<<< HEAD
-PKG_RELEASE:=3
-=======
 PKG_RELEASE:=2
->>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://www.tcpdump.org/release/
@@ -58,11 +54,7 @@ define Package/rpcapd
   CATEGORY:=Network
   TITLE:=Capture daemon to be controlled by a remote libpcap application
   URL:=http://www.tcpdump.org/
-<<<<<<< HEAD
-  DEPENDS+= +USE_GLIBC:libcrypt-compat +libpcap
-=======
   DEPENDS+= +libpcap
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 ifdef CONFIG_PACKAGE_rpcapd

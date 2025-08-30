@@ -1,11 +1,7 @@
 'use strict';
 
 import { append, append_raw, append_vars, network_append, network_append_raw, network_append_vars,
-<<<<<<< HEAD
-	 network_append_string_vars, set_default, dump_network, flush_network } from 'wifi.common';
-=======
 	 set_default, dump_network, flush_network } from 'wifi.common';
->>>>>>> 94392b39ec (稳定版本发布)
 import * as netifd from 'wifi.netifd';
 import * as iface from 'wifi.iface';
 import * as fs from 'fs';
@@ -60,29 +56,15 @@ function setup_sta(data, config) {
 	iface.parse_encryption(config);
 
 	if (config.auth_type in [ 'sae', 'owe', 'eap2', 'eap192' ])
-<<<<<<< HEAD
-		config.ieee80211w = 2;
-	else if (config.auth_type in [ 'psk-sae' ])
-		config.ieee80211w = 1;
-	if ((wildcard(data.htmode, 'EHT*') || wildcard(data.htmode, 'HE*')) &&
-		config.rsn_override)
-		config.rsn_overriding = 1;
-	else
-		config.rsn_overriding = 0;
-=======
 		set_default(config, 'ieee80211w', 2);
 	else if (config.auth_type in [ 'psk-sae' ])
 		set_default(config, 'ieee80211w', 1);
->>>>>>> 94392b39ec (稳定版本发布)
 
 	set_default(config, 'ieee80211r', 0);
 	set_default(config, 'multi_ap', 0);
 	set_default(config, 'default_disabled', 0);
 
-<<<<<<< HEAD
-=======
 //multiap_flag_file="${_config}.is_multiap"
->>>>>>> 94392b39ec (稳定版本发布)
 	config.scan_ssid = 1;
 
 	switch(config.mode) {
@@ -173,20 +155,6 @@ function setup_sta(data, config) {
 		config.group = 'GCMP';
 	}
 
-<<<<<<< HEAD
-	config.key_mgmt ??= 'NONE';
-
-	config.basic_rate = ratelist(config.basic_rate);
-	config.mcast_rate = ratestr(config.mcast_rate);
-
-	network_append_string_vars(config, [ 'ssid' ]);
-	network_append_vars(config, [
-		'rsn_overriding', 'scan_ssid', 'noscan', 'disabled', 'multi_ap_backhaul_sta',
-		'ocv', 'key_mgmt', 'psk', 'sae_password', 'pairwise', 'group', 'bssid',
-		'proto', 'mesh_fwding', 'mesh_rssi_threshold', 'frequency', 'fixed_freq',
-		'disable_ht', 'disable_ht40', 'disable_vht', 'vht', 'max_oper_chwidth',
-		'ht40', 'beacon_int', 'ieee80211w', 'basic_rate', 'mcast_rate',
-=======
 	config.basic_rate = ratelist(config.basic_rate);
 	config.mcast_rate = ratestr(config.mcast_rate);
 	config.ssid = `"${config.ssid}"`;
@@ -197,7 +165,6 @@ function setup_sta(data, config) {
 		'proto', 'mesh_fwding', 'mesh_rssi_threshold', 'frequency', 'fixed_freq',
 		'disable_ht', 'disable_ht40', 'disable_vht', 'vht', 'max_oper_chwidth',
 		'ht40', 'ssid', 'beacon_int', 'ieee80211w', 'basic_rate', 'mcast_rate',
->>>>>>> 94392b39ec (稳定版本发布)
 		'bssid_blacklist', 'bssid_whitelist', 'erp', 'ca_cert', 'identity',
 		'anonymous_identity', 'client_cert', 'private_key', 'private_key_passwd',
 		'subject_match', 'altsubject_match', 'domain_match', 'domain_suffix_match',
@@ -217,15 +184,8 @@ export function generate(config_list, data, interface) {
 
 	interface.config.country = data.config.country_code;
 	interface.config.beacon_int = data.config.beacon_int;
-<<<<<<< HEAD
-	if (data.config.scan_list)
-		interface.config.scan_list = join(" ", data.config.scan_list);
-
-	append_vars(interface.config, [ 'country', 'beacon_int', 'scan_list' ]);
-=======
 
 	append_vars(interface.config, [ 'country', 'beacon_int' ]);
->>>>>>> 94392b39ec (稳定版本发布)
 
 	setup_sta(data.config, interface.config);
 

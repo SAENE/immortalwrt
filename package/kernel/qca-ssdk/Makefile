@@ -68,12 +68,8 @@ ifeq ($(CONFIG_TARGET_SUBTARGET), "ipq807x")
 endif
 
 ifeq ($(CONFIG_TARGET_SUBTARGET), "ipq60xx")
-<<<<<<< HEAD
-	MAKE_FLAGS+= CHIP_TYPE=CPPE IN_AQUANTIA_PHY=TRUE
-=======
 	MAKE_FLAGS+= CHIP_TYPE=CPPE \
 				 IN_AQUANTIA_PHY=TRUE
->>>>>>> 94392b39ec (稳定版本发布)
 endif
 
 ifeq ($(CONFIG_TARGET_SUBTARGET), "ipq50xx")

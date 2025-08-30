@@ -153,11 +153,7 @@
 		};
 
 		wmac: wmac@18100000 {
-<<<<<<< HEAD
-			compatible = "qca,ar9330-wifi";
-=======
 			compatible = "qca,ar9330-wmac";
->>>>>>> 94392b39ec (稳定版本发布)
 			reg = <0x18100000 0x20000>;
 
 			interrupts = <2>;

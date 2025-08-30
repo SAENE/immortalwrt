@@ -39,45 +39,6 @@ endef
 $(eval $(call KernelPackage,rp1-cfe))
 
 
-<<<<<<< HEAD
-define KernelPackage/rpi-panel-attiny-regulator
-  TITLE:=Raspberry Pi 7-inch touchscreen panel ATTINY regulator
-  SUBMENU:=$(VIDEO_MENU)
-  KCONFIG:=CONFIG_REGULATOR_RASPBERRYPI_TOUCHSCREEN_ATTINY
-  FILES:=$(LINUX_DIR)/drivers/regulator/rpi-panel-attiny-regulator.ko
-  AUTOLOAD:=$(call AutoLoad,67,rpi-panel-attiny-regulator)
-  DEPENDS:=@TARGET_bcm27xx +kmod-regmap-i2c +kmod-backlight
-endef
-
-define KernelPackage/rpi-panel-attiny-regulator/description
- Driver for the ATTINY regulator on the Raspberry Pi 7-inch
- touchscreen unit. The regulator is used to enable power to the
- TC358762, display and to control backlight.
-endef
-
-$(eval $(call KernelPackage,rpi-panel-attiny-regulator))
-
-
-define KernelPackage/rpi-panel-7inch-touchscreen
-  TITLE:=Raspberry Pi 7-inch touchscreen panel
-  SUBMENU:=$(VIDEO_MENU)
-  KCONFIG:= \
-    CONFIG_DRM_PANEL_RASPBERRYPI_TOUCHSCREEN
-    CONFIG_DRM_MIPI_DSI=y
-  FILES:=$(LINUX_DIR)/drivers/gpu/drm/panel/panel-raspberrypi-touchscreen.ko
-  AUTOLOAD:=$(call AutoProbe,panel-raspberrypi-touchscreen)
-  DEPENDS:=@TARGET_bcm27xx +kmod-drm
-endef
-
-define KernelPackage/rpi-panel-7inch-touchscreen/description
- Driver for the Raspberry Pi 7" Touchscreen.
-endef
-
-$(eval $(call KernelPackage,rpi-panel-7inch-touchscreen))
-
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define KernelPackage/codec-bcm2835
   TITLE:=BCM2835 Video Codec
   KCONFIG:= \

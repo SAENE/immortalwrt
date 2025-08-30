@@ -25,13 +25,9 @@ zyxel,p-2812hnu-f1)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x2000" "0x20000" "1"
 	;;
 buffalo,wbmr-300hpd)
-<<<<<<< HEAD
-	ubootenv_add_mtd "u-boot-env" "0x0" "0x2000" "0x1000" "2"
-=======
 	idx="$(find_mtd_index u-boot-env)"
 	[ -n "$idx" ] && \
 		ubootenv_add_uci_config "/dev/mtd$idx" "0x0" "0x2000" "0x1000" "2"
->>>>>>> 94392b39ec (稳定版本发布)
 	;;
 esac
 

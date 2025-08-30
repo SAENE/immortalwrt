@@ -115,11 +115,7 @@ Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
  
  	mutex_lock(&mhi_cntrl->pm_mutex);
  
-<<<<<<< HEAD
-@@ -836,7 +845,10 @@ void mhi_pm_st_worker(struct work_struct
-=======
 @@ -820,7 +829,10 @@ void mhi_pm_st_worker(struct work_struct
->>>>>>> 94392b39ec (稳定版本发布)
  			mhi_pm_sys_error_transition(mhi_cntrl);
  			break;
  		case DEV_ST_TRANSITION_DISABLE:
@@ -131,11 +127,7 @@ Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
  			break;
  		default:
  			break;
-<<<<<<< HEAD
-@@ -1190,7 +1202,8 @@ error_exit:
-=======
 @@ -1174,7 +1186,8 @@ error_exit:
->>>>>>> 94392b39ec (稳定版本发布)
  }
  EXPORT_SYMBOL_GPL(mhi_async_power_up);
  
@@ -145,11 +137,7 @@ Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
  {
  	enum mhi_pm_state cur_state, transition_state;
  	struct device *dev = &mhi_cntrl->mhi_dev->dev;
-<<<<<<< HEAD
-@@ -1226,15 +1239,32 @@ void mhi_power_down(struct mhi_controlle
-=======
 @@ -1210,15 +1223,32 @@ void mhi_power_down(struct mhi_controlle
->>>>>>> 94392b39ec (稳定版本发布)
  	write_unlock_irq(&mhi_cntrl->pm_lock);
  	mutex_unlock(&mhi_cntrl->pm_mutex);
  

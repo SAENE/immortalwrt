@@ -147,14 +147,11 @@
 
 &pcie0 {
 	status = "okay";
-<<<<<<< HEAD
-=======
 
 	wifi@0,0 {
 		compatible = "pci168c,003c";
 		reg = <0x0000 0 0 0 0>;
 	};
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &usb_phy {

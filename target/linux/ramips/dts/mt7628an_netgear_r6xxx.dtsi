@@ -137,10 +137,6 @@
 
 &pcie0 {
 	wifi5: wifi@0,0 {
-<<<<<<< HEAD
-		compatible = "mediatek,mt76";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		reg = <0x0000 0 0 0 0>;
 		ieee80211-freq-limit = <5000000 6000000>;
 	};

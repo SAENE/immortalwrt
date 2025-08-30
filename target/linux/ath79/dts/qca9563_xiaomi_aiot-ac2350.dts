@@ -201,9 +201,5 @@
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&precal_art_5000>;
 		nvmem-cell-names = "pre-calibration";
-<<<<<<< HEAD
-		qcom,ath10k-calibration-variant = "Xiaomi-AIoT-AC2350";
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };

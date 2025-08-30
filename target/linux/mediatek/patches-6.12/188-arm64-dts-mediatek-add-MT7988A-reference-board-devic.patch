@@ -56,11 +56,7 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm-hana.dtb
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-emmc.dtso
-<<<<<<< HEAD
-@@ -0,0 +1,62 @@
-=======
 @@ -0,0 +1,33 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2021 MediaTek Inc.
@@ -76,11 +72,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +	fragment@0 {
 +		target = <&mmc0>;
 +		__overlay__ {
-<<<<<<< HEAD
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +			pinctrl-names = "default", "state_uhs";
 +			pinctrl-0 = <&mmc0_pins_emmc_51>;
 +			pinctrl-1 = <&mmc0_pins_emmc_51>;
@@ -96,36 +87,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +			no-sd;
 +			no-sdio;
 +			status = "okay";
-<<<<<<< HEAD
-+
-+			card@0 {
-+				compatible = "mmc-card";
-+				reg = <0>;
-+
-+				partitions {
-+					compatible = "gpt-partitions";
-+
-+					block-partition-env {
-+						partname = "ubootenv";
-+						nvmem-layout {
-+							compatible = "u-boot,env-layout";
-+						};
-+					};
-+
-+					emmc_root: block-partition-production {
-+						partname = "production";
-+					};
-+				};
-+			};
-+		};
-+	};
-+
-+	fragment@1 {
-+		target-path = "/chosen";
-+		__overlay__ {
-+			rootdisk-emmc = <&emmc_root>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +		};
 +	};
 +};
@@ -436,11 +397,7 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +};
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-sd.dtso
-<<<<<<< HEAD
-@@ -0,0 +1,60 @@
-=======
 @@ -0,0 +1,31 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2023 MediaTek Inc.
@@ -455,17 +412,9 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +/ {
 +	compatible = "mediatek,mt7988a-rfb", "mediatek,mt7988a";
 +
-<<<<<<< HEAD
-+	fragment@0 {
-+		target-path = <&mmc0>;
-+		__overlay__ {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-=======
 +	fragment@1 {
 +		target-path = <&mmc0>;
 +		__overlay__ {
->>>>>>> 94392b39ec (稳定版本发布)
 +			pinctrl-names = "default", "state_uhs";
 +			pinctrl-0 = <&mmc0_pins_sdcard>;
 +			pinctrl-1 = <&mmc0_pins_sdcard>;
@@ -477,46 +426,12 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +			vqmmc-supply = <&reg_3p3v>;
 +			no-mmc;
 +			status = "okay";
-<<<<<<< HEAD
-+
-+			card@0 {
-+				compatible = "mmc-card";
-+				reg = <0>;
-+
-+				partitions {
-+					compatible = "gpt-partitions";
-+
-+					block-partition-env {
-+						partname = "ubootenv";
-+						nvmem-layout {
-+							compatible = "u-boot,env-layout";
-+						};
-+					};
-+
-+					sd_root: block-partition-production {
-+						partname = "production";
-+					};
-+				};
-+			};
-+		};
-+	};
-+
-+	fragment@1 {
-+		target-path = "/chosen";
-+		__overlay__ {
-+			rootdisk-sd = <&sd_root>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +		};
 +	};
 +};
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-snfi-nand.dtso
-<<<<<<< HEAD
-@@ -0,0 +1,85 @@
-=======
 @@ -0,0 +1,70 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2022 MediaTek Inc.
@@ -541,12 +456,9 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +				spi-max-frequency = <52000000>;
 +				spi-tx-bus-width = <4>;
 +				spi-rx-bus-width = <4>;
-<<<<<<< HEAD
-=======
 +				mediatek,nmbm;
 +				mediatek,bmt-max-ratio = <1>;
 +				mediatek,bmt-max-reserved-blocks = <64>;
->>>>>>> 94392b39ec (稳定版本发布)
 +
 +				partitions {
 +					compatible = "fixed-partitions";
@@ -555,36 +467,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +
 +					partition@0 {
 +						label = "BL2";
-<<<<<<< HEAD
-+						reg = <0x00000 0x0200000>;
-+						read-only;
-+					};
-+
-+					ubi_part: partition@200000 {
-+						label = "ubi";
-+						reg = <0x0200000 0x7e00000>;
-+						compatible = "linux,ubi";
-+
-+						volumes {
-+							ubi-volume-ubootenv {
-+								volname = "ubootenv";
-+								nvmem-layout {
-+									compatible = "u-boot,env-redundant-bool";
-+								};
-+							};
-+
-+							ubi-volume-ubootenv2 {
-+								volname = "ubootenv2";
-+								nvmem-layout {
-+									compatible = "u-boot,env-redundant-bool";
-+								};
-+							};
-+
-+							snfi_root: ubi-volume-fit {
-+								volname = "fit";
-+							};
-+						};
-=======
 +						reg = <0x00000 0x0100000>;
 +						read-only;
 +					};
@@ -607,7 +489,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +					partition@780000 {
 +						label = "ubi";
 +						reg = <0x780000 0x7080000>;
->>>>>>> 94392b39ec (稳定版本发布)
 +					};
 +				};
 +			};
@@ -620,21 +501,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +			status = "okay";
 +		};
 +	};
-<<<<<<< HEAD
-+
-+	fragment@2 {
-+		target-path = "/chosen";
-+		__overlay__ {
-+			/*
-+			 * U-Boot currently cannot detect diffrentiate between
-+			 * SD and SNFI boot media and always uses rootdisk-sd in
-+			 * both cases
-+			 */
-+			rootdisk-sd = <&snfi_root>;
-+		};
-+	};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +};
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-spim-nand-factory.dtso
@@ -728,11 +594,7 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +};
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-spim-nand.dtso
-<<<<<<< HEAD
-@@ -0,0 +1,77 @@
-=======
 @@ -0,0 +1,66 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2022 MediaTek Inc.
@@ -760,12 +622,9 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +				spi-max-frequency = <52000000>;
 +				spi-tx-bus-width = <4>;
 +				spi-rx-bus-width = <4>;
-<<<<<<< HEAD
-=======
 +				mediatek,nmbm;
 +				mediatek,bmt-max-ratio = <1>;
 +				mediatek,bmt-max-reserved-blocks = <64>;
->>>>>>> 94392b39ec (稳定版本发布)
 +
 +				partitions {
 +					compatible = "fixed-partitions";
@@ -774,37 +633,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +
 +					partition@0 {
 +						label = "BL2";
-<<<<<<< HEAD
-+						reg = <0x00000 0x0200000>;
-+						read-only;
-+					};
-+
-+					ubi_part: partition@200000 {
-+						label = "ubi";
-+						reg = <0x0200000 0x7e00000>;
-+						compatible = "linux,ubi";
-+
-+						volumes {
-+							ubi-volume-ubootenv {
-+								volname = "ubootenv";
-+								nvmem-layout {
-+									compatible = "u-boot,env-redundant-bool";
-+								};
-+							};
-+
-+							ubi-volume-ubootenv2 {
-+								volname = "ubootenv2";
-+								nvmem-layout {
-+									compatible = "u-boot,env-redundant-bool";
-+								};
-+							};
-+
-+							ubi_root: ubi-volume-fit {
-+								volname = "fit";
-+							};
-+
-+						};
-=======
 +						reg = <0x00000 0x0100000>;
 +						read-only;
 +					};
@@ -827,30 +655,15 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +					partition@780000 {
 +						label = "ubi";
 +						reg = <0x780000 0x7080000>;
->>>>>>> 94392b39ec (稳定版本发布)
 +					};
 +				};
 +			};
 +		};
 +	};
-<<<<<<< HEAD
-+
-+	fragment@1 {
-+		target-path = "/chosen";
-+		__overlay__ {
-+			rootdisk-spim-nand = <&ubi_root>;
-+		};
-+	};
-+};
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-spim-nor.dtso
-@@ -0,0 +1,69 @@
-=======
 +};
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-spim-nor.dtso
 @@ -0,0 +1,61 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2022 MediaTek Inc.
@@ -904,38 +717,17 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +					label = "FIP";
 +					reg = <0x250000 0x80000>;
 +				};
-<<<<<<< HEAD
-+				nor_root: partition@2D0000 {
-+					label = "firmware";
-+					reg = <0x2d0000 0x1d30000>;
-+					compatible = "denx,fit";
-=======
 +				partition@2D0000 {
 +					label = "firmware";
 +					reg = <0x2d0000 0x1d30000>;
->>>>>>> 94392b39ec (稳定版本发布)
 +				};
 +			};
 +		};
 +	};
-<<<<<<< HEAD
-+
-+	fragment@1 {
-+		target-path = "/chosen";
-+		__overlay__ {
-+			rootdisk-nor = <&nor_root>;
-+		};
-+	};
-+};
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb.dts
-@@ -0,0 +1,471 @@
-=======
 +};
 --- /dev/null
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb.dts
 @@ -0,0 +1,470 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2022 MediaTek Inc.
@@ -952,29 +744,16 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +/ {
 +	model = "MediaTek MT7988A Reference Board";
 +	compatible = "mediatek,mt7988a-rfb",
-<<<<<<< HEAD
-+		     "mediatek,mt7988a";
-+
-+	chosen {
-+		bootargs = "console=ttyS0,115200n1 \
-=======
 +		     "mediatek,mt7988";
 +
 +	chosen {
 +		bootargs = "console=ttyS0,115200n1 loglevel=8  \
->>>>>>> 94392b39ec (稳定版本发布)
 +			    earlycon=uart8250,mmio32,0x11000000 \
 +			    pci=pcie_bus_perf";
 +	};
 +
-<<<<<<< HEAD
-+	memory@40000000 {
-+		reg = <0 0x40000000 0 0x40000000>;
-+		device_type = "memory";
-=======
 +	memory {
 +		reg = <0 0x40000000 0 0x40000000>;
->>>>>>> 94392b39ec (稳定版本发布)
 +	};
 +
 +	reg_1p8v: regulator-1p8v {
@@ -1419,8 +1198,6 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +&xsphy {
 +	status = "okay";
 +};
-<<<<<<< HEAD
-=======
 --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 @@ -193,7 +193,7 @@
@@ -1651,4 +1428,3 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
  	};
  
  	thermal-zones {
->>>>>>> 94392b39ec (稳定版本发布)

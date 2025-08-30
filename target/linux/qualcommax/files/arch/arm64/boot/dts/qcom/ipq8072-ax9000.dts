@@ -438,11 +438,7 @@
 	perst-gpios = <&tlmm 62 GPIO_ACTIVE_HIGH>;
 
 	pcie@0 {
-<<<<<<< HEAD
-		wifi0: wifi@0,0 {
-=======
 		wifi@0,0 {
->>>>>>> 94392b39ec (稳定版本发布)
 			status = "okay";
 			compatible = "qcom,ath10k";
 			qcom,ath10k-fw-memory-mode = <1>;

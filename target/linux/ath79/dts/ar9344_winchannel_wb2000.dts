@@ -38,15 +38,12 @@
 	leds {
 		compatible = "gpio-leds";
 
-<<<<<<< HEAD
-=======
 		wlan2g {
 			label = "green:2g";
 			gpios = <&gpio 20 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "phy0tpt";
 		};
 
->>>>>>> 94392b39ec (稳定版本发布)
 		usb {
 			function = LED_FUNCTION_USB;
 			color = <LED_COLOR_ID_GREEN>;
@@ -71,8 +68,6 @@
 			debounce-interval = <60>;
 		};
 	};
-<<<<<<< HEAD
-=======
 
 	ath9k-leds {
 		compatible = "gpio-leds";
@@ -83,7 +78,6 @@
 			linux,default-trigger = "phy1tpt";
 		};
 	};
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &ref {
@@ -176,16 +170,8 @@
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&macaddr_addr_0 0x10>, <&calibration_art_5000>;
 		nvmem-cell-names = "mac-address", "calibration";
-<<<<<<< HEAD
-
-		led {
-			led-sources = <6>;
-			led-active-low;
-		};
-=======
 		#gpio-cells = <2>;
 		gpio-controller;
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -202,13 +188,6 @@
 
 	nvmem-cells = <&macaddr_addr_0 0>, <&calibration_art_1000>;
 	nvmem-cell-names = "mac-address", "calibration";
-<<<<<<< HEAD
-
-	led {
-		led-sources = <20>;
-	};
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 &mdio0 {

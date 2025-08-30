@@ -55,11 +55,7 @@ define Device/arcadyan_aw1000
 	PAGESIZE := 4096
 	SOC := ipq8072
 	DEVICE_DTS_CONFIG := config@hk09
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-arcadyan_aw1000 kmod-gpio-nxp-74hc164 kmod-usb-serial-option uqmi
-=======
 	DEVICE_PACKAGES := ipq-wifi-arcadyan_aw1000 kmod-spi-gpio kmod-gpio-nxp-74hc164 kmod-usb-serial-option uqmi
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += arcadyan_aw1000
 
@@ -70,11 +66,7 @@ define Device/asus_rt-ax89x
 	PAGESIZE := 2048
 	SOC := ipq8074
 	DEVICE_DTS_CONFIG := config@hk01
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-asus_rt-ax89x kmod-hwmon-gpiofan
-=======
 	DEVICE_PACKAGES := kmod-hwmon-gpiofan ipq-wifi-asus_rt-ax89x
->>>>>>> 94392b39ec (稳定版本发布)
 	KERNEL_NAME := vmlinux
 	KERNEL := kernel-bin | libdeflate-gzip
 	KERNEL_IN_UBI := 1
@@ -187,11 +179,7 @@ define Device/linksys_homewrk
 	PAGESIZE := 4096
 	SOC := ipq8174
 	DEVICE_DTS_CONFIG := config@oak03
-<<<<<<< HEAD
-	DEVICE_PACKAGES += ipq-wifi-linksys_homewrk kmod-leds-pca963x
-=======
 	DEVICE_PACKAGES += kmod-leds-pca963x ipq-wifi-linksys_homewrk
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_homewrk
 
@@ -204,11 +192,7 @@ define Device/linksys_mx
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	SOC := ipq8072
-<<<<<<< HEAD
-	DEVICE_PACKAGES := kmod-leds-pca963x kmod-hci-uart
-=======
 	DEVICE_PACKAGES := kmod-leds-pca963x
->>>>>>> 94392b39ec (稳定版本发布)
 	IMAGES += factory.bin
 	IMAGE/factory.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | append-ubi | linksys-image type=$$$$(DEVICE_MODEL)
 endef
@@ -223,10 +207,7 @@ define Device/linksys_mx4200v1
 	$(call Device/linksys_mx4x00)
 	DEVICE_MODEL := MX4200
 	DEVICE_VARIANT := v1
-<<<<<<< HEAD
-=======
 	DEVICE_PACKAGES += kmod-hci-uart
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_mx4200v1
 
@@ -250,11 +231,7 @@ TARGET_DEVICES += linksys_mx4300
 define Device/linksys_mx5300
 	$(call Device/linksys_mx)
 	DEVICE_MODEL := MX5300
-<<<<<<< HEAD
-	DEVICE_PACKAGES += ipq-wifi-linksys_mx5300 ath10k-firmware-qca9984 kmod-ath10k kmod-rtc-ds1307
-=======
 	DEVICE_PACKAGES += kmod-rtc-ds1307 ipq-wifi-linksys_mx5300 kmod-ath10k ath10k-firmware-qca9984
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += linksys_mx5300
 
@@ -275,11 +252,7 @@ define Device/netgear_rax120v2
 	PAGESIZE := 2048
 	SOC := ipq8074
 	DEVICE_DTS_CONFIG := config@hk01
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-netgear_rax120v2 kmod-spi-bitbang kmod-gpio-nxp-74hc164 kmod-hwmon-g762
-=======
 	DEVICE_PACKAGES := ipq-wifi-netgear_rax120v2 kmod-spi-gpio kmod-spi-bitbang kmod-gpio-nxp-74hc164 kmod-hwmon-g762
->>>>>>> 94392b39ec (稳定版本发布)
 	NETGEAR_BOARD_ID := RAX120
 	NETGEAR_HW_ID := 29765589+0+512+1024+4x4+8x8
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
@@ -330,11 +303,7 @@ ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
 	ARTIFACTS := web-ui-factory.fit
 	ARTIFACT/web-ui-factory.fit := append-image initramfs-uImage.itb | ubinize-kernel | qsdk-ipq-factory-nand
 endif
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-netgear_wax218 kmod-spi-bitbang kmod-gpio-nxp-74hc164
-=======
 	DEVICE_PACKAGES := kmod-spi-gpio kmod-spi-bitbang kmod-gpio-nxp-74hc164 ipq-wifi-netgear_wax218
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += netgear_wax218
 
@@ -347,11 +316,7 @@ define Device/netgear_wax620
 	PAGESIZE := 2048
 	SOC := ipq8072
 	DEVICE_DTS_CONFIG := config@hk07
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-netgear_wax620 kmod-gpio-nxp-74hc164
-=======
 	DEVICE_PACKAGES := kmod-spi-gpio kmod-gpio-nxp-74hc164 ipq-wifi-netgear_wax620
->>>>>>> 94392b39ec (稳定版本发布)
 	IMAGES += ui-factory.tar
 	IMAGE/ui-factory.tar := append-ubi | qsdk-ipq-factory-nand | pad-to 4096 | wax6xx-netgear-tar
 endef
@@ -366,11 +331,7 @@ define Device/netgear_wax630
 	PAGESIZE := 2048
 	SOC := ipq8074
 	DEVICE_DTS_CONFIG := config@hk01
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-netgear_wax630
-=======
 	DEVICE_PACKAGES := kmod-spi-gpio ipq-wifi-netgear_wax630
->>>>>>> 94392b39ec (稳定版本发布)
 	IMAGES += ui-factory.tar
 	IMAGE/ui-factory.tar := append-ubi | qsdk-ipq-factory-nand | pad-to 4096 | wax6xx-netgear-tar
 endef
@@ -383,11 +344,7 @@ define Device/prpl_haze
 	DEVICE_MODEL := Haze
 	SOC := ipq8072
 	DEVICE_DTS_CONFIG := config@hk09
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-prpl_haze ath11k-firmware-qcn9074 kmod-leds-lp5562
-=======
 	DEVICE_PACKAGES := ath11k-firmware-qcn9074 ipq-wifi-prpl_haze kmod-leds-lp5562
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += prpl_haze
 
@@ -443,11 +400,7 @@ define Device/tplink_deco-x80-5g
 	PAGESIZE := 2048
 	SOC := ipq8074
 	DEVICE_DTS_CONFIG := config@hk01.c5
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-tplink_deco-x80-5g kmod-hwmon-gpiofan kmod-usb-serial-option kmod-usb-net-qmi-wwan
-=======
 	DEVICE_PACKAGES := kmod-hwmon-gpiofan ipq-wifi-tplink_deco-x80-5g kmod-usb-serial-option kmod-usb-net-qmi-wwan
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 TARGET_DEVICES += tplink_deco-x80-5g
 
@@ -494,11 +447,7 @@ define Device/xiaomi_ax3600
 	PAGESIZE := 2048
 	SOC := ipq8071
 	DEVICE_DTS_CONFIG := config@ac04
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax3600 ath10k-firmware-qca9887 kmod-ath10k-smallbuffers
-=======
 	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax3600 kmod-ath10k-smallbuffers ath10k-firmware-qca9887
->>>>>>> 94392b39ec (稳定版本发布)
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
 	ARTIFACTS := initramfs-factory.ubi
 	ARTIFACT/initramfs-factory.ubi := append-image-stage initramfs-uImage.itb | ubinize-kernel
@@ -528,11 +477,7 @@ define Device/xiaomi_ax9000
 	PAGESIZE := 2048
 	SOC := ipq8072
 	DEVICE_DTS_CONFIG := config@hk14
-<<<<<<< HEAD
-	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax9000 ath11k-firmware-qcn9074 ath10k-firmware-qca9887 kmod-ath10k-smallbuffers
-=======
 	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax9000 ath11k-firmware-qcn9074 kmod-ath10k ath10k-firmware-qca9887
->>>>>>> 94392b39ec (稳定版本发布)
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
 	ARTIFACTS := initramfs-factory.ubi
 	ARTIFACT/initramfs-factory.ubi := append-image-stage initramfs-uImage.itb | ubinize-kernel
@@ -540,20 +485,6 @@ endif
 endef
 TARGET_DEVICES += xiaomi_ax9000
 
-<<<<<<< HEAD
-define Device/xiaomi_ax9000-stock
-	$(call Device/xiaomi_ax9000)
-	DEVICE_VARIANT := (stock layout)
-	DEVICE_ALT0_VENDOR := Xiaomi
-	DEVICE_ALT0_MODEL := AX9000
-	DEVICE_ALT0_VARIANT := (custom U-Boot layout)
-	KERNEL_SIZE :=
-	ARTIFACTS :=
-endef
-TARGET_DEVICES += xiaomi_ax9000-stock
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 define Device/yuncore_ax880
 	$(call Device/FitImage)
 	$(call Device/UbiFit)

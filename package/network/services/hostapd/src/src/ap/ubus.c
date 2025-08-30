@@ -1788,10 +1788,6 @@ void hostapd_ubus_free_bss(struct hostapd_data *hapd)
 	}
 
 	free(name);
-<<<<<<< HEAD
-	obj->name = NULL;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static void

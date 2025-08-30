@@ -12,10 +12,7 @@ mediatek_setup_interfaces()
 	cmcc,rax3000m|\
 	cmcc,rax3000me|\
 	h3c,magic-nx30-pro|\
-<<<<<<< HEAD
-=======
 	h3c,magic-nx30-pro-nmbm|\
->>>>>>> 94392b39ec (稳定版本发布)
 	imou,lc-hx3001|\
 	konka,komi-a31|\
 	netis,nx31|\
@@ -32,12 +29,6 @@ mediatek_setup_interfaces()
 	acer,predator-w6d)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 game" eth1
 		;;
-<<<<<<< HEAD
-	acer,predator-w6x)
-		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
-		;;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	acer,vero-w6m)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" internet
 		;;
@@ -53,11 +44,6 @@ mediatek_setup_interfaces()
 	cmcc,a10-stock|\
 	cmcc,a10-ubootmod|\
 	confiabits,mt7981|\
-<<<<<<< HEAD
-	creatlentem,clt-r30b1|\
-	creatlentem,clt-r30b1-112m|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	cudy,wr3000-v1|\
 	jcg,q30-pro|\
 	keenetic,kn-3811|\
@@ -66,19 +52,10 @@ mediatek_setup_interfaces()
 	qihoo,360t7|\
 	routerich,ax3000|\
 	routerich,ax3000-ubootmod|\
-<<<<<<< HEAD
-	tenbay,wr3000k|\
-	tplink,tl-7dr7250-v1)
-		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" wan
-		;;
-	asus,tuf-ax4200|\
-	iptime,ax3000sm|\
-=======
 	tenbay,wr3000k)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" wan
 		;;
 	asus,tuf-ax4200|\
->>>>>>> 94392b39ec (稳定版本发布)
 	jdcloud,re-cp-03|\
 	mediatek,mt7981-rfb|\
 	netcore,n60|\
@@ -87,10 +64,6 @@ mediatek_setup_interfaces()
 	ruijie,rg-x60-pro|\
 	unielec,u7981-01*|\
 	zbtlink,zbt-z8102ax|\
-<<<<<<< HEAD
-	zbtlink,zbt-z8102ax-v2|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	zyxel,ex5601-t0-stock|\
 	zyxel,ex5601-t0-ubootmod)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
@@ -107,12 +80,7 @@ mediatek_setup_interfaces()
 		;;
 	bananapi,bpi-r3-mini|\
 	edgecore,eap111|\
-<<<<<<< HEAD
-	huasifei,wh3000-emmc|\
-	huasifei,wh3000-pro)
-=======
 	huasifei,wh3000-emmc)
->>>>>>> 94392b39ec (稳定版本发布)
 		ucidef_set_interfaces_lan_wan eth0 eth1
 		;;
 	bananapi,bpi-r4)
@@ -129,20 +97,12 @@ mediatek_setup_interfaces()
 	cudy,ap3000-v1|\
 	cudy,re3000-v1|\
 	netgear,wax220|\
-<<<<<<< HEAD
-	openfi,6c|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	ubnt,unifi-6-plus|\
 	wavlink,wl-wn573hx3|\
 	zyxel,nwa50ax-pro)
 		ucidef_set_interface_lan "eth0"
 		;;
 	cudy,m3000-v1|\
-<<<<<<< HEAD
-	cudy,tr3000-256mb-v1|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	cudy,tr3000-v1|\
 	cudy,tr3000-v1-ubootmod|\
 	glinet,gl-mt2500|\
@@ -177,18 +137,8 @@ mediatek_setup_interfaces()
 	mercusys,mr90x-v1-ubi)
 		ucidef_set_interfaces_lan_wan "lan0 lan1 lan2" eth1
 		;;
-<<<<<<< HEAD
-	tplink,fr365-v1)
-		ucidef_set_interfaces_lan_wan "port1 port3 port4 port5 port6" "port2"
-		;;
-	tplink,tl-xdr6086|\
-	wavlink,wl-wn551x3|\
-	wavlink,wl-wn586x3|\
-	wavlink,wl-wn586x3b)
-=======
 	tplink,tl-xdr6086|\
 	wavlink,wl-wn586x3)
->>>>>>> 94392b39ec (稳定版本发布)
 		ucidef_set_interfaces_lan_wan "lan1 lan2" eth1
 		;;
 	tplink,archer-ax80-v1)
@@ -197,13 +147,6 @@ mediatek_setup_interfaces()
 	tplink,re6000xd)
 		ucidef_set_interface_lan "lan1 lan2 eth1"
 		;;
-<<<<<<< HEAD
-	tplink,tl-7dr7230-v1|\
-	tplink,tl-7dr7230-v2)
-		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" wan
-		;;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	xiaomi,mi-router-ax3000t|\
 	xiaomi,mi-router-ax3000t-ubootmod|\
 	xiaomi,mi-router-wr30u-stock|\
@@ -232,25 +175,13 @@ mediatek_setup_macs()
 		wan_mac=$(mmc_get_mac_ascii u-boot-env WANMAC)
 		lan_mac=$(mmc_get_mac_ascii u-boot-env LANMAC)
 		;;
-<<<<<<< HEAD
-	acer,predator-w6x)
-		wan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
-		lan_mac=$(macaddr_add "$wan_mac" 1)
-		label_mac=$wan_mac
-		;;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	bananapi,bpi-r3|\
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4)
 		wan_mac=$(macaddr_add $(cat /sys/class/net/eth0/address) 1)
 		;;
-<<<<<<< HEAD
-	h3c,magic-nx30-pro)
-=======
 	h3c,magic-nx30-pro|\
 	h3c,magic-nx30-pro-nmbm)
->>>>>>> 94392b39ec (稳定版本发布)
 		wan_mac=$(mtd_get_mac_ascii pdt_data_1 ethaddr)
 		lan_mac=$(macaddr_add "$wan_mac" 1)
 		label_mac=$wan_mac
@@ -286,13 +217,6 @@ mediatek_setup_macs()
 		wan_mac=$label_mac
 		lan_mac=$(macaddr_add "$label_mac" 1)
 		;;
-<<<<<<< HEAD
-	tplink,fr365-v1)
-		lan_mac=$(strings /dev/mtd11 | grep 'option macaddr' | awk -F"'" '{print $2}')
-		wan_mac="$(macaddr_add $lan_mac 1)"
-		;;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	xiaomi,mi-router-ax3000t|\
 	xiaomi,mi-router-ax3000t-ubootmod|\
 	xiaomi,mi-router-wr30u-stock|\

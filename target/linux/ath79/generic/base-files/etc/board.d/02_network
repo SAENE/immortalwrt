@@ -298,12 +298,7 @@ ath79_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"1:wan" "5:lan" "6@eth0"
 		;;
-<<<<<<< HEAD
-	dell,apl26-0ae|\
-	dell,apl27-0b1)
-=======
 	dell,apl26-0ae)
->>>>>>> 94392b39ec (稳定版本发布)
 		ucidef_add_switch "switch0" \
 			"0@eth0" "2:lan:1" "3:lan:2" "6@eth1"
 		;;
@@ -851,14 +846,11 @@ ath79_setup_macs()
 		base_mac=$(mtd_get_mac_binary info 0x8)
 		wan_mac=$(macaddr_add "$base_mac" 1)
 		;;
-<<<<<<< HEAD
-=======
 	trendnet,tew-823dru)
 		lan_mac=$(mtd_get_mac_text mac 0x4)
 		wan_mac=$(mtd_get_mac_text mac 0x18)
 		label_mac=$wan_mac
 		;;
->>>>>>> 94392b39ec (稳定版本发布)
 	ubnt,powerbridge-m|\
 	ubnt,rocket-m|\
 	ubnt,unifi)

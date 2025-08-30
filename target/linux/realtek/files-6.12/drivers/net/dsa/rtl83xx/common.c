@@ -29,11 +29,8 @@ extern const struct dsa_switch_ops rtl930x_switch_ops;
 extern const struct phylink_pcs_ops rtl83xx_pcs_ops;
 extern const struct phylink_pcs_ops rtl93xx_pcs_ops;
 
-<<<<<<< HEAD
-=======
 DEFINE_MUTEX(smi_lock);
 
->>>>>>> 94392b39ec (稳定版本发布)
 int rtl83xx_port_get_stp_state(struct rtl838x_switch_priv *priv, int port)
 {
 	u32 msti = 0;
@@ -243,8 +240,6 @@ u64 rtl839x_get_port_reg_le(int reg)
 	return v;
 }
 
-<<<<<<< HEAD
-=======
 int read_phy(u32 port, u32 page, u32 reg, u32 *val)
 {
 	switch (soc_info.family) {
@@ -277,7 +272,6 @@ int write_phy(u32 port, u32 page, u32 reg, u32 val)
 	return -1;
 }
 
->>>>>>> 94392b39ec (稳定版本发布)
 static int rtldsa_bus_read(struct mii_bus *bus, int addr, int regnum)
 {
 	struct rtl838x_switch_priv *priv = bus->priv;
@@ -373,8 +367,6 @@ static int __init rtl83xx_mdio_probe(struct rtl838x_switch_priv *priv)
 			continue;
 
 		phy_node = of_parse_phandle(dn, "phy-handle", 0);
-<<<<<<< HEAD
-=======
 
 		/* Major cleanup is needed...
 		 *
@@ -391,7 +383,6 @@ static int __init rtl83xx_mdio_probe(struct rtl838x_switch_priv *priv)
 		if (!phy_node)
 			phy_node = of_parse_phandle(dn, "pseudo-phy-handle", 0);
 
->>>>>>> 94392b39ec (稳定版本发布)
 		if (!phy_node) {
 			if (pn != priv->cpu_port)
 				dev_err(priv->dev, "Port node %d misses phy-handle\n", pn);
@@ -1387,11 +1378,7 @@ static int rtl83xx_netevent_event(struct notifier_block *this,
 
 		pr_debug("%s: updating neighbour on port %d, mac %016llx\n",
 			__func__, port, net_work->mac);
-<<<<<<< HEAD
-		queue_work(priv->wq, &net_work->work);
-=======
 		schedule_work(&net_work->work);
->>>>>>> 94392b39ec (稳定版本发布)
 		if (err)
 			netdev_warn(dev, "failed to handle neigh update (err %d)\n", err);
 		break;
@@ -1513,11 +1500,7 @@ static int rtl83xx_fib_event(struct notifier_block *this, unsigned long event, v
 		break;
 	}
 
-<<<<<<< HEAD
-	queue_work(priv->wq, &fib_work->work);
-=======
 	schedule_work(&fib_work->work);
->>>>>>> 94392b39ec (稳定版本发布)
 
 	return NOTIFY_DONE;
 }
@@ -1551,10 +1534,6 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 	priv->ds->ops = &rtl83xx_switch_ops;
 	priv->ds->needs_standalone_vlan_filtering = true;
 	priv->dev = dev;
-<<<<<<< HEAD
-	dev_set_drvdata(dev, priv);
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 	err = devm_mutex_init(dev, &priv->reg_mutex);
 	if (err)
@@ -1604,12 +1583,6 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		priv->r = &rtl930x_reg;
 		priv->ds->num_ports = 29;
 		priv->fib_entries = 16384;
-<<<<<<< HEAD
-		/* TODO A version based on CHIP_INFO and MODEL_NAME_INFO should
-		 * be constructed. For now, just set it to a static 'A'
-		 */
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		priv->version = RTL8390_VERSION_A;
 		priv->n_lags = 16;
 		sw_w32(1, RTL930X_ST_CTRL);
@@ -1623,22 +1596,6 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		priv->cpu_port = RTL931X_CPU_PORT;
 		priv->port_mask = 0x3f;
 		priv->port_width = 2;
-<<<<<<< HEAD
-		priv->irq_mask = GENMASK_ULL(priv->cpu_port - 1, 0);
-		priv->r = &rtl931x_reg;
-		priv->ds->num_ports = 57;
-		priv->fib_entries = 16384;
-		/* TODO A version based on CHIP_INFO and MODEL_NAME_INFO should
-		 * be constructed. For now, just set it to a static 'A'
-		 */
-		priv->version = RTL8390_VERSION_A;
-		priv->n_lags = 16;
-		sw_w32(1, RTL931x_ST_CTRL);
-		priv->l2_bucket_size = 8;
-		priv->n_pie_blocks = 16;
-		priv->port_ignore = 0x3f;
-		priv->n_counters = 2048;
-=======
 		priv->irq_mask = 0xFFFFFFFFFFFFFULL;
 		priv->r = &rtl931x_reg;
 		priv->ds->num_ports = 57;
@@ -1646,7 +1603,6 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		priv->version = RTL8390_VERSION_A;
 		priv->n_lags = 16;
 		priv->l2_bucket_size = 8;
->>>>>>> 94392b39ec (稳定版本发布)
 		break;
 	}
 	pr_debug("Chip version %c\n", priv->version);
@@ -1675,23 +1631,10 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		return err;
 	}
 
-<<<<<<< HEAD
-	priv->wq = create_singlethread_workqueue("rtl83xx");
-	if (!priv->wq) {
-		dev_err(dev, "Error creating workqueue: %d\n", err);
-		return -ENOMEM;
-	}
-
-	err = dsa_register_switch(priv->ds);
-	if (err) {
-		dev_err(dev, "Error registering switch: %d\n", err);
-		goto err_register_switch;
-=======
 	err = dsa_register_switch(priv->ds);
 	if (err) {
 		dev_err(dev, "Error registering switch: %d\n", err);
 		return err;
->>>>>>> 94392b39ec (稳定版本发布)
 	}
 
 	/* dsa_to_port returns dsa_port from the port list in
@@ -1719,11 +1662,7 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		                  IRQF_SHARED, "rtl839x-link-state", priv->ds);
 		break;
 	case RTL9300_FAMILY_ID:
-<<<<<<< HEAD
-		err = request_irq(priv->link_state_irq, rtldsa_930x_switch_irq,
-=======
 		err = request_irq(priv->link_state_irq, rtl930x_switch_irq,
->>>>>>> 94392b39ec (稳定版本发布)
 				  IRQF_SHARED, "rtl930x-link-state", priv->ds);
 		break;
 	case RTL9310_FAMILY_ID:
@@ -1783,14 +1722,8 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		goto err_register_fib_nb;
 
 	/* TODO: put this into l2_setup() */
-<<<<<<< HEAD
-	switch (soc_info.family) {
-	default:
-		/* Flood BPDUs to all ports including cpu-port */
-=======
 	/* Flood BPDUs to all ports including cpu-port */
 	if (soc_info.family != RTL9300_FAMILY_ID) {
->>>>>>> 94392b39ec (稳定版本发布)
 		bpdu_mask = soc_info.family == RTL8380_FAMILY_ID ? 0x1FFFFFFF : 0x1FFFFFFFFFFFFF;
 		priv->r->set_port_reg_be(bpdu_mask, priv->r->rma_bpdu_fld_pmask);
 
@@ -1798,16 +1731,8 @@ static int __init rtl83xx_sw_probe(struct platform_device *pdev)
 		sw_w32(7, priv->r->spcl_trap_eapol_ctrl);
 
 		rtl838x_dbgfs_init(priv);
-<<<<<<< HEAD
-		break;
-	case RTL9300_FAMILY_ID:
-	case RTL9310_FAMILY_ID:
-		rtl930x_dbgfs_init(priv);
-		break;
-=======
 	} else {
 		rtl930x_dbgfs_init(priv);
->>>>>>> 94392b39ec (稳定版本发布)
 	}
 
 	return 0;
@@ -1817,45 +1742,13 @@ err_register_fib_nb:
 err_register_ne_nb:
 	unregister_netdevice_notifier(&priv->nb);
 err_register_nb:
-<<<<<<< HEAD
-	dsa_switch_shutdown(priv->ds);
-err_register_switch:
-	destroy_workqueue(priv->wq);
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	return err;
 }
 
 static void rtl83xx_sw_remove(struct platform_device *pdev)
 {
-<<<<<<< HEAD
-	struct rtl838x_switch_priv *priv = platform_get_drvdata(pdev);
-
-	if (!priv)
-		return;
-
 	/* TODO: */
 	pr_debug("Removing platform driver for rtl83xx-sw\n");
-
-	/* unregister notifiers which will create workqueue entries with
-	 * references to the switch structures. Also stop self-arming delayed
-	 * work items to avoid them still accessing the DSA structures
-	 * when they are getting shut down.
-	 */
-	unregister_fib_notifier(&init_net, &priv->fib_nb);
-	unregister_netevent_notifier(&priv->ne_nb);
-	cancel_delayed_work_sync(&priv->counters_work);
-
-	dsa_switch_shutdown(priv->ds);
-
-	destroy_workqueue(priv->wq);
-
-	dev_set_drvdata(&pdev->dev, NULL);
-=======
-	/* TODO: */
-	pr_debug("Removing platform driver for rtl83xx-sw\n");
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static const struct of_device_id rtl83xx_switch_of_ids[] = {

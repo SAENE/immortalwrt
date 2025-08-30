@@ -13,10 +13,6 @@
 
 #define REALTEK_PHY_ID_RTL8261N         0x001CCAF3
 #define REALTEK_PHY_ID_RTL8264B         0x001CC813
-<<<<<<< HEAD
-#define REALTEK_PHY_ID_RTL8264          0x001CCAF2
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 static int rtl826xb_get_features(struct phy_device *phydev)
 {
@@ -70,16 +66,8 @@ static int rtkphy_config_init(struct phy_device *phydev)
     {
         case REALTEK_PHY_ID_RTL8261N:
         case REALTEK_PHY_ID_RTL8264B:
-<<<<<<< HEAD
-        case REALTEK_PHY_ID_RTL8264:
-            phydev_info(phydev, "%s:%u [RTL8261N/RTL8264/RTL826XB] phy_id: 0x%X PHYAD:%d\n", __FUNCTION__, __LINE__, phydev->drv->phy_id, phydev->mdio.addr);
-#ifdef CONFIG_MACH_REALTEK_RTL
-            return 0;
-#endif
-=======
             phydev_info(phydev, "%s:%u [RTL8261N/RTL826XB] phy_id: 0x%X PHYAD:%d\n", __FUNCTION__, __LINE__, phydev->drv->phy_id, phydev->mdio.addr);
 
->>>>>>> 94392b39ec (稳定版本发布)
 
           #if 1 /* toggle reset */
             phy_modify_mmd_changed(phydev, 30, 0x145, BIT(0)  , 1);
@@ -138,13 +126,7 @@ static int rtkphy_c45_suspend(struct phy_device *phydev)
 {
     int ret = 0;
 
-<<<<<<< HEAD
-#ifndef CONFIG_MACH_REALTEK_RTL
     ret = rtk_phylib_c45_power_low(phydev);
-#endif
-=======
-    ret = rtk_phylib_c45_power_low(phydev);
->>>>>>> 94392b39ec (稳定版本发布)
 
     phydev->speed = SPEED_UNKNOWN;
     phydev->duplex = DUPLEX_UNKNOWN;
@@ -156,15 +138,7 @@ static int rtkphy_c45_suspend(struct phy_device *phydev)
 
 static int rtkphy_c45_resume(struct phy_device *phydev)
 {
-<<<<<<< HEAD
-#ifndef CONFIG_MACH_REALTEK_RTL
     return rtk_phylib_c45_power_normal(phydev);
-#else
-    return 0;
-#endif
-=======
-    return rtk_phylib_c45_power_normal(phydev);
->>>>>>> 94392b39ec (稳定版本发布)
 }
 
 static int rtkphy_c45_config_aneg(struct phy_device *phydev)
@@ -290,21 +264,6 @@ static struct phy_driver rtk_phy_drivers[] = {
         .aneg_done          = rtkphy_c45_aneg_done,
         .read_status        = rtkphy_c45_read_status,
     },
-<<<<<<< HEAD
-    {
-        PHY_ID_MATCH_EXACT(REALTEK_PHY_ID_RTL8264),
-        .name               = "Realtek RTL8264",
-        .get_features       = rtl826xb_get_features,
-        .config_init        = rtkphy_config_init,
-        .probe              = rtl826xb_probe,
-        .suspend            = rtkphy_c45_suspend,
-        .resume             = rtkphy_c45_resume,
-        .config_aneg        = rtkphy_c45_config_aneg,
-        .aneg_done          = rtkphy_c45_aneg_done,
-        .read_status        = rtkphy_c45_read_status,
-    },
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 };
 
 module_phy_driver(rtk_phy_drivers);
@@ -313,10 +272,6 @@ module_phy_driver(rtk_phy_drivers);
 static struct mdio_device_id __maybe_unused rtk_phy_tbl[] = {
     { PHY_ID_MATCH_EXACT(REALTEK_PHY_ID_RTL8261N) },
     { PHY_ID_MATCH_EXACT(REALTEK_PHY_ID_RTL8264B) },
-<<<<<<< HEAD
-    { PHY_ID_MATCH_EXACT(REALTEK_PHY_ID_RTL8264) },
-=======
->>>>>>> 94392b39ec (稳定版本发布)
     { },
 };
 

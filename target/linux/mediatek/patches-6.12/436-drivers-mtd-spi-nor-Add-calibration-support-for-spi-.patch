@@ -12,11 +12,7 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
 
 --- a/drivers/mtd/nand/spi/core.c
 +++ b/drivers/mtd/nand/spi/core.c
-<<<<<<< HEAD
-@@ -1195,7 +1195,10 @@ static int spinand_cal_read(void *priv,
-=======
 @@ -1196,7 +1196,10 @@ static int spinand_cal_read(void *priv,
->>>>>>> 94392b39ec (稳定版本发布)
  	if (ret)
  		return ret;
  

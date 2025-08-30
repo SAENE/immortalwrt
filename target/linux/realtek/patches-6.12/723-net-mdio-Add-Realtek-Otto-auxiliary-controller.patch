@@ -49,11 +49,7 @@ Signed-off-by: Sander Vanheule <sander@svanheule.net>
  obj-$(CONFIG_MDIO_THUNDER)		+= mdio-thunder.o
 --- /dev/null
 +++ b/drivers/net/mdio/mdio-realtek-otto-aux.c
-<<<<<<< HEAD
-@@ -0,0 +1,187 @@
-=======
 @@ -0,0 +1,175 @@
->>>>>>> 94392b39ec (稳定版本发布)
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +
 +#include <linux/mfd/core.h>
@@ -69,10 +65,6 @@ Signed-off-by: Sander Vanheule <sander@svanheule.net>
 +#define RTL8380_EXT_GPIO_INDIRECT_ACCESS	0xA09C
 +#define RTL8390_EXT_GPIO_INDIRECT_ACCESS	0x0224
 +#define RTL9300_EXT_GPIO_INDIRECT_ACCESS	0xC620
-<<<<<<< HEAD
-+#define RTL9310_EXT_GPIO_INDIRECT_ACCESS	0x07F4
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +
 +#define RTL83XX_AUX_MDIO_DATA_OFFSET		16
 +#define RTL83XX_AUX_MDIO_RCMD_FAIL		0
@@ -114,16 +106,6 @@ Signed-off-by: Sander Vanheule <sander@svanheule.net>
 +	.timeout_us = 19000,
 +};
 +
-<<<<<<< HEAD
-+static const struct realtek_aux_mdio_info info_rtl931x = {
-+	.cmd_reg = RTL9310_EXT_GPIO_INDIRECT_ACCESS,
-+	.data_offset = RTL93XX_AUX_MDIO_DATA_OFFSET,
-+	.rcmd_fail_mask = RTL93XX_AUX_MDIO_RCMD_FAIL,
-+	.timeout_us = 19000,
-+};
-+
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +struct realtek_aux_mdio_ctrl {
 +	struct device *dev;
 +	struct regmap *map;
@@ -227,13 +209,6 @@ Signed-off-by: Sander Vanheule <sander@svanheule.net>
 +		.compatible = "realtek,rtl9300-aux-mdio",
 +		.data = &info_rtl930x,
 +	},
-<<<<<<< HEAD
-+	{
-+		.compatible = "realtek,rtl9310-aux-mdio",
-+		.data = &info_rtl931x,
-+	},
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 +	{ /* sentinel */ }
 +};
 +MODULE_DEVICE_TABLE(of, realtek_aux_mdio_of_match);

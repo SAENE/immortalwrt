@@ -112,11 +112,7 @@ untagged DHCP packets
  	hapd->x_snoop_initialized = false;
 --- a/src/drivers/driver.h
 +++ b/src/drivers/driver.h
-<<<<<<< HEAD
-@@ -4498,7 +4498,7 @@ struct wpa_driver_ops {
-=======
 @@ -4462,7 +4462,7 @@ struct wpa_driver_ops {
->>>>>>> 94392b39ec (稳定版本发布)
  	 * Returns: 0 on success, negative (<0) on failure
  	 */
  	int (*br_set_net_param)(void *priv, enum drv_br_net_param param,
@@ -127,11 +123,7 @@ untagged DHCP packets
  	 * get_wowlan - Get wake-on-wireless status
 --- a/src/drivers/driver_nl80211.c
 +++ b/src/drivers/driver_nl80211.c
-<<<<<<< HEAD
-@@ -12893,7 +12893,7 @@ static const char * drv_br_net_param_str
-=======
 @@ -12789,7 +12789,7 @@ static const char * drv_br_net_param_str
->>>>>>> 94392b39ec (稳定版本发布)
  
  
  static int wpa_driver_br_set_net_param(void *priv, enum drv_br_net_param param,
@@ -140,11 +132,7 @@ untagged DHCP packets
  {
  	struct i802_bss *bss = priv;
  	char path[128];
-<<<<<<< HEAD
-@@ -12919,8 +12919,11 @@ static int wpa_driver_br_set_net_param(v
-=======
 @@ -12815,8 +12815,11 @@ static int wpa_driver_br_set_net_param(v
->>>>>>> 94392b39ec (稳定版本发布)
  			return -EINVAL;
  	}
  

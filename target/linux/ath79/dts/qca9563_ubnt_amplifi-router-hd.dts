@@ -192,20 +192,6 @@
 	status = "okay";
 };
 
-<<<<<<< HEAD
-&usb_phy1 {
-	status = "okay";
-};
-
 &usb0 {
 	status = "okay";
 };
-
-&usb1 {
-	status = "okay";
-};
-=======
-&usb0 {
-	status = "okay";
-};
->>>>>>> 94392b39ec (稳定版本发布)

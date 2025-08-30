@@ -17,11 +17,7 @@ Signed-off-by: Paolo Abeni <pabeni@redhat.com>
 
 --- a/drivers/net/phy/realtek.c
 +++ b/drivers/net/phy/realtek.c
-<<<<<<< HEAD
-@@ -1027,6 +1027,10 @@ static int rtl822x_c45_read_status(struc
-=======
 @@ -1026,6 +1026,10 @@ static int rtl822x_c45_read_status(struc
->>>>>>> 94392b39ec (稳定版本发布)
  	if (ret < 0)
  		return ret;
  

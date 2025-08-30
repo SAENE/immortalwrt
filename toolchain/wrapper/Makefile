@@ -42,11 +42,7 @@ define Host/SetToolchainInfo
 	if [ -f $(CONFIG_TOOLCHAIN_ROOT)/info.mk ]; then \
 		$(CP) $(CONFIG_TOOLCHAIN_ROOT)/info.mk $(TOOLCHAIN_DIR)/; \
 	else \
-<<<<<<< HEAD
-		$(SED) 's,GCC_VERSION=.*,GCC_VERSION=$(call qstrip,$(CONFIG_GCC_VERSION)),' $(TOOLCHAIN_DIR)/info.mk; \
-=======
 		$(SED) 's,GCC_VERSION=.*,GCC_VERSION=$(CONFIG_GCC_VERSION),' $(TOOLCHAIN_DIR)/info.mk; \
->>>>>>> 94392b39ec (稳定版本发布)
 	fi
 endef
 

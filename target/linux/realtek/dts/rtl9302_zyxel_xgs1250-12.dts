@@ -29,8 +29,6 @@
 		};
 	};
 
-<<<<<<< HEAD
-=======
 	/* i2c of the SFP cage: port 12 */
 	i2c0: i2c-rtl9300@1b00036c {
 		compatible = "realtek,rtl9300-i2c";
@@ -42,7 +40,6 @@
 		clock-frequency = <100000>;
 	};
 
->>>>>>> 94392b39ec (稳定版本发布)
 	leds {
 		compatible = "gpio-leds";
 
@@ -177,18 +174,6 @@
 	};
 };
 
-<<<<<<< HEAD
-&i2c_mst1 {
-	status = "okay";
-
-	/* i2c of the SFP+ cage; port 12 */
-	i2c0: i2c@1 {
-		reg = <1>;
-	};
-};
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 &spi0 {
 	status = "okay";
 	flash@0 {
@@ -320,9 +305,6 @@
 			#thermal-sensor-cells = <0>;
 		};
 
-<<<<<<< HEAD
-		INTERNAL_PHY_SDS(27, 9)
-=======
 		/* SFP Ports */
 		phy27: ethernet-phy@27 {
 			compatible = "ethernet-phy-ieee802.3-c22";
@@ -331,7 +313,6 @@
 			sds = < 9 >;
 		};
 
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -423,11 +404,7 @@
 			reg = <27>;
 			label = "lan12";
 			phy-mode = "1000base-x";
-<<<<<<< HEAD
-			phy-handle = <&phy27>;
-=======
 			pseudo-phy-handle = <&phy27>;
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp0>;
 			led-set = <2>;
 			managed = "in-band-status";

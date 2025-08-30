@@ -170,11 +170,7 @@ TARGET_LDFLAGS += -Wl,--as-needed
 TARGET_CPPFLAGS += -I$(STAGING_DIR)/usr/include/libnl-tiny
 
 MAKE_FLAGS += \
-<<<<<<< HEAD
-	KERNEL_INCLUDE="$(TOOLCHAIN_ROOT_DIR)/usr/include" \
-=======
 	KERNEL_INCLUDE="$(LINUX_DIR)/include/uapi" \
->>>>>>> 94392b39ec (稳定版本发布)
 	SHARED_LIBS=$(SHARED_LIBS) \
 	IP_CONFIG_TINY=$(IP_CONFIG_TINY) \
 	BUILD_VARIANT=$(BUILD_VARIANT) \

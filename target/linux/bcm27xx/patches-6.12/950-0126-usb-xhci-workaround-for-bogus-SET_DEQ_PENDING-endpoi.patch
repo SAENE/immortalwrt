@@ -26,11 +26,7 @@ Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
 
 --- a/drivers/usb/host/xhci-ring.c
 +++ b/drivers/usb/host/xhci-ring.c
-<<<<<<< HEAD
-@@ -719,9 +719,9 @@ static int xhci_move_dequeue_past_td(str
-=======
 @@ -720,9 +720,9 @@ static int xhci_move_dequeue_past_td(str
->>>>>>> 94392b39ec (稳定版本发布)
  	}
  
  	if ((ep->ep_state & SET_DEQ_PENDING)) {

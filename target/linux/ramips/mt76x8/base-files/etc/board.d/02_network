@@ -11,10 +11,6 @@ ramips_setup_interfaces()
 	7links,wlr-1230|\
 	7links,wlr-1240|\
 	alfa-network,awusfree1|\
-<<<<<<< HEAD
-	creality,wb-01|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	d-team,pbr-d1|\
 	dlink,dap-1325-a1|\
 	glinet,microuter-n300|\
@@ -113,10 +109,6 @@ ramips_setup_interfaces()
 		;;
 	duzun,dm06|\
 	glinet,gl-mt300n-v2|\
-<<<<<<< HEAD
-	hongdian,h7920-v40|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	teltonika,rut200|\
 	teltonika,rut241)
 		ucidef_add_switch "switch0" \
@@ -149,11 +141,6 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"1:lan" "2:lan" "0:wan" "6@eth0"
 		;;
-<<<<<<< HEAD
-	keenetic,kn-1112|\
-	keenetic,kn-1212|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	keenetic,kn-1613|\
 	keenetic,kn-1713|\
 	motorola,mwr03)
@@ -320,10 +307,6 @@ ramips_setup_macs()
 	totolink,a3)
 		wan_mac=$(mtd_get_mac_binary u-boot 0x1fc40)
 		;;
-<<<<<<< HEAD
-	hongdian,h7920-v40|\
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	jotale,js76x8-8m|\
 	jotale,js76x8-16m|\
 	jotale,js76x8-32m|\

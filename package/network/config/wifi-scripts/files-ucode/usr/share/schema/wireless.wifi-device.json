@@ -127,11 +127,7 @@
 			"type": "string"
 		},
 		"country_code": {
-<<<<<<< HEAD
-			"description": "Specifies the two-letter country code (e.g. EN or DE), affects the available channels and transmission powers",
-=======
 			"description": "Specifies the country code, affects the available channels and transmission powers. For types mac80211 and broadcom a two letter country code is used (EN or DE). The madwifi driver expects a numeric code",
->>>>>>> 94392b39ec (稳定版本发布)
 			"type": "string"
 		},
 		"country_ie": {
@@ -571,11 +567,7 @@
 		"require_mode": {
 			"description": "Sets the minimum client capability level mode that connecting clients must support to be allowed to connect",
 			"type": "string",
-<<<<<<< HEAD
-			"enum": [ "n", "ac", "ax" ]
-=======
 			"enum": [ "ht", "ac", "ax" ]
->>>>>>> 94392b39ec (稳定版本发布)
 		},
 		"rnr_beacon": {
 			"description": "",
@@ -626,16 +618,6 @@
 			"type": "boolean",
 			"default": true
 		},
-<<<<<<< HEAD
-		"scan_list": {
-			"description": "List of frequencies (in MHz) to scan when looking for networks in client mode",
-			"type": "array",
-			"items": {
-				"type": "number"
-			}
-		},
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 		"short_gi_160": {
 			"description": "Short GI for 160 MHz",
 			"type": "boolean",

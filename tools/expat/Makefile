@@ -20,10 +20,6 @@ HOST_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/host-build.mk
 
 HOSTCC := $(HOSTCC_NOCACHE)
-<<<<<<< HEAD
-HOSTCXX := $(HOSTCXX_NOCACHE)
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 HOST_CONFIGURE_ARGS += \
 	--disable-shared \

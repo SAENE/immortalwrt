@@ -1,10 +1,6 @@
 --- a/arch/arm/dts/mt7986.dtsi
 +++ b/arch/arm/dts/mt7986.dtsi
-<<<<<<< HEAD
-@@ -50,6 +50,30 @@
-=======
 @@ -50,6 +50,35 @@
->>>>>>> 94392b39ec (稳定版本发布)
  		};
  	};
  
@@ -25,13 +21,6 @@
 +			record-size = <0x1000>;
 +		};
 +
-<<<<<<< HEAD
-+		/* 256 KiB reserved for ARM Trusted Firmware (BL31 + BL32) */
-+		secmon@43000000 {
-+			reg = <0x43000000 0x40000>;
-+			no-map;
-+		};
-=======
 +		/* 192 KiB reserved for ARM Trusted Firmware (BL31) */
 +		secmon_reserved: secmon@43000000 {
 +			reg = <0x43000000 0x30000>;
@@ -42,7 +31,6 @@
 +			no-map;
 +			reg = <0x4fc00000 0x00100000>;
 +		};
->>>>>>> 94392b39ec (稳定版本发布)
 +	};
 +
  	dummy_clk: dummy12m {

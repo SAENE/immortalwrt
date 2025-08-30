@@ -10,23 +10,12 @@ define KernelPackage/mmc-mtk
   DEPENDS:=@(TARGET_ramips_mt7620||TARGET_ramips_mt76x8||TARGET_ramips_mt7621) +kmod-mmc
   KCONFIG:= \
 	CONFIG_MMC \
-<<<<<<< HEAD
-	CONFIG_MMC_CQHCI \
-	CONFIG_MMC_HSQ \
-	CONFIG_MMC_MTK
-  FILES:= \
-	$(LINUX_DIR)/drivers/mmc/host/cqhci.ko \
-	$(LINUX_DIR)/drivers/mmc/host/mmc_hsq.ko \
-	$(LINUX_DIR)/drivers/mmc/host/mtk-sd.ko
-  AUTOLOAD:=$(call AutoProbe,cqhci mmc_hsq mtk-sd,1)
-=======
 	CONFIG_MMC_MTK \
 	CONFIG_MMC_CQHCI
   FILES:= \
 	$(LINUX_DIR)/drivers/mmc/host/cqhci.ko \
 	$(LINUX_DIR)/drivers/mmc/host/mtk-sd.ko
   AUTOLOAD:=$(call AutoProbe,cqhci mtk-sd,1)
->>>>>>> 94392b39ec (稳定版本发布)
 endef
 
 define KernelPackage/mmc-mtk/description

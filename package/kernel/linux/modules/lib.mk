@@ -359,10 +359,6 @@ $(eval $(call KernelPackage,oid-registry))
 define KernelPackage/lib-objagg
   SUBMENU:=$(LIB_MENU)
   TITLE:=objagg support
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   FILES:=$(LINUX_DIR)/lib/objagg.ko
   KCONFIG:= \
   CONFIG_OBJAGG \
@@ -376,10 +372,6 @@ $(eval $(call KernelPackage,lib-objagg))
 define KernelPackage/lib-parman
   SUBMENU:=$(LIB_MENU)
   TITLE:=parman support
-<<<<<<< HEAD
-  HIDDEN:=1
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   FILES:=$(LINUX_DIR)/lib/parman.ko
   KCONFIG:= \
   CONFIG_PARMAN \

@@ -522,11 +522,7 @@
 		reg = <0x10130000 0x4000>;
 
 		bus-width = <4>;
-<<<<<<< HEAD
-		max-frequency = <48000000>;
-=======
 		max-frequency = <24000000>;
->>>>>>> 94392b39ec (稳定版本发布)
 		cap-mmc-highspeed;
 		cap-sd-highspeed;
 		disable-wp;

@@ -24,20 +24,11 @@
 
 	chosen {
 		stdout-path = &serial0;
-<<<<<<< HEAD
-		bootargs = "console=ttyS0,115200n1 pci=pcie_bus_perf root=PARTLABEL=rootfs";
-	};
-
-	memory@40000000 {
-		reg = <0x0 0x40000000 0x0 0x40000000>;
-		device_type = "memory";
-=======
 		bootargs = "console=ttyS0,115200n1 loglevel=8 pci=pcie_bus_perf root=PARTLABEL=rootfs";
 	};
 
 	memory {
 		reg = <0x0 0x40000000 0x0 0x40000000>;
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	reserved-memory {
@@ -617,11 +608,7 @@
 &pio {
 	button_pins: button-pins {
 		pins = "GPIO_RESET", "GPIO_WPS";
-<<<<<<< HEAD
-		bias-disable; /* bias-disable */
-=======
 		mediatek,pull-down-adv = <0>; /* bias-disable */
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 
 	gbe1_led0_pins: gbe1-led0-pins {
@@ -723,15 +710,6 @@
 	sfp_i2c_pins: sfp-i2c-pins {
 		conf-scl {
 			pins = "LED_A";
-<<<<<<< HEAD
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-		};
-		conf-sda {
-			pins = "LED_E";
-			drive-strength = <MTK_DRIVE_8mA>;
-			bias-disable;
-=======
 			drive-strength =  <8>;
 			mediatek,pull-up-adv = <1>;
 		};
@@ -739,7 +717,6 @@
 			pins = "LED_E";
 			drive-strength =  <8>;
 			mediatek,pull-up-adv = <0>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 

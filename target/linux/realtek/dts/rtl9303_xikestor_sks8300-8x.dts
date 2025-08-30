@@ -27,8 +27,6 @@
 		stdout-path = "serial0:9600n8";
 	};
 
-<<<<<<< HEAD
-=======
 	i2c_master: i2c@1b00036c {
 		compatible = "realtek,rtl9300-i2c";
 		reg = <0x1b00036c 0x3c>;
@@ -94,7 +92,6 @@
 		};
 	};
 
->>>>>>> 94392b39ec (稳定版本发布)
 	keys {
 		compatible = "gpio-keys";
 
@@ -209,39 +206,6 @@
 	};
 };
 
-<<<<<<< HEAD
-&i2c_mst1 {
-	status = "okay";
-
-	/* SDA0-7 correspond to GPIO9-16 */
-	i2c0: i2c@0 {
-		reg = <0>;
-	};
-	i2c1: i2c@1 {
-		reg = <1>;
-	};
-	i2c2: i2c@2 {
-		reg = <2>;
-	};
-	i2c3: i2c@3 {
-		reg = <3>;
-	};
-	i2c4: i2c@4 {
-		reg = <4>;
-	};
-	i2c5: i2c@5 {
-		reg = <5>;
-	};
-	i2c6: i2c@6 {
-		reg = <6>;
-	};
-	i2c7: i2c@7 {
-		reg = <7>;
-	};
-};
-
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 &mdio_aux {
 	status = "okay";
 
@@ -321,16 +285,6 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-<<<<<<< HEAD
-		INTERNAL_PHY_SDS(0, 2)
-		INTERNAL_PHY_SDS(8, 3)
-		INTERNAL_PHY_SDS(16, 4)
-		INTERNAL_PHY_SDS(20, 5)
-		INTERNAL_PHY_SDS(24, 6)
-		INTERNAL_PHY_SDS(25, 7)
-		INTERNAL_PHY_SDS(26, 8)
-		INTERNAL_PHY_SDS(27, 9)
-=======
 		phy0: ethernet-phy@0 {
 			compatible = "ethernet-phy-ieee802.3-c22";
 			phy-is-integrated;
@@ -386,7 +340,6 @@
 			reg = <27>;
 			sds = <9>;
 		};
->>>>>>> 94392b39ec (稳定版本发布)
 	};
 };
 
@@ -398,13 +351,8 @@
 		port@0 {
 			reg = <0>;
 			label = "lan1";
-<<<<<<< HEAD
-			phy-handle = <&phy0>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy0>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp0>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -413,13 +361,8 @@
 		port@8 {
 			reg = <8>;
 			label = "lan2";
-<<<<<<< HEAD
-			phy-handle = <&phy8>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy8>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp1>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -428,13 +371,8 @@
 		port@10 {
 			reg = <16>;
 			label = "lan3";
-<<<<<<< HEAD
-			phy-handle = <&phy16>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy16>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp2>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -443,13 +381,8 @@
 		port@14 {
 			reg = <20>;
 			label = "lan4";
-<<<<<<< HEAD
-			phy-handle = <&phy20>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy20>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp3>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -458,13 +391,8 @@
 		port@18 {
 			reg = <24>;
 			label = "lan5";
-<<<<<<< HEAD
-			phy-handle = <&phy24>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy24>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp4>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -473,13 +401,8 @@
 		port@19 {
 			reg = <25>;
 			label = "lan6";
-<<<<<<< HEAD
-			phy-handle = <&phy25>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy25>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp5>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -488,13 +411,8 @@
 		port@1a {
 			reg = <26>;
 			label = "lan7";
-<<<<<<< HEAD
-			phy-handle = <&phy26>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy26>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp6>;
 			managed = "in-band-status";
 			led-set = <0>;
@@ -503,13 +421,8 @@
 		port@1b {
 			reg = <27>;
 			label = "lan8";
-<<<<<<< HEAD
-			phy-handle = <&phy27>;
-			phy-mode = "1000base-x";
-=======
 			pseudo-phy-handle = <&phy27>;
 			phy-mode = "10gbase-r";
->>>>>>> 94392b39ec (稳定版本发布)
 			sfp = <&sfp7>;
 			managed = "in-band-status";
 			led-set = <0>;

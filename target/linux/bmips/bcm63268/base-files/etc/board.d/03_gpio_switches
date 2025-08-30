@@ -1,13 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
-<<<<<<< HEAD
-. /lib/functions/system.sh
-. /lib/functions/uci-defaults.sh
-
-board_config_update
-
-if [ "$(get_linux_version)" -ge "612000" ]; then
-=======
 . /lib/functions/uci-defaults.sh
 
 KERNEL_MAJOR=$(uname -r | awk -F '.' '{print $1}')
@@ -16,7 +8,6 @@ KERNEL_MINOR=$(uname -r | awk -F '.' '{print $2}')
 board_config_update
 
 if [ "${KERNEL_MAJOR}" -ge "6" ] && [ "${KERNEL_MINOR}" -ge "12" ]; then
->>>>>>> 94392b39ec (稳定版本发布)
 	GPIO_BASE=512
 else
 	GPIO_BASE=460

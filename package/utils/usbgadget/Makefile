@@ -1,11 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=usbgadget
-<<<<<<< HEAD
-PKG_RELEASE:=2
-=======
 PKG_RELEASE:=1
->>>>>>> 94392b39ec (稳定版本发布)
 
 PKG_LICENSE:=BSD-2-Clause
 

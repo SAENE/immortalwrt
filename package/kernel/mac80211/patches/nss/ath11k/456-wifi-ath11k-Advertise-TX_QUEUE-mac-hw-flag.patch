@@ -13,11 +13,7 @@ Signed-off-by: Yuvasree Sivasankaran <quic_ysivasan@quicinc.com>
 
 --- a/drivers/net/wireless/ath/ath11k/mac.c
 +++ b/drivers/net/wireless/ath/ath11k/mac.c
-<<<<<<< HEAD
-@@ -10880,6 +10880,7 @@ static int __ath11k_mac_register(struct
-=======
 @@ -10773,6 +10773,7 @@ static int __ath11k_mac_register(struct
->>>>>>> 94392b39ec (稳定版本发布)
  	ieee80211_hw_set(ar->hw, QUEUE_CONTROL);
  	ieee80211_hw_set(ar->hw, SUPPORTS_TX_FRAG);
  	ieee80211_hw_set(ar->hw, REPORTS_LOW_ACK);

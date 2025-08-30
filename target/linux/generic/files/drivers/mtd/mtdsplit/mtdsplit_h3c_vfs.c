@@ -98,16 +98,8 @@ static int mtdsplit_h3c_vfs_parse(struct mtd_info *mtd,
 	if (retlen != sizeof(format_flag))
 		return -EIO;
 
-<<<<<<< HEAD
-	if (format_flag != FORMAT_FLAG) {
-		pr_info("mtdsplit_h3c_vfs: unexpected format flag %08x\n",
-			format_flag);
-		return 0;
-	}
-=======
 	if (format_flag != FORMAT_FLAG)
 		return -EINVAL;
->>>>>>> 94392b39ec (稳定版本发布)
 
 	/* Check file entry */
 	err = mtd_read(mtd, FILE_ENTRY_OFFSET, sizeof(file_entry), &retlen,
@@ -118,16 +110,6 @@ static int mtdsplit_h3c_vfs_parse(struct mtd_info *mtd,
 	if (retlen != sizeof(file_entry))
 		return -EIO;
 
-<<<<<<< HEAD
-	if (file_entry.flags != FILE_ENTRY_FLAGS ||
-	    file_entry.parent_block != FILE_ENTRY_PARENT_BLOCK ||
-	    file_entry.parent_index != FILE_ENTRY_PARENT_INDEX ||
-	    file_entry.data_block != FILE_ENTRY_DATA_BLOCK ||
-	    strncmp(file_entry.name, FILE_ENTRY_NAME, sizeof(file_entry.name)) != 0) {
-		pr_info("mtdsplit_h3c_vfs: unexpected file entry - OpenWrt probably not installed\n");
-		return 0;
-	}
-=======
 	if (file_entry.flags != FILE_ENTRY_FLAGS)
 		return -EINVAL;
 
@@ -142,7 +124,6 @@ static int mtdsplit_h3c_vfs_parse(struct mtd_info *mtd,
 
 	if (strncmp(file_entry.name, FILE_ENTRY_NAME, sizeof(file_entry.name)) != 0)
 		return -EINVAL;
->>>>>>> 94392b39ec (稳定版本发布)
 
 	/* Find rootfs offset */
 	kernel_size = block_offset(file_entry.data_block +

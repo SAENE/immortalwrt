@@ -55,11 +55,7 @@
  #endif
 --- a/include/linux/if_vlan.h
 +++ b/include/linux/if_vlan.h
-<<<<<<< HEAD
-@@ -138,7 +138,10 @@ extern struct net_device *__vlan_find_de
-=======
 @@ -143,7 +143,10 @@ extern struct net_device *__vlan_find_de
->>>>>>> 94392b39ec (稳定版本发布)
  extern int vlan_for_each(struct net_device *dev,
  			 int (*action)(struct net_device *dev, int vid,
  				       void *arg), void *arg);
@@ -70,17 +66,10 @@
  extern u16 vlan_dev_vlan_id(const struct net_device *dev);
  extern __be16 vlan_dev_vlan_proto(const struct net_device *dev);
  
-<<<<<<< HEAD
-@@ -241,6 +244,12 @@ static inline bool is_vlan_dev(const str
- 	return false;
- }
- 
-=======
 @@ -236,6 +239,12 @@ extern void vlan_vids_del_by_dev(struct
  extern bool vlan_uses_dev(const struct net_device *dev);
  
  #else
->>>>>>> 94392b39ec (稳定版本发布)
 +static inline void __vlan_dev_update_accel_stats(struct net_device *dev,
 +					   struct rtnl_link_stats64 *stats)
 +{
@@ -164,11 +153,7 @@
  	const struct dst_entry *dst = skb_dst(skb);
 --- a/include/net/neighbour.h
 +++ b/include/net/neighbour.h
-<<<<<<< HEAD
-@@ -250,6 +250,13 @@ static inline int neigh_parms_family(str
-=======
 @@ -249,6 +249,13 @@ static inline int neigh_parms_family(str
->>>>>>> 94392b39ec (稳定版本发布)
  	return p->tbl->family;
  }
  
@@ -182,11 +167,7 @@
  #define NEIGH_PRIV_ALIGN	sizeof(long long)
  #define NEIGH_ENTRY_SIZE(size)	ALIGN((size), NEIGH_PRIV_ALIGN)
  
-<<<<<<< HEAD
-@@ -396,6 +403,11 @@ void __neigh_for_each_release(struct nei
-=======
 @@ -395,6 +402,11 @@ void __neigh_for_each_release(struct nei
->>>>>>> 94392b39ec (稳定版本发布)
  			      int (*cb)(struct neighbour *));
  int neigh_xmit(int fam, struct net_device *, const void *, struct sk_buff *);
  
@@ -198,11 +179,7 @@
  struct neigh_seq_state {
  	struct seq_net_private p;
  	struct neigh_table *tbl;
-<<<<<<< HEAD
-@@ -601,4 +613,5 @@ static inline void neigh_update_is_route
-=======
 @@ -600,4 +612,5 @@ static inline void neigh_update_is_route
->>>>>>> 94392b39ec (稳定版本发布)
  		*notify = 1;
  	}
  }
@@ -224,11 +201,7 @@
  void fib_del_ifaddr(struct in_ifaddr *, struct in_ifaddr *);
 --- a/net/bridge/br_private.h
 +++ b/net/bridge/br_private.h
-<<<<<<< HEAD
-@@ -2302,4 +2302,6 @@ void br_do_suppress_nd(struct sk_buff *s
-=======
 @@ -2293,4 +2293,6 @@ void br_do_suppress_nd(struct sk_buff *s
->>>>>>> 94392b39ec (稳定版本发布)
  		       u16 vid, struct net_bridge_port *p, struct nd_msg *msg);
  struct nd_msg *br_is_nd_neigh_msg(struct sk_buff *skb, struct nd_msg *m);
  bool br_is_neigh_suppress_enabled(const struct net_bridge_port *p, u16 vid);
@@ -590,11 +563,7 @@
 +/* QCA NSS ECM support - End */
 --- a/net/core/neighbour.c
 +++ b/net/core/neighbour.c
-<<<<<<< HEAD
-@@ -1282,6 +1282,22 @@ static void neigh_update_hhs(struct neig
-=======
 @@ -1277,6 +1277,22 @@ static void neigh_update_hhs(struct neig
->>>>>>> 94392b39ec (稳定版本发布)
  	}
  }
  
@@ -617,11 +586,7 @@
  /* Generic update routine.
     -- lladdr is new lladdr or NULL, if it is not supplied.
     -- new    is new state.
-<<<<<<< HEAD
-@@ -1310,6 +1326,7 @@ static int __neigh_update(struct neighbo
-=======
 @@ -1305,6 +1321,7 @@ static int __neigh_update(struct neighbo
->>>>>>> 94392b39ec (稳定版本发布)
  	struct net_device *dev;
  	int err, notify = 0;
  	u8 old;
@@ -629,11 +594,7 @@
  
  	trace_neigh_update(neigh, lladdr, new, flags, nlmsg_pid);
  
-<<<<<<< HEAD
-@@ -1324,7 +1341,10 @@ static int __neigh_update(struct neighbo
-=======
 @@ -1319,7 +1336,10 @@ static int __neigh_update(struct neighbo
->>>>>>> 94392b39ec (稳定版本发布)
  		new = old;
  		goto out;
  	}
@@ -645,11 +606,7 @@
  	    (old & (NUD_NOARP | NUD_PERMANENT)))
  		goto out;
  
-<<<<<<< HEAD
-@@ -1361,7 +1381,12 @@ static int __neigh_update(struct neighbo
-=======
 @@ -1356,7 +1376,12 @@ static int __neigh_update(struct neighbo
->>>>>>> 94392b39ec (稳定版本发布)
  		   - compare new & old
  		   - if they are different, check override flag
  		 */
@@ -663,11 +620,7 @@
  		    !memcmp(lladdr, neigh->ha, dev->addr_len))
  			lladdr = neigh->ha;
  	} else {
-<<<<<<< HEAD
-@@ -1483,8 +1508,11 @@ out:
-=======
 @@ -1478,8 +1503,11 @@ out:
->>>>>>> 94392b39ec (稳定版本发布)
  		neigh_update_gc_list(neigh);
  	if (managed_update)
  		neigh_update_managed_list(neigh);
@@ -776,11 +729,7 @@
  out:
  	fib6_info_release(rt);
  	return err;
-<<<<<<< HEAD
-@@ -6409,6 +6419,20 @@ static int ip6_route_dev_notify(struct n
-=======
 @@ -6401,6 +6411,20 @@ static int ip6_route_dev_notify(struct n
->>>>>>> 94392b39ec (稳定版本发布)
  	return NOTIFY_OK;
  }
  

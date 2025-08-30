@@ -323,11 +323,6 @@
 
 &wifi {
 	status = "okay";
-<<<<<<< HEAD
-	#address-cells = <1>;
-	#size-cells = <0>;
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 	nvmem-cell-names = "eeprom";
 	nvmem-cells = <&eeprom_factory_0>;
 

@@ -194,10 +194,6 @@ endef
 TARGET_DEVICES += iodata_bsh-g24mb
 
 define Device/linksys_lgs310c
-<<<<<<< HEAD
-  $(Device/uimage-rt-loader)
-=======
->>>>>>> 94392b39ec (稳定版本发布)
   SOC := rtl8380
   IMAGE_SIZE := 13504k
   DEVICE_VENDOR := Linksys
@@ -220,9 +216,6 @@ TARGET_DEVICES += linksys_lgs310c
 
 # "NGE" refers to the uImage magic
 define Device/netgear_nge
-<<<<<<< HEAD
-  $(Device/uimage-rt-loader)
-=======
   KERNEL := \
 	kernel-bin | \
 	append-dtb | \
@@ -233,7 +226,6 @@ define Device/netgear_nge
 	append-dtb | \
 	lzma | \
 	uImage lzma
->>>>>>> 94392b39ec (稳定版本发布)
   SOC := rtl8380
   IMAGE_SIZE := 14848k
   UIMAGE_MAGIC := 0x4e474520

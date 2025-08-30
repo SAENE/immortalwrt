@@ -26,11 +26,7 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
 
 --- a/drivers/net/wireless/ath/ath11k/core.h
 +++ b/drivers/net/wireless/ath/ath11k/core.h
-<<<<<<< HEAD
-@@ -123,6 +123,7 @@ static inline enum wme_ac ath11k_tid_to_
-=======
 @@ -121,6 +121,7 @@ static inline enum wme_ac ath11k_tid_to_
->>>>>>> 94392b39ec (稳定版本发布)
  enum ath11k_skb_flags {
  	ATH11K_SKB_HW_80211_ENCAP = BIT(0),
  	ATH11K_SKB_CIPHER_SET = BIT(1),
@@ -38,11 +34,7 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  };
  
  struct ath11k_skb_cb {
-<<<<<<< HEAD
-@@ -940,10 +941,13 @@ struct ath11k_dp_ring_bp_stats {
-=======
 @@ -934,10 +935,13 @@ struct ath11k_dp_ring_bp_stats {
->>>>>>> 94392b39ec (稳定版本发布)
  struct ath11k_soc_dp_tx_err_stats {
  	/* TCL Ring Descriptor unavailable */
  	u32 desc_na[DP_TCL_NUM_RING_MAX];
@@ -421,11 +413,7 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  
 --- a/drivers/net/wireless/ath/ath11k/mac.c
 +++ b/drivers/net/wireless/ath/ath11k/mac.c
-<<<<<<< HEAD
-@@ -6544,12 +6544,22 @@ static void ath11k_mac_op_tx(struct ieee
-=======
 @@ -6490,12 +6490,22 @@ static void ath11k_mac_op_tx(struct ieee
->>>>>>> 94392b39ec (稳定版本发布)
  	if (control->sta)
  		arsta = ath11k_sta_to_arsta(control->sta);
  
@@ -449,11 +437,7 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  		ieee80211_free_txskb(ar->hw, skb);
  		return;
  	}
-<<<<<<< HEAD
-@@ -7522,7 +7532,7 @@ err_vdev_del:
-=======
 @@ -7460,7 +7470,7 @@ err_vdev_del:
->>>>>>> 94392b39ec (稳定版本发布)
  	idr_for_each(&ar->txmgmt_idr,
  		     ath11k_mac_vif_txmgmt_idr_remove, vif);
  
@@ -464,11 +448,7 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  			     ath11k_mac_vif_unref, vif);
 --- a/drivers/net/wireless/ath/ath11k/debugfs.c
 +++ b/drivers/net/wireless/ath/ath11k/debugfs.c
-<<<<<<< HEAD
-@@ -711,10 +711,22 @@ static ssize_t ath11k_debugfs_dump_soc_d
-=======
 @@ -833,10 +833,22 @@ static ssize_t ath11k_debugfs_dump_soc_d
->>>>>>> 94392b39ec (稳定版本发布)
  		len += scnprintf(buf + len, size - len, "ring%d: %u\n",
  				 i, soc_stats->tx_err.desc_na[i]);
  
@@ -493,23 +473,11 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  	if (len > size)
 --- a/drivers/net/wireless/ath/ath11k/core.c
 +++ b/drivers/net/wireless/ath/ath11k/core.c
-<<<<<<< HEAD
-@@ -106,7 +106,8 @@ static struct ath11k_hw_params ath11k_hw
-=======
 @@ -190,7 +190,6 @@ static struct ath11k_hw_params ath11k_hw
->>>>>>> 94392b39ec (稳定版本发布)
  		.supports_regdb = false,
  		.fix_l1ss = true,
  		.credit_flow = false,
 -		.max_tx_ring = DP_TCL_NUM_RING_MAX,
-<<<<<<< HEAD
-+		/* In addition to TCL ring use TCL_CMD ring also for tx */
-+		.max_tx_ring = DP_TCL_NUM_RING_MAX + 1,
- 		.hal_params = &ath11k_hw_hal_params_ipq8074,
- 		.supports_dynamic_smps_6ghz = false,
- 		.alloc_cacheable_memory = true,
-@@ -191,7 +192,8 @@ static struct ath11k_hw_params ath11k_hw
-=======
  		.hal_params = &ath11k_hw_hal_params_ipq8074,
  		.supports_dynamic_smps_6ghz = false,
  		.alloc_cacheable_memory = true,
@@ -523,29 +491,10 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  	{
  		.name = "qca6390 hw2.0",
 @@ -362,7 +363,6 @@ static struct ath11k_hw_params ath11k_hw
->>>>>>> 94392b39ec (稳定版本发布)
  		.supports_regdb = false,
  		.fix_l1ss = true,
  		.credit_flow = false,
 -		.max_tx_ring = DP_TCL_NUM_RING_MAX,
-<<<<<<< HEAD
-+		/* In addition to TCL ring use TCL_CMD ring also for tx */
-+		.max_tx_ring = DP_TCL_NUM_RING_MAX + 1,
- 		.hal_params = &ath11k_hw_hal_params_ipq8074,
- 		.supports_dynamic_smps_6ghz = false,
- 		.alloc_cacheable_memory = true,
-@@ -366,7 +368,8 @@ static struct ath11k_hw_params ath11k_hw
- 		.supports_regdb = false,
- 		.fix_l1ss = true,
- 		.credit_flow = false,
--		.max_tx_ring = DP_TCL_NUM_RING_MAX,
-+		/* In addition to TCL ring use TCL_CMD ring also for tx */
-+		.max_tx_ring = DP_TCL_NUM_RING_MAX + 1,
- 		.hal_params = &ath11k_hw_hal_params_ipq8074,
- 		.supports_dynamic_smps_6ghz = true,
- 		.alloc_cacheable_memory = true,
-@@ -2640,6 +2643,9 @@ int ath11k_core_pre_init(struct ath11k_b
-=======
  		.hal_params = &ath11k_hw_hal_params_ipq8074,
  		.supports_dynamic_smps_6ghz = true,
  		.alloc_cacheable_memory = true,
@@ -559,7 +508,6 @@ Signed-off-by: P Praneesh <ppranees@codeaurora.org>
  	{
  		.name = "wcn6855 hw2.0",
 @@ -2320,6 +2322,9 @@ int ath11k_core_pre_init(struct ath11k_b
->>>>>>> 94392b39ec (稳定版本发布)
  	if (nss_offload)
  		ab->nss.stats_enabled = 1;
  

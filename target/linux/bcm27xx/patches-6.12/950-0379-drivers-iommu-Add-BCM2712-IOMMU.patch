@@ -55,11 +55,7 @@ Signed-off-by: Ratchanan Srirattanamet <peathot@hotmail.com>
 
 --- a/drivers/iommu/Kconfig
 +++ b/drivers/iommu/Kconfig
-<<<<<<< HEAD
-@@ -518,4 +518,11 @@ config SPRD_IOMMU
-=======
 @@ -519,4 +519,11 @@ config SPRD_IOMMU
->>>>>>> 94392b39ec (稳定版本发布)
  
  	  Say Y here if you want to use the multimedia devices listed above.
  

@@ -67,22 +67,16 @@
 &gmac1 {
 	status = "okay";
 	label = "wan";
-<<<<<<< HEAD
-=======
 	phy-handle = <&ethphy4>;
 
->>>>>>> 94392b39ec (稳定版本发布)
 	nvmem-cells = <&macaddr_factory_8004 (-3)>;
 	nvmem-cell-names = "mac-address";
 };
 
-<<<<<<< HEAD
-=======
 &ethphy4 {
 	/delete-property/ interrupts;
 };
 
->>>>>>> 94392b39ec (稳定版本发布)
 &nand {
 	status = "okay";
 
@@ -172,10 +166,7 @@
 	ports {
 		port@1 {
 			status = "okay";
-<<<<<<< HEAD
-=======
 			label = "lan3";
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 
 		port@2 {
@@ -185,10 +176,7 @@
 
 		port@3 {
 			status = "okay";
-<<<<<<< HEAD
-=======
 			label = "lan1";
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };

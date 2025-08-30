@@ -2,10 +2,6 @@
 
 /dts-v1/;
 #include "mt7981b.dtsi"
-<<<<<<< HEAD
-#include <dt-bindings/pinctrl/mt65xx.h>
-=======
->>>>>>> 94392b39ec (稳定版本发布)
 
 / {
 	model = "GL.iNet GL-MT2500";
@@ -88,20 +84,12 @@
 				"SPI1_CLK", "SPI1_MOSI", "SPI1_MISO";
 			input-enable;
 			drive-strength = <MTK_DRIVE_12mA>;
-<<<<<<< HEAD
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-=======
 			mediatek,pull-up-adv = <1>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 		conf-clk {
 			pins = "SPI1_CS";
 			drive-strength = <MTK_DRIVE_12mA>;
-<<<<<<< HEAD
-			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-=======
 			mediatek,pull-down-adv = <2>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 	mmc0_pins_uhs: mmc0-pins-uhs {
@@ -115,20 +103,12 @@
 				"SPI1_CLK", "SPI1_MOSI", "SPI1_MISO";
 			input-enable;
 			drive-strength = <MTK_DRIVE_12mA>;
-<<<<<<< HEAD
-			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-=======
 			mediatek,pull-up-adv = <1>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 		conf-clk {
 			pins = "SPI1_CS";
 			drive-strength = <MTK_DRIVE_12mA>;
-<<<<<<< HEAD
-			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-=======
 			mediatek,pull-down-adv = <2>;
->>>>>>> 94392b39ec (稳定版本发布)
 		};
 	};
 };
